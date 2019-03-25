@@ -1,4 +1,4 @@
- # ENGR 301 Assignment 1: Project Requirements Document
+# ENGR 301 Assignment 1: Project Requirements Document
 
 The aim of this document is to
 specify the requirements of the system your group is to build. 
@@ -201,17 +201,49 @@ should parallel section 3 of your document (see 9.5.18).
 Wherever possible (especially systemic requirements) you should
 indicate testable acceptance criteria.
 
-## 5. Development schedule.
+## 5. Development schedule
 
 ### 5.1 Schedule
 
-Identify dates for key project deliverables: 
+Key dates for project deliverables: 
 
-1. architectural prototype
-1. minimum viable product
-1. further releases
+1. Architectural prototype - 13 May, 2019
+1. Minimum viable product - 7 June, 2019
+1. Further releases:
+    1. Release 1.1 - 8 August, 2019
+    2. Relaese 1.2 - 9 September, 2019
+    3. Release 1.3 - 11 October, 2019
 
-(1 page).
+Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase. 
+
+Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.
+
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up. 
+
+Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion. 
+
+### Architecture Design Phase (1 April to 5 May)
+
+### MVP Schedule
+
+1. MVP1 (7 May to 7 June)
+    1. Sprint1 - 7 May to 21 May
+    2. Sprint2 - 22 May to 7 June
+
+
+2. MVP2 (8 July to 8 August)
+    1. Sprint1 - 8 July to 20 July
+    2. Sprint2 - 21 July to 8 August
+
+
+3. MVP3 (9 August to 9 September)
+    1. Sprint1 - 9 August to 21 August
+    2. Sprint2 - 22 August to 9 September
+
+
+4. MVP4 (10 September to 11 October)
+    1. Sprint1 - 10 September to 23 September
+    2. Sprint2 - 24 September to 11 October (close-off sprint)
 
 ### 5.2 Budget
 
@@ -293,3 +325,4 @@ The content will be assessed according to its clarity, consistency, relevance, c
 We aim to evaluate ENGR301 documents and projects as if they were real projects rather than academic exercises &mdash; especially as they are real projects with real clients. The best way to get a good mark in a document or assessment is to do the right thing for your project, your client, and your team. We encourage you to raise questions with your tutor, project champion, or course staff, as soon as possible, so you can incorporate their feedback into your work.
 
 ---
+
