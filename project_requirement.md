@@ -222,8 +222,8 @@ There will be two stand-up sessions each week during the lab hours to discuss th
 
 Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion. 
 
-##### Architecture Design Phase - 1 April to 5 May  
-##### MVP - 7 May to 11 October  
+#### Architecture Design Phase - 1 April to 5 May  
+#### MVP - 7 May to 11 October  
 
 1. MVP1 (7 May to 7 June)
     1. Sprint1 - 7 May to 21 May
@@ -245,9 +245,11 @@ Demo for each MVP will be showcased to the client and the feedbacks will be cons
     2. Sprint2 - 24 September to 11 October (close-off sprint)
 
 ### 5.2 Budget
+| Budget Item                                           | Budget     |
+| ----------------------------------------------------- |:----------:|
+| Obtain required data from different sources           | TBD       |
 
-Present a budget for the project (table), and justify each budget item
-(one paragraph per item, one page overall). 
+Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources. These sources may include onzo, taxi-data and telco. Considering the time and the agreement related issues, a data source has can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
 
 ### 5.3 Risks 
 
@@ -284,15 +286,24 @@ Most software development projects are inherently risky because of the variety o
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety. All teams must state in this section:
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Occupational overuse syndrome                         | Moderate   |    Severe   |
+| Earthquake in the lab                                 | Low        |    High     |
+| Injury while attending a meeting at client office     | Low        |    High     |
+| Mental stress because of the workload                 | Moderate   |    High     |
+| Eye strain from computer use                          | Low        |    Moderate |
+| Fire in the lab                                       | Low        |    Severe   |
 
-1. How teams will manage computer-related risks such as Occupational Over Use, Cable management, etc.  
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Occupational overuse syndrome                                 | Mix your tasks to avoid long, uninterrupted stretches of using the computer. Remove your hands from keyboard and mouse when not actively using them. |
+| Earthquake in the lab                                         | Listen carefully to the earthquake related announcements. Hide under the desk incase of an earthquake.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator incase of work overload.   | 
+| Eye strain from computer use                                  | Maintain a good distance from the monitor. Mix your tasks to avoid long, uninterrupted stretches of using the computer          |
+| Fire in the lab                                               | Listen to the fire related announcements and read the signs. Pull the nearest fire alarm as you exit the building.          |
 
-2. Whether project work requires work or testing at any external (off-campus) workplaces/sites. If so, state the team's plans for receiving a Health and Safety induction for the external workplaces/sites. If the team has already received such an induction, state the date it was received. 
-
-3. Whether project work requires the team test with human or animal subjects? If so, explain why there is no option but for the team to perform this testing, and state the team's plans for receiving Ethics Approval _prior_ to testing.
-
-Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
 
 
 #### 5.4.1 Safety Plans
