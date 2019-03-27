@@ -216,15 +216,14 @@ Key dates for project deliverables:
 
 Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase. 
 
-Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.
+Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.  
 
 There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up. 
 
 Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion. 
 
-### Architecture Design Phase (1 April to 5 May)
-
-### MVP Schedule
+##### Architecture Design Phase - 1 April to 5 May  
+##### MVP - 7 May to 11 October  
 
 1. MVP1 (7 May to 7 June)
     1. Sprint1 - 7 May to 21 May
@@ -252,10 +251,36 @@ Present a budget for the project (table), and justify each budget item
 
 ### 5.3 Risks 
 
-Identify the ten most important project risks to achieving project goals: their type, likelihood,
-impact, and mitigation strategies (3 pages).
+Risk in software development is a potential problem which prevent an individual or a group of people from reaching the project goal. Risk is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss.  
 
-If the project will involve any work outside the ECS laboratories, i.e. off-campus activities, these should be included in the following section.
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Resources are ill at critical times in the project    | Low        |    Severe   |
+| Frequent changes in project requirements              | Low        |    Severe   |
+| Failure to obtain data from defined sources           | Moderate   |    Critical |
+| Miscommunication within the team or with the client   | Moderate   |    Moderate |
+| Underestimation of development life cycle             | Low        |    Critical |
+| Financial risks to obtain resources                   | Moderate   |    High     |
+| Failure to arrive at proper budget estimation         | Low        |    High     |
+| Loss of data or code due to workstation failure       | Moderate   |    High     |
+| Gold plating - Decoration before functionalities      | Low        |    Low      |
+| Functionalities not performing as expected            | Moderate   |    High     |  
+
+Most software development projects are inherently risky because of the variety of problems that may arise. Severity of Inevitable risks can be mitigated with prior planning and taking necessary precautions.  
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Resources are ill at critical times in the project    | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
+| Frequent changes in project requirements              | Freeze the requirements at the design stage by having frequent interactions with the client. Some degree of requirement change is allowed.   |
+| Failure to obtain data from defined sources           | Find any open source data that is required for the project and use the same if there is any discrepancy in obtaining original data from the client. |
+| Miscommunication within the team or with the client   | Clarify the understanding with the team member or with the client until its clear. Use client meetings and team stand-ups in an effective manner. |
+| Underestimation of development life cycle             | Invest more time on planning and the design phase. Gather all the requirements from the client at this stage and plan accordingly.  |
+| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator incase of budget issues.      |
+| Failure to arrive at proper budget estimation         | Estimate the budget according the required resources.        |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert back from a particular point.    |
+| Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
+| Functionalities not performing as expected            | Write unit test cases and perform functionality tests after completion of each functionality. Perform integration tests once completing all the necessary functionalities.          |  
+
 
 ### 5.4 Health and Safety
 
@@ -272,21 +297,7 @@ Also document in this section any additional discussions with the School Safety 
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements. Safety Plan templates are available on the course Health & Safety page. Two questions all teams must answer are:
-
-**Do project requirements involve anything that can cause serious harm or death?**  
-Examples: building/modifying devices using voltages > 60 V, chemicals, large moving machinery, flying devices, bodies of water.
-
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving serious harm or death, you must first contact the School Safety Officer and Course Coordinator first to discuss the Safety Plan and project requirements.
-
-**Do project requirements involve anything that can cause harm or injury?**  
-Examples: building/modifying things with voltages <= 60V, small moving machinery, wearable devices.
-
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving har or injury, you should write a draft of the Safety Plan before contacting the School Safety Officer and Course Coordinator to discuss the Safety Plan and project requirements.
-
-If a safety plan is required, list in this section the date the School Safety officer accepted your Health and Safety plan (if accepted by submission date).
-
-_If the project is purely software and requires no contact risks involving physical harm, then state "Project requirements do not involve risk of death, serious harm, harm or injury." in this section._
+Project requirements do not involve risk of death, serious harm, harm or injury.
 
 
 ## 6. Appendices
@@ -325,4 +336,3 @@ The content will be assessed according to its clarity, consistency, relevance, c
 We aim to evaluate ENGR301 documents and projects as if they were real projects rather than academic exercises &mdash; especially as they are real projects with real clients. The best way to get a good mark in a document or assessment is to do the right thing for your project, your client, and your team. We encourage you to raise questions with your tutor, project champion, or course staff, as soon as possible, so you can incorporate their feedback into your work.
 
 ---
-
