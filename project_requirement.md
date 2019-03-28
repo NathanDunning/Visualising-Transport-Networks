@@ -147,12 +147,43 @@ Hardware projects also see section 9.4.6.
 
 
 ### 3.5 Logical database requirements
+Identified classes are:
+* user
+* user terminal
+* location
+* vehicle
+* server
+* database
 
-See 9.5.14. for most systems, a focus on d) and e) is appropriate,
-such as an object-oriented domain analysis. You should provide an
-overview domain model (e.g.  a UML class diagram of approximately ten
-classes) and write a brief description of the responsibilities of each
-class in the model (3 pages).
+![image](https://drive.google.com/uc?export=view&id=1QdA64ac82hg9QahkaM2jQUM9Ld3eg3Vf)
+
+
+Process flow for the applicaton:
+* User enters the necessary details.
+* User terminal gathers required details.
+* User can only choose from the available transport options and the location details.
+* User terminal establishes a connection through server.
+* Server interacts with the database to process the request.
+* Database returns appropriate results.
+* User terminal displays the results to the user.
+
+##### User:
+User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user. User is not required to sign-up as the application design does not support login functionalities.
+
+##### User terminal:
+User terminal is an interface that connects user to the back-end application. It gathers all the required inputs from the user and interacts with vehicle and location to cross-check the validity of the input.
+
+##### Vehicle:
+Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
+
+##### Location:
+Location has details about the geographical area that the application supports. As the appication scales up to support different locations, location data can be updated.
+
+##### Server:
+Server establishes the connection to the database, query the database and return the result back to the user terminal.
+
+##### Database:
+Database will have all the necessary data to support the application. Query will be processed based on the mode of transport, time of travel and the lat-long details. Data related to different mode of transport will be stored seperately to avoid latency.
 
 ### 3.6 Design constraints
 
@@ -200,6 +231,8 @@ most important specific requirements. The format of this section
 should parallel section 3 of your document (see 9.5.18).
 Wherever possible (especially systemic requirements) you should
 indicate testable acceptance criteria.
+
+---
 
 ## 5. Development schedule
 
@@ -310,6 +343,7 @@ Most software development projects are inherently risky because of the variety o
 
 Project requirements do not involve risk of death, serious harm, harm or injury.
 
+---
 
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies 
