@@ -155,10 +155,11 @@ Identified classes are:
 * server
 * database
 
-![image](https://drive.google.com/uc?export=view&id=1QdA64ac82hg9QahkaM2jQUM9Ld3eg3Vf)
+![image](https://drive.google.com/uc?export=view&id=1uthiaR9KXYPtLD8d5fIdD4p2CY80Lsb7)
 
 
 Process flow for the applicaton:
+* User logs in.
 * User enters the necessary details.
 * User terminal gathers required details.
 * User can only choose from the available transport options and the location details.
