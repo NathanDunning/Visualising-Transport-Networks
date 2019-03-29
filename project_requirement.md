@@ -146,46 +146,26 @@ Hardware projects also see section 9.4.6.
 > NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
 
-### 3.5 Logical database requirements
-Identified classes are:
-* user
-* user terminal
-* location
-* vehicle
-* server
-* database
-
-![image](https://drive.google.com/uc?export=view&id=1QdA64ac82hg9QahkaM2jQUM9Ld3eg3Vf)
-
-
-Process flow for the applicaton:
-* User enters the necessary details.
-* User terminal gathers required details.
-* User can only choose from the available transport options and the location details.
-* User terminal establishes a connection through server.
-* Server interacts with the database to process the request.
-* Database returns appropriate results.
-* User terminal displays the results to the user.
-
-##### User:
-User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user. User is not required to sign-up as the application design does not support login functionalities.
-
-##### User terminal:
-User terminal is an interface that connects user to the back-end application. It gathers all the required inputs from the user and interacts with vehicle and location to cross-check the validity of the input.
-
-##### Vehicle:
-Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
-
-##### Location:
-Location has details about the geographical area that the application supports. As the appication scales up to support different locations, location data can be updated.
-
-##### Server:
-Server establishes the connection to the database, query the database and return the result back to the user terminal.
-
-##### Database:
-Database will have all the necessary data to support the application. Query will be processed based on the mode of transport, time of travel and the lat-long details. Data related to different mode of transport will be stored seperately to avoid latency.
-
 ### 3.6 Design constraints
+
+see 9.5.15 and 9.5.16. for most systems, this will be around one page.
+
+> 9.5.15 Design constraints<br>
+> Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
+> 
+> 9.5.16 Standards compliance<br>
+> Specify the requirements derived from existing standards or regulations, including:
+> 
+> a) Report format;<br>
+> b) Data naming;<br>
+> c) Accounting procedures;<br>
+> d) Audit tracing.
+> 
+> For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
+may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
+after values.
+
+### 3.7 Nonfunctional system attributes
 
 see 9.5.15 and 9.5.16. for most systems, this will be around one page.
 
