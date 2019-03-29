@@ -280,9 +280,9 @@ Demo for each MVP will be showcased to the client and the feedbacks will be cons
 ### 5.2 Budget
 | Budget Item                                           | Budget     |
 | ----------------------------------------------------- |:----------:|
-| Obtain required data from different sources           | TBD       |
+| Obtain required data from different sources           | 1500       |
 
-Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources. These sources may include onzo, taxi-data and telco. Considering the time and the agreement related issues, a data source has can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
+Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources and enough data to support the usecases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information . Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
 
 ### 5.3 Risks 
 
