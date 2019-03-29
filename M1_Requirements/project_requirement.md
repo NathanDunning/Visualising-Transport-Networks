@@ -168,7 +168,7 @@ Process flow for the applicaton:
 * User terminal displays the results to the user.
 
 ##### User:
-User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user. User is not required to sign-up as the application design does not support login functionalities.
+User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user.
 
 ##### User terminal:
 User terminal is an interface that connects user to the back-end application. It gathers all the required inputs from the user and interacts with vehicle and location to cross-check the validity of the input.
