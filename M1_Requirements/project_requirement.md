@@ -260,7 +260,7 @@ _If the project is purely software and requires no contact risks involving physi
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies 
 
-One page on assumptions and dependencies (9.5.7).
+One page on assumptions and dependencies (9.5.7)....
 
 ### 6.2 Acronyms and abbreviations
 
