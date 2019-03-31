@@ -70,10 +70,28 @@ To extend the functionality of this application, more datasets for other modes o
 <br>Modernanalyst.com. (2019). What are the four fundamental methods of requirement verification?. [online] Available at: https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx [Accessed 28 Mar. 2019].
 
 [4] SPACEY, J. Design: Principle Of Least Astonishment
-<br> Simplicable, 2019. [Online]. Available: https://simplicable.com/new/principle-of-least-astonishment. [Accessed: 01 Apr , 2019].
+<br>Simplicable, 2019. [Online]. Available: https://simplicable.com/new/principle-of-least-astonishment. [Accessed: 01 Apr , 2019].
 
 [5] SPACEY, J. 30+ Compliance Terms
-<br> Simplicable, 2019. [Online]. Available: https://simplicable.com/new/compliance. [Accessed: 01 Apr , 2019].
+<br>Simplicable, 2019. [Online]. Available: https://simplicable.com/new/compliance. [Accessed: 01 Apr , 2019].
+
+[6]: Wikipedia, "Agile software development", wikipedia.com, Section 6 [22 November 2018] [Online] Available:
+<br>https://en.wikipedia.org/wiki/Agile_software_development#Agile_software_development_practices [Accessed 26 March 2019] 
+
+[7]: ISO 25000 Software Product Quality, "ISO/IEC 25010", ISO 25000:ISO 25000 STANDARDS [2019] [Online] Available:
+<br>https://iso25000.cpm/index.php/en/iso-25000-standards/iso-25010 [Accesses 28 March 2019] 
+
+[8]: Future plc, "Top 10 Software Development Risks",IT Pro Portal, Section 1 & 7 [2019] [online] Available:
+<br>https://www.itproportal.com/2010/06/14/top-ten-software-development-risks/ [Accessed 27 March 2019] 
+
+[9]: Betterhealth, "Workplace safety - overuse injuries",Betterhealth.vic.gov.au, Para.1 [2019] [online] Availbale:
+<br>https://www.betterhealth.vic.gov.au/health/healthyliving/workplace-safety-overuse-injuries [Accessed 27 March 2019]
+
+[10]: Visual-paradigm, "What is Unified Modeling Language (UML)?",Visual-paradigm.com, Section 5 [2019] [online] Available:
+<br>https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/ [Accessed 26 March 2019] 
+
+[11]: Wikipedia, "Non-functional requirement", wikipedia.com [19 October 2017] [Online] Available:
+<br>https://en.wikipedia.org/wiki/Non-functional_requirement [Accessed 31 March 2019] 
 
 ## 3. Specific requirements  
 
