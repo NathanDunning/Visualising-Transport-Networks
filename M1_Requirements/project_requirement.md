@@ -1,7 +1,7 @@
 # ENGR 301 Assignment 1: Project Requirements Document
 
 The aim of this document is to
-specify the requirements of the system your group is to build. 
+specify the requirements of the system your group is to build.
 The focus of a requirements document is the problem you are attempting to solve:  not a first attempt at a solution to that problem.
 This document
 should communicate clearly to the supervisor, client and course
@@ -14,19 +14,19 @@ unambiguously and clearly in a written technical document. Page specifications b
 that you focus your efforts on those requirements that are most
 important to completing a successful system: if sections are at their
 page limit, indicate how many items would be expected in a complete
-specification. 
+specification.
 
 The ENGR 301 project proposal and requirements document should be based
 on the standard ISO/IEC/IEEE 29148:2011(E), primarily sections 8.4 and
 9.5, plus section 9.4 for projects involving hardware and ISO 25010
 SQuaRE for systemic requirements. While excerpts from the standard have been quoted within the template, to understand what is required it will be necessary to read earlier sections of the standards themselves. A supplementary treatment of requirements gathering in engineering projects may be found in [Requirements in Engineering Projects](https://victoria.rl.talis.com/items/F166DA94-DAD8-FBDB-0785-7A63C9BA3603.html?referrer=%2Flists%2F5886F297-2506-1F17-45D9-7F04CEE284EE.html%23item-F166DA94-DAD8-FBDB-0785-7A63C9BA3603) (Talis). The requirements
 document should contain the sections listed below, and conform to the
-formatting rules listed at the end of this brief. 
+formatting rules listed at the end of this brief.
 
 All team members are expected to contribute equally to the document and list
 their contributions in section 6 of the document. You should work on
 your document in your team's GitLab repository in a directory called
-`M1_Requirements`. While collective contributions are expected to be the exception rather than the rule, if more than one team member has contributed to a particular 
+`M1_Requirements`. While collective contributions are expected to be the exception rather than the rule, if more than one team member has contributed to a particular
 commit then all those team member IDs should be included in the first line
 of the git commit message. `git blame`, `git diff`, file histories, etc. will be tools used to assess individual contributions, so everyone is encouraged to contribute individually, commit early and commit often. Any team wishing to separate individually contributed sections into a single file before collation into the single proposal document for submission is welcome to do so.
 
@@ -39,74 +39,74 @@ of the git commit message. `git blame`, `git diff`, file histories, etc. will be
 
 ## 1. Introduction
 
-One page overall introduction including sections 1.1 and 1.2.
-
 ### Client
 
-Identify the client and their contact details
+Chris Vallyon  
+Beca  
+chris.vallyon@beca.com  
+
 
 ### 1.1 Purpose
-
-One sentence describing the purpose of the system (9.5.1)
-
+Analyses the different modes and the current state of traffic flow of major cities in New Zealand to give insight when making transport-related decisions.
 ### 1.2 Scope
 
-One paragraph describing the scope of the system (9.5.2)
-
-### 1.3 Product overview 
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators to gain insight to drive their decisions by viewing a visual analysis of the transport flow data. The existing system will be able to run on any browser and potentially as a web application. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken again the distance from the origin. Users can add CSV data sets to the application to read the files. The goal is to deliver a web application which will display a terrain topographic map potentially showing the how long it takes to get into the city from different suburbs using different modes e.g. car, train and bus. Another potential deliverable is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of this system to display analysis and apply users to make insight-driven decisions made in the transport sector.
+### 1.3 Product overview
 #### 1.3.1 Product perspective
 
-One page defining the system's relationship to other related products
-(9.5.3. but not the subsections in the standard.)
+The system will be a standalone web application which does not interact with a larger system and or products. It runs on a front-end view library React which uses inner libraries to organise the data sources and execute the virtualization.
 
-> **9.5.3 Product perspective** <br>
-> Define the system's relationship to other related products. 
-> 
-> If the product is an element of a larger system, then relate the requirements of that larger system to the functionality of the product covered by the software requirements specification.
-> 
-> If the product is an element of a larger system, then identify the interfaces between the product covered by the software requirements specification and the larger system of which the product is an element. 
->
-> A block diagram showing the major elements of the larger system, interconnections, and external interfaces can be helpful.
-> 
-> Describe how the software operates within the following constraints:  
-a) System interfaces;  
-b) User interfaces;  
-c) Hardware interfaces;  
-d) Software interfaces;  
-e) Communications interfaces;  
-f) Memory;  
-g) Operations;  
-h) Site adaptation requirements.
+The virtualization of transport analysis is created through processing CSV datasets in the system which hold information about transport networks that were recorded in real-time for an extended period.
+
+The code base of the system will be written using React, a Javascript-based front-end views library. The constraints that will come with this is that it relies on the availability and understanding of specific internal libraries that aid with processing files and executing functions within the system.
+
+
+The user interface will have two main views, one page for to instruct the user how to use the application which will inform them on potential errors as well as the main view displaying the topographical map.
+
+This system will not be limited to a specific browser or operating system.
+
+For the minimum viable product, the team will produce a working web application. The user will be able to navigate to the main page and select a city and time period to display traffic flow analysis for commutes to the CBD from an origin.
+
 
 #### 1.3.2 Product functions
 
-One page summary of the main functions of the product (9.5.4),
-briefly characterising the minimum viable product.
+The application will allow the user a snapshot of the transport network flow by selecting a specific date and time of day in the navigation bar, as well as show an animated virtualization for the whole day, selected.
+Depending on the city of the observation, the map legend may be customized to adapt to more densely populated cities and enable better visualisation of the analysis on the map.
+
+Upon reading the selected day, the user may select a zone nearby the origin/destination on the map to check how long it takes to get to the destination from that specific area.
+
+The map will display a terrain topography that may include train railways and highways.
+
+The legend customization will also allow the user to toggle through speeds at which the virtualization progresses through the analysis.
+
 
 #### 1.3.3 User characteristics   
 
-One page identifying the main classes of users and their
-characteristics (9.5.5) 
+Over the next two years, the New Zealand transport agency and the regional council and local councils will be focusing their efforts on improving public transport because the new government direction providing public transport and alternatives to a car as the for making commutes into the CBD.
+
+Therefore, the main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand. These users will unlikely to have a technological background nor have experienced using a similar system. For this application to be effective, it requires a simple and intuitive interaction that doesn't require much effort by the user or to have previous experience or knowledge.
+
+The users will likely be sharing the snapshots of the virtualization with other members of the decision-making party in meetings and talks so the map will be the main component of the view.
+
 
 #### 1.3.4 Limitations
 
-One page on the limitations on the product (9.5.6)
-
+To extend this application's functionality, more datasets of other modes of transport would need to be available. The project is constrained by the accessibility to this data as it requires financial assistance and an unpredictable period of time for the client to retrieve the additional data. This limits the effectiveness of the minimum viable product as the current bus and train transport data are based on scheduled services, unlike the car transport data.
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation 
+References to other documents or standards. Follow the IEEE Citation
 Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box).
 (1 page, longer if required)
 
 ## 3. Specific requirements  
 
 20 pages outlining the requirements of the system.
-You should apportion these these pages across the following 
+You should apportion these these pages across the following
 subsections to focus on the most important parts of your product.
 
 ### 3.1 External interfaces
 
-See 9.5.10. for most systems this will be around one page. 
+See 9.5.10. for most systems this will be around one page.
 
 ### 3.2 Functions
 
@@ -129,20 +129,20 @@ See 9.5.13. for most systems this will be around one page.
 Hardware projects also see section 9.4.6.
 
 > **9.5.13 Performance requirements** <br>
-> Specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole. 
-> 
+> Specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole.
+>
 > Static numerical requirements may include the following:
-> 
+>
 > a) The number of terminals to be supported;  
 > b) The number of simultaneous users to be supported;  
 > c) Amount and type of information to be handled.
-> 
+>
 > Static numerical requirements are sometimes identified under a separate section entitled Capacity.
-> 
+>
 > Dynamic numerical requirements may include, for example, the numbers of transactions and tasks and the amount of data to be processed within certain time periods for both normal and peak workload conditions. The performance requirements should be stated in measurable terms.
-> 
+>
 >  For example, "_95 % of the transactions shall be processed in less than 1 second._" rather than, "An operator shall not have to wait for the transaction to complete."
-> 
+>
 > NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
 
@@ -152,15 +152,15 @@ see 9.5.15 and 9.5.16. for most systems, this will be around one page.
 
 > 9.5.15 Design constraints<br>
 > Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
-> 
+>
 > 9.5.16 Standards compliance<br>
 > Specify the requirements derived from existing standards or regulations, including:
-> 
+>
 > a) Report format;<br>
 > b) Data naming;<br>
 > c) Accounting procedures;<br>
 > d) Audit tracing.
-> 
+>
 > For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
 may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
 after values.
@@ -171,15 +171,15 @@ see 9.5.15 and 9.5.16. for most systems, this will be around one page.
 
 > 9.5.15 Design constraints<br>
 > Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
-> 
+>
 > 9.5.16 Standards compliance<br>
 > Specify the requirements derived from existing standards or regulations, including:
-> 
+>
 > a) Report format;<br>
 > b) Data naming;<br>
 > c) Accounting procedures;<br>
 > d) Audit tracing.
-> 
+>
 > For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
 may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
 after values.
@@ -193,7 +193,7 @@ Write a short natural language description of the top nonfunctional
 requirements (approx. five pages).
 
 
-### 3.8 Physical and Environmental Requirements 
+### 3.8 Physical and Environmental Requirements
 
 For systems with hardware components, identify the physical
 characteristics of that hardware (9.4.10) and environment conditions
@@ -202,7 +202,7 @@ section may be from one page up to 5 pages.
 
 ### 3.9 Supporting information
 
-see 9.5.19. 
+see 9.5.19.
 
 ## 4. Verification
 
@@ -218,7 +218,7 @@ indicate testable acceptance criteria.
 
 ### 5.1 Schedule
 
-Key dates for project deliverables: 
+Key dates for project deliverables:
 
 1. Architectural prototype - 13 May, 2019
 1. Minimum viable product - 7 June, 2019
@@ -227,13 +227,13 @@ Key dates for project deliverables:
     2. Relaese 1.2 - 9 September, 2019
     3. Release 1.3 - 11 October, 2019
 
-Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase. 
+Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase.
 
 Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.  
 
-There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up. 
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up.
 
-Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion. 
+Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion.
 
 #### Architecture Design Phase - 1 April to 5 May  
 #### MVP - 7 May to 11 October  
@@ -264,7 +264,7 @@ Demo for each MVP will be showcased to the client and the feedbacks will be cons
 
 Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources and enough data to support the usecases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information . Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
 
-### 5.3 Risks 
+### 5.3 Risks
 
 Risk in software development is a potential problem which prevent an individual or a group of people from reaching the project goal. Risk is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss.  
 
@@ -313,7 +313,7 @@ Most software development projects are inherently risky because of the variety o
 | Occupational overuse syndrome                                 | Mix your tasks to avoid long, uninterrupted stretches of using the computer. Remove your hands from keyboard and mouse when not actively using them. |
 | Earthquake in the lab                                         | Listen carefully to the earthquake related announcements. Hide under the desk incase of an earthquake.  |
 | Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
-| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator incase of work overload.   | 
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator incase of work overload.   |
 | Eye strain from computer use                                  | Maintain a good distance from the monitor. Mix your tasks to avoid long, uninterrupted stretches of using the computer          |
 | Fire in the lab                                               | Listen to the fire related announcements and read the signs. Pull the nearest fire alarm as you exit the building.          |
 
@@ -326,7 +326,7 @@ Project requirements do not involve risk of death, serious harm, harm or injury.
 ---
 
 ## 6. Appendices
-### 6.1 Assumptions and dependencies 
+### 6.1 Assumptions and dependencies
 
 One page on assumptions and dependencies (9.5.7).
 
@@ -341,18 +341,18 @@ group and what they contributed to this document.
 
 ---
 
-## Formatting Rules 
+## Formatting Rules
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) and ensure you commit your work to your team's Git repository.
  * Submit only a single PDF file generated from the Markdown using one of the common Markdown renderers.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment 
+## Assessment
 
 Each contributor to the document will recieve an individual assessment, based on both the finished PDF, and contributions to the project visible through ``git blame``, ``git diff``, file histories, etc.  
 
-The goal of a requirements document is the problem you are attempting to solve:  not a first attempt at a solution to that problem. The most important factor in the assessmernt of the document is how will it meets that goal.  The document will be assessed for both presentation and content. 
+The goal of a requirements document is the problem you are attempting to solve:  not a first attempt at a solution to that problem. The most important factor in the assessmernt of the document is how will it meets that goal.  The document will be assessed for both presentation and content.
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
