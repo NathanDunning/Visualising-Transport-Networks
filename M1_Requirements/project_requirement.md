@@ -508,7 +508,7 @@ This application should hold information securely in order to provide useful dat
 ### 3.7 Nonfunctional system attributes
 
  A non-functional requirement (NFR) is a requirement that measures the system based on its performance rather than its functional behaviour. It defines how the system is supposed to be, while the functional requirements defines how the system is supposed to work. Some of the non-functional requirements are listed below:
- 
+
  * Data integrity
  * Avaliability
  * Scalability
@@ -529,15 +529,15 @@ This application should hold information securely in order to provide useful dat
  * Resilience 
  * Stability
  * Operability
- 
+
  Product should be designed in a way to accomodate the below mentioned critical non-functional requirements.
- 
+
 **Usability:**
 System should ensure ease of use to the end user. The layout of the system should be easy to percieve and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
 
  **Data integrity:**
  Data integrity refers to the quality or validity of the data. As the system depends on the data for processing, integrity of the data has to be assured for the optimal performance of the system. Any unintended changes in the data as a result of storage, processing, system failure and human error results in the failure of data integrity.
- 
+
 **Availability:**
 Availability is the amount of time a system is in an accessible state. It involves all the pre calculated system downtime and maintenance period. High availability of system results to high reliability. 
 
@@ -666,7 +666,7 @@ The purpose of this section is to verify how the product will meet the important
 | **Requirement**: Data Integrity<br> **Verification method**:  Inspection|
 |:--------------------------------------------------------------------|
 | Due to the possible privacy issues with the data held and that this tool will be needed to make accurate decisions. Data cannot be changed. Human error will cause these issues, so the team has to be cautious when dealing with the data |
- 
+
 | **Requirement**: Maintainability <br> **Verification method**: Analysis |
 |:------------------------------------------------------------------------|
 | The code needs to be well documented for the understanding of the team as well as future handoff to client so they can build upon the application and understand how it works. |
@@ -744,7 +744,7 @@ Risks in software development is a potential problem which prevents an individua
 | Failure to arrive at proper budget estimation         | Low        |    High     |
 | Loss of data or code due to workstation failure       | Moderate   |    High     |
 | Gold plating - Decoration before functionalities      | Low        |    Low      |
-| Functionalities not performing as expected            | Moderate   |    High     |  
+| Functionalities not performing as expected            | Moderate   |    High     |
 
 Most software development projects are inherently risky because of the variety of problems that may arise. The severity of certain risks can be mitigated with prior planning and taking necessary precautions.  
 
@@ -759,7 +759,7 @@ Most software development projects are inherently risky because of the variety o
 | Failure to arrive at proper budget estimation         | Estimate the budget according to the required resources.        |
 | Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert to a particular point.     |
 | Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
-| Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |  
+| Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |
 
 
 ### 5.4 Health and Safety
@@ -793,17 +793,119 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies
 
-One page on assumptions and dependencies (9.5.7).
+#### Assumptions
+
+- The main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
+
+
+
+- The users are not need to coding to use the application, therefore they are not expected to have technological background nor have experienced using a similar system and understanding of any programming terminologies.
+
+
+
+- The users are not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
+
+
+
+- A Log-in system of the application would be uesful but is not considered a necessity since the users will all have the some permissions when using the application and there is not need a functionality that allows users to save and load decisions on the application.
+
+
+
+- Application should be user friendly, users can interact with the application intuitively which means by simply moving and clicking buttons on the front-end interface with mouse to achieve the functions and view the results. A "Help" tool should be added.
+
+
+
+- The application should be run and work on Internet Explorer 11 and does not need an Internet connection to run. Functionality can be added to other browsers.
+
+
+
+- More data datasets of other modes of transport such as texi and car are needed to make necessary decisions from the tool ,to extend this application's functionality. Which are New Zealand Transport Data(.csv files), Google Transport Data(.txt and .dat files) Telco, Onzo and census data for demographic information.
+
+
+
+- Extra data(Most likely from Google) requires financial support.
+
+
+
+- The period of time for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
+
+
+
+- The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds so the user does not become uninterested in the application.
+
+
+
+- The application should be able to support no more than simultaneous ten users at a time. 
+
+
+
+- The transport data will be load manually and time is depend on the amount of data, the goal is 95% of every load should occur within 5 minutes.
+
+
+
+- Database should have all the necessary data to support the application. Query should be processed based on the mode of transport, time of travel and the lat-long details. Data for different mode of transport should be stored seperately to avoid latency.
+
+
+
+- Prior planning and taking necessary precautions should be made to mitigate severity of certain risks.
+
+
+
+#### Dependencies
+
+- The access of the application requires users to login with validated account.
+
+
+
+- The efficiency and accuracy of the application depend upon the quality and amount of the data.
+
+
+
+- The application response time depends on the amount of data and the processing of the data in the API backend interface.
+
+
+
+- The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+
+
+
+- The transport and demographic data will be load manually and time is depend on the amount of data. 
+
+
+
+- The appliction needs run on a browser.
+
+
+
+- Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
+
+
+
+- Query from the users requires the server establishes the connection to the database, and return the result to the user terminal.
+
+
+
+
 
 ### 6.2 Acronyms and abbreviations
 
-One page glossary _as required_.
+| Acronym/Abbreviation | Definition                                                   |
+| -------------------- | ------------------------------------------------------------ |
+| GIS                  | Geographic Information System, a system for storing and manipulating geographical information on computer. |
+| MVP                  | Minimum Viable Product, is a product with just enough features to satisfy early clients/customers, and to provide feedback for future product development. |
+| CBD                  | Central Business District, the main business and commercial area of a town or city. |
+| API                  | Application Program Interface, a set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service. |
+| Demo                 | Demonstration, a demonstration of a product or technique     |
+| Lab                  | Laboratory.                                                  |
+| App                  | Application, especially as downloaded by a user to a mobile device. |
+| CSS*                 | Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. |
+| CSV*                 | Comma-Separated Values files, delimited text file that uses a comma to separate values.(The transport data files are formatted to CVS the program is using). |
 
 ## 7. Contributions
 
 | **Name** | **Contributions** |
 | :-------------: |:-------------:|
-| Aatharsh Vijaya Sugumar | 3.5, 3.7, 5 |  
+| Aatharsh Vijaya Sugumar | 3.5, 3.7, 5 |
 | Doris Tam               | 1 |
 | Lavanya Sajwan          | 3.3, 3.4, 3.6, 4 |
 | Nathan Dunning          | 3.1, 3.2, 3.8, 3.9 |
