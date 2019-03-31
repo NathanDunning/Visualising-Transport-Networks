@@ -94,9 +94,14 @@ The users will likely be sharing the snapshots of the virtualization with other 
 To extend this application's functionality, more datasets of other modes of transport would need to be available. The project is constrained by the accessibility to this data as it requires financial assistance and an unpredictable period of time for the client to retrieve the additional data. This limits the effectiveness of the minimum viable product as the current bus and train transport data are based on scheduled services, unlike the car transport data.
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation
-Reference scheme, available from the [IEEE website](https://www.ieee.org/) (please use the search box).
-(1 page, longer if required)
+HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
+<br>1202Performance. (2019). How to write Performance Requirements with Example. [online] Available at: http://www.1202performance.com/atricles/how-to-write-performance-requirements-with-example/ [Accessed 31 Mar. 2019].
+
+USABILITY FIRST - ABOUT USABILITY - REQUIREMENTS SPECIFICATION | USABILITY FIRST
+<br>Usabilityfirst.com. (2019). Usability First - About Usability - Requirements Specification | Usability First. [online] Available at: http://www.usabilityfirst.com/about-usability/requirements-specification/ [Accessed 31 Mar. 2019].
+
+WHAT ARE THE FOUR FUNDAMENTAL METHODS OF REQUIREMENT VERIFICATION?
+<br>Modernanalyst.com. (2019). What are the four fundamental methods of requirement verification?. [online] Available at: https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx [Accessed 31 Mar. 2019].
 
 ## 3. Specific requirements  
 
@@ -293,13 +298,93 @@ see 9.5.19.
 
 ## 4. Verification
 
-3 pages outlining how you will verify that the product meets the
-most important specific requirements. The format of this section
-should parallel section 3 of your document (see 9.5.18).
-Wherever possible (especially systemic requirements) you should
-indicate testable acceptance criteria.
+The purpose of this section is to verify how the product will meet the important requirements.
 
----
+### 4.1 External Interfaces Verification
+
+| **Requirement**: Application should be able to communicate with the nested CSV files <br> **Verification Method**: Test                           |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Complete a series of tests where the CSV files are manually loaded into the application and that the maps are able to be loaded and are accurate. |
+
+### 4.2 Functional Requirements Verification
+
+| **Requirement**: Application should allow to switch to a transport data map view<br>**Verification Method**: Test                          |
+|--------------------------------------------------------------------------------------------------------------------------------------------|
+| When enough data is available, load them to the application and testing needs to occur to ensure that users can swap between the two maps. |
+
+| **Requirement**: Login system needs to be defined<br>**Verification Method**: Test, Demonstration                                                                                                                                                                                                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A user attempts to login to the system.  The application should check that login details are valid. If the details are invalid, the user should be prompted with an error message and is asked to try again. If the details are valid, the application should grant the user access to the interactive map. Testing needs to occur to ensure that the program is secure. |
+
+| **Requirement**: Users indicate that they want to animate the map by clicking “start time” icon on the menu bar<br>**Verification Method**: Test, Demonstration                                                              |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The system should animate data in frames from the start and end in a loop. This should be done by the users set parameters until indicated to stop. Testing should occur to check that all filters work based on user input. |
+
+| **Requirement**: Users should be able to click sections and view detailed information on it<br>**Verification Method**: Test, Demonstration |
+|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Testing is essential to view whether the mouse clicks are listened to and open up information of the section.                               |
+
+| **Requirement**: Users should be able to show specific map information depending on selected transport mode<br>**Verification Method**: Test, Demonstration                                                                                                                                                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| After selecting the transport type from the drop down menu, the system should read the data for that type of data from locally stored information. Testing is essential to view whether the mouse clicks are listened to and open up the different transport information and thus display it on the graphical user interface |
+
+### 4.3 Usability Requirements Verification
+
+#### 4.3.1 Users
+
+| **Requirement**: The application needs to use straightforward wording in order for it to be user friendly <br>**Verification Method**: Inspection                                                                                                                                                                                                                               |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The team needs to program with the users in mind, and verify that language being used is easy to understand for an everyday user. A “Help” tool would be an advantageous addition to the application in order to remind users about the different functionality available. The client should be asked to use the software at increments throughout the year for their feedback. |
+
+| **Requirement**: Navigation should be simple to pick up and understand<br> **Verification Method**: Inspection, Demonstration                                                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The front-end interface should be intuitive, and clearly labelled.  Layout should remain minimal and have an aesthetic which allows for the user to remain engaged.  The client should be asked to use the software at increments throughout the year for their feedback. |
+
+#### 4.3.2 Interaction 
+
+| **Requirement**: Keyboard inputs such as arrow keys and function keys will be available for navigating the map, changing parameters as well as use of the mouse for clicking the buttons choosing drop down options and general user interaction<br>**Verification Method**: Test, Demonstration |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Once the application is loaded, the system should allow for users to interact with the map by the use of the keyboard and mouse.                                                                                                                                                                 |
+
+#### 4.3.3 Web Capabilities
+
+| **Requirement**: Application needs to work on Internet Explorer 11 and can be extended to work on other browsers. Users will need to be aware of preference<br>**Verification Method**: Inspection, Demonstration |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The application will need to be opened on a range of web browsers to manual test functionality. The client will also need to do this so ensure that it is clear to understand and execute.                        |
+
+### 4.4 Performance Requirements Verification
+
+#### 4.4.1 Response Time
+
+| **Requirement**: Application responses to the user should be no longer than 10 seconds with 90% of the responses not reaching up to that mark<br>**Verification Method**: Test, Analysis |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A series of tests will need to be completed in order to record and calculate the average the application takes to respond to users.                                                      |
+
+#### 4.4.2 Workload
+
+| **Requirement**: Application should be able to support up to 10 users at a time.<br>**Verification Method**:  Test, Demonstration                                                                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Automated testing will be needed to ensure that multiple individuals can use this program at once. To mirror the workflow peaks, testing will need to occur with a varying number of test users in order to ensure that the program can deal with a change of people. |
+
+| **Requirement**: Manually loading the CSV files will need to occur in less than 5 minutes. <br>**Verification Method**: Analysis |
+|-----------------------------------------------------------------------------------------------------------------------------------|
+| Test to measure the time it takes to load and record the findings. Find the average in order to mitigate any variance in times.   |
+
+### 4.5 Design Constraints Verification
+
+### 4.6 Non-functional Requirements Verificaton
+
+| **Requirement**: Data Integrity<br> **Verification method**:  Inspection|
+|:--------------------------------------------------------------------|
+| Due to the possible privacy issues with the data held and that this tool will be needed to make accurate decisions. Data cannot be changed. Human error will cause these issues, so the team has to be cautious when dealing with the data |
+<br>
+ 
+| **Requirement**: Maintainability <br> **Verification method**: Analysis |
+|:------------------------------------------------------------------------|
+| The code needs to be well documented for the understanding of the team as well as future handoff to client so they can build upon the application and understand how it works. |
+
+
+
 
 ## 5. Development schedule
 
