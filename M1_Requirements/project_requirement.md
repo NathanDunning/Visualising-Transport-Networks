@@ -1,4 +1,4 @@
- # ENGR 301 Assignment 1: Project Requirements Document
+# ENGR 301 Assignment 1: Project Requirements Document
 
 The aim of this document is to
 specify the requirements of the system your group is to build. 
@@ -146,15 +146,26 @@ Hardware projects also see section 9.4.6.
 > NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
 
 
-### 3.5 Logical database requirements
-
-See 9.5.14. for most systems, a focus on d) and e) is appropriate,
-such as an object-oriented domain analysis. You should provide an
-overview domain model (e.g.  a UML class diagram of approximately ten
-classes) and write a brief description of the responsibilities of each
-class in the model (3 pages).
-
 ### 3.6 Design constraints
+
+see 9.5.15 and 9.5.16. for most systems, this will be around one page.
+
+> 9.5.15 Design constraints<br>
+> Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
+> 
+> 9.5.16 Standards compliance<br>
+> Specify the requirements derived from existing standards or regulations, including:
+> 
+> a) Report format;<br>
+> b) Data naming;<br>
+> c) Accounting procedures;<br>
+> d) Audit tracing.
+> 
+> For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
+may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
+after values.
+
+### 3.7 Nonfunctional system attributes
 
 see 9.5.15 and 9.5.16. for most systems, this will be around one page.
 
@@ -201,61 +212,118 @@ should parallel section 3 of your document (see 9.5.18).
 Wherever possible (especially systemic requirements) you should
 indicate testable acceptance criteria.
 
-## 5. Development schedule.
+---
+
+## 5. Development schedule
 
 ### 5.1 Schedule
 
-Identify dates for key project deliverables: 
+Key dates for project deliverables: 
 
-1. architectural prototype
-1. minimum viable product
-1. further releases
+1. Architectural prototype - 13 May, 2019
+1. Minimum viable product - 7 June, 2019
+1. Further releases:
+    1. Release 1.1 - 8 August, 2019
+    2. Relaese 1.2 - 9 September, 2019
+    3. Release 1.3 - 11 October, 2019
 
-(1 page).
+Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase. 
+
+Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.  
+
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up. 
+
+Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion. 
+
+#### Architecture Design Phase - 1 April to 5 May  
+#### MVP - 7 May to 11 October  
+
+1. MVP1 (7 May to 7 June)
+    1. Sprint1 - 7 May to 21 May
+    2. Sprint2 - 22 May to 7 June
+
+
+2. MVP2 (8 July to 8 August)
+    1. Sprint1 - 8 July to 20 July
+    2. Sprint2 - 21 July to 8 August
+
+
+3. MVP3 (9 August to 9 September)
+    1. Sprint1 - 9 August to 21 August
+    2. Sprint2 - 22 August to 9 September
+
+
+4. MVP4 (10 September to 11 October)
+    1. Sprint1 - 10 September to 23 September
+    2. Sprint2 - 24 September to 11 October (close-off sprint)
 
 ### 5.2 Budget
+| Budget Item                                           | Budget     |
+| ----------------------------------------------------- |:----------:|
+| Obtain required data from different sources           | 1500       |
 
-Present a budget for the project (table), and justify each budget item
-(one paragraph per item, one page overall). 
+Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources and enough data to support the usecases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information . Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
 
 ### 5.3 Risks 
 
-Identify the ten most important project risks to achieving project goals: their type, likelihood,
-impact, and mitigation strategies (3 pages).
+Risk in software development is a potential problem which prevent an individual or a group of people from reaching the project goal. Risk is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss.  
 
-If the project will involve any work outside the ECS laboratories, i.e. off-campus activities, these should be included in the following section.
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Resources are ill at critical times in the project    | Low        |    Severe   |
+| Frequent changes in project requirements              | Low        |    Severe   |
+| Failure to obtain data from defined sources           | Moderate   |    Critical |
+| Miscommunication within the team or with the client   | Moderate   |    Moderate |
+| Underestimation of development life cycle             | Low        |    Critical |
+| Financial risks to obtain resources                   | Moderate   |    High     |
+| Failure to arrive at proper budget estimation         | Low        |    High     |
+| Loss of data or code due to workstation failure       | Moderate   |    High     |
+| Gold plating - Decoration before functionalities      | Low        |    Low      |
+| Functionalities not performing as expected            | Moderate   |    High     |  
+
+Most software development projects are inherently risky because of the variety of problems that may arise. Severity of Inevitable risks can be mitigated with prior planning and taking necessary precautions.  
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Resources are ill at critical times in the project    | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
+| Frequent changes in project requirements              | Freeze the requirements at the design stage by having frequent interactions with the client. Some degree of requirement change is allowed.   |
+| Failure to obtain data from defined sources           | Find any open source data that is required for the project and use the same if there is any discrepancy in obtaining original data from the client. |
+| Miscommunication within the team or with the client   | Clarify the understanding with the team member or with the client until its clear. Use client meetings and team stand-ups in an effective manner. |
+| Underestimation of development life cycle             | Invest more time on planning and the design phase. Gather all the requirements from the client at this stage and plan accordingly.  |
+| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator incase of budget issues.      |
+| Failure to arrive at proper budget estimation         | Estimate the budget according the required resources.        |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert back from a particular point.    |
+| Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
+| Functionalities not performing as expected            | Write unit test cases and perform functionality tests after completion of each functionality. Perform integration tests once completing all the necessary functionalities.          |  
+
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety. All teams must state in this section:
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Occupational overuse syndrome                         | Moderate   |    Severe   |
+| Earthquake in the lab                                 | Low        |    High     |
+| Injury while attending a meeting at client office     | Low        |    High     |
+| Mental stress because of the workload                 | Moderate   |    High     |
+| Eye strain from computer use                          | Low        |    Moderate |
+| Fire in the lab                                       | Low        |    Severe   |
 
-1. How teams will manage computer-related risks such as Occupational Over Use, Cable management, etc.  
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Occupational overuse syndrome                                 | Mix your tasks to avoid long, uninterrupted stretches of using the computer. Remove your hands from keyboard and mouse when not actively using them. |
+| Earthquake in the lab                                         | Listen carefully to the earthquake related announcements. Hide under the desk incase of an earthquake.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator incase of work overload.   | 
+| Eye strain from computer use                                  | Maintain a good distance from the monitor. Mix your tasks to avoid long, uninterrupted stretches of using the computer          |
+| Fire in the lab                                               | Listen to the fire related announcements and read the signs. Pull the nearest fire alarm as you exit the building.          |
 
-2. Whether project work requires work or testing at any external (off-campus) workplaces/sites. If so, state the team's plans for receiving a Health and Safety induction for the external workplaces/sites. If the team has already received such an induction, state the date it was received. 
-
-3. Whether project work requires the team test with human or animal subjects? If so, explain why there is no option but for the team to perform this testing, and state the team's plans for receiving Ethics Approval _prior_ to testing.
-
-Also document in this section any additional discussions with the School Safety Officer regarding Health and Safety risks. Give any further information on relevant health and safety regulations, risks, and mitigations, etc.
 
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements. Safety Plan templates are available on the course Health & Safety page. Two questions all teams must answer are:
+Project requirements do not involve risk of death, serious harm, harm or injury.
 
-**Do project requirements involve anything that can cause serious harm or death?**  
-Examples: building/modifying devices using voltages > 60 V, chemicals, large moving machinery, flying devices, bodies of water.
-
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving serious harm or death, you must first contact the School Safety Officer and Course Coordinator first to discuss the Safety Plan and project requirements.
-
-**Do project requirements involve anything that can cause harm or injury?**  
-Examples: building/modifying things with voltages <= 60V, small moving machinery, wearable devices.
-
-If so, you will have to write a separate Safety Plan as part of project requirements, and the Safety Plan must be referenced in this section. For health and safety risks involving har or injury, you should write a draft of the Safety Plan before contacting the School Safety Officer and Course Coordinator to discuss the Safety Plan and project requirements.
-
-If a safety plan is required, list in this section the date the School Safety officer accepted your Health and Safety plan (if accepted by submission date).
-
-_If the project is purely software and requires no contact risks involving physical harm, then state "Project requirements do not involve risk of death, serious harm, harm or injury." in this section._
-
+---
 
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies 
