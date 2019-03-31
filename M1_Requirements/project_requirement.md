@@ -260,7 +260,7 @@ _If the project is purely software and requires no contact risks involving physi
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies 
 
-####Assumptions
+### Assumptions
 
 - The main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
 - The users are not need to coding to use the application, therefore they are not expected to have technological background nor have experienced using a similar system and understanding of any programming terminologies.
