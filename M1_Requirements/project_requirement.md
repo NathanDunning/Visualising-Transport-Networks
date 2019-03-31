@@ -120,11 +120,276 @@ There are no specific requirements for any hardware elements of any type.
 
 ### 3.2 Functions
 
-This is typically the longest subsection in the document - see 9.5.11.
-List up to fifty use cases (in order of priority for development), and
-for at least top ten focal use cases, write a short goal statement and
-use case body (up to seven pages).  Identify the use cases that
-comprise a minimum viable product.
+The main purpose of this program is to serve as a tool to be used for data analysis, as a result the use cases of this program will and less defined and on a smaller scope. Use cases for this program consist of: 
+
+#### Login<br>
+**Actors:** 
+* Client
+* System
+
+**Triggers:** 
+* 	The user indicates that they want to login by clicking ‘login’
+
+**Preconditions:**
+* 	The user has filled in the password box
+
+**Post-conditions:**
+* 	The system will compare password input with database
+* 	The user will know if login was successful or not
+
+**Normal-Flow:**
+1.	The user will indicate that they want to login by clicking the login button after entering their password into the password box
+2.	The system will compare the password with the password on the database
+3.	The system grants the user access to the application
+
+**Alternate Flow:**
+
+3. The system does not find a match between input string and password database
+    1. The system informs the user with an error message and asks user to try again
+
+#### Select current city<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:** 
+* 	The user indicates that they want to change the location to another city by clicking on the ‘change city’ icon
+
+
+**Preconditions:** 
+* 	Other city data must be available
+
+**Post-Conditions:**
+* 	The system will output the selected city onto the graphical user interface
+* 	The parameters/filters will reset to default values
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change city location to another city by clicking the ‘change city’ icon
+2.	The system will display, in a dropdown menu, the list of cities that the user may select from
+3.	The user will select a new city to display
+4.	The system will load the data from that city, stored locally, and display it onto the graphical user interface
+5.	The system will reset and changed parameters or filters on the menu bar
+
+**Alternate Flow:**
+
+2. There is no additional data for other cities
+    1. The system will only have 1 item in the list
+    2. The user will be unable to change to another city
+
+
+#### Navigate the map<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicates they want to navigate the map by dragging across the map
+* 	The user indicates they want to navigate the map by pressing the designated arrow keys
+
+**Preconditions:**
+* 	The map is fully loaded
+* 	The user is not fully zoomed out
+
+**Post-Conditions:**
+* 	The map will move to a new location
+
+**Normal-Flow:**
+1.	The user will indicate that they want to navigate the map by dragging across the map
+2.	The system will calculate the distance dragged by the user and calculate new values
+3.	The system will output new display on the graphical user interface
+
+**Alternate Flow:**
+
+1. The user presses one of the designated arrow keys 
+    1.  The map will move by a fixed distance 
+2. The system calculated that it is moving off the map
+    1.	The system will display the edge of the map and no further
+
+#### Select animation range<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicates they want to animate the map by clicking the ‘start time’ icon on the menu bar
+
+**Preconditions:**
+* 	There is data available through different times and days
+
+**Post-Conditions:**
+* 	The graphical user interface will animate through the time range selected
+
+**Normal-Flow:**
+1.	The user will indicate that they want to animate the map by clicking the ‘start time’ icon on the menu bar
+2.	The system will display, in a calendar view, a date that the user can select from
+3.	The user will select from the calendar view a date they want to start the animation from
+4.	The system will display, in a dropdown menu, a time that the user can to start from
+5.	The user will select from the dropdown menu a time they want to start from
+6.	The system will display, in a calendar view, a date that the user can select to
+7.	The user will select from the calendar view a date they want to start the animation to
+8.	The system will display, in a dropdown menu, a time that the user can to start to
+9.	The user will select from the dropdown menu a time they want to start to
+10.	The system will animate data in frames from the start date to the end date in a loop
+
+#### Select direction of flow<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicates they want to change the view of direction of flow by clicking on the designated ‘switch’ button
+
+**Preconditions:**
+* 	None
+
+**Post-Conditions:**
+* 	None
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change the view of direction of flow by clicking on the designated ‘switch’ button
+2.	The system will display on the graphical user interface information about the flipped direction
+
+#### Change filters<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:** 
+* 	The user indicates they want to change filters by clicking on the ‘next’ button or ‘previous’ buttons
+
+**Preconditions:**
+* 	None
+
+**Post-Conditions:**
+* 	None
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change/cycle through filters by clicking the ‘next’ or ‘previous’ buttons
+2.	The system will redisplay the next set of filters on the menu bar
+
+**Alternate Flow:**
+
+2. The user is on the last filter clicking ‘next’
+    1. The system will redisplay the same filters on the menu bar
+
+#### View section/zone<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicates they want to view information on a section by clicking on it
+
+**Preconditions:**
+* 	There is data for each divided zone
+
+**Post-Conditions:**
+* 	The user will know in detail information about that zone
+
+**Normal-Flow:**
+1.	The user will indicate they want to view information on a section by clicking on it
+2.	The system will display in pop* up information about the requested zone
+3.	The user will close the pop* up when finished
+
+**Alternate Flow:**
+
+1. No information about that section found
+    1. The system will display nothing
+
+#### Select type of transport<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:** 
+* 	The user indicates they want to select the mode of transportation by clicking the designated ‘change type’ button located on the side of the screen
+
+**Preconditions:**
+* 	There is available data for different transport modes
+
+**Post-Conditions:**
+* 	The system will display data on the graphical user interface of a different mode
+
+**Normal-Flow:**
+1.	The user will indicate that they want to select the mode of transportation by clicking the designated ‘change type’ button
+2.	The system will display a dropdown menu containing the list of different transport types the user can choose from
+3.	The user selects the new transport type by clicking on the on the items on the dropdown menu
+4.	The system will read data from that type of transportation, stored locally, and display it on the graphical user interface
+
+**Alternate Flow:**
+
+3. There is no data stored locally about that type of data
+    1. The system will display one item in the dropdown menu
+    2. The user will be unable to change transport type
+
+#### Change map view<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:** 
+* 	The user indicates they want to change the view of the map by clicking the designated ‘change map’ icon
+
+**Preconditions:**
+* 	There are different sources of data stored locally
+
+**Post-Conditions:**
+* The user sees a different view on the graphical user interface
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change the view of the map by clicking the designated ‘change map’ icon
+2.	The system will display a dropdown menu containing the list of map views the user can choose from
+3.	The user selects the new map view by clicking on the on the items on the dropdown menu
+4.	The system will read data from that corresponding map view, stored locally, and display it on the graphical user interface
+
+**Alternate Flow:**
+3. There is no data stored locally about that type of data  
+    1. The system will display one item in the dropdown menu  
+    2. The user will be unable to change map view
+
+#### Change zoom<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicates they want to change zoom by scrolling their mouse wheel
+* 	The user indicated they want to change zoom by adjusting the zoom slider
+
+**Preconditions:**
+* 	The user is not already fully zoomed in or out
+
+**Post-Conditions:**
+* 	None
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change zoom by scrolling their mouse wheel or changing the slider
+2.	The system will change zoom by a fixed amount and redisplay to the graphical user interface
+
+**Alternate Flow:**
+
+2. The user is already fully zoomed in one direction
+    1. The system re-display at the max/min zoom
+
+#### Change scale<br>
+**Actors:** 
+* 	Client
+* 	System
+
+**Triggers:**
+* 	The user indicated they want to change scale by adjusting the scale slider
+
+**Preconditions:**
+* 	None
+
+**Post-Conditions:**
+* 	None
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change scale by changing the scale slider
+2.	The system will change scale along the legend on the right side of the screen
+3.	The system will change colours of zone corresponding to the legend
+
 
 ### 3.3 Usability Requirements
 This section aims to outline the aim of the system in terms of user experience [[1]](http://www.usabilityfirst.com/about-usability/requirements-specification/). 
@@ -260,23 +525,73 @@ after values.
 
 ### 3.7 Nonfunctional system attributes
 
-Present the systemic (aka nonfunctional) requirements of the product
-(see ISO/IEC 25010).
-List up to twenty systemic requirements / attributes.
-Write a short natural language description of the top nonfunctional
-requirements (approx. five pages).
+ A non-functional requirement (NFR) is a requirement that measures the system based on its performance rather than its functional behaviour. It defines how the system is supposed to be, while the functional requirements defines how the system is supposed to work. Some of the non-functional requirements are listed below:
+ 
+ * Data integrity
+ * Avaliability
+ * Scalability
+ * Maintaiability
+ * Documentation
+ * Security
+ * Reusability
+ * Performance
+ * Testability
+ * Throughput
+ * Transparency
+ * Usability
+ * Durability
+ * Cost management
+ * Portability
+ * Testablity
+ * Compatibility
+ * Resilience 
+ * Stability
+ * Operability
+ 
+ Product should be designed in a way to accomodate the below mentioned critical non-functional requirements.
+ 
+**Usability:**
+System should ensure ease of use to the end user. The layout of the system should be easy to percieve and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
 
+ **Data integrity:**
+ Data integrity refers to the quality or validity of the data. As the system depends on the data for processing, integrity of the data has to be assured for the optimal performance of the system. Any unintended changes in the data as a result of storage, processing, system failure and human error results in the failure of data integrity.
+ 
+**Availability:**
+Availability is the amount of time a system is in an accessible state. It involves all the pre calculated system downtime and maintenance period. High availability of system results to high reliability. 
 
-### 3.8 Physical and Environmental Requirements
+**Scalability:**
+It refers to the capacity of the system to handle higher load and its potential to enlarge to accommodate that growth. Product should be desinged in a way to accomodate new data sources in the future for better performance of the system. A benchmark should be set for the throughput of the system.
 
-For systems with hardware components, identify the physical
-characteristics of that hardware (9.4.10) and environment conditions
-in which it must operate (9.4.11).  Depending on the project, this
-section may be from one page up to 5 pages.
+**Documentation:**
+An important non functional requirement of any product is its documentation. It gives clarity about the system to anyone who develops or maintains the same. Technical documents and non-technical documents should be updated and maintained periodically.
+
+**Maintainability:**
+Maintainability involves a system of continuous improvement - learning from the past in order to improve the ability to maintain systems, or improve reliability of systems based on maintenance experience. Documentation auguments maintainability.
+
+**Securtity:**
+Security refers the protection of the system from possible harm. It invloves both cyber security and physical security. For example, security of the code refers to frequent update on the git repository which will minimise the chance of losing the changes because of any workstation failure. 
+
+**Reusability:**
+Capacity of the system to reuse any existing assets during software development process. This involves software components, test cases and even documentation. Concept of reusability eliminates the issue of redundancy and improves the efficiency of the system.  
+
+**Performance:**
+Performance is the amount of useful work accomplished by a computer system. Computer performance is estimated in terms of accuracy, efficiency and speed of executing the requests. The following factors should be considered to ensure higher performance of the system:
+* Short response time for a given request.
+* High throughput.
+* High availability of the system.
+* Reliability of the data.
+
+### 3.8 Physical and Environmental Requirements 
+As the system will be fully software orientated, there are no physical requirements for this system as it does not require the use of any hardware.
+There are also no strict memory requirements as the application will be run off of work computers. 
+The system will not have to worry about any environmental factors as the system will be deployed through a web server.
 
 ### 3.9 Supporting information
-
-see 9.5.19.
+The system will have an input format of nested CSV files, output will be displayed on an interactive map on the graphical user interface.
+The system is designed to be used as a tool for analysing traffic data to and from city centres. The data will be analysed on zones comprised of New Zealand Census data. The tool will be used to help traffic engineers solve complex traffic problems throughout the country.
+The tool should be able to identify common problems such as bottlenecking as well as more refined searches on a specific area to identify when and where exactly queuing starts from.
+The source code is written using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+All enlisted supporting information can and will be considered as part of the system requirements.
 
 ## 4. Verification
 
