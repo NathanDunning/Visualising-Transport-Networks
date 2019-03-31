@@ -153,7 +153,7 @@ The main purpose of this program is to serve as a tool to be used for data analy
 **Preconditions:**
 * 	The user has filled in the password box
 
-Post-conditions:
+**Post-conditions:**
 * 	The system will compare password input with database
 * 	The user will know if login was successful or not
 
@@ -162,9 +162,10 @@ Post-conditions:
 2.	The system will compare the password with the password on the database
 3.	The system grants the user access to the application
 
-**Alterate Flow:**
-3a. The system does not find a match between input string and password database
-  1.	The system informs the user with an error message and asks user to try again
+**Alternate Flow:**
+
+3. The system does not find a match between input string and password database
+    1. The system informs the user with an error message and asks user to try again
 
 #### Select current city<br>
 **Actors:** 
@@ -173,55 +174,71 @@ Post-conditions:
 
 **Triggers:** 
 * 	The user indicates that they want to change the location to another city by clicking on the ‘change city’ icon
+
+
 **Preconditions:** 
 * 	Other city data must be available
+
 **Post-Conditions:**
 * 	The system will output the selected city onto the graphical user interface
 * 	The parameters/filters will reset to default values
+
 **Normal-Flow:**
 1.	The user will indicate that they want to change city location to another city by clicking the ‘change city’ icon
 2.	The system will display, in a dropdown menu, the list of cities that the user may select from
 3.	The user will select a new city to display
 4.	The system will load the data from that city, stored locally, and display it onto the graphical user interface
 5.	The system will reset and changed parameters or filters on the menu bar
-**Alterate Flow:**
-2a. There is no additional data for other cities
-  1.	The system will only have 1 item in the list 
-  2.	The user will be unable to change to another city
+
+**Alternate Flow:**
+
+2. There is no additional data for other cities
+    1. The system will only have 1 item in the list
+    2. The user will be unable to change to another city
 
 
 #### Navigate the map<br>
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:**
 * 	The user indicates they want to navigate the map by dragging across the map
 * 	The user indicates they want to navigate the map by pressing the designated arrow keys
+
 **Preconditions:**
 * 	The map is fully loaded
 * 	The user is not fully zoomed out
+
 **Post-Conditions:**
 * 	The map will move to a new location
+
 **Normal-Flow:**
 1.	The user will indicate that they want to navigate the map by dragging across the map
 2.	The system will calculate the distance dragged by the user and calculate new values
 3.	The system will output new display on the graphical user interface
-**Alterate Flow:** 
-1a. The user presses one of the designated arrow keys
-  1.	The map will move by a fixed distance 
-2a. The system calculated that it is moving off the map
-  1.	The system will display the edge of the map and no further
+
+**Alternate Flow:**
+
+1. The user presses one of the designated arrow keys 
+    1.  The map will move by a fixed distance 
+2. The system calculated that it is moving off the map
+    1.	The system will display the edge of the map and no further
 
 #### Select animation range<br>
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:**
 * 	The user indicates they want to animate the map by clicking the ‘start time’ icon on the menu bar
+
 **Preconditions:**
 * 	There is data available through different times and days
+
 **Post-Conditions:**
 * 	The graphical user interface will animate through the time range selected
+
 **Normal-Flow:**
 1.	The user will indicate that they want to animate the map by clicking the ‘start time’ icon on the menu bar
 2.	The system will display, in a calendar view, a date that the user can select from
@@ -238,12 +255,16 @@ Post-conditions:
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:**
 * 	The user indicates they want to change the view of direction of flow by clicking on the designated ‘switch’ button
+
 **Preconditions:**
 * 	None
+
 **Post-Conditions:**
 * 	None
+
 **Normal-Flow:**
 1.	The user will indicate that they want to change the view of direction of flow by clicking on the designated ‘switch’ button
 2.	The system will display on the graphical user interface information about the flipped direction
@@ -252,56 +273,74 @@ Post-conditions:
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:** 
 * 	The user indicates they want to change filters by clicking on the ‘next’ button or ‘previous’ buttons
+
 **Preconditions:**
 * 	None
+
 **Post-Conditions:**
 * 	None
+
 **Normal-Flow:**
 1.	The user will indicate that they want to change/cycle through filters by clicking the ‘next’ or ‘previous’ buttons
 2.	The system will redisplay the next set of filters on the menu bar
-**Alterate Flow:**
-2a. The user is on the last filter clicking ‘next’
-  1.	The system will redisplay the same filters on the menu bar
+
+**Alternate Flow:**
+
+2. The user is on the last filter clicking ‘next’
+    1. The system will redisplay the same filters on the menu bar
 
 #### View section/zone<br>
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:**
 * 	The user indicates they want to view information on a section by clicking on it
+
 **Preconditions:**
 * 	There is data for each divided zone
+
 **Post-Conditions:**
 * 	The user will know in detail information about that zone
+
 **Normal-Flow:**
 1.	The user will indicate they want to view information on a section by clicking on it
 2.	The system will display in pop* up information about the requested zone
 3.	The user will close the pop* up when finished
-**Alterate Flow:**
-1a. No information about that section found
-  1.	The system will display nothing
+
+**Alternate Flow:**
+
+1. No information about that section found
+    1. The system will display nothing
 
 #### Select type of transport<br>
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:** 
 * 	The user indicates they want to select the mode of transportation by clicking the designated ‘change type’ button located on the side of the screen
+
 **Preconditions:**
 * 	There is available data for different transport modes
+
 **Post-Conditions:**
 * 	The system will display data on the graphical user interface of a different mode
+
 **Normal-Flow:**
 1.	The user will indicate that they want to select the mode of transportation by clicking the designated ‘change type’ button
 2.	The system will display a dropdown menu containing the list of different transport types the user can choose from
 3.	The user selects the new transport type by clicking on the on the items on the dropdown menu
 4.	The system will read data from that type of transportation, stored locally, and display it on the graphical user interface
-**Alterate Flow:**
-3a. There is no data stored locally about that type of data
-  1.	The system will display one item in the dropdown menu
-  2.	The user will be unable to change transport type
+
+**Alternate Flow:**
+
+3. There is no data stored locally about that type of data
+    1. The system will display one item in the dropdown menu
+    2. The user will be unable to change transport type
 
 #### Change map view<br>
 **Actors:** 
@@ -313,39 +352,63 @@ Post-conditions:
 
 **Preconditions:**
 * 	There are different sources of data stored locally
+
 **Post-Conditions:**
- **Normal-Flow:**
+* The user sees a different view on the graphical user interface
+
+**Normal-Flow:**
 1.	The user will indicate that they want to change the view of the map by clicking the designated ‘change map’ icon
 2.	The system will display a dropdown menu containing the list of map views the user can choose from
 3.	The user selects the new map view by clicking on the on the items on the dropdown menu
 4.	The system will read data from that corresponding map view, stored locally, and display it on the graphical user interface
 
-**Alterate Flow:**
-3. There is no data stored locally about that type of data
-  a.	The system will display one item in the dropdown menu
-  b.	The user will be unable to change map view
+**Alternate Flow:**
+3. There is no data stored locally about that type of data  
+    1. The system will display one item in the dropdown menu  
+    2. The user will be unable to change map view
 
 #### Change zoom<br>
 **Actors:** 
 * 	Client
 * 	System
+
 **Triggers:**
 * 	The user indicates they want to change zoom by scrolling their mouse wheel
 * 	The user indicated they want to change zoom by adjusting the zoom slider
+
 **Preconditions:**
 * 	The user is not already fully zoomed in or out
+
 **Post-Conditions:**
-* 	The user will see a map with different zoom
+* 	None
+
 **Normal-Flow:**
 1.	The user will indicate that they want to change zoom by scrolling their mouse wheel or changing the slider
 2.	The system will change zoom by a fixed amount and redisplay to the graphical user interface
-**Alterate Flow:**
+
+**Alternate Flow:**
+
 2. The user is already fully zoomed in one direction
-  a.	The system re* display at the max/min zoom
+    1. The system re-display at the max/min zoom
 
 #### Change scale<br>
-Changing scale will work the same as the zoom function however, the only trigger will be the scale slider.
+**Actors:** 
+* 	Client
+* 	System
 
+**Triggers:**
+* 	The user indicated they want to change scale by adjusting the scale slider
+
+**Preconditions:**
+* 	None
+
+**Post-Conditions:**
+* 	None
+
+**Normal-Flow:**
+1.	The user will indicate that they want to change scale by changing the scale slider
+2.	The system will change scale along the legend on the right side of the screen
+3.	The system will change colours of zone corresponding to the legend
 
 
 ### 3.3 Usability Requirements
