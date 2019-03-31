@@ -100,13 +100,45 @@ Reference scheme, available from the [IEEE website](https://www.ieee.org/) (pl
 
 ## 3. Specific requirements  
 
-20 pages outlining the requirements of the system.
-You should apportion these these pages across the following 
-subsections to focus on the most important parts of your product.
-
 ### 3.1 External interfaces
 
-See 9.5.10. for most systems this will be around one page. 
+The system interfaces required for the final product consist of:
+#### User Interface
+The system will have a graphical user interface consisting of buttons, menu bars, an interactive map and data filters. All features will be interacted with through mouse input commands which will change the output of the information shown on the screen. Along the menu bar, there will be many different filters that allows users to set parameters from a list of values, this ensures the user cannot specifically enter a value that is outside of the specified range. Specific functionalities regarding user interface that require implementing are:
+* The client has stated that there are not enough filters in the current build of the program and has specified that there needs to be more filters and modes to switch between. Specific modes include
+  * Being able to change the view of the map from displaying information of a weekly average down to a daily average
+  * Being able to switch to a transport data map view. 
+  * Being able to animate the map through a user defined start and end date
+* The client has stated that information must be displayed in zones with visible data going to and from the city centre, users should not be able to select other specific origins and destinations.
+* Displayed units of measure must be fixed and consistent
+  * The unit for time will always be in minutes
+  * The unit for distance will be in kilometres
+  * Each zone will show the transport time vs deprivation index
+* Keyboard inputs such as arrow keys and functions keys will be available for navigating the map and changing parameters, information on shortcuts and keyboard functions will be displayed under the help tab.
+* The current build of the program is optimised when ran full-screen on a 16:9 aspect ratio as distances between objects and icons are more legible and correctly spaced at this ratio and size. The client has stated that the current layout and format of the screen is good and does not need to be changed.
+* The interface will comprise of having an added help bar tab towards the top of the screen, which users can refer to when looking to troubleshoot an issue or to simply find out more about a functionality. 
+  * In the case where an error is to be thrown, there will be an error message appearing in a window that describes the issue and will refer the user to a section in the help page where the user can find out more about the issue
+* The map will be displayed across the centre of the user, the user will be able to click on different areas on the map which will bring up a window containing further information about that zone.
+  * The current build of the program does not show bigger landmarks and roads such as state highways and major intersections, the client has stated that this should be implemented
+The main purpose of this user interface is to conclusively serve as a mean of visual data display allowing clients to effectively analyse traffic related data by applying different filters through different scopes. The user interface allows for clients to customise their preferences to extract useful data and assist them in make inferences
+
+#### Software Interface
+The use of specific software products or packages have not been specified however, upon attaining and analysing the code base from the current product build, it can be concluded that the source code was written in CSS and JavaScript using frameworks comprising of React together with Redux. The data system currently works by reading locally stored, nested CSV files containing multiple rows and columns of data where each column is a parameter and each row is a new entry. 
+The client has specified that the system should be able to read data from the following:
+* New Zealand Transport Data
+  * Spreadsheet containing rows and columns
+* Google Transport Data
+  * Text files with tab space delimiters
+  * Data files (.dat) containing tab space delimiters
+* Telco Data
+
+The client has also specified that there needs to a login system before the program can be used.
+The purpose of this software interface is to read the locally stored data files and display them onto the graphical user interface for the client. The software must be able to process and display the data in different ways depending on the parameters the user set.
+
+#### Hardware Interface
+There are no specific requirements for any hardware elements of any type.
+
+
 
 ### 3.2 Functions
 
