@@ -530,47 +530,47 @@ This application should hold information securely in order to provide useful dat
  * Stability
  * Operability
 
- Product should be designed in a way to accomodate the below mentioned critical non-functional requirements.
+The product should be designed in order to accommodate the below mentioned critical non-functional requirements.
 
 **Usability:**
-System should ensure ease of use to the end user. The layout of the system should be easy to percieve and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
+The system should ensure ease of use to the end user. The layout of the system should be easy to perceive and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
 
- **Data integrity:**
- Data integrity refers to the quality or validity of the data. As the system depends on the data for processing, integrity of the data has to be assured for the optimal performance of the system. Any unintended changes in the data as a result of storage, processing, system failure and human error results in the failure of data integrity.
+**Data integrity:**
+Data integrity refers to the quality or validity of the data. As the system depends on the data for processing, the integrity of the data has to be assured for the optimal performance of the system. Any unintended changes in the data as a result of storage, processing, system failure and human error results in the failure of data integrity.
 
 **Availability:**
-Availability is the amount of time a system is in an accessible state. It involves all the pre calculated system downtime and maintenance period. High availability of system results to high reliability. 
+Availability is the amount of time a system is in an accessible state. It involves all the pre-calculated system downtime and maintenance period. High availability of system results in high reliability.
 
 **Scalability:**
-It refers to the capacity of the system to handle higher load and its potential to enlarge to accommodate that growth. Product should be desinged in a way to accomodate new data sources in the future for better performance of the system. A benchmark should be set for the throughput of the system.
+This refers to the capacity of the system to handle a higher load and its potential to enlarge to accommodate that growth. The product should be designed in a way to accommodate new data sources in the future for better performance of the system. A benchmark should be set for the throughput of the system.
 
 **Documentation:**
-An important non functional requirement of any product is its documentation. It gives clarity about the system to anyone who develops or maintains the same. Technical documents and non-technical documents should be updated and maintained periodically.
+An essential non-functional requirement of any product is its documentation. It gives clarity about the system to anyone who develops or maintains the same. Technical documents and non-technical documents should be updated and maintained periodically.
 
 **Maintainability:**
-Maintainability involves a system of continuous improvement - learning from the past in order to improve the ability to maintain systems, or improve reliability of systems based on maintenance experience. Documentation auguments maintainability.
+Maintainability involves a system of continuous improvement - learning from the past in order to improve the ability to maintain systems or improve the reliability of systems based on maintenance experience. Documentation augments maintainability.
 
-**Securtity:**
-Security refers the protection of the system from possible harm. It invloves both cyber security and physical security. For example, security of the code refers to frequent update on the git repository which will minimise the chance of losing the changes because of any workstation failure. 
+**Security:**
+Security refers to the protection of the system from possible harm. It involves both cybersecurity and physical security. For example, security of the code refers to frequent update on the git repository which will minimise the chance of losing the changes because of any workstation failure.
 
 **Reusability:**
-Capacity of the system to reuse any existing assets during software development process. This involves software components, test cases and even documentation. Concept of reusability eliminates the issue of redundancy and improves the efficiency of the system.  
+This is the capacity of the system to reuse any existing assets during the software development process. This involves software components, test cases and even documentation. The concept of reusability eliminates the issue of redundancy and improves the efficiency of the system.
 
 **Performance:**
-Performance is the amount of useful work accomplished by a computer system. Computer performance is estimated in terms of accuracy, efficiency and speed of executing the requests. The following factors should be considered to ensure higher performance of the system:
+Performance is the amount of useful work accomplished by a computer system. Computer performance is estimated in terms of accuracy, efficiency and speed of executing the requests. The following factors should be considered to ensure a higher performance of the system:
 * Short response time for a given request.
 * High throughput.
 * High availability of the system.
 * Reliability of the data.
 
 ### 3.8 Physical and Environmental Requirements 
-As the system will be fully software orientated, there are no physical requirements for this system as it does not require the use of any hardware.
+As the system will be entirely software orientated, there are no physical requirements for this system as it does not require the use of any hardware.
 There are also no strict memory requirements as the application will be run off of work computers. 
-The system will not have to worry about any environmental factors as the system will be deployed through a web server.
+The system will not have to worry about any environmental factors as it will be deployed through a web server.
 
 ### 3.9 Supporting information
-The system will have an input format of nested CSV files, output will be displayed on an interactive map on the graphical user interface.
-The system is designed to be used as a tool for analysing traffic data to and from city centres. The data will be analysed on zones comprised of New Zealand Census data. The tool will be used to help traffic engineers solve complex traffic problems throughout the country.
+The system will have an input format of nested CSV files; output will be displayed on an interactive map on the graphical user interface.
+The system is designed to be a tool for analysing traffic data to and from city centres. The data will be analysed on zones comprised of New Zealand Census data. The tool will be used to help traffic engineers solve complex traffic problems throughout the country.
 The tool should be able to identify common problems such as bottlenecking as well as more refined searches on a specific area to identify when and where exactly queuing starts from.
 The source code is written using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
 All enlisted supporting information can and will be considered as part of the system requirements.
@@ -791,94 +791,75 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 ---
 
 ## 6. Appendices
+
 ### 6.1 Assumptions and dependencies
 
-#### Assumptions
+#### 6.1.1 Assumptions
 
-- The main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
-
-
-
-- The users are not need to coding to use the application, therefore they are not expected to have technological background nor have experienced using a similar system and understanding of any programming terminologies.
+- The primary users of this application will be members of Beca in order to consult local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
 
 
-
-- The users are not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
-
+- The users do not need coding to use the application. Therefore they are not expected to have technical background nor have experienced using a similar system and understanding of any programming terminologies.
 
 
-- A Log-in system of the application would be uesful but is not considered a necessity since the users will all have the some permissions when using the application and there is not need a functionality that allows users to save and load decisions on the application.
+- The users do not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
 
 
+- A log-in functionality would be a useful addition to the application but is not considered a necessity since the users will have the same permissions when using the application and there is no need of functionality that allows users to save and load decisions on the application.
 
-- Application should be user friendly, users can interact with the application intuitively which means by simply moving and clicking buttons on the front-end interface with mouse to achieve the functions and view the results. A "Help" tool should be added.
 
+- The application should be user-friendly. Users should interact with the application intuitively which means by merely moving and clicking buttons on the front-end interface with the mouse or keyboard to achieve the functions and view the results. A "Help" tool should be added.
 
 
 - The application should be run and work on Internet Explorer 11 and does not need an Internet connection to run. Functionality can be added to other browsers.
 
 
-
-- More data datasets of other modes of transport such as texi and car are needed to make necessary decisions from the tool ,to extend this application's functionality. Which are New Zealand Transport Data(.csv files), Google Transport Data(.txt and .dat files) Telco, Onzo and census data for demographic information.
-
+- More data datasets are needed to make necessary decisions from the tool, to extend this application's functionality. These can include New Zealand Transport Data (.csv files), Google Transport Data (.txt and .dat files) Telco, Onzo and census data for demographic information.
 
 
-- Extra data(Most likely from Google) requires financial support.
+- Extra data (most likely from Google) requires financial support.
 
 
-
-- The period of time for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
-
+- The time needed for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
 
 
-- The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds so the user does not become uninterested in the application.
-
+- The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds, so the user does not become uninterested in the application.
 
 
 - The application should be able to support no more than simultaneous ten users at a time. 
 
 
-
-- The transport data will be load manually and time is depend on the amount of data, the goal is 95% of every load should occur within 5 minutes.
-
+- The transport data will be load manually and time depends on the amount of data, the goal is 95% of every load should occur within 5 minutes.
 
 
-- Database should have all the necessary data to support the application. Query should be processed based on the mode of transport, time of travel and the lat-long details. Data for different mode of transport should be stored seperately to avoid latency.
+- The database should have all the necessary data to support the application. Queries should be processed based on the chosen mode of transport, time of travel, lat-long details and other filters. Data for the different modes of transport should be stored separately to avoid latency.
 
 
-
-- Prior planning and taking necessary precautions should be made to mitigate severity of certain risks.
+- Prior planning and taking necessary precautions should be made to mitigate the severity of certain risks.
 
 
 
-#### Dependencies
+#### 6.1.2 Dependencies
 
-- The access of the application requires users to login with validated account.
-
+- The access of the application requires users to log in with a validated account.
 
 
 - The efficiency and accuracy of the application depend upon the quality and amount of the data.
 
 
-
 - The application response time depends on the amount of data and the processing of the data in the API backend interface.
-
 
 
 - The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
 
 
-
-- The transport and demographic data will be load manually and time is depend on the amount of data. 
-
+- The transport and demographic data will be load manually and time depends on the amount of data. 
 
 
-- The appliction needs run on a browser.
-
+- The application needs run on a browser.
 
 
 - Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
-
 
 
 - Query from the users requires the server establishes the connection to the database, and return the result to the user terminal.
@@ -886,25 +867,27 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 
 
 
-
 ### 6.2 Acronyms and abbreviations
 
-| Acronym/Abbreviation | Definition                                                   |
-| -------------------- | ------------------------------------------------------------ |
-| GIS                  | Geographic Information System, a system for storing and manipulating geographical information on computer. |
-| MVP                  | Minimum Viable Product, is a product with just enough features to satisfy early clients/customers, and to provide feedback for future product development. |
-| CBD                  | Central Business District, the main business and commercial area of a town or city. |
-| API                  | Application Program Interface, a set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service. |
-| Demo                 | Demonstration, a demonstration of a product or technique     |
-| Lab                  | Laboratory.                                                  |
-| App                  | Application, especially as downloaded by a user to a mobile device. |
-| CSS*                 | Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. |
-| CSV*                 | Comma-Separated Values files, delimited text file that uses a comma to separate values.(The transport data files are formatted to CVS the program is using). |
+| **Acronym/Abbreviation** | **Definition**                                                   |
+| ------------------------ | ------------------------------------------------------------ |
+| GIS                      | Geographic Information System, a system for storing and manipulating geographical information on computer. |
+| MVP                      | Minimum Viable Product, is a product with just enough features to satisfy early clients/customers, and to provide feedback for future product development. |
+| CBD                      | Central Business District, the main business and commercial area of a town or city. |
+| API                      | Application Program Interface, a set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service. |
+| Demo                     | Demonstration, a demonstration of a product or technique     |
+| Lab                      | Laboratory.                                                  |
+| App                      | Application, especially as downloaded by a user to a mobile device. |
+| CSS*                     | Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. |
+| CSV*                     | Comma-Separated Values files, delimited text file that uses a comma to separate values.(The transport data files are formatted to CVS the program is using). |
+|.txt                      | .txt is a text file used by text editors |
+|.dat                      | .dat is a generic data file which store specific information related to an application |
+|NFR                       | A non-functional requirement is a requirement that measures the system based on its performance rather than its functional behaviour |
 
 ## 7. Contributions
 
-| **Name** | **Contributions** |
-| :-------------: |:-------------:|
+| **Name**                | **Contributions** |
+| ----------------------- | ----------------- |
 | Aatharsh Vijaya Sugumar | 3.5, 3.7, 5 |
 | Doris Tam               | 1 |
 | Lavanya Sajwan          | 3.3, 3.4, 3.6, 4 |
