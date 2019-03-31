@@ -15,13 +15,15 @@ chris.vallyon@beca.com
 The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
 ### 1.2 Scope
 
-The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators to gain insight to drive their decisions by viewing a visual analysis of the transport flow data. The existing system will be able to run on any browser and potentially as a web application. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken again the distance from the origin. Users can add CSV data sets to the application to read the files. The goal is to deliver a web application which will display a terrain topographic map potentially showing the how long it takes to get into the city from different suburbs using different modes e.g. car, train and bus. Another potential deliverable is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of this system to display analysis and apply users to make insight-driven decisions made in the transport sector.
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system will be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application to read the files. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector.
+
 ### 1.3 Product overview
+
 #### 1.3.1 Product perspective
 
-The system will be a standalone web application which does not interact with a larger system and or products. It runs on a front-end view library React which uses inner libraries to organise the data sources and execute the virtualization.
+The system will be a standalone web application which does not interact with a more extensive system or any other products. It runs on a front-end view library React which uses inner libraries to organise the data sources and execute the virtualisation.
 
-The virtualization of transport analysis is created through processing CSV datasets in the system which hold information about transport networks that were recorded in real-time for an extended period.
+The virtualisation of transport analysis is created through processing CSV datasets in the system which hold information about transport networks that are recorded in real-time.
 
 The code base of the system will be written using React, a Javascript-based front-end views library. The constraints that will come with this is that it relies on the availability and understanding of specific internal libraries that aid with processing files and executing functions within the system.
 
@@ -30,33 +32,33 @@ The user interface will have two main views, one page for to instruct the user h
 
 This system will not be limited to a specific browser or operating system.
 
-For the minimum viable product, the team will produce a working web application. The user will be able to navigate to the main page and select a city and time period to display traffic flow analysis for commutes to the CBD from an origin.
-
+For the minimum viable product, the team will produce a working web application. Users will be able to navigate to the main page and select a city and time period to display traffic flow analysis for commutes to the CBD from an origin.
 
 #### 1.3.2 Product functions
 
-The application will allow the user a snapshot of the transport network flow by selecting a specific date and time of day in the navigation bar, as well as show an animated virtualization for the whole day, selected.
-Depending on the city of the observation, the map legend may be customized to adapt to more densely populated cities and enable better visualisation of the analysis on the map.
+The application will allow the user to view a snapshot of the transport network flow by selecting a specific date and time of day in the navigation bar, as well as show animated virtualisation for a specific, selected day.
 
-Upon reading the selected day, the user may select a zone nearby the origin/destination on the map to check how long it takes to get to the destination from that specific area.
+Depending on the city of observation, the map legend may be customised to adapt to more densely populated cities and enable better visualisation of networks on the map.
+
+Upon viewing the selected day, the user may select a zone nearby the origin on the map to check how long it takes to get to the destination from that specific area.
 
 The map will display a terrain topography that may include train railways and highways.
 
-The legend customization will also allow the user to toggle through speeds at which the virtualization progresses through the analysis.
+The legend customisation will also allow the user to toggle through speeds at which the virtualisation progresses through the analysis.
 
 
 #### 1.3.3 User characteristics   
 
 Over the next two years, the New Zealand transport agency and the regional council and local councils will be focusing their efforts on improving public transport because the new government direction providing public transport and alternatives to a car as the for making commutes into the CBD.
 
-Therefore, the main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand. These users will unlikely to have a technological background nor have experienced using a similar system. For this application to be effective, it requires a simple and intuitive interaction that doesn't require much effort by the user or to have previous experience or knowledge.
+The primary users of this application will Beca employees consulting members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand. These users will unlikely have a technical background nor have any experience using a similar system. For this application to be useful, it requires a simple and intuitive interaction that does not require much effort by the user or to have previous experience or knowledge.
 
-The users will likely be sharing the snapshots of the virtualization with other members of the decision-making party in meetings and talks so the map will be the main component of the view.
-
+The users will likely be sharing the snapshots of the virtualisation with other members of the decision-making party and clients in meetings so the map will be the main component of the view.
 
 #### 1.3.4 Limitations
 
-To extend this application's functionality, more datasets of other modes of transport would need to be available. The project is constrained by the accessibility to this data as it requires financial assistance and an unpredictable period of time for the client to retrieve the additional data. This limits the effectiveness of the minimum viable product as the current bus and train transport data are based on scheduled services, unlike the car transport data.
+To extend the functionality of this application, more datasets for other modes of transport are needed to be available. The project is constrained by the accessibility to this data as it requires financial assistance and an unpredictable period of time for the client to retrieve the additional data. This limits the effectiveness of the minimum viable product as the current bus and train transport data are based on scheduled services, unlike the car transport data.
+
 ## 2. References
 
 HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
@@ -74,26 +76,26 @@ WHAT ARE THE FOUR FUNDAMENTAL METHODS OF REQUIREMENT VERIFICATION?
 
 The system interfaces required for the final product consist of:
 #### User Interface
-The system will have a graphical user interface consisting of buttons, menu bars, an interactive map and data filters. All features will be interacted with through mouse input commands which will change the output of the information shown on the screen. Along the menu bar, there will be many different filters that allows users to set parameters from a list of values, this ensures the user cannot specifically enter a value that is outside of the specified range. Specific functionalities regarding user interface that require implementing are:
+The system will have a graphical user interface consisting of buttons, menu bars, an interactive map and data filters. All features will be interactive through mouse and keyboard input commands which will change the output of the information shown on the screen. Along the menu bar, there will be many different filters which will allow users to set parameters from a list of values; this ensures the user cannot enter a value that is outside of the specified range. Specific functionalities regarding user interface that require implementing are:
 * The client has stated that there are not enough filters in the current build of the program and has specified that there needs to be more filters and modes to switch between. Specific modes include
   * Being able to change the view of the map from displaying information of a weekly average down to a daily average
   * Being able to switch to a transport data map view. 
-  * Being able to animate the map through a user defined start and end date
+  * Being able to animate the map through a user-defined start and end date
 * The client has stated that information must be displayed in zones with visible data going to and from the city centre, users should not be able to select other specific origins and destinations.
 * Displayed units of measure must be fixed and consistent
   * The unit for time will always be in minutes
   * The unit for distance will be in kilometres
   * Each zone will show the transport time vs deprivation index
 * Keyboard inputs such as arrow keys and functions keys will be available for navigating the map and changing parameters, information on shortcuts and keyboard functions will be displayed under the help tab.
-* The current build of the program is optimised when ran full-screen on a 16:9 aspect ratio as distances between objects and icons are more legible and correctly spaced at this ratio and size. The client has stated that the current layout and format of the screen is good and does not need to be changed.
-* The interface will comprise of having an added help bar tab towards the top of the screen, which users can refer to when looking to troubleshoot an issue or to simply find out more about a functionality. 
-  * In the case where an error is to be thrown, there will be an error message appearing in a window that describes the issue and will refer the user to a section in the help page where the user can find out more about the issue
+* The current build of the program is optimised when ran full-screen on a 16:9 aspect ratio as distances between objects and icons are more legible and correctly spaced at this ratio and size. The client has stated that the current layout and format of the screen is good and does not need to change.
+* The interface will comprise of having an added help bar tab towards the top of the screen, which users can refer to when looking to troubleshoot an issue or to find out more about a particular functionality simply. 
+  * In the case where there is an error, there will be a message appearing in a window that describes the issue and will refer the user to a section in the help page where the user can find out more about the issue
 * The map will be displayed across the centre of the user, the user will be able to click on different areas on the map which will bring up a window containing further information about that zone.
-  * The current build of the program does not show bigger landmarks and roads such as state highways and major intersections, the client has stated that this should be implemented
-The main purpose of this user interface is to conclusively serve as a mean of visual data display allowing clients to effectively analyse traffic related data by applying different filters through different scopes. The user interface allows for clients to customise their preferences to extract useful data and assist them in make inferences
+  * The current build of the program does not show more prominent landmarks and roads such as state highways and major intersections, the client has stated that this should be implemented.
+The primary purpose of this user interface is to conclusively serve as a mean of visual data display allowing clients to effectively analyse traffic related data by applying different filters through different scopes. The user interface allows clients to customise their preferences to extract useful data and assist them in making inferences
 
 #### Software Interface
-The use of specific software products or packages have not been specified however, upon attaining and analysing the code base from the current product build, it can be concluded that the source code was written in CSS and JavaScript using frameworks comprising of React together with Redux. The data system currently works by reading locally stored, nested CSV files containing multiple rows and columns of data where each column is a parameter and each row is a new entry. 
+The use of specific software products or packages have not been specified, however, upon attaining and analysing the code base from the current product build, it is concluded that the source code was written in CSS and JavaScript using frameworks comprising of React together with Redux. The data system currently works by reading locally stored, nested CSV files containing multiple rows and columns of data where each column is a parameter and each row is a new entry. 
 The client has specified that the system should be able to read data from the following:
 * New Zealand Transport Data
   * Spreadsheet containing rows and columns
@@ -102,7 +104,8 @@ The client has specified that the system should be able to read data from the fo
   * Data files (.dat) containing tab space delimiters
 * Telco Data
 
-The client has also specified that there needs to a login system before the program can be used.
+The client has also specified that there needs to a login portal before users can access the application.
+
 The purpose of this software interface is to read the locally stored data files and display them onto the graphical user interface for the client. The software must be able to process and display the data in different ways depending on the parameters the user set.
 
 #### Hardware Interface
@@ -190,22 +193,22 @@ Process flow for the applicaton:
 * User terminal displays the results to the user.
 
 ##### User:
-User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user.
+User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user
 
 ##### User terminal:
-User terminal is an interface that connects user to the back-end application. It gathers all the required inputs from the user and interacts with vehicle and location to cross-check the validity of the input.
+The User Terminal is an interface that connects the user to the back-end application. It gathers all the required inputs from the user and interacts with the vehicle and location to cross-check the validity of the input.
 
 ##### Vehicle:
 Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
 
 ##### Location:
-Location has details about the geographical area that the application supports. As the appication scales up to support different locations, location data can be updated.
+Location has details about the geographical area that the application supports. As the application scales up to support different locations, location data can be updated.
 
 ##### Server:
-Server establishes the connection to the database, query the database and return the result back to the user terminal.
+Server establishes the connection to the database, query the database and return the result to the user terminal.
 
 ##### Database:
-Database will have all the necessary data to support the application. Query will be processed based on the mode of transport, time of travel and the lat-long details. Data related to different mode of transport will be stored seperately to avoid latency.
+Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
 > 9.5.15 Design constraints<br>
 > Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
@@ -350,7 +353,6 @@ The purpose of this section is to verify how the product will meet the important
 
 
 
-
 ## 5. Development schedule
 
 ### 5.1 Schedule
@@ -364,13 +366,13 @@ Key dates for project deliverables:
     2. Relaese 1.2 - 9 September, 2019
     3. Release 1.3 - 11 October, 2019
 
-Initial phase of the project will be focussed on the architecture and design. Data sources will be identified and the product architecture will be finalised during this phase.
+The initial phase of the project will focus on architecture and design. Data sources will be identified, and the product architecture will be finalised during this phase.
 
-Agile development methodology is being followed for product development. Entire product cycle is splitted into four MVPs (Minimum Viable Product). Each MVP consists of two sprints and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and the same will be equally distributed within the team members. The tasks will be updated on the gitlab and there should be continuous update on the progress of each task, so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), those will be pushed to the next sprint. Each sprint will have a  board on the gitlab and the tasks for that sprint will be updated on the corresponding board.  
+Agile development methodology will be followed for product development. Entire product cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
 
-There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date and the track for completion of each task will be updated during the stand-up.
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date, and the track for completion of each task will be updated during the stand-up.
 
-Demo for each MVP will be showcased to the client and the feedbacks will be considered during the planning of the next MVP. Last MVP will have a close off spirint, during which all the backlogs will be considered for completion.
+The demo for each MVP will be showcased to the client, and feedback will be taken into account during the planning of the next MVP. The last MVP will have a close off sprint, during which all the backlogs will be considered for completion.
 
 #### Architecture Design Phase - 1 April to 5 May  
 #### MVP - 7 May to 11 October  
@@ -399,11 +401,11 @@ Demo for each MVP will be showcased to the client and the feedbacks will be cons
 | ----------------------------------------------------- |:----------:|
 | Obtain required data from different sources           | 1500       |
 
-Since the application uses data to analyze the traffic volume within the city, the data has to obtained from different sources. Data from these sources has to be combined and a model has to be trained to process or the analyze data. The efficiency of the application depends upon the quality of the data. So it is essential to fetch data from trusted sources and enough data to support the usecases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information . Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyze data from different sources.
+The application uses data to analyse the traffic volume within the city, so the data has to obtained from different sources. Data from these sources has to be combined, and a model has to be trained to process or analyse the data. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyse data from different sources.
 
 ### 5.3 Risks
 
-Risk in software development is a potential problem which prevent an individual or a group of people from reaching the project goal. Risk is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss.  
+Risks in software development is a potential problem which prevents an individual or a group of people from reaching the project goal. The outcome of these is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss. 
 
 | Risks                                                 | Likelihood |   Severity  |
 | ----------------------------------------------------- |:----------:|:-----------:|
@@ -418,20 +420,20 @@ Risk in software development is a potential problem which prevent an individual 
 | Gold plating - Decoration before functionalities      | Low        |    Low      |
 | Functionalities not performing as expected            | Moderate   |    High     |  
 
-Most software development projects are inherently risky because of the variety of problems that may arise. Severity of Inevitable risks can be mitigated with prior planning and taking necessary precautions.  
+Most software development projects are inherently risky because of the variety of problems that may arise. The severity of certain risks can be mitigated with prior planning and taking necessary precautions.  
 
 | Risks                                                 | Mitigation  |
 | ----------------------------------------------------- |:-----------|
-| Resources are ill at critical times in the project    | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
+| Members are ill at critical times in the project      | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
 | Frequent changes in project requirements              | Freeze the requirements at the design stage by having frequent interactions with the client. Some degree of requirement change is allowed.   |
-| Failure to obtain data from defined sources           | Find any open source data that is required for the project and use the same if there is any discrepancy in obtaining original data from the client. |
-| Miscommunication within the team or with the client   | Clarify the understanding with the team member or with the client until its clear. Use client meetings and team stand-ups in an effective manner. |
+| Failure to obtain data from defined sources           | Find open source data that applies to the project and use it if there is any discrepancy in obtaining original data from the client. |
+| Miscommunication within the team or with the client   | Clarify understanding with the team member or with the client until it is clear. Use client meetings and team stand-ups effectively. |
 | Underestimation of development life cycle             | Invest more time on planning and the design phase. Gather all the requirements from the client at this stage and plan accordingly.  |
-| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator incase of budget issues.      |
-| Failure to arrive at proper budget estimation         | Estimate the budget according the required resources.        |
-| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert back from a particular point.    |
+| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator in case of budget issues.     |
+| Failure to arrive at proper budget estimation         | Estimate the budget according to the required resources.        |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert to a particular point.     |
 | Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
-| Functionalities not performing as expected            | Write unit test cases and perform functionality tests after completion of each functionality. Perform integration tests once completing all the necessary functionalities.          |  
+| Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |  
 
 
 ### 5.4 Health and Safety
@@ -447,18 +449,17 @@ Most software development projects are inherently risky because of the variety o
 
 | Risks                                                 | Mitigation  |
 | ----------------------------------------------------- |:-----------|
-| Occupational overuse syndrome                                 | Mix your tasks to avoid long, uninterrupted stretches of using the computer. Remove your hands from keyboard and mouse when not actively using them. |
-| Earthquake in the lab                                         | Listen carefully to the earthquake related announcements. Hide under the desk incase of an earthquake.  |
-| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
-| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator incase of work overload.   |
-| Eye strain from computer use                                  | Maintain a good distance from the monitor. Mix your tasks to avoid long, uninterrupted stretches of using the computer          |
-| Fire in the lab                                               | Listen to the fire related announcements and read the signs. Pull the nearest fire alarm as you exit the building.          |
-
+| Occupational overuse syndrome                                 | Mix tasks to avoid long, uninterrupted stretches of using the computer. Remove hands from keyboard and mouse when not actively using them. |
+| Earthquake in the lab                                         | Drop, cover and hold until shaking stops. Listen carefully to the earthquake-related announcements and evacuation staff.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone building. Take safety precautions and attend safety related inductions at the client office.  |
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator in case of work overload.   |
+| Eye strain from computer use                                  | Maintain a reasonable distance from the monitor. Mix tasks to avoid long, uninterrupted stretches of using the computer.           |
+| Fire in the lab                                               | Listen to the fire-related announcements and read the signs. Pull the nearest fire alarm while exiting the building.  
 
 
 #### 5.4.1 Safety Plans
 
-Project requirements do not involve risk of death, serious harm, harm or injury.
+Project requirements do not involve the risk of death, serious harm, or any minor injuries.
 
 ---
 
