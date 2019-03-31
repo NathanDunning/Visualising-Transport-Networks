@@ -691,8 +691,7 @@ The purpose of this section is to verify how the product will meet the important
 
 #### 4.8 Physical and Environmental Requirements Verification
 
-
-
+There are no essential physical and environmenal requirements needed for this project as the aim is to develop an application.
 
 ## 5. Development schedule
 
@@ -788,6 +787,7 @@ Most software development projects are inherently risky because of the variety o
 | Eye strain from computer use                          | Low        |    Moderate |
 | Fire in the lab                                       | Low        |    Severe   |
 
+
 | Risks                                                 | Mitigation  |
 | ----------------------------------------------------- |:-----------|
 | Occupational overuse syndrome                                 | Mix tasks to avoid long, uninterrupted stretches of using the computer. Remove hands from keyboard and mouse when not actively using them. |
@@ -815,28 +815,11 @@ One page glossary _as required_.
 
 ## 7. Contributions
 
-A one page statement of contributions that lists each member of the
-group and what they contributed to this document.
+| **Name** | **Contributions** |
+| :-------------: |:-------------:|
+| Aatharsh Vijaya Sugumar | 3.5, 3.7, 5 |  
+| Doris Tam               | 1 |
+| Lavanya Sajwan          | 3.3, 3.4, 3.6, 4 |
+| Nathan Dunning          | 3.1, 3.2, 3.8, 3.9 |
+| Tsz Kin Au              | 6 |
 
----
-
-## Formatting Rules
-
- * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) and ensure you commit your work to your team's Git repository.
- * Submit only a single PDF file generated from the Markdown using one of the common Markdown renderers.
- * Major sections should be separated by a horizontal rule.
-
-
-## Assessment
-
-Each contributor to the document will recieve an individual assessment, based on both the finished PDF, and contributions to the project visible through ``git blame``, ``git diff``, file histories, etc.  
-
-The goal of a requirements document is the problem you are attempting to solve:  not a first attempt at a solution to that problem. The most important factor in the assessmernt of the document is how will it meets that goal.  The document will be assessed for both presentation and content.
-
-The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
-
-The content will be assessed according to its clarity, consistency, relevance, critical engagement and a demonstrated understanding of the material in the course. We look for evidence these traits are represented and assess the level of performance against these traits. Each page of the report will be assessed at approximately the same value. Any material over the page limit may not be read and, as a consequence, reports that exceed the limit are unlikely to earn as high a mark as those which observe the page limit.
-
-We aim to evaluate ENGR301 documents and projects as if they were real projects rather than academic exercises &mdash; especially as they are real projects with real clients. The best way to get a good mark in a document or assessment is to do the right thing for your project, your client, and your team. We encourage you to raise questions with your tutor, project champion, or course staff, as soon as possible, so you can incorporate their feedback into your work.
-
----
