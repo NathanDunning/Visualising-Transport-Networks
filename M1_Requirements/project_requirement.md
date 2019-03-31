@@ -100,13 +100,45 @@ Reference scheme, available from the [IEEE website](https://www.ieee.org/) (pl
 
 ## 3. Specific requirements  
 
-20 pages outlining the requirements of the system.
-You should apportion these these pages across the following
-subsections to focus on the most important parts of your product.
-
 ### 3.1 External interfaces
 
-See 9.5.10. for most systems this will be around one page.
+The system interfaces required for the final product consist of:
+#### User Interface
+The system will have a graphical user interface consisting of buttons, menu bars, an interactive map and data filters. All features will be interacted with through mouse input commands which will change the output of the information shown on the screen. Along the menu bar, there will be many different filters that allows users to set parameters from a list of values, this ensures the user cannot specifically enter a value that is outside of the specified range. Specific functionalities regarding user interface that require implementing are:
+* The client has stated that there are not enough filters in the current build of the program and has specified that there needs to be more filters and modes to switch between. Specific modes include
+  * Being able to change the view of the map from displaying information of a weekly average down to a daily average
+  * Being able to switch to a transport data map view. 
+  * Being able to animate the map through a user defined start and end date
+* The client has stated that information must be displayed in zones with visible data going to and from the city centre, users should not be able to select other specific origins and destinations.
+* Displayed units of measure must be fixed and consistent
+  * The unit for time will always be in minutes
+  * The unit for distance will be in kilometres
+  * Each zone will show the transport time vs deprivation index
+* Keyboard inputs such as arrow keys and functions keys will be available for navigating the map and changing parameters, information on shortcuts and keyboard functions will be displayed under the help tab.
+* The current build of the program is optimised when ran full-screen on a 16:9 aspect ratio as distances between objects and icons are more legible and correctly spaced at this ratio and size. The client has stated that the current layout and format of the screen is good and does not need to be changed.
+* The interface will comprise of having an added help bar tab towards the top of the screen, which users can refer to when looking to troubleshoot an issue or to simply find out more about a functionality. 
+  * In the case where an error is to be thrown, there will be an error message appearing in a window that describes the issue and will refer the user to a section in the help page where the user can find out more about the issue
+* The map will be displayed across the centre of the user, the user will be able to click on different areas on the map which will bring up a window containing further information about that zone.
+  * The current build of the program does not show bigger landmarks and roads such as state highways and major intersections, the client has stated that this should be implemented
+The main purpose of this user interface is to conclusively serve as a mean of visual data display allowing clients to effectively analyse traffic related data by applying different filters through different scopes. The user interface allows for clients to customise their preferences to extract useful data and assist them in make inferences
+
+#### Software Interface
+The use of specific software products or packages have not been specified however, upon attaining and analysing the code base from the current product build, it can be concluded that the source code was written in CSS and JavaScript using frameworks comprising of React together with Redux. The data system currently works by reading locally stored, nested CSV files containing multiple rows and columns of data where each column is a parameter and each row is a new entry. 
+The client has specified that the system should be able to read data from the following:
+* New Zealand Transport Data
+  * Spreadsheet containing rows and columns
+* Google Transport Data
+  * Text files with tab space delimiters
+  * Data files (.dat) containing tab space delimiters
+* Telco Data
+
+The client has also specified that there needs to a login system before the program can be used.
+The purpose of this software interface is to read the locally stored data files and display them onto the graphical user interface for the client. The software must be able to process and display the data in different ways depending on the parameters the user set.
+
+#### Hardware Interface
+There are no specific requirements for any hardware elements of any type.
+
+
 
 ### 3.2 Functions
 
@@ -117,38 +149,93 @@ use case body (up to seven pages).  Identify the use cases that
 comprise a minimum viable product.
 
 ### 3.3 Usability Requirements
+This section aims to outline the aim of the system in terms of user experience. 
 
-See 9.5.12. for most systems this will be around one page.
+#### 3.3.1 Log In
 
-> **9.5.12 Usability requirements**<br>
-> Define usability (quality in use) requirements. Usability requirements and objectives for the software system include measurable effectiveness, efficiency, and satisfaction criteria in specific contexts of use.
+A log in portal would be useful but is not considered a necessity as there is not a need for functionality which allows users to save and load decisions on the application. Users will have all the same permissions when using the tool, so the portal opens in on the same interface for everyone.
+
+#### 3.3.2 Users 
+
+Users will be internal Beca employees and will primarily use the application as a decision-making tool to consult on transport networks for clients. Due to this, users do not necessarily have much technical experience so they are not expected to understand any programming jargon in error messages and should not need to code to use the tool.   
+
+The users are expected to be able to use the tool without too much extra learning. This is so there is a minimal cost of time spent, both by the new users and the experienced users that may be teaching them. Therefore, users should be able to use the application after a short tutorial of no longer than half an hour, and it should be easy to read.  
+
+The front-end interface should remain easy to read and pleasant to look at for user satisfaction.
+
+#### 3.3.3 Interaction
+
+Users need to be able to interact with the tool by using the mouse and clicking buttons on the front-end interface. The mouse should be able to hover over sections of the map to show the time to the origin point of interest in the CBD of the cities. Buttons should be able to respond to user requests, and mouse clicks on the map should ideally virtualise off-peak and on-peak times.  Use of the keyboard can be an added functionality to move around the transport network map but is not a necessity.
+
+"Help" messages would be a useful addition to the current software to remind the user what each button and the drop-down menus do. This information should be easy to understand and be orientated around the understanding of the user – therefore, keep the language close to transport subject and not programming. 
+
+The software does not need to be integrated with any other existing software in use at Beca.
+
+#### 3.3.4 Web Capabilities
+
+The application needs to work on Internet Explorer 11. Functionality can be added to other browsers such as Google Chrome, but users will need to be informed when opening the application.  It does not need an internet connection to run. 
 
 ### 3.4 Performance requirements
+The purpose of this section is to outline and specify static and dynamic numerical requirements which will be placed on both the software and the human interaction with the software.
 
-See 9.5.13. for most systems this will be around one page.
-Hardware projects also see section 9.4.6.
+#### 3.4.1 Response Time
 
-> **9.5.13 Performance requirements** <br>
-> Specify both the static and the dynamic numerical requirements placed on the software or on human interaction with the software as a whole.
->
-> Static numerical requirements may include the following:
->
-> a) The number of terminals to be supported;  
-> b) The number of simultaneous users to be supported;  
-> c) Amount and type of information to be handled.
->
-> Static numerical requirements are sometimes identified under a separate section entitled Capacity.
->
-> Dynamic numerical requirements may include, for example, the numbers of transactions and tasks and the amount of data to be processed within certain time periods for both normal and peak workload conditions. The performance requirements should be stated in measurable terms.
->
->  For example, "_95 % of the transactions shall be processed in less than 1 second._" rather than, "An operator shall not have to wait for the transaction to complete."
->
-> NOTE Numerical limits applied to one specific function are normally specified as part of the processing subparagraph description of that function.
+With more data intended on being acquired in order to make necessary decisions from the tool, there will be a lot more information which has to be filtered by the API backend interface. However, this should remain a relatively quick response time; no later than 10 seconds so the user does not become uninterested in the application. However, 90% of the responses should not reach 10 seconds.
+
+#### 3.4.2 Workload 
+
+The application should be able to support no more than simultaneous ten users at a time. The following is a scenario table which explains what the workload will cover as well as the think time for users for doing so. Due to the small nature of the number of individuals expected to use this tool, we expect 1400 user interactions when using this tool to consult. 
+
+| Scenario                 | Daily Total | Pages                                                                                       | Think Time |
+|--------------------------|-------------|---------------------------------------------------------------------------------------------|------------|
+| View Map Screen          | 40          | Login Portal, Interactive Map Display, Exit                                                 | 20 seconds |
+| Interact with Map Screen | 1000        | Login Portal, Interactive Map Display, Filter Types, Change Scale, Mouse Click on Map, Exit | 90 seconds |
+
+The application will be usually used later in the day as users will come into work in the morning, have meetings usually earlier in the day, and after lunch, the workload is expected to peak.  The application will then have to be able to support comparatively more interactions in the afternoon. 
+
+#### 3.4.3 Data Details
+
+The data used for the application to run will be three times the data currently available. Moreover, the CSV files will be manually loaded and as time is dependent on the amount; we expect this may be a lengthy process. However, we aim to make it no longer than 5 minutes though the client was not too bothered by time constraints. The aim is to have 95% of every load to occur under 5 minutes.
+
+### 3.5 Logical database requirements
+Identified classes are:
+* user
+* user terminal
+* location
+* vehicle
+* server
+* database
+
+![image](https://drive.google.com/uc?export=view&id=1uthiaR9KXYPtLD8d5fIdD4p2CY80Lsb7)
 
 
-### 3.6 Design constraints
+Process flow for the applicaton:
+* User logs in.
+* User enters the necessary details.
+* User terminal gathers required details.
+* User can only choose from the available transport options and the location details.
+* User terminal establishes a connection through server.
+* Server interacts with the database to process the request.
+* Database returns appropriate results.
+* User terminal displays the results to the user.
 
-see 9.5.15 and 9.5.16. for most systems, this will be around one page.
+##### User:
+User will be the primary actor to interact with the application through user interface. The query to process will be formed based on the input provided by the user.
+
+##### User terminal:
+User terminal is an interface that connects user to the back-end application. It gathers all the required inputs from the user and interacts with vehicle and location to cross-check the validity of the input.
+
+##### Vehicle:
+Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
+
+##### Location:
+Location has details about the geographical area that the application supports. As the appication scales up to support different locations, location data can be updated.
+
+##### Server:
+Server establishes the connection to the database, query the database and return the result back to the user terminal.
+
+##### Database:
+Database will have all the necessary data to support the application. Query will be processed based on the mode of transport, time of travel and the lat-long details. Data related to different mode of transport will be stored seperately to avoid latency.
 
 > 9.5.15 Design constraints<br>
 > Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
