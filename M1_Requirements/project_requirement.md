@@ -583,11 +583,15 @@ Performance is the amount of useful work accomplished by a computer system. Comp
 
 ### 3.8 Physical and Environmental Requirements 
 As the system will be fully software orientated, there are no physical requirements for this system as it does not require the use of any hardware.
+There are also no strict memory requirements as the application will be run off of work computers. 
 The system will not have to worry about any environmental factors as the system will be deployed through a web server.
 
 ### 3.9 Supporting information
-
-see 9.5.19.
+The system will have an input format of nested CSV files, output will be displayed on an interactive map on the graphical user interface.
+The system is designed to be used as a tool for analysing traffic data to and from city centres. The data will be analysed on zones comprised of New Zealand Census data. The tool will be used to help traffic engineers solve complex traffic problems throughout the country.
+The tool should be able to identify common problems such as bottlenecking as well as more refined searches on a specific area to identify when and where exactly queuing starts from.
+The source code is written using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+All enlisted supporting information can and will be considered as part of the system requirements.
 
 ## 4. Verification
 
