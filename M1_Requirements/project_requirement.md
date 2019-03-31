@@ -559,11 +559,8 @@ Performance is the amount of useful work accomplished by a computer system. Comp
 * Reliability of the data.
 
 ### 3.8 Physical and Environmental Requirements 
-
-For systems with hardware components, identify the physical
-characteristics of that hardware (9.4.10) and environment conditions
-in which it must operate (9.4.11).  Depending on the project, this
-section may be from one page up to 5 pages.
+As the system will be fully software orientated, there are no physical requirements for this system as it does not require the use of any hardware.
+The system will not have to worry about any environmental factors as the system will be deployed through a web server.
 
 ### 3.9 Supporting information
 
