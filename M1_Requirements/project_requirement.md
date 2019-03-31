@@ -502,12 +502,61 @@ after values.
 
 ### 3.7 Nonfunctional system attributes
 
-Present the systemic (aka nonfunctional) requirements of the product
-(see ISO/IEC 25010).
-List up to twenty systemic requirements / attributes.
-Write a short natural language description of the top nonfunctional
-requirements (approx. five pages).
+ A non-functional requirement (NFR) is a requirement that measures the system based on its performance rather than its functional behaviour. It defines how the system is supposed to be, while the functional requirements defines how the system is supposed to work. Some of the non-functional requirements are listed below:
+ 
+ * Data integrity
+ * Avaliability
+ * Scalability
+ * Maintaiability
+ * Documentation
+ * Security
+ * Reusability
+ * Performance
+ * Testability
+ * Throughput
+ * Transparency
+ * Usability
+ * Durability
+ * Cost management
+ * Portability
+ * Testablity
+ * Compatibility
+ * Resilience 
+ * Stability
+ * Operability
+ 
+ Product should be designed in a way to accomodate the below mentioned critical non-functional requirements.
+ 
+**Usability:**
+System should ensure ease of use to the end user. The layout of the system should be easy to percieve and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
 
+ **Data integrity:**
+ Data integrity refers to the quality or validity of the data. As the system depends on the data for processing, integrity of the data has to be assured for the optimal performance of the system. Any unintended changes in the data as a result of storage, processing, system failure and human error results in the failure of data integrity.
+ 
+**Availability:**
+Availability is the amount of time a system is in an accessible state. It involves all the pre calculated system downtime and maintenance period. High availability of system results to high reliability. 
+
+**Scalability:**
+It refers to the capacity of the system to handle higher load and its potential to enlarge to accommodate that growth. Product should be desinged in a way to accomodate new data sources in the future for better performance of the system. A benchmark should be set for the throughput of the system.
+
+**Documentation:**
+An important non functional requirement of any product is its documentation. It gives clarity about the system to anyone who develops or maintains the same. Technical documents and non-technical documents should be updated and maintained periodically.
+
+**Maintainability:**
+Maintainability involves a system of continuous improvement - learning from the past in order to improve the ability to maintain systems, or improve reliability of systems based on maintenance experience. Documentation auguments maintainability.
+
+**Securtity:**
+Security refers the protection of the system from possible harm. It invloves both cyber security and physical security. For example, security of the code refers to frequent update on the git repository which will minimise the chance of losing the changes because of any workstation failure. 
+
+**Reusability:**
+Capacity of the system to reuse any existing assets during software development process. This involves software components, test cases and even documentation. Concept of reusability eliminates the issue of redundancy and improves the efficiency of the system.  
+
+**Performance:**
+Performance is the amount of useful work accomplished by a computer system. Computer performance is estimated in terms of accuracy, efficiency and speed of executing the requests. The following factors should be considered to ensure higher performance of the system:
+* Short response time for a given request.
+* High throughput.
+* High availability of the system.
+* Reliability of the data.
 
 ### 3.8 Physical and Environmental Requirements 
 
