@@ -1,5 +1,4 @@
-
-# ENGR 301 Project *NN* Project Proposal and Requirements Document
+# ENGR 301 Project *07* Project Proposal and Requirements Document
 #### Aatharsh Vijaya Sugumar, Doris Tam, Lavanya Sajwan, Nathan Dunning, Tsz Au
 
 ## 1. Introduction
@@ -61,11 +60,11 @@ To extend the functionality of this application, more datasets for other modes o
 
 ## 2. References
 
-[1] HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
-<br>1202Performance. (2019). How to write Performance Requirements with Example. [online] Available at: http://www.1202performance.com/atricles/how-to-write-performance-requirements-with-example/ [Accessed 31 Mar. 2019].
-
-[2] USABILITY FIRST - ABOUT USABILITY - REQUIREMENTS SPECIFICATION | USABILITY FIRST
+[1] USABILITY FIRST - ABOUT USABILITY - REQUIREMENTS SPECIFICATION | USABILITY FIRST
 <br>Usabilityfirst.com. (2019). Usability First - About Usability - Requirements Specification | Usability First. [online] Available at: http://www.usabilityfirst.com/about-usability/requirements-specification/ [Accessed 31 Mar. 2019].
+
+[2] HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
+<br>1202Performance. (2019). How to write Performance Requirements with Example. [online] Available at: http://www.1202performance.com/atricles/how-to-write-performance-requirements-with-example/ [Accessed 31 Mar. 2019].
 
 [3] WHAT ARE THE FOUR FUNDAMENTAL METHODS OF REQUIREMENT VERIFICATION?
 <br>Modernanalyst.com. (2019). What are the four fundamental methods of requirement verification?. [online] Available at: https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx [Accessed 28 Mar. 2019].
@@ -128,7 +127,7 @@ use case body (up to seven pages).  Identify the use cases that
 comprise a minimum viable product.
 
 ### 3.3 Usability Requirements
-This section aims to outline the aim of the system in terms of user experience [2]. 
+This section aims to outline the aim of the system in terms of user experience [[1]](http://www.usabilityfirst.com/about-usability/requirements-specification/). 
 
 #### 3.3.1 Log In
 
@@ -155,7 +154,7 @@ The software does not need to be integrated with any other existing software in 
 The application needs to work on Internet Explorer 11. Functionality can be added to other browsers such as Google Chrome, but users will need to be informed when opening the application.  It does not need an internet connection to run. 
 
 ### 3.4 Performance requirements
-The purpose of this section is to outline and specify static and dynamic numerical requirements which will be placed on both the software and the human interaction with the software [1].
+The purpose of this section is to outline and specify static and dynamic numerical requirements which will be placed on both the software and the human interaction with the software [[1]](http://www.1202performance.com/atricles/how-to-write-performance-requirements-with-example/).
 
 #### 3.4.1 Response Time
 
@@ -228,13 +227,13 @@ The specifies constraints on the system design imposed by external standards, re
 
 **Style**: The client is content with the current simplistic design of the interface. Therefore, this style guide should be maintained when adding extra functionality to the application.
 
-**Usability**: Principle of Least Astonishment needs to be followed in order to not overly complicate the users understanding of the system and lower the “learning curve” [4].
+**Usability**: Principle of Least Astonishment needs to be followed in order to not overly complicate the users understanding of the system and lower the “learning curve” [[4]](https://simplicable.com/new/principle-of-least-astonishment).
 
 **Integration**: This is not a necessity as the application does not need to be used with other systems or products. It is a standalone tool.
 
 #### 3.6.2 Standards compliance
 
-Due to the sensitive information of data and the private nature of the sources of the said data, there has to be a level of privacy with the information. Documentation of project sprints and minutes and commits have to be thorough in order to maintain non-repudiation [5] in case a leak is to occur. This is to prove that there has been care with the information and also provide an audit trail for digital forensics [5]. Additionally, if something bad were to occur, documentation can avoid reputational risk [5] for team members, Victoria University of Wellington, and Beca themselves. 
+Due to the sensitive information of data and the private nature of the sources of the said data, there has to be a level of privacy with the information. Documentation of project sprints and minutes and commits have to be thorough in order to maintain non-repudiation [[5]](https://simplicable.com/new/compliance) in case a leak is to occur. This is to prove that there has been care with the information and also provide an audit trail for digital forensics [[5]](https://simplicable.com/new/compliance). Additionally, if something bad were to occur, documentation can avoid reputational risk [5](https://simplicable.com/new/compliance) for team members, Victoria University of Wellington, and Beca themselves. 
 
 As Beca also gets audited for monetary reasons, documentation also has to be provided to prove that this is a viable product and not a “waste of money” to the external company doing the audit as currently, it has no profitable benefits.  
 
@@ -281,7 +280,7 @@ see 9.5.19.
 
 ## 4. Verification
 
-The purpose of this section is to verify how the product will meet the important requirements [3].
+The purpose of this section is to verify how the product will meet the important requirements [[3]](https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx).
 
 ### 4.1 External Interfaces Verification
 
@@ -353,18 +352,29 @@ The purpose of this section is to verify how the product will meet the important
 |-----------------------------------------------------------------------------------------------------------------------------------|
 | Test to measure the time it takes to load and record the findings. Find the average in order to mitigate any variance in times.   |
 
-### 4.5 Design Constraints Verification
+### 4.5 Logical Database Requirements Verification
 
-### 4.6 Non-functional Requirements Verificaton
+| **Requirement**: Data related to the different mode of transport will be stored separately to avoid latency<br> **Verification method**: Testing, Analysis|
+|:--------------------------------------------------------------------|
+| Testing and analysis needs to occur side-by-side in order to measure the latency and ensure that it is not too time consuming for the user |
+
+### 4.6 Design Constraints Verification
+
+| **Requirement**: Documentation<br> **Verification method**: Analysis|
+|:--------------------------------------------------------------------|
+| Documentation and commits must frequently occur for digital audit trails as well as within team communication |
+
+### 4.7 Non-functional Requirements Verificaton
 
 | **Requirement**: Data Integrity<br> **Verification method**:  Inspection|
 |:--------------------------------------------------------------------|
 | Due to the possible privacy issues with the data held and that this tool will be needed to make accurate decisions. Data cannot be changed. Human error will cause these issues, so the team has to be cautious when dealing with the data |
-<br>
  
 | **Requirement**: Maintainability <br> **Verification method**: Analysis |
 |:------------------------------------------------------------------------|
 | The code needs to be well documented for the understanding of the team as well as future handoff to client so they can build upon the application and understand how it works. |
+
+#### 4.8 Physical and Environmental Requirements Verification
 
 
 
