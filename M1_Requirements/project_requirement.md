@@ -61,14 +61,20 @@ To extend the functionality of this application, more datasets for other modes o
 
 ## 2. References
 
-HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
+[1] HOW TO WRITE PERFORMANCE REQUIREMENTS WITH EXAMPLE
 <br>1202Performance. (2019). How to write Performance Requirements with Example. [online] Available at: http://www.1202performance.com/atricles/how-to-write-performance-requirements-with-example/ [Accessed 31 Mar. 2019].
 
-USABILITY FIRST - ABOUT USABILITY - REQUIREMENTS SPECIFICATION | USABILITY FIRST
+[2] USABILITY FIRST - ABOUT USABILITY - REQUIREMENTS SPECIFICATION | USABILITY FIRST
 <br>Usabilityfirst.com. (2019). Usability First - About Usability - Requirements Specification | Usability First. [online] Available at: http://www.usabilityfirst.com/about-usability/requirements-specification/ [Accessed 31 Mar. 2019].
 
-WHAT ARE THE FOUR FUNDAMENTAL METHODS OF REQUIREMENT VERIFICATION?
-<br>Modernanalyst.com. (2019). What are the four fundamental methods of requirement verification?. [online] Available at: https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx [Accessed 31 Mar. 2019].
+[3] WHAT ARE THE FOUR FUNDAMENTAL METHODS OF REQUIREMENT VERIFICATION?
+<br>Modernanalyst.com. (2019). What are the four fundamental methods of requirement verification?. [online] Available at: https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1168/What-are-the-four-fundamental-methods-of-requirement-verification.aspx [Accessed 28 Mar. 2019].
+
+[4] SPACEY, J. Design: Principle Of Least Astonishment
+<br> Simplicable, 2019. [Online]. Available: https://simplicable.com/new/principle-of-least-astonishment. [Accessed: 01 Apr , 2019].
+
+[5] SPACEY, J. 30+ Compliance Terms
+<br> Simplicable, 2019. [Online]. Available: https://simplicable.com/new/compliance. [Accessed: 01 Apr , 2019].
 
 ## 3. Specific requirements  
 
@@ -122,7 +128,7 @@ use case body (up to seven pages).  Identify the use cases that
 comprise a minimum viable product.
 
 ### 3.3 Usability Requirements
-This section aims to outline the aim of the system in terms of user experience. 
+This section aims to outline the aim of the system in terms of user experience [2]. 
 
 #### 3.3.1 Log In
 
@@ -149,7 +155,7 @@ The software does not need to be integrated with any other existing software in 
 The application needs to work on Internet Explorer 11. Functionality can be added to other browsers such as Google Chrome, but users will need to be informed when opening the application.  It does not need an internet connection to run. 
 
 ### 3.4 Performance requirements
-The purpose of this section is to outline and specify static and dynamic numerical requirements which will be placed on both the software and the human interaction with the software.
+The purpose of this section is to outline and specify static and dynamic numerical requirements which will be placed on both the software and the human interaction with the software [1].
 
 #### 3.4.1 Response Time
 
@@ -210,20 +216,29 @@ Server establishes the connection to the database, query the database and return
 ##### Database:
 Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
-> 9.5.15 Design constraints<br>
-> Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
->
-> 9.5.16 Standards compliance<br>
-> Specify the requirements derived from existing standards or regulations, including:
->
-> a) Report format;<br>
-> b) Data naming;<br>
-> c) Accounting procedures;<br>
-> d) Audit tracing.
->
-> For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
-may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
-after values.
+### 3.6 Design Constraints
+
+The specifies constraints on the system design imposed by external standards, regulatory requirements, or project limitations, and the requirements derived from existing standards or regulations.
+
+#### 3.6.1 Design Constraints
+
+**Commercial Constraints**: There is an unknown budget, and the money we require in order to obtain data could comparatively be too costly compared to it. 
+
+**Team Constraints**: The team also has a limited amount of time in order to complete this project. Most team members also have other jobs and all study full time so have to delegate time to tasks outside of this course.
+
+**Style**: The client is content with the current simplistic design of the interface. Therefore, this style guide should be maintained when adding extra functionality to the application.
+
+**Usability**: Principle of Least Astonishment needs to be followed in order to not overly complicate the users understanding of the system and lower the “learning curve” [4].
+
+**Integration**: This is not a necessity as the application does not need to be used with other systems or products. It is a standalone tool.
+
+#### 3.6.2 Standards compliance
+
+Due to the sensitive information of data and the private nature of the sources of the said data, there has to be a level of privacy with the information. Documentation of project sprints and minutes and commits have to be thorough in order to maintain non-repudiation [5] in case a leak is to occur. This is to prove that there has been care with the information and also provide an audit trail for digital forensics [5]. Additionally, if something bad were to occur, documentation can avoid reputational risk [5] for team members, Victoria University of Wellington, and Beca themselves. 
+
+As Beca also gets audited for monetary reasons, documentation also has to be provided to prove that this is a viable product and not a “waste of money” to the external company doing the audit as currently, it has no profitable benefits.  
+
+This application should hold information securely in order to provide useful data visualisation to the users. Therefore, data should not be able to be changed. Otherwise, Beca may provide incorrect decisions to the broader government and transport officials who are the clients that they are consulting. 
 
 ### 3.7 Nonfunctional system attributes
 
@@ -266,7 +281,7 @@ see 9.5.19.
 
 ## 4. Verification
 
-The purpose of this section is to verify how the product will meet the important requirements.
+The purpose of this section is to verify how the product will meet the important requirements [3].
 
 ### 4.1 External Interfaces Verification
 
@@ -350,6 +365,7 @@ The purpose of this section is to verify how the product will meet the important
 | **Requirement**: Maintainability <br> **Verification method**: Analysis |
 |:------------------------------------------------------------------------|
 | The code needs to be well documented for the understanding of the team as well as future handoff to client so they can build upon the application and understand how it works. |
+
 
 
 
