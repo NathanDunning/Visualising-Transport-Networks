@@ -504,24 +504,6 @@ As Beca also gets audited for monetary reasons, documentation also has to be pro
 
 This application should hold information securely in order to provide useful data visualisation to the users. Therefore, data should not be able to be changed. Otherwise, Beca may provide incorrect decisions to the broader government and transport officials who are the clients that they are consulting. 
 
-### 3.7 Nonfunctional system attributes
-
-see 9.5.15 and 9.5.16. for most systems, this will be around one page.
-
-> 9.5.15 Design constraints<br>
-> Specify constraints on the system design imposed by external standards, regulatory requirements, or project limitations.
->
-> 9.5.16 Standards compliance<br>
-> Specify the requirements derived from existing standards or regulations, including:
->
-> a) Report format;<br>
-> b) Data naming;<br>
-> c) Accounting procedures;<br>
-> d) Audit tracing.
->
-> For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement
-may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and
-after values.
 
 ### 3.7 Nonfunctional system attributes
 
@@ -692,6 +674,10 @@ The purpose of this section is to verify how the product will meet the important
 #### 4.8 Physical and Environmental Requirements Verification
 
 There are no essential physical and environmenal requirements needed for this project as the aim is to develop an application.
+
+#### 4.9 Supporting Infromation Verification
+
+The information in the mirrored subsection of 3.9 has been covered in prior verifications.
 
 ## 5. Development schedule
 
