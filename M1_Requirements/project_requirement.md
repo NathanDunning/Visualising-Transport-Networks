@@ -260,32 +260,94 @@ _If the project is purely software and requires no contact risks involving physi
 ## 6. Appendices
 ### 6.1 Assumptions and dependencies 
 
-### Assumptions
+#### Assumptions
 
 - The main users of this application will be members of local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
+
+
+
 - The users are not need to coding to use the application, therefore they are not expected to have technological background nor have experienced using a similar system and understanding of any programming terminologies.
+
+
+
 - The users are not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
+
+
+
 - A Log-in system of the application would be uesful but is not considered a necessity since the users will all have the some permissions when using the application and there is not need a functionality that allows users to save and load decisions on the application.
+
+
+
 - Application should be user friendly, users can interact with the application intuitively which means by simply moving and clicking buttons on the front-end interface with mouse to achieve the functions and view the results. A "Help" tool should be added.
+
+
+
 - The application should be run and work on Internet Explorer 11 and does not need an Internet connection to run. Functionality can be added to other browsers.
+
+
+
 - More data datasets of other modes of transport such as texi and car are needed to make necessary decisions from the tool ,to extend this application's functionality. Which are New Zealand Transport Data(.csv files), Google Transport Data(.txt and .dat files) Telco, Onzo and census data for demographic information.
+
+
+
 - Extra data(Most likely from Google) requires financial support.
+
+
+
 - The period of time for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
+
+
+
 - The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds so the user does not become uninterested in the application.
+
+
+
 - The application should be able to support no more than simultaneous ten users at a time. 
+
+
+
 - The transport data will be load manually and time is depend on the amount of data, the goal is 95% of every load should occur within 5 minutes.
+
+
+
 - Database should have all the necessary data to support the application. Query should be processed based on the mode of transport, time of travel and the lat-long details. Data for different mode of transport should be stored seperately to avoid latency.
+
+
+
 - Prior planning and taking necessary precautions should be made to mitigate severity of certain risks.
+
+
 
 #### Dependencies
 
 - The access of the application requires users to login with validated account.
+
+
+
 - The efficiency and accuracy of the application depend upon the quality and amount of the data.
+
+
+
 - The application response time depends on the amount of data and the processing of the data in the API backend interface.
+
+
+
 - The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+
+
+
 - The transport and demographic data will be load manually and time is depend on the amount of data. 
+
+
+
 - The appliction needs run on a browser.
+
+
+
 - Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
+
+
+
 - Query from the users requires the server establishes the connection to the database, and return the result to the user terminal.
 
 
