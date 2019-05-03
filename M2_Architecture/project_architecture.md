@@ -34,11 +34,13 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### Client
 
-Identify the client and their contact details.
+| Name                   | Organisation | Role            | Contact Details         |
+| ----                   | ------------ | ----            | ---------------         |
+| Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system.
+The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
 
 ### 1.2 Scope
 
