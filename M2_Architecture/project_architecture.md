@@ -107,7 +107,12 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.3 Process
-...
+This section provides an overview of the system processes and communication between them; including any weaknesses.
+
+The system has two main processes:
+1. Web Application. 
+2. Database.  
+
 
 ### 4.4 Physical 
 ...
