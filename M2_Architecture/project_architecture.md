@@ -51,8 +51,18 @@ If the requirement have changed significantly since the requirements document, o
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB).
-(1 page, longer if required)
+[1] Wikipedia, "Agile software development", wikipedia.com, Section 6 [22 November 2018] [Online] Available:
+<br>https://en.wikipedia.org/wiki/Agile_software_development#Agile_software_development_practices [Accessed 26 March 2019] 
+
+[2] Future plc, "Top 10 Software Development Risks",IT Pro Portal, Section 1 & 7 [2019] [online] Available:
+<br>https://www.itproportal.com/2010/06/14/top-ten-software-development-risks/ [Accessed 27 March 2019] 
+
+[3] Betterhealth, "Workplace safety - overuse injuries",Betterhealth.vic.gov.au, Para.1 [2019] [online] Availbale:
+<br>https://www.betterhealth.vic.gov.au/health/healthyliving/workplace-safety-overuse-injuries [Accessed 27 March 2019]
+
+[4] Wikipedia, "Geographic information system", wikipedia.com [12 Apr 2019] [Online] Available:
+<br>https://en.wikipedia.org/w/index.php?title=Geographic_information_system&action=history [Accessed 26 March 2019]
+
 
 ## 3. Architecture
 
@@ -112,46 +122,128 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ## 5. Development Schedule
+The date of deliverable for Architectural prototype, schedule and number of sprints for MVP1 has been changed from the original requirements to incorporate the number of issues identified during MVP planning.
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
+Key dates for project deliverables:
+1. Architectural prototype - 26 May, 2019
+1. Minimum viable product - 7 June, 2019
+1. Further releases:
+    1. Release 1.1 - 8 August, 2019
+    2. Relaese 1.2 - 9 September, 2019
+    3. Release 1.3 - 11 October, 2019
 
-Schedules must be justified and supported by evidence; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justification or supporting evidence then both must be provided here.
+The initial phase of the project will focus on architecture and design. Data sources will be identified, and the product architecture will be finalised during this phase.
 
-### 5.1 Schedule
+Agile development methodology [1] will be followed for product development. Entire product cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
 
-Identify dates for key project deliverables:
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date, and the track for completion of each task will be updated during the stand-up.
 
-1. prototype(s).
-1. first deployment to the client.
-1. further releases required or specified by the client.
+The demo for each MVP will be showcased to the client, and feedback will be taken into account during the planning of the next MVP. The last MVP will have a close off sprint, during which all the backlogs will be considered for completion.
 
-(1 page).
+#### Architecture Design Phase - 1 April to 5 May  
+#### MVP - 8 Apr to 11 October
+1. MVP1 (8 Apr to 9 June)
+    1. Sprint1 - 8 Apr to 28 Apr
+    2. Sprint2 - 29 Apr to 12 May
+    3. Sprint3 - 13 May to 26 May
+    4. Sprint4 - 27 May to 9 June
+
+#### 3. Further Releas
+2. MVP2 (8 July to 8 August)
+    1. Sprint1 - 8 July to 20 July
+    2. Sprint2 - 21 July to 8 August
+
+
+3. MVP3 (9 August to 9 September)
+    1. Sprint1 - 9 August to 21 August
+    2. Sprint2 - 22 August to 9 September
+
+
+4. MVP4 (10 September to 11 October)
+    1. Sprint1 - 10 September to 23 September
+    2. Sprint2 - 24 September to 11 October (close-off sprint)
 
 ### 5.2 Budget and Procurement
-
 #### 5.2.1 Budget
+| Budget Item                                           | Budget     |
+| ----------------------------------------------------- |:----------:|
+| Obtain required data from different sources           | 1500       |
 
-Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
-
-(1 page). 
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined, and a model has to be trained to process or analyse the data. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyse data from different sources.
 
 #### 5.2.2 Procurement
+| Procurement Item                                      | Source            |
+| ----------------------------------------------------- |:-----------------:|
+| Travel Data                                           | Google Maps API   |
+| Demographic Data                                      | Census Data       |
+| GIS Tool (open source)                                | QGIS              |
 
-Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
-(1 page).
+Application maps travel data to estimate the time taken to reach a particular point in map (wellington CBD in this case) from different regions of wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
 
-### 5.3 Risks 
+Demographic data from Census 2013 will be used to map the population metrics for different regions of wellington. This will be combined with travel data to identify regions where the time taken to reach the destination as well as the population of that region are quite high. These will be the potential hotspots for improving public transport.
 
-Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
+GIS applications are tools that are used to create interactive queries, analyze spatial information, edit data in maps, and present the results of all these operations [4]. Demographic data will be overlaid on the geographic information and analysis will be done using the GIS tool.
+
+### 5.3 Risks
+
+Risks in software development is a potential problem which prevents an individual or a group of people from reaching the project goal [2]. The outcome of these is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss. 
+
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Resources are ill at critical times in the project    | Low        |    Severe   |
+| Frequent changes in project requirements              | Low        |    Severe   |
+| Failure to obtain data from defined sources           | Moderate   |    Critical |
+| Miscommunication within the team or with the client   | Moderate   |    Moderate |
+| Underestimation of development life cycle             | Low        |    Critical |
+| Financial risks to obtain resources                   | Moderate   |    High     |
+| Failure to arrive at proper budget estimation         | Low        |    High     |
+| Loss of data or code due to workstation failure       | Moderate   |    High     |
+| Gold plating - Decoration before functionalities      | Low        |    Low      |
+| Functionalities not performing as expected            | Moderate   |    High     |
+
+Most software development projects are inherently risky because of the variety of problems that may arise [3]. The severity of certain risks can be mitigated with prior planning and taking necessary precautions.  
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Members are ill at critical times in the project      | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
+| Frequent changes in project requirements              | Freeze the requirements at the design stage by having frequent interactions with the client. Some degree of requirement change is allowed.   |
+| Failure to obtain data from defined sources           | Find open source data that applies to the project and use it if there is any discrepancy in obtaining original data from the client. |
+| Miscommunication within the team or with the client   | Clarify understanding with the team member or with the client until it is clear. Use client meetings and team stand-ups effectively. |
+| Underestimation of development life cycle             | Invest more time on planning and the design phase. Gather all the requirements from the client at this stage and plan accordingly.  |
+| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator in case of budget issues.     |
+| Failure to arrive at proper budget estimation         | Estimate the budget according to the required resources.        |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert to a particular point.     |
+| Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
+| Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |
+
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety.
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Occupational overuse syndrome                         | Moderate   |    Severe   |
+| Earthquake in the lab                                 | Low        |    High     |
+| Injury while attending a meeting at client office     | Low        |    High     |
+| Mental stress because of the workload                 | Moderate   |    High     |
+| Eye strain from computer use                          | Low        |    Moderate |
+| Fire in the lab                                       | Low        |    Severe   |
+
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Occupational overuse syndrome                                 | Mix tasks to avoid long, uninterrupted stretches of using the computer. Remove hands from keyboard and mouse when not actively using them. |
+| Earthquake in the lab                                         | Drop, cover and hold until shaking stops. Listen carefully to the earthquake-related announcements and evacuation staff.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone building. Take safety precautions and attend safety related inductions at the client office.  |
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator in case of work overload.   |
+| Eye strain from computer use                                  | Maintain a reasonable distance from the monitor. Mix tasks to avoid long, uninterrupted stretches of using the computer.           |
+| Fire in the lab                                               | Listen to the fire-related announcements and read the signs. Pull the nearest fire alarm while exiting the building.  
+
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements.
+Project requirements do not involve the risk of death, serious harm, or any minor injuries.
 
+---
 
 ## 6. Appendices
 
