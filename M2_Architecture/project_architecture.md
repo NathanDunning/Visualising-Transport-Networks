@@ -114,16 +114,18 @@ Each architectural view should include at least one architectural model. If arch
 The application will be designed based on a simple three-tier architecture. Three-tier architecture provides modularity to the application by seperating presentation, application and the data layer. This provides flexibility to update a specific part of the application without affecting other parts. This added flexibility improves development life cycle time and also the reusability of the system, as one tier can be replaced or upgraded without affecting the other layers.
 
 #### Package Diagram:
-![image](https://drive.google.com/uc?export=view&id=1LzWOWC2at_wIIe9j53_mwl7GRpca9lRX)
+
+![image](https://drive.google.com/uc?export=view&id=1hn_FDjijMDbv3F2MUixF85v3JLzHLO7M)
 
 ##### Presentation Layer:
 The presentation tier is the front end layer in the three-tier system and consists of the user interface and the presentation logic. The user interface is accessible through a web browser or web-based application and which displays content and useful information to an end user. This tier will be built on React web technology and communicates with the application layer through REST API calls. Security of the application will be implemented by having a login page which will use spring security API at the backend.
 
 ##### Application Layer:
-The application tier contains the functional business logic which drives the application’s core capabilities. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using JDBC. JDBC is a Java API to connect and execute the query with the database. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application.
+The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using JDBC. JDBC is a Java API to connect and execute the query with the database. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application.
 
 ##### Data Layer:
 The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database.
+
 
 ### 4.3 Process
 ...
