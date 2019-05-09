@@ -71,13 +71,13 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4) 
+(1 page, 42010 5.4)
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
 
 ### 4. Architectural Views
 
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288) 
+(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288)
 
 Describe your system's architecture in a series of architectural views, each view corresponding to one viewpoint.
 
@@ -86,7 +86,7 @@ You should include views from the following viewpoints (from Kruchten's 4+1 mode
  * Logical
  * Development
  * Process
- * Physical 
+ * Physical
  * Scenarios - present scenarios illustrating how two of your most important use cases are supported by your architecture
 
 As appropriate you should include the following viewpoints:
@@ -105,11 +105,17 @@ Each architectural view should include at least one architectural model. If arch
 ### 4.3 Process
 ...
 
-### 4.4 Physical 
+### 4.4 Physical
 ...
 
 ### 4.5 Scenarios
-...
+![Figure 1](https://drive.google.com/open?id=1irek5I1sikwNU2LfeO971zN8tVGV7Zdk)
+
+Figure 1
+
+From figure 1, it is clear that the program will be made up using two main sub-systems. The Interactive Map System, which will offer the interface between the User and the Transporting program. The Interactive Map System is the only way the user will be able to access the transporting program. The Interactive Map System will essentially be a graphical user interface which the user can use extract information by changing different parameters. The returned information will be displayed either visually or textually to the user.
+
+The Data Management System, which can also be referred to as the back-end, can be decomposed into two smaller parts where one is a dependency of the other; one part will responsible for storing the data in a database using correct formatting, the other part will be responsible for managing requests given by the user as parameters through a Representational State Transfer design, creating relevant queries to obtain data from the database as well as process data returned from the database. The Data Management system will also be responsible for handling any errors that arise from this process.
 
 ## 5. Development Schedule
 
@@ -133,14 +139,14 @@ Identify dates for key project deliverables:
 
 Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
-(1 page). 
+(1 page).
 
 #### 5.2.2 Procurement
 
 Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
 (1 page).
 
-### 5.3 Risks 
+### 5.3 Risks
 
 Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
 
@@ -155,13 +161,13 @@ Safety Plans may be required for some projects, depending on project requirement
 
 ## 6. Appendices
 
-### 6.1 Assumptions and dependencies 
+### 6.1 Assumptions and dependencies
 
-one page on assumptions and dependencies (9.5.7) 
+one page on assumptions and dependencies (9.5.7)
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required 
+one page glossary as required
 
 ## 7. Contributions
 
@@ -169,20 +175,20 @@ A one page statement of contributions that lists each member of the group and wh
 
 ---
 
-## Formatting Rules 
+## Formatting Rules
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) in your team's Git repository.
  * Submit only a single PDF file generated from the Markdown.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment 
+## Assessment
 
 This assessment will be weighted at 20% on the architectural proof-of-concept(s), and 80% on the architecture document.
 
 The proof-of-concept will be assessed for coverage (does it demonstrate all the technologies needed in your project, and all the technologies needed to build your project?) and quality (with an emphasis on simplicity, modularity, and modifiability).
 
-The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc. 
+The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
