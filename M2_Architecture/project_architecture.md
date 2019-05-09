@@ -103,17 +103,17 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle:
 
-​	1.Failure to obtain data from defined sources
+​	a.Failure to obtain data from defined sources
 
-​	2.Financial risks to obtain resources
+​	b.Financial risks to obtain resources
 
-​	3.Loss of data or code due to workstation failure
+​	c.Loss of data or code due to workstation failure
 
-​	4.Functionalities not performing as expected
+​	d.Functionalities not performing as expected
 
-​	5.Miscommunication within the team or with the client
+​	e.Miscommunication within the team or with the client
 
-​	6.Resources are ill at critical times in the project
+​	f.Resources are ill at critical times in the project
 
 
 
