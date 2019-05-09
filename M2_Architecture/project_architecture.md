@@ -21,7 +21,6 @@ The document should contain the sections listed below, and conform to the format
 
 All team members are expected to contribute equally to the document and list their contributions in the last section of the document. You should work on your document in your team's GitLab repository in a directory called "M2_Architecture". If more than one team member has contributed to a particular commit, all those team member IDs should be included in the first line of the git commit message. ``git blame``, ``git diff``, file histories, etc. will be tools used to assess individual contributions, so everyone is encouraged to contribute individually, commit early and commit often. Any team wishing to separate individually contributed sections into a single file before collation into the single proposal document for submission is welcome to do so.
 
-
 ---
 
 # ENGR 301 Project *07* Architectural Design and Proof-of-Concept
@@ -74,7 +73,58 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
+|                 Skateholders of the program                  | Concerns                                                     |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+| Users/Operators (the employee of Beca who use the program )  | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes |
+|          Owners            (Client: Chris Vallyon)           | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system |
+| Suppliers.         (Data suppliers: Chris Vallyon, Google and other data providers) | 1. The purposes of the system, for the data providers the purposes of the usage of their data. |
+|      Developers/Builders (Team members of the project)       | 1. The potential risks and impacts of the system to its stakeholders throughout its life cycle. 2. The feasibility of constructing and depolying the system. 3. The suitability of the architecture for achieving the system’s purposes. |
+|         Maintainers    (Team members of the project)         | 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system. |
+
+
+
+1. The purposes of the system: 
+
+​	The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
+
+
+
+2. The suitability of the architecture for achieving the system’s purposes; 
+
+​	The suitability is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the the implementation of  the program which satisified the functionalities required by the client.
+
+
+
+3. The feasibility of constructing and deploying the system; 
+
+​	The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+
+
+
+4. The potential risks and impacts of the system to its stakeholders throughout its life cycle:
+
+​	1.Failure to obtain data from defined sources
+
+​	2.Financial risks to obtain resources
+
+​	3.Loss of data or code due to workstation failure
+
+​	4.Functionalities not performing as expected
+
+​	5.Miscommunication within the team or with the client
+
+​	6.Resources are ill at critical times in the project
+
+
+
+􏰀5. Maintainability and evolvability of the system：
+
+​	Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
+
+
+
 ### 3.2 Architectural Viewpoints
+
 (1 page, 42010 5.4) 
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
