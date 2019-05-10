@@ -40,7 +40,7 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### 1.1 Purpose
 
-The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
+The purpose of this system is to analyse the different modes of transport (bus, train and car) and the current state of traffic flow of three major cities in New Zealand (Christchurch, Wellington and Auckland) to give insight for making transport network-related decisions.
 
 ### 1.2 Scope
 
