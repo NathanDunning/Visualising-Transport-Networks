@@ -120,6 +120,10 @@ Once at the main page, a map will be displayed using data from the database. Dat
 
 Performance is dependent on browser and hardware that the application is run on. Network latency should be minimal as the application will not use data from an external source.
 
+#### 4.3.2 Databases
+The database ensures that data is synchronised and provided to the web application. Performance depends on the number of queries being executed and from what parts of the web application.  
+
+#### 4.3.3 Activity Diagram
 
 ### 4.4 Physical 
 ...
