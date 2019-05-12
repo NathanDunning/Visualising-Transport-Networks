@@ -113,6 +113,13 @@ The system has two main processes:
 1. Web Application. 
 2. Database.  
 
+#### 4.3.1 Web Application
+The web application process is initiated by the user by running the program. The user will open a running web host; most likely Internet Explorer 11 as that is the browser used predominantly on Beca issued devices. This front end that the user sees has an established connection to the databases containing the transport network data as well as a database of logins id’s. The user will have to use their specific login details to enter the main application. 
+
+Once at the main page, a map will be displayed using data from the database. Data will also be able to be filtered here for users to make necessary consulting decisions. 
+
+Performance is dependent on browser and hardware that the application is run on. Network latency should be minimal as the application will not use data from an external source.
+
 
 ### 4.4 Physical 
 ...
