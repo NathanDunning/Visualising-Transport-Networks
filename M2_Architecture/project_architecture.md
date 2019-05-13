@@ -109,7 +109,7 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.5 Scenarios
-![Figure 4.5.1](https://drive.google.com/file/d/1Nj8jKvdp8nNcab_lv-Pzezxqteah7ZvM/view?usp=sharing)
+![Figure 4.5.1](https://drive.google.com/uc?export=view&id=1Nj8jKvdp8nNcab_lv-Pzezxqteah7ZvM)
 Figure 4.5.1
 
 From figure 4.5.1, it is clear that the program will be made up using two main sub-systems. The Interactive Map System, which will offer the interface between the User and the Transporting program. The Interactive Map System is the only way the user will be able to access the transporting program. The Interactive Map System will essentially be a graphical user interface which the user can use extract information by changing different parameters. The returned information will be displayed either visually or textually to the user.
