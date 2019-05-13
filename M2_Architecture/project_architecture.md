@@ -109,13 +109,16 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.5 Scenarios
-![Figure 1](https://drive.google.com/open?id=1irek5I1sikwNU2LfeO971zN8tVGV7Zdk)
+![Figure 4.5.1](https://drive.google.com/file/d/1Nj8jKvdp8nNcab_lv-Pzezxqteah7ZvM/view?usp=sharing)
+Figure 4.5.1
 
-Figure 1
+From figure 4.5.1, it is clear that the program will be made up using two main sub-systems. The Interactive Map System, which will offer the interface between the User and the Transporting program. The Interactive Map System is the only way the user will be able to access the transporting program. The Interactive Map System will essentially be a graphical user interface which the user can use extract information by changing different parameters. The returned information will be displayed either visually or textually to the user.
 
-From figure 1, it is clear that the program will be made up using two main sub-systems. The Interactive Map System, which will offer the interface between the User and the Transporting program. The Interactive Map System is the only way the user will be able to access the transporting program. The Interactive Map System will essentially be a graphical user interface which the user can use extract information by changing different parameters. The returned information will be displayed either visually or textually to the user.
+The Data Management System, which can also be referred to as the back-end, can be decomposed into smaller part. In between the Data Management System, there is a controller that is responsible for dealing with receiving URL queries and forwarding to the data management system. The Database Management System will be implemented by a Database Manager which uses a bridge pattern to retrieve and return data as this allows for increased extensibility of the system given that the system will be storing data of different classifications. The Database Manager will use the database models as a layout to build queries - the models contains headers to all the tables in the database. The database manager will then query the required database and return it's contents. If an error were to arise in the process of querying the database, the data manager is responsible for handling and processing the error so that it can still be returned in a usable format.
 
-The Data Management System, which can also be referred to as the back-end, can be decomposed into two smaller parts where one is a dependency of the other; one part will responsible for storing the data in a database using correct formatting, the other part will be responsible for managing requests given by the user as parameters through a Representational State Transfer design, creating relevant queries to obtain data from the database as well as process data returned from the database. The Data Management system will also be responsible for handling any errors that arise from this process.
+
+
+
 
 ## 5. Development Schedule
 
