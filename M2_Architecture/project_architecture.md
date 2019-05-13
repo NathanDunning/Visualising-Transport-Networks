@@ -111,10 +111,10 @@ This section provides an overview of the system processes and communication betw
 
 The system has two main processes:
 1. Web Application. 
-2. Database.  
+2. Business Logic  
 
 #### 4.3.1 Web Application
-The first interaction that the user will have is with the web application. This process is initiated by the user by running the program by opening the webpage hosted by Heroku or another approved cloud hosting program. The webpage will most likely run on Internet Explorer 11 as that is the browser used predominantly on Beca issued devices. This front end that the user sees has an established connection to the databases containing the transport network data as well as a database of logins id’s. The user will have to use their specific login details to enter the main application. If the incorrect login is shown the user will be prompted again. Once accepted the user will be granted access to the main map visuals. 
+The first interaction that the user will have is with the web application. This process is initiated by the user by running the program by opening the webpage hosted by Heroku or another approved cloud hosting program. The webpage will most likely run on Internet Explorer 11 as that is the browser used predominantly on Beca issued devices. This front end that the user sees has an established connection to the databases containing the transport network data as well as a database of logins id’s. The user will have to use their specific login details to enter the main application. If the incorrect login is shown the user will be prompted again. Once accepted the user will be granted access to the main map visuals. No other authentication is necessary to be provided.
 
 The map will be displayed using data from the database. Data will also be able to be filtered here for users to make necessary consulting decisions.  
 
@@ -122,8 +122,12 @@ Performance is dependent on browser and hardware that the application is run on.
 
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
 
-#### 4.3.2 Databases
-The database ensures that data is synchronised and provided to the web application. Performance depends on the number of queries being executed and from what parts of the web application.  
+#### 4.3.2 Business Logic 
+The business logic if the process which manages outward and inward communication from the backend. This involves the databases which acquire the data from loaded CSV files. The database then ensures that data is processed and consequently provided to the web application. 
+
+Performance is dependent on the number of queries being executed and from what parts of the web application. Negative performance can also occur with greater datasets, which can occur as we are provided more data from multiple different sources. 
+
+High latency can occur is there are any issues with the Java Database Connectivity
 
 #### 4.3.3 Activity Diagram
 
