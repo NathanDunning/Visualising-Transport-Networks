@@ -58,7 +58,9 @@ If the requirement have changed significantly since the requirements document, o
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB).
 (1 page, longer if required)
 
-[1]"42010-2011 - ISO/IEC/IEEE Systems and software engineering -- Architecture description - IEEE Standard", Ieeexplore.ieee.org, 2011. [Online]. Available: https://ieeexplore.ieee.org/document/6129467. [Accessed: 13- May- 2019].
+[1] "42010-2011 - ISO/IEC/IEEE Systems and software engineering -- Architecture description - IEEE Standard", Ieeexplore.ieee.org, 2011. [Online]. Available: https://ieeexplore.ieee.org/document/6129467. [Accessed: 13- May- 2019].
+
+[2] P. Kruchten, "The 4+1 View Model of architecture", IEEE Software, vol. 12, no. 6, pp. 42-50, 1995. Available: 10.1109/52.469759 [Accessed 9 May 2019].
 
 ## 3. Architecture
 
