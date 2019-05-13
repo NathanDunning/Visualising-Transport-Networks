@@ -77,6 +77,16 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 ### 3.2 Architectural Viewpoints
 The following section of architectural viewpoints are used to breakdown the structure of the system and analyse the different components which will be used [[1]](https://ieeexplore.ieee.org/document/6129467). The five viewpoints evaluated are Logical, Development, Process, Physical and Scenarios. It is essential to analyse the system this way as combined they show multiple, concurrent views on the system and how they might effect functionality. Therefore, it provides a way to plan for any latency in our design. 
 
+The Logical Architecture viewpoint outlines the functionality that the system will provide to its users [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). The main characteristics are displayed in a class diagram. This is necessary so the team is able to identify what is needed. Therefore the two stakeholders involved are; the team, and the client. 
+
+The Development Architecture viewpoint encompasses the system from the perspective of those involved in software development. In regards to the stakeholders; this is every team member. While the above viewpoint described the external requirements needed for the clients, this section provides an overview of the internal characteristics. Therefore, this section outlines the layers of the architecture and the key components within it [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). 
+
+The Process Architecture viewpoint provides an overview of the behaviour of the end product. This supplies the stakeholders; the clients, and the team, with possible ineffectiveness that the system may encounter due to the connections between layers and interaction with users. The activity diagram displays different tasks that the system my undergo simultaneously which can also affect functionality [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).
+
+The Physical Architecture viewpoint focuses on mainly the non-functional requirements of the system such as availability, reliability, performance and scalability [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).  This is supported by the use of a deployment diagram to show the processing nodes and how they communicate. The main stakeholders that would be interested in this would be the team so that they have oversight on what nodes need to connect in order for the system to function.
+
+The Scenario Architecture viewpoint provides functional scenarios which show how each combined previous viewpoints interact with each other in the system [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). This section details main outcomes that users may take while using this software. Stakeholders interested in this are the clients, and the team. Use case diagrams provide a visual overview of the wanted characterises to outline desired architecture of the final software. 
+
 
 
 ### 4. Architectural Views
