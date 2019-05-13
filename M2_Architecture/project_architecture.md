@@ -58,6 +58,8 @@ If the requirement have changed significantly since the requirements document, o
 References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB).
 (1 page, longer if required)
 
+[1]"42010-2011 - ISO/IEC/IEEE Systems and software engineering -- Architecture description - IEEE Standard", Ieeexplore.ieee.org, 2011. [Online]. Available: https://ieeexplore.ieee.org/document/6129467. [Accessed: 13- May- 2019].
+
 ## 3. Architecture
 
 Describe your system's architecture according to ISO/IEC/IEEE 42010:2011(E), ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15289 and ISO/IEC/IEEE 15288.
