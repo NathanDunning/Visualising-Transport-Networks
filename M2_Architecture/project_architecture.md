@@ -24,7 +24,7 @@ All team members are expected to contribute equally to the document and list the
 
 ---
 
-# ENGR 301 Project *07* Architectural Design and Proof-of-Concept
+# ENGR 301 Project *NN* Architectural Design and Proof-of-Concept
 
 **Authors:** Nathan Dunning, Lavanya Sajwan, Aatharsh Vijaya Sugumar, Doris Tam, Tsz Au
 
@@ -34,19 +34,15 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### Client
 
-| Name                   | Organisation | Role            | Contact Details         |
-| ----                   | ------------ | ----            | ---------------         |
-| Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
+Identify the client and their contact details.
 
 ### 1.1 Purpose
 
-The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
+One sentence describing the purpose of the system.
 
 ### 1.2 Scope
 
-The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system should be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will be therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more effective for consultants as decisions can be made dependent on different and specific socio-economic groups.
-
-
+One paragraph describing the scope of the system.
 
 ### 1.3 Changes to requirements
 
@@ -75,13 +71,13 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4) 
+(1 page, 42010 5.4)
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
 
 ### 4. Architectural Views
 
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288) 
+(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288)
 
 Describe your system's architecture in a series of architectural views, each view corresponding to one viewpoint.
 
@@ -90,7 +86,7 @@ You should include views from the following viewpoints (from Kruchten's 4+1 mode
  * Logical
  * Development
  * Process
- * Physical 
+ * Physical
  * Scenarios - present scenarios illustrating how two of your most important use cases are supported by your architecture
 
 As appropriate you should include the following viewpoints:
@@ -107,18 +103,40 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.3 Process
-This section provides an overview of the system processes and communication between them; including any weaknesses.
+...
 
-The system has two main processes:
-1. Web Application. 
-2. Database.  
-
-
-### 4.4 Physical 
+### 4.4 Physical
 ...
 
 ### 4.5 Scenarios
-...
+The overall system will be made up using two main sub-systems. The User Interface is an interactive map system, which is the connection between the user and the program. The user interface is the only way the user will be able to use the transporting program, it is essentially a graphical user interface which the user can use by changing parameters, clicking, and dragging across the screen. The returned information will be displayed either visually or textually to the user.
+
+The Database Manager is the core of the system's back-end. It essentially works by using a model to build string queries - the models contains headers to all the tables in the database. In between the database manager and the user interface is a controller that is responsible for dealing with receiving URL queries and forwarding to the database manager. The database manager will then query the required database and return it's contents. If an error were to arise in the process of querying the database, the data manager is responsible for handling and processing the error so that it can still be returned in the correct format.
+
+![Figure 4.5.1](https://drive.google.com/uc?export=view&id=1CuLdMzGoU5XzBZ8DDv6Y7e9jX_deiPRQ)
+Figure 4.5.1
+
+Figure 4.5.1 illustrates a scenario where the user would like to change the current city they are viewing.
+1. The user would select the city they would like to view in the navbar on the user interface and press the 'go' button to execute the request.
+2. Once the 'go' button is pressed, the user interface will set URI queries parameters based on the user given parameters.
+3. The controller will then process URI parameters and pass them on to the database manager.
+4. The database manager will build a query by using values from the database models. The models will contain headers where one of which, will correspond to the city requested by the user.
+5. The database manager will execute the query and return data back to the controller.
+6. The controller will format the data in a form that will be readable by the user interface and return it.
+7. The user interface will display the data given by the controller.
+
+
+![Figure 4.5.2](https://drive.google.com/uc?export=view&id=1Ak3Z9sMWwIjqkyxkq7cn2S8L0ukClKr3)
+Figure 4.5.2
+
+Figure 4.5.2 illustrates a scenario where the user would like to change the navigate the map to view a new area within the same city.
+1. The user will use either arrow key inputs or mouse inputs to drag across the screen on the user interface - indicating they would like to pan across the map.
+2. The user interface will set URI queries parameters according to user inputs.
+3. The controller will process URI query parameters, database parameters will be a null value hence, the controller will instruct the user interface to update display.
+4. The user interface will update the display and icons to offset the distance moved given by the user inputs.
+
+Comparing the two core use cases given above, use case displayed in Figure 4.5.1 requires more processes and layers to execute as to figure 4.5.2. This can not only be seen directly through the steps taken to execute each use case as each step taken requires the system to allocate more resources to process but also the interaction between other sub-systems.
+Use case described in Figure 4.5.2 only needs to allocate resources for the controller to return data given from the URI queries back the user interface, the majority of resources allocated such as threads and cores will be allocated for the user interface as this is where the processing will occur. Use case described in Figure 4.5.1 on the other hand requires more classes and packages to execute hence, the system will need to allocate more resources the controller and data manager; starting at step (1) the system will only be required to allocate resource to use packages from the presentation layer, after step (3) and (5) has been executed the system is now allocating resource towards the processing and retrieval of data and both the application and data layers are being used.
 
 ## 5. Development Schedule
 
@@ -142,14 +160,14 @@ Identify dates for key project deliverables:
 
 Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
-(1 page). 
+(1 page).
 
 #### 5.2.2 Procurement
 
 Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
 (1 page).
 
-### 5.3 Risks 
+### 5.3 Risks
 
 Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
 
@@ -164,13 +182,13 @@ Safety Plans may be required for some projects, depending on project requirement
 
 ## 6. Appendices
 
-### 6.1 Assumptions and dependencies 
+### 6.1 Assumptions and dependencies
 
-one page on assumptions and dependencies (9.5.7) 
+one page on assumptions and dependencies (9.5.7)
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required 
+one page glossary as required
 
 ## 7. Contributions
 
@@ -178,20 +196,20 @@ A one page statement of contributions that lists each member of the group and wh
 
 ---
 
-## Formatting Rules 
+## Formatting Rules
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) in your team's Git repository.
  * Submit only a single PDF file generated from the Markdown.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment 
+## Assessment
 
 This assessment will be weighted at 20% on the architectural proof-of-concept(s), and 80% on the architecture document.
 
 The proof-of-concept will be assessed for coverage (does it demonstrate all the technologies needed in your project, and all the technologies needed to build your project?) and quality (with an emphasis on simplicity, modularity, and modifiability).
 
-The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc. 
+The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
