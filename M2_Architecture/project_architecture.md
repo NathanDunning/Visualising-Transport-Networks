@@ -109,15 +109,31 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.5 Scenarios
-![Figure 4.5.1](https://drive.google.com/uc?export=view&id=1Nj8jKvdp8nNcab_lv-Pzezxqteah7ZvM)
+The overall system will be made up using two main sub-systems. The User Interface is an interactive map system, which is the connection between the user and the program. The user interface is the only way the user will be able to use the transporting program, it is essentially a graphical user interface which the user can use by changing parameters, clicking, and dragging across the screen. The returned information will be displayed either visually or textually to the user.
+
+The Database Manager is the core of the system's back-end. It essentially works by using a model to build string queries - the models contains headers to all the tables in the database. In between the database manager and the user interface is a controller that is responsible for dealing with receiving URL queries and forwarding to the database manager. The database manager will then query the required database and return it's contents. If an error were to arise in the process of querying the database, the data manager is responsible for handling and processing the error so that it can still be returned in the correct format.
+
+![Figure 4.5.1](https://drive.google.com/uc?export=view&id=1CuLdMzGoU5XzBZ8DDv6Y7e9jX_deiPRQ)
 Figure 4.5.1
 
-From figure 4.5.1, it is clear that the program will be made up using two main sub-systems. The Interactive Map System, which will offer the interface between the User and the Transporting program. The Interactive Map System is the only way the user will be able to access the transporting program. The Interactive Map System will essentially be a graphical user interface which the user can use extract information by changing different parameters. The returned information will be displayed either visually or textually to the user.
+Figure 4.5.1 illustrates a scenario where the user would like to change the current city they are viewing.
+1. The user would select the city they would like to view in the navbar on the user interface and press the 'go' button to execute the request.
+2. Once the 'go' button is pressed, the user interface will set URI queries parameters based on the user given parameters.
+3. The controller will then process URI parameters and pass them on to the database manager.
+4. The database manager will build a query by using values from the database models. The models will contain headers where one of which, will correspond to the city requested by the user.
+5. The database manager will execute the query and return data back to the controller.
+6. The controller will format the data in a form that will be readable by the user interface and return it.
+7. The user interface will display the data given by the controller.
 
-The Data Management System, which can also be referred to as the back-end, can be decomposed into smaller part. In between the Data Management System, there is a controller that is responsible for dealing with receiving URL queries and forwarding to the data management system. The Database Management System will be implemented by a Database Manager which uses a bridge pattern to retrieve and return data as this allows for increased extensibility of the system given that the system will be storing data of different classifications. The Database Manager will use the database models as a layout to build queries - the models contains headers to all the tables in the database. The database manager will then query the required database and return it's contents. If an error were to arise in the process of querying the database, the data manager is responsible for handling and processing the error so that it can still be returned in a usable format.
 
+![Figure 4.5.2](https://drive.google.com/uc?export=view&id=1Ak3Z9sMWwIjqkyxkq7cn2S8L0ukClKr3)
+Figure 4.5.2
 
-
+Figure 4.5.2 illustrates a scenario where the user would like to change the navigate the map to view a new area within the same city.
+1. The user will use either arrow key inputs or mouse inputs to drag across the screen on the user interface - indicating they would like to pan across the map.
+2. The user interface will set URI queries parameters according to user inputs.
+3. The controller will process URI query parameters, database parameters will be a null value hence, the controller will instruct the user interface to update display.
+4. The user interface will update the display and icons to offset the distance moved given by the user inputs.
 
 
 ## 5. Development Schedule
