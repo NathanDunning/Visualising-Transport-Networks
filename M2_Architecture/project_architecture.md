@@ -109,11 +109,18 @@ The logical view of the Map Visualisation Application consists of three packages
 2. Business Logic
 3. Data
 
-**Front-end UI**  
-The Front-end UI contains classes and components that enables the actors to interact with the system. The modular classes make. Additonal React Libraries are used to support component functionality.
+**Front-end UI - Client Package**  
+The Front-end UI contains modular classes and components that enables the actors to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph. Additonal React Libraries are used to support component functionality.
 
-**Business Logic**  
-The Business Logic contains
+**Business Logic - Server Package**  
+The Business Logic contains a controller classes that ... loading data from the SQL Database backend into the front-end Application using Spring Rest.
+
+The server establishes the connection to the database, query the database and return the result to the user terminal.
+
+**Data Package**
+The Data Package holds the ... organised by city, transport mode, to/from, date and time
+
+Database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
 *copied from requirements report*
 > Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
@@ -133,6 +140,7 @@ Identified classes:
 - Database
 - Server
 
+## *will change up*
 ![image](https://drive.google.com/uc?export=view&id=1uthiaR9KXYPtLD8d5fIdD4p2CY80Lsb7)
 
 Process flow for the applicaton:
@@ -157,11 +165,7 @@ Vehicle class has information about the mode of transport that the application s
 ##### Location:
 Location has details about the geographical area that the application supports. As the application scales up to support different locations, location data can be updated.
 
-##### Server:
-Server establishes the connection to the database, query the database and return the result to the user terminal.
 
-##### Database:
-Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
 ### 4.2 Development
 ...
