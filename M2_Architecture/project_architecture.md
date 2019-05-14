@@ -75,13 +75,13 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4) 
+(1 page, 42010 5.4)
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
 
 ### 4. Architectural Views
 
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288) 
+(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288)
 
 Describe your system's architecture in a series of architectural views, each view corresponding to one viewpoint.
 
@@ -90,7 +90,7 @@ You should include views from the following viewpoints (from Kruchten's 4+1 mode
  * Logical
  * Development
  * Process
- * Physical 
+ * Physical
  * Scenarios - present scenarios illustrating how two of your most important use cases are supported by your architecture
 
 As appropriate you should include the following viewpoints:
@@ -100,8 +100,68 @@ As appropriate you should include the following viewpoints:
 
 Each architectural view should include at least one architectural model. If architectural models are shared across views, refer back to the first occurrence of that model in your document, rather than including a separate section for the architectural models.
 
-### 4.1 Logical
-...
+### 4.1 Logical View
+The logical view of the Visualisation System holds one main components - the Map Visualisation Application.
+
+#### 4.1.1 Map Visualisation Application
+The logical view of the Map Visualisation Application consists of three packages:
+1. Front-end UI
+2. Business Logic
+3. Data
+
+**Front-end UI**  
+The Front-end UI contains classes and components that enables the actors to interact with the system. The modular classes make. Additonal React Libraries are used to support component functionality.
+
+**Business Logic**  
+The Business Logic contains
+
+*copied from requirements report*
+> Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
+
+- [ ] Class diagram  
+- [ ] State machine Diagram?
+
+# *From requirements report for reference*
+
+Object Model: what compoents will be made, and how they will behave
+
+Identified classes:
+- Map
+- City
+- Location
+- TransportMode
+- Database
+- Server
+
+![image](https://drive.google.com/uc?export=view&id=1uthiaR9KXYPtLD8d5fIdD4p2CY80Lsb7)
+
+Process flow for the applicaton:
+* User logs in.
+* User enters the necessary details.
+* User terminal gathers required details.
+* User can only choose from the available transport options and the location details.
+* User terminal establishes a connection through server.
+* Server interacts with the database to process the request.
+* Database returns appropriate results.
+* User terminal displays the results to the user.
+
+##### User:
+User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user
+
+##### User terminal:
+The User Terminal is an interface that connects the user to the back-end application. It gathers all the required inputs from the user and interacts with the vehicle and location to cross-check the validity of the input.
+
+##### Vehicle:
+Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
+
+##### Location:
+Location has details about the geographical area that the application supports. As the application scales up to support different locations, location data can be updated.
+
+##### Server:
+Server establishes the connection to the database, query the database and return the result to the user terminal.
+
+##### Database:
+Database will have all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
 ### 4.2 Development
 ...
@@ -110,11 +170,11 @@ Each architectural view should include at least one architectural model. If arch
 This section provides an overview of the system processes and communication between them; including any weaknesses.
 
 The system has two main processes:
-1. Web Application. 
+1. Web Application.
 2. Database.  
 
 
-### 4.4 Physical 
+### 4.4 Physical
 ...
 
 ### 4.5 Scenarios
@@ -142,14 +202,14 @@ Identify dates for key project deliverables:
 
 Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
 
-(1 page). 
+(1 page).
 
 #### 5.2.2 Procurement
 
 Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
 (1 page).
 
-### 5.3 Risks 
+### 5.3 Risks
 
 Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
 
@@ -164,13 +224,13 @@ Safety Plans may be required for some projects, depending on project requirement
 
 ## 6. Appendices
 
-### 6.1 Assumptions and dependencies 
+### 6.1 Assumptions and dependencies
 
-one page on assumptions and dependencies (9.5.7) 
+one page on assumptions and dependencies (9.5.7)
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required 
+one page glossary as required
 
 ## 7. Contributions
 
@@ -178,20 +238,20 @@ A one page statement of contributions that lists each member of the group and wh
 
 ---
 
-## Formatting Rules 
+## Formatting Rules
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) in your team's Git repository.
  * Submit only a single PDF file generated from the Markdown.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment 
+## Assessment
 
 This assessment will be weighted at 20% on the architectural proof-of-concept(s), and 80% on the architecture document.
 
 The proof-of-concept will be assessed for coverage (does it demonstrate all the technologies needed in your project, and all the technologies needed to build your project?) and quality (with an emphasis on simplicity, modularity, and modifiability).
 
-The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc. 
+The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
