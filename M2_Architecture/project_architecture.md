@@ -135,6 +135,7 @@ Figure 4.5.2 illustrates a scenario where the user would like to change the navi
 3. The controller will process URI query parameters, database parameters will be a null value hence, the controller will instruct the user interface to update display.
 4. The user interface will update the display and icons to offset the distance moved given by the user inputs.
 
+Comparing the two core use cases given above, use case displayed in Figure 4.5.1 requires more processes and layers to execute as to figure 4.5.2. This can not only be seen directly through the steps taken to execute each use case but also the interaction between other sub-systems. Use case described in Figure 4.5.2 only needs to allocate resources for the controller to return data given from the URI queries back the user interface, the majority of resources allocated such as threads and cores will be allocated for the user interface as this is where the processing will occur. Use case described in Figure 4.5.1 on the other hand requires more classes and packages to execute hence, the system will need to allocate more resources the controller and data manager. In order for the data manager to successfully retrieve data from databases back to the controller, it will need to use many more packages from both the application layer and data layers.
 
 ## 5. Development Schedule
 
