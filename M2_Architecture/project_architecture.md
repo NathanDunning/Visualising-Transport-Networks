@@ -146,10 +146,10 @@ The system has two main processes:
 ...
 
 ## 5. Development Schedule
-The date of deliverable for Architectural prototype, schedule and number of sprints for MVP1 has been changed from the original requirements to incorporate the number of issues identified during MVP planning.
+The schedule and number of sprints for MVP1 has been changed from the requirements documents to incorporate the number of issues identified during MVP planning. Initial estimate of budget from project requiremets has been reduced as client has agreed to get the data.
 
 Key dates for project deliverables:
-1. Architectural prototype - 26 May, 2019
+1. Architectural prototype - 13 May, 2019
 1. Minimum viable product - 7 June, 2019
 1. Further releases:
     1. Release 1.1 - 8 August, 2019
@@ -158,7 +158,7 @@ Key dates for project deliverables:
 
 The initial phase of the project will focus on architecture and design. Data sources will be identified, and the product architecture will be finalised during this phase.
 
-Agile development methodology [1] will be followed for product development. Entire product cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
+Agile development methodology [1] will be followed for product development. Entire product cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, apart from MVP1 and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
 
 There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date, and the track for completion of each task will be updated during the stand-up.
 
@@ -191,9 +191,9 @@ The demo for each MVP will be showcased to the client, and feedback will be take
 #### 5.2.1 Budget
 | Budget Item                                           | Budget     |
 | ----------------------------------------------------- |:----------:|
-| Obtain required data from different sources           | 1500       |
+| Obtain required data from different sources           | 200       |
 
-The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined, and a model has to be trained to process or analyse the data. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyse data from different sources.
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Eventhough client has agreed to get the data, a considerable amount would be required for any unplanned data utilisation. Google Distance Matrix API for travel time and distance costs 10 dollars for 1000 API hits. Budget has been estimated for 20,000 Distance Matrix API API hits for gathering time and distance data. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyse data from different sources. 
 
 #### 5.2.2 Procurement
 | Procurement Item                                      | Source            |
@@ -204,7 +204,7 @@ The application uses data to analyse the traffic volume within the city along wi
 
 Application maps travel data to estimate the time taken to reach a particular point in map (wellington CBD in this case) from different regions of wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
 
-Demographic data from Census 2013 will be used to map the population metrics for different regions of wellington. This will be combined with travel data to identify regions where the time taken to reach the destination as well as the population of that region are quite high. These will be the potential hotspots for improving public transport.
+Demographic data from Census 2013 will be used to map the population metrics with different regions of wellington. This will be combined with travel data to identify regions and the percentage of population that would reach the destination within a specific time frame. 
 
 GIS applications are tools that are used to create interactive queries, analyze spatial information, edit data in maps, and present the results of all these operations [4]. Demographic data will be overlaid on the geographic information and analysis will be done using the GIS tool.
 
@@ -215,7 +215,7 @@ Risks in software development is a potential problem which prevents an individua
 | Risks                                                 | Likelihood |   Severity  |
 | ----------------------------------------------------- |:----------:|:-----------:|
 | Resources are ill at critical times in the project    | Low        |    Severe   |
-| Frequent changes in project requirements              | Low        |    Severe   |
+| Changes in project requirements                       | Low        |    Severe   |
 | Failure to obtain data from defined sources           | Moderate   |    Critical |
 | Miscommunication within the team or with the client   | Moderate   |    Moderate |
 | Underestimation of development life cycle             | Low        |    Critical |
@@ -230,13 +230,13 @@ Most software development projects are inherently risky because of the variety o
 | Risks                                                 | Mitigation  |
 | ----------------------------------------------------- |:-----------|
 | Members are ill at critical times in the project      | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
-| Frequent changes in project requirements              | Freeze the requirements at the design stage by having frequent interactions with the client. Some degree of requirement change is allowed.   |
+| Changes in project requirements                       | Sprint planning should include the feedbacks from the previous sprint and requirement changes, if any.  |
 | Failure to obtain data from defined sources           | Find open source data that applies to the project and use it if there is any discrepancy in obtaining original data from the client. |
 | Miscommunication within the team or with the client   | Clarify understanding with the team member or with the client until it is clear. Use client meetings and team stand-ups effectively. |
-| Underestimation of development life cycle             | Invest more time on planning and the design phase. Gather all the requirements from the client at this stage and plan accordingly.  |
+| Underestimation of development life cycle             | Invest more time on planning and the design phase. Proper use of git to manage the milestones.  |
 | Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator in case of budget issues.     |
 | Failure to arrive at proper budget estimation         | Estimate the budget according to the required resources.        |
-| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages. Commit messages are used to commit from or revert to a particular point.     |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages.     |
 | Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
 | Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |
 
@@ -245,7 +245,7 @@ Most software development projects are inherently risky because of the variety o
 
 | Risks                                                 | Likelihood |   Severity  |
 | ----------------------------------------------------- |:----------:|:-----------:|
-| Occupational overuse syndrome                         | Moderate   |    Severe   |
+| Occupational overuse syndrome                         | Moderate   |    Moderate   |
 | Earthquake in the lab                                 | Low        |    High     |
 | Injury while attending a meeting at client office     | Low        |    High     |
 | Mental stress because of the workload                 | Moderate   |    High     |
@@ -257,7 +257,7 @@ Most software development projects are inherently risky because of the variety o
 | ----------------------------------------------------- |:-----------|
 | Occupational overuse syndrome                                 | Mix tasks to avoid long, uninterrupted stretches of using the computer. Remove hands from keyboard and mouse when not actively using them. |
 | Earthquake in the lab                                         | Drop, cover and hold until shaking stops. Listen carefully to the earthquake-related announcements and evacuation staff.  |
-| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone building. Take safety precautions and attend safety related inductions at the client office.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
 | Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator in case of work overload.   |
 | Eye strain from computer use                                  | Maintain a reasonable distance from the monitor. Mix tasks to avoid long, uninterrupted stretches of using the computer.           |
 | Fire in the lab                                               | Listen to the fire-related announcements and read the signs. Pull the nearest fire alarm while exiting the building.  
