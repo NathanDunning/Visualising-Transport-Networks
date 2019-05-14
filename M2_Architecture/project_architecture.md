@@ -24,7 +24,7 @@ All team members are expected to contribute equally to the document and list the
 
 ---
 
-# ENGR 301 Project *NN* Architectural Design and Proof-of-Concept
+# ENGR 301 Project *07* Architectural Design and Proof-of-Concept
 
 **Authors:** Nathan Dunning, Lavanya Sajwan, Aatharsh Vijaya Sugumar, Doris Tam, Tsz Au
 
@@ -34,15 +34,19 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### Client
 
-Identify the client and their contact details.
+| Name                   | Organisation | Role            | Contact Details         |
+| ----                   | ------------ | ----            | ---------------         |
+| Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system.
+The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
 
 ### 1.2 Scope
 
-One paragraph describing the scope of the system.
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system should be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will be therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more effective for consultants as decisions can be made dependent on different and specific socio-economic groups.
+
+
 
 ### 1.3 Changes to requirements
 
@@ -128,7 +132,12 @@ The data tier comprises of data access layer and database/data storage system. M
 
 
 ### 4.3 Process
-...
+This section provides an overview of the system processes and communication between them; including any weaknesses.
+
+The system has two main processes:
+1. Web Application. 
+2. Database.  
+
 
 ### 4.4 Physical 
 ...
