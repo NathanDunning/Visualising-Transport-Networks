@@ -115,11 +115,13 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.3 Process
+
 This section provides an overview of the system processes and communication between them; including any weaknesses.
 
 The system has two main processes:
 1. Web Application. 
 2. Business Logic  
+3. Data Storage
 
 #### 4.3.1 Web Application
 The first interaction that the user will have is with the web application. This process is initiated by the user by running the program by opening the webpage hosted by Heroku or another approved cloud hosting program. This front end that the user sees has an established connection to the databases containing the transport network data as well as a database of logins id’s. The user will have to use their specific login details to enter the main application. If the incorrect login is shown the user will be prompted again. Once accepted the user will be granted access to the main map visuals. No other authentication is necessary to be provided.
@@ -131,12 +133,16 @@ Performance is dependent on browser and hardware that the application is run on.
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
 
 #### 4.3.2 Business Logic 
-The business logic is the process which manages outward and inward communication from the backend. This involves the databases which acquire the data from loaded CSV files. The database then ensures that data is processed and consequently provided to the web application. 
+The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application. 
 
 Performance is dependent on the number of queries being executed and from what parts of the web application. Negative performance can also occur with greater datasets, which can occur as we are provided more data from multiple different sources. 
 
-High latency can occur is there are any issues with the Java Database Connectivity
- 
+High latency can occur is there are any issues with the Java Database Connectivity.
+
+#### 4.3.3 Data Storage
+The data will be stored in a database and will be synchronised to the web application via the business logic process.
+
+Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
 
 
 ### 4.4 Physical 
