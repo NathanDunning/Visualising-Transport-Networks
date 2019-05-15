@@ -122,13 +122,13 @@ The application will be designed based on a simple three-tier architecture. Thre
 ![image](https://drive.google.com/uc?export=view&id=1hn_FDjijMDbv3F2MUixF85v3JLzHLO7M)
 
 ##### Presentation Layer:
-The presentation tier is the front end layer in the three-tier system and consists of the user interface and the presentation logic. The user interface is accessible through a web browser or web-based application and which displays content and useful information to an end user. This tier will be built on React web technology and communicates with the application layer through REST API calls. Security of the application will be implemented by having a login page which will use spring security API at the backend.
+The presentation tier is the front end layer in the three-tier system and consists of the user interface and the presentation logic. The user interface is accessible through a web browser or web-based application which displays the content of the application to an end user. This tier will be built on React web technology and communicates with the application layer through REST API calls. Security of the application will be implemented by having a login page which will use spring security API at the backend.
 
 ##### Application Layer:
-The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using JDBC. JDBC is a Java API to connect and execute the query with the database. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application.
+The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using by JDBC. JDBC is a Java API used to connect to the database and execute queries. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application.
 
 ##### Data Layer:
-The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database.
+The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials.
 
 
 ### 4.3 Process
@@ -149,7 +149,7 @@ The system has two main processes:
 The schedule and number of sprints for MVP1 has been changed from the requirements documents to incorporate the number of issues identified during MVP planning. Initial estimate of budget from project requiremets has been reduced as client has agreed to get the data.
 
 Key dates for project deliverables:
-1. Architectural prototype - 13 May, 2019
+1. Architectural prototype - 16 May, 2019
 1. Minimum viable product - 7 June, 2019
 1. Further releases:
     1. Release 1.1 - 8 August, 2019
@@ -193,7 +193,7 @@ The demo for each MVP will be showcased to the client, and feedback will be take
 | ----------------------------------------------------- |:----------:|
 | Obtain required data from different sources           | 200       |
 
-The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Eventhough client has agreed to get the data, a considerable amount would be required for any unplanned data utilisation. Google Distance Matrix API for travel time and distance costs 10 dollars for 1000 API hits. Budget has been estimated for 20,000 Distance Matrix API API hits for gathering time and distance data. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The model can be trained further to analyse data from different sources. 
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Eventhough client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing. Google Distance Matrix API for travel time and distance, costs 10 dollars per 1000 API hits. Budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
 
 #### 5.2.2 Procurement
 | Procurement Item                                      | Source            |
@@ -217,6 +217,7 @@ Risks in software development is a potential problem which prevents an individua
 | Resources are ill at critical times in the project    | Low        |    Severe   |
 | Changes in project requirements                       | Low        |    Severe   |
 | Failure to obtain data from defined sources           | Moderate   |    Critical |
+| Failure to integrate critical components (backend and frontend)           | Moderate   |    Critical |
 | Miscommunication within the team or with the client   | Moderate   |    Moderate |
 | Underestimation of development life cycle             | Low        |    Critical |
 | Financial risks to obtain resources                   | Moderate   |    High     |
@@ -232,6 +233,7 @@ Most software development projects are inherently risky because of the variety o
 | Members are ill at critical times in the project      | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
 | Changes in project requirements                       | Sprint planning should include the feedbacks from the previous sprint and requirement changes, if any.  |
 | Failure to obtain data from defined sources           | Find open source data that applies to the project and use it if there is any discrepancy in obtaining original data from the client. |
+| Failure to integrate critical components (backend and frontend)           | Development of backend and frontend should happen in parallel and each sprint should have a workable product. Integration should happen in each sprint to eliminate the risk of integration issues at the time of delivery. |
 | Miscommunication within the team or with the client   | Clarify understanding with the team member or with the client until it is clear. Use client meetings and team stand-ups effectively. |
 | Underestimation of development life cycle             | Invest more time on planning and the design phase. Proper use of git to manage the milestones.  |
 | Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator in case of budget issues.     |
@@ -245,11 +247,11 @@ Most software development projects are inherently risky because of the variety o
 
 | Risks                                                 | Likelihood |   Severity  |
 | ----------------------------------------------------- |:----------:|:-----------:|
-| Occupational overuse syndrome                         | Moderate   |    Moderate   |
+| Occupational overuse syndrome                         | Moderate   |    Low      |
 | Earthquake in the lab                                 | Low        |    High     |
 | Injury while attending a meeting at client office     | Low        |    High     |
-| Mental stress because of the workload                 | Moderate   |    High     |
-| Eye strain from computer use                          | Low        |    Moderate |
+| Mental stress because of the workload                 | Moderate   |    Low      |
+| Eye strain from computer use                          | Low        |    Low        |
 | Fire in the lab                                       | Low        |    Severe   |
 
 
