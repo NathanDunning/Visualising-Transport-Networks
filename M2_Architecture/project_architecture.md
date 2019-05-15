@@ -132,7 +132,7 @@ Performance is dependent on browser and hardware that the application is run on.
 
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
 
-![image](https://drive.google.com/file/d/1ojyg64vdYU8iWydoiZJdyceSabaDq_0O/view?usp=sharing)
+![image](https://www.dropbox.com/s/exhn6p34tu0ups0/altogether.jpg?dl=0)
 
 #### 4.3.2 Business Logic 
 The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application. 
