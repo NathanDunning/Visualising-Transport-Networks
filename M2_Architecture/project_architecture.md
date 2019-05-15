@@ -120,8 +120,8 @@ This section provides an overview of the system processes and communication betw
 
 The system has two main processes:
 1. Web Application. 
-2. Business Logic  
-3. Data Storage
+2. Data Storage
+3. Business Logic
 
 #### 4.3.1 Web Application
 The first interaction that the user will have is with the web application. This process is initiated by the user by running the program by opening the webpage hosted by Heroku or another approved cloud hosting program. This front end that the user sees has an established connection to the databases containing the transport network data as well as a database of logins id’s. The user will have to use their specific login details to enter the main application. If the incorrect login is shown the user will be prompted again. Once accepted the user will be granted access to the main map visuals. No other authentication is necessary to be provided.
@@ -132,7 +132,15 @@ Performance is dependent on browser and hardware that the application is run on.
 
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
 
-![image](https://www.dropbox.com/s/exhn6p34tu0ups0/altogether.jpg?dl=0)
+![image](https://www.dropbox.com/s/cxdh2qh07y4oq1n/WebApplication.jpg?dl=0)
+The above descibed process is shown in this activity diagram.
+
+#### 4.3.2 Data Storage
+Data from CSV files will be preloaded and stored in a database that will be synchronised to the web application via the business logic process. When a user interacts with the web application, requests are sent and the databases are queried and return the information. This process is visually represented by the diagram below.
+
+![image](https://www.dropbox.com/s/cxdh2qh07y4oq1n/WebApplication.jpg?dl=0)
+
+Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
 
 #### 4.3.2 Business Logic 
 The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application. 
@@ -141,11 +149,8 @@ Performance is dependent on the number of queries being executed and from what p
 
 High latency can occur is there are any issues with the Java Database Connectivity.
 
-#### 4.3.3 Data Storage
-The data will be stored in a database and will be synchronised to the web application via the business logic process.
-
-Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
-
+![image](https://www.dropbox.com/s/exhn6p34tu0ups0/altogether.jpg?dl=0)
+This diagram shows the connections via the WebApplication process and the Data Storage. The business logic areas are represented by the control flow arrows between the front-end of the web application and the back-end of the data storage.
 
 ### 4.4 Physical 
 ...
