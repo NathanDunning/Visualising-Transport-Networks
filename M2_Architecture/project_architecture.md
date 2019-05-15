@@ -32,7 +32,7 @@ All team members are expected to contribute equally to the document and list the
 
 One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)
 
-### Client
+#####Client
 
 | Name                   | Organisation | Role            | Contact Details         |
 | ----                   | ------------ | ----            | ---------------         |
@@ -131,6 +131,8 @@ The map will be displayed using data from the database. Data will also be able t
 Performance is dependent on browser and hardware that the application is run on. There are also multiple errors on the back-end which can cause errors as the layout is dependent on the data being fed to the front-end. Error messages would show up, but need to be resolved as soon as possible. For users, error messages should also involve minimal jargon. 
 
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
+
+![image](https://drive.google.com/file/d/1ojyg64vdYU8iWydoiZJdyceSabaDq_0O/view?usp=sharing)
 
 #### 4.3.2 Business Logic 
 The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application. 
