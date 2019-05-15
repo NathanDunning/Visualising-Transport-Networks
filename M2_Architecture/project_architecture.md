@@ -103,7 +103,11 @@ Each architectural view should include at least one architectural model. If arch
 ### 4.1 Logical View
 The logical view of the Visualisation System holds one main components - the Map Visualisation Application.
 
+<<<<<<< HEAD
 ![image](react-logical-architecture2.png)
+=======
+![image](react-logical-architecture.png)
+>>>>>>> 7a200b3e2f6cd0ca1f0b182cadd4bf115bf14a2e
 
 #### 4.1.1 Map Visualisation Application
 The logical view of the Map Visualisation Application consists of three packages:
