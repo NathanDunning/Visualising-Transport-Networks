@@ -205,7 +205,7 @@ The system has two main processes:
 
 ##### A Deployment Diagram shows the physical architecture:
 
-![image](https://drive.google.com/uc?export=view&id=1toOjCt4M8fRBAQ6I8uveAwIKvc6BIE_x)
+![image](https://drive.google.com/uc?export=view&id=1pervR2kQrwjbZfCOV5u_nTCUJgYHrIKd)
 
 ​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
 
@@ -214,8 +214,6 @@ The system has two main processes:
 ​	The Application Server and Database Server supports/contains the backend of the software, they are responsible for Application Logic and Data Storage/Data Processing respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server takes charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
 
 ​	The user's computer is connected to the Web Server via HTTP through the Internet so the users can log in a webpage to access the application. Where the Web Server is connected to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connected to the Application Server via Spring REACT API.	
-
-
 
 
 
