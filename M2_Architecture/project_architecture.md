@@ -130,7 +130,7 @@ The presentation tier is the front end layer in the three-tier system and consis
 The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using by JDBC. JDBC is a Java API used to connect to the database and execute queries. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application. 
 
 ##### Data Layer:
-The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials. The efficiency of the system directly depends on the size of the database. Query processing will be affected by the non-normalized tables with high content. For ex, in this case the travel details about different modes of transport can be stored seperately and the appropriate tables can be queried for results, instead of having all the data under one table. 
+The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials. The efficiency of the system directly depends on the size of the database. Query processing will be affected by the non-normalized tables with high content. For example, in this case the travel details about different modes of transport can be stored seperately and the appropriate tables can be queried for results, instead of having all the data under one table. 
 
 
 ### 4.3 Process
@@ -151,7 +151,7 @@ The system has two main processes:
 The schedule and number of sprints for MVP1 has been changed from the requirements documents to incorporate the number of issues identified during MVP planning. Initial estimate of budget from project requiremets has been reduced as client has agreed to get the data.
 
 Key dates for project deliverables:
-1. Architectural prototype - 16 May, 2019
+1. Architectural prototype - 17 May, 2019
 1. Minimum viable product - 7 June, 2019
 1. Further releases:
     1. Release 1.1 - 8 August, 2019
@@ -339,25 +339,25 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 - The access of the application requires users to log in with a validated account.
 
 
-- The efficiency and accuracy of the application depends upon the quality and amount of the data.
+- The efficiency and accuracy of the application depend upon the quality and amount of the data.
 
 
 - The application response time depends on the amount of data and the processing of the data in the API backend interface.
 
 
-- The financial support and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+- The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
 
 
-- The transport and demographic data will be loaded manually and time to load depends on the amount of data. 
+- The transport and demographic data will be load manually and time depends on the amount of data. 
 
 
-- The application needs to run on a web browser.
+- The application needs to run on a browser.
 
 
 - Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
 
 
-- Query from the users requires the server to establish a connection to the database, and return the result to the user terminal.
+- Query from the users requires the server to establishes a connection to the database, and return the result to the user terminal.
 
 ### 6.2 Acronyms and abbreviations
 
