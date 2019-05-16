@@ -205,7 +205,7 @@ The system has two main processes:
 
 ##### A Deployment Diagram shows the physical architecture:
 
-![image](https://drive.google.com/uc?export=view&id=1pervR2kQrwjbZfCOV5u_nTCUJgYHrIKd)
+![image](https://drive.google.com/uc?export=view&id=1dlFQ_Tz5Pniqv2RAIHvoXe08lMXinQ9j)
 
 ​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
 
