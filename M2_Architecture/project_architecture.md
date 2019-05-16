@@ -130,7 +130,9 @@ The source code will be constructed using JavaScript with frameworks comprising 
 
 ​	Resources are ill at critical times in the project will lead to functionalities not performing as expected will lead to failure of delay of deployment of the program.
 
+​	g. Data breach
 
+​	If data breach from inner of the team, the team member would be liable if the data breach results in a lawsuit.
 
 
 
