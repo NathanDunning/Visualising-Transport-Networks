@@ -84,39 +84,53 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 
 
+###Concers:
+
 1. The purposes of the system: 
 
-​	The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
+The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
 
 
 
 2. The suitability of the architecture for achieving the system’s purposes; 
 
-​	The suitability is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the the implementation of  the program which satisified the functionalities required by the client.
+The suitability is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the the implementation of  the program which satisified the functionalities required by the client.
 
 
 
 3. The feasibility of constructing and deploying the system; 
 
-​	The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
 
 
 
-4. The potential risks and impacts of the system to its stakeholders throughout its life cycle:
+4. The potential risks and impacts of the system to its stakeholders throughout its life cycle: 
 
-   ​	a. Failure to obtain data from defined source
+   a.  Failure to obtain data from defined source
 
-   ​	b. Financial risks to obtain resources
+   ​	Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
 
-   ​	c. Loss of data or code due to workstation failure
+​	b. Financial risks to obtain resources
 
-   ​	d. Functionalities not performing as expected
+  	 Extra data requires financial support, financial risk may lead to failure to obtain data to achieving the system’s purposes.
 
-   ​	e. Miscommunication within the team or with the client
+​	c. Loss of data or code due to workstation failure
 
-   ​	f. Resources are ill at critical times in the project
+​	Data loss can lead to additional expenses to purchase data, it also causes application not functioning because lack of data.
 
-   ​	g. Data breach
+​	d. Functionalities not performing as expected
+
+​	Functionalities not performing as expected will lead to failure of delay of deployment of the program.
+
+​	e. Miscommunication within the team or with the client
+
+​	Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
+
+​	f. Resources are ill at critical times in the project
+
+​	Resources are ill at critical times in the project will lead to functionalities not performing as expected will lead to failure of delay of deployment of the program.
+
+
 
 
 
