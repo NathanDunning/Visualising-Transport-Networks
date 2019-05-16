@@ -24,7 +24,7 @@ All team members are expected to contribute equally to the document and list the
 
 ---
 
-# ENGR 301 Project *NN* Architectural Design and Proof-of-Concept
+# ENGR 301 Project *07* Architectural Design and Proof-of-Concept
 
 **Authors:** Nathan Dunning, Lavanya Sajwan, Aatharsh Vijaya Sugumar, Doris Tam, Tsz Au
 
@@ -34,15 +34,19 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### Client
 
-Identify the client and their contact details.
+| Name                   | Organisation | Role            | Contact Details         |
+| ----                   | ------------ | ----            | ---------------         |
+| Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system.
+The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
 
 ### 1.2 Scope
 
-One paragraph describing the scope of the system.
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system should be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will be therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more effective for consultants as decisions can be made dependent on different and specific socio-economic groups.
+
+
 
 ### 1.3 Changes to requirements
 
@@ -54,8 +58,20 @@ For changes regarding the software interface, previous requirements stated that 
 
 ## 2. References
 
-References to other documents or standards. Follow the IEEE Citation Reference scheme, available from the [IEEE website](https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf) (PDF; 20 KB).
-(1 page, longer if required)
+[1] Wikipedia, "Agile software development", wikipedia.com, Section 6 [22 November 2018] [Online] Available:
+<br>https://en.wikipedia.org/wiki/Agile_software_development#Agile_software_development_practices [Accessed 26 March 2019] 
+
+[2] Future plc, "Top 10 Software Development Risks",IT Pro Portal, Section 1 & 7 [2019] [online] Available:
+<br>https://www.itproportal.com/2010/06/14/top-ten-software-development-risks/ [Accessed 27 March 2019] 
+
+[3] Betterhealth, "Workplace safety - overuse injuries",Betterhealth.vic.gov.au, Para.1 [2019] [online] Availbale:
+<br>https://www.betterhealth.vic.gov.au/health/healthyliving/workplace-safety-overuse-injuries [Accessed 27 March 2019]
+
+[4] Wikipedia, "Geographic information system", wikipedia.com [12 Apr 2019] [Online] Available:
+<br>https://en.wikipedia.org/w/index.php?title=Geographic_information_system&action=history [Accessed 26 March 2019]
+
+[5] Heroku, "Heroku Security", heroku.com [2019] [Online] Available: https://www.heroku.com/policy/security [Accessed 16 May 2019].
+
 
 ## 3. Architecture
 
@@ -103,10 +119,30 @@ Each architectural view should include at least one architectural model. If arch
 ...
 
 ### 4.2 Development
-...
+
+The application will be designed based on a simple three-tier architecture. Three-tier architecture provides modularity to the application by seperating presentation, application and the data layer. This provides flexibility to update a specific part of the application without affecting other parts. This added flexibility improves development life cycle time and also the reusability of the system, as one tier can be replaced or upgraded without affecting the other layers.
+
+#### Package Diagram:
+
+![image](https://drive.google.com/uc?export=view&id=1hn_FDjijMDbv3F2MUixF85v3JLzHLO7M)
+
+##### Presentation Layer:
+The presentation tier is the front end layer in the three-tier system and consists of the user interface and the presentation logic. The user interface is accessible through a web browser or web-based application which displays the content of the application to an end user. This tier will be built on React web technology and communicates with the application layer through REST API calls. Security of the application will be implemented by having a login page which will use spring security API at the backend.
+
+##### Application Layer:
+The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using by JDBC. JDBC is a Java API used to connect to the database and execute queries. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application. 
+
+##### Data Layer:
+The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials. The efficiency of the system directly depends on the size of the database. Query processing will be affected by the non-normalized tables with high content. For example, in this case the travel details about different modes of transport can be stored seperately and the appropriate tables can be queried for results, instead of having all the data under one table. 
+
 
 ### 4.3 Process
-...
+This section provides an overview of the system processes and communication between them; including any weaknesses.
+
+The system has two main processes:
+1. Web Application. 
+2. Database.  
+
 
 ### 4.4 Physical
 ...
@@ -141,57 +177,234 @@ Figure 4.5.2 illustrates a scenario where the user would like to change the navi
 Comparing the two core use cases given above, use case displayed in Figure 4.5.1 requires more processes and layers to execute as to figure 4.5.2. This can not only be seen directly through the steps taken to execute each use case but also the interaction between other sub-systems. Use case described in Figure 4.5.2 only needs to allocate resources for the controller to return data given from the URI queries back the user interface, the majority of resources allocated such as threads and cores will be allocated for the user interface as this is where the processing will occur. Use case described in Figure 4.5.1 on the other hand requires more classes and packages to execute hence, the system will need to allocate more resources the controller and data manager. In order for the data manager to successfully retrieve data from databases back to the controller, it will need to use many more packages from both the application layer and data layers.
 
 ## 5. Development Schedule
+The schedule and number of sprints for MVP1 has been changed from the requirements documents to incorporate the number of issues identified during MVP planning. Initial estimate of budget from project requiremets has been reduced as client has agreed to get the data.
 
-_For each subsection, make clear what (if anything) has changed from the requirements document._ If unchanged, these sections should be copied over from the requirements document, not simply cross-referenced.
+Key dates for project deliverables:
+1. Architectural prototype - 17 May, 2019
+1. Minimum viable product - 7 June, 2019
+1. Further releases:
+    1. Release 1.1 - 8 August, 2019
+    2. Relaese 1.2 - 9 September, 2019
+    3. Release 1.3 - 11 October, 2019
 
-Schedules must be justified and supported by evidence; they must be either direct client requirements or direct consequences of client requirements. If the requirements document did not contain justification or supporting evidence then both must be provided here.
+The initial phase of the project will focus on architecture and design. Data sources will be identified, and the product architecture will be finalised during this phase.
 
-### 5.1 Schedule
+Agile development methodology [1] will be followed for product development. Entire product life-cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, apart from MVP1 and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
 
-Identify dates for key project deliverables:
+There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date, and the track for completion of each task will be updated during the stand-up.
 
-1. prototype(s).
-1. first deployment to the client.
-1. further releases required or specified by the client.
+The demo of each MVP will be showcased to the client, and feedback will be taken into account during the planning of the next MVP. The last MVP will have a close off sprint, during which all the backlogs will be considered for completion.
 
-(1 page).
+#### Architecture Design Phase - 1 April to 5 May  
+#### MVP - 8 Apr to 11 October
+1. MVP1 (8 Apr to 9 June)
+    1. Sprint1 - 8 Apr to 28 Apr
+    2. Sprint2 - 29 Apr to 12 May
+    3. Sprint3 - 13 May to 26 May
+    4. Sprint4 - 27 May to 9 June
+
+#### 3. Further Releas
+2. MVP2 (8 July to 8 August)
+    1. Sprint1 - 8 July to 20 July
+    2. Sprint2 - 21 July to 8 August
+
+
+3. MVP3 (9 August to 9 September)
+    1. Sprint1 - 9 August to 21 August
+    2. Sprint2 - 22 August to 9 September
+
+
+4. End-Product - 11 October
+    1. Sprint1 - 10 September to 23 September
+    2. Sprint2 - 24 September to 11 October (close-off sprint)
 
 ### 5.2 Budget and Procurement
-
 #### 5.2.1 Budget
+| Budget Item                                           | Budget     |
+| ----------------------------------------------------- |:----------:|
+| Obtain required data from different sources           | 200        |
+| Hosting platform                                      | 100        |
+| Database Server                                       | 50         |
 
-Present a budget for the project (as a table), showing the amount of expenditure the project requires and the date(s) on which it will be incurred. Substantiate each budget item by reference to fulfilment of project goals (one paragraph per item).
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources have to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo data, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Even though the client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing, platform hosting and database server. 
+* Google Distance Matrix API for travel time and distance, costs 10$/1000 API hits. The budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. 
+* For hosting the application, a linux basic-tier Azure virtual machine with 1-core costs 18$/month. Apart from the 200 dollar credit provided by azure, a 100 dollar budget has been estimated to host the application in Azure cloud. 
+* For hosting a database server, heroku provides hobby-basic plan of 9$/month. It provides an expected uptime of 99.5% with a support of upto 20 connections and a data limit of 10 million rows.
 
-(1 page).
+Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
 
 #### 5.2.2 Procurement
+| Procurement Item                                      | Source            |
+|:-----------------------------------------------------:|:-----------------:|
+| Travel Data                                           | Google Maps API   |
+| Demographic Data                                      | Census Data       |
+| GIS Tool (open source)                                | QGIS              |
+| Database server                                       | Heroku            |
+| Spring Libraries (open source)                        | mvnrepository     |
 
-Present a table of goods or services that will be required to deliver project goals and specify how they are to be procured (e.g. from the School or from an external organisation). These may be software applications, libraries, training or other infrastructure, including open source software. Justify and substantiate procurement with reference to fulfilment of project goals, one paragraph per item.
-(1 page).
+The application maps travel data to estimate the time taken to reach the destination (Wellington CBD in this case) from different regions of Wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
+
+Demographic data from Census 2013 will be used to map the population metrics with different regions of Wellington. This will be combined with travel data to identify the regions and the percentage of population that would reach the destination within a specific time frame. 
+
+GIS applications are tools that are used to create interactive queries, analyze spatial information, edit data in maps, and present the results of all these operations [4]. Demographic data will be overlaid on the geographic information and analysis will be done using the GIS tool.
+
+Online database server can be used to maintain a single replica of data that supports the development process. There are many online MySQL database service providers including Azure MySQL database server and Google SQL Cloud. But heroku provides an excellent support with a sufficient uptime (99.5%) at affordable cost. Heroku platform is designed to protect customers from threats by applying security controls at every layer from physical to application, isolating customer applications and data, and with its ability to rapidly deploy security updates without customer interaction or service interruption [5]. This service can be utilised for hosting MySQL database.
+
+Maven central repository is an open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
+
 
 ### 5.3 Risks
 
-Identify the ten most important project risks: their type, likelihood, impact, and mitigation strategies (3 pages).
+Risks in software development is a potential problem which prevents an individual or a group of people from reaching the project goal [2]. The outcome of these is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss. 
+
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Resources are ill at critical times in the project    | Low        |    Severe   |
+| Changes in project requirements                       | Low        |    Severe   |
+| Failure to obtain data from defined sources           | Moderate   |    Critical |
+| Failure to integrate critical components (backend and frontend)           | Moderate   |    Critical |
+| Miscommunication within the team or with the client   | Moderate   |    Moderate |
+| Underestimation of development life cycle             | Low        |    Critical |
+| Financial risks to obtain resources                   | Moderate   |    High     |
+| Failure to arrive at proper budget estimation         | Low        |    High     |
+| Loss of data or code due to workstation failure       | Moderate   |    High     |
+| Gold plating - Decoration before functionalities      | Low        |    Low      |
+| Functionalities not performing as expected            | Moderate   |    High     |
+
+Most software development projects are inherently risky because of the variety of problems that may arise [3]. The severity of certain risks can be mitigated with prior planning and taking necessary precautions.  
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Members are ill at critical times in the project      | Provide knowledge transfer so that everyone is capable of doing a particular task. Documentation is required to understand the functionalities of the application.|
+| Changes in project requirements                       | Sprint planning should include the feedbacks from the previous sprint and requirement changes, if any.  |
+| Failure to obtain data from defined sources           | Find open source data that applies to the project and use it if there is any discrepancy in obtaining original data from the client. |
+| Failure to integrate critical components (backend and frontend)           | Development of backend and frontend should happen in parallel and each sprint should have a workable product. Integration should happen in each sprint to eliminate the risk of integration issues at the time of delivery. |
+| Miscommunication within the team or with the client   | Clarify understanding with the team member or with the client until it is clear. Use client meetings and team stand-ups effectively. |
+| Underestimation of development life cycle             | Invest more time on planning and the design phase. Proper use of git to manage the milestones.  |
+| Financial risks to obtain resources                   | Proper planning of the resources with the available budget. Contact the coordinator in case of budget issues.     |
+| Failure to arrive at proper budget estimation         | Estimate the budget according to the required resources.        |
+| Loss of data or code due to workstation failure       | Frequent commits to the git repository with appropriate commit messages.     |
+| Gold plating - Decoration before functionalities      | Prioritize the completion of functionalities. Gold plating is required at some level, but only after developing the working product.         |
+| Functionalities are not performing as expected            | Write unit test cases and perform functionality tests after completion of each function. Perform integration tests once completing all the necessary functionalities.          |
+
 
 ### 5.4 Health and Safety
 
-Document here project requirements for Health and Safety.
+| Risks                                                 | Likelihood |   Severity  |
+| ----------------------------------------------------- |:----------:|:-----------:|
+| Occupational overuse syndrome                         | Moderate   |    Low      |
+| Earthquake in the lab                                 | Low        |    High     |
+| Injury while attending a meeting at client office     | Low        |    High     |
+| Mental stress because of the workload                 | Moderate   |    Low      |
+| Eye strain from computer use                          | Low        |    Low        |
+| Fire in the lab                                       | Low        |    Severe   |
+
+
+| Risks                                                 | Mitigation  |
+| ----------------------------------------------------- |:-----------|
+| Occupational overuse syndrome                                 | Mix tasks to avoid long, uninterrupted stretches of using the computer. Remove hands from keyboard and mouse when not actively using them. |
+| Earthquake in the lab                                         | Drop, cover and hold until shaking stops. Listen carefully to the earthquake-related announcements and evacuation staff.  |
+| Injury while attending a meeting at client office             | Be aware if the client office is in the earthquake prone zone. Take safety precautions and attend safety related inductions at the client office.  |
+| Mental stress because of the workload                         | Establish boundaries and take time to relax. Talk to team members or the coordinator in case of work overload.   |
+| Eye strain from computer use                                  | Maintain a reasonable distance from the monitor. Mix tasks to avoid long, uninterrupted stretches of using the computer.           |
+| Fire in the lab                                               | Listen to the fire-related announcements and read the signs. Pull the nearest fire alarm while exiting the building.  
+
 
 #### 5.4.1 Safety Plans
 
-Safety Plans may be required for some projects, depending on project requirements.
+Project requirements do not involve the risk of death, serious harm, or any minor injuries.
 
+---
 
 ## 6. Appendices
 
 ### 6.1 Assumptions and dependencies
 
-one page on assumptions and dependencies (9.5.7)
+#### 6.1.1 Assumptions
+
+- The primary users of this application will be members of Beca in order to consult local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
+
+
+- The users do not need coding to use the application. Therefore they are not expected to have technical background nor have experienced using a similar system and understanding of any programming terminologies.
+
+
+- The users do not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
+
+
+- A log-in functionality would be a useful addition to the application but is not considered a necessity since the users will have the same permissions when using the application and there is no need of functionality that allows users to save and load decisions on the application.
+
+
+- The application should be user-friendly. Users should interact with the application intuitively which means by merely moving and clicking buttons on the front-end interface with the mouse or keyboard to achieve the functions and view the results. A "Help" tool should be added.
+
+
+- The application should be run and work on Internet Explorer 11 and does not need an Internet connection to run. Functionality can be added to other browsers.
+
+
+- More data datasets are needed to make necessary decisions from the tool, to extend this application's functionality. These can include New Zealand Transport Data (.csv files), Google Transport Data (.txt and .dat files) Telco, Onzo and census data for demographic information.
+
+
+- Extra data (most likely from Google) requires financial support.
+
+
+- The time needed for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
+
+
+- The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds, so the user does not become uninterested in the application.
+
+
+- The application should be able to support no more than simultaneous ten users at a time. 
+
+
+- The transport data will be load manually and time depends on the amount of data, the goal is 95% of every load should occur within 5 minutes.
+
+
+- The database should have all the necessary data to support the application. Queries should be processed based on the chosen mode of transport, time of travel, lat-long details and other filters. Data for the different modes of transport should be stored separately to avoid latency.
+
+
+- Prior planning and taking necessary precautions should be made to mitigate the severity of certain risks.
+
+#### 6.1.2 Dependencies
+
+- The access of the application requires users to log in with a validated account.
+
+
+- The efficiency and accuracy of the application depend upon the quality and amount of the data.
+
+
+- The application response time depends on the amount of data and the processing of the data in the API backend interface.
+
+
+- The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+
+
+- The transport and demographic data will be load manually and time depends on the amount of data. 
+
+
+- The application needs to run on a browser.
+
+
+- Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
+
+
+- Query from the users requires the server to establishes a connection to the database, and return the result to the user terminal.
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required
-
+| **Acronym/Abbreviation** | **Definition**                                                   |
+| ------------------------ | ------------------------------------------------------------ |
+| GIS                      | Geographic Information System, a system for storing and manipulating geographical information on computer. |
+| MVP                      | Minimum Viable Product, is a product with just enough features to satisfy early clients/customers, and to provide feedback for future product development. |
+| CBD                      | Central Business District, the main business and commercial area of a town or city. |
+| API                      | Application Program Interface, a set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service. |
+| Demo                     | Demonstration, a demonstration of a product or technique     |
+| Lab                      | Laboratory.                                                  |
+| App                      | Application, especially as downloaded by a user to a mobile device. |
+| CSS*                     | Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. |
+| CSV*                     | Comma-Separated Values files, delimited text file that uses a comma to separate values.(The transport data files are formatted to CVS the program is using). |
+|.txt                      | .txt is a text file used by text editors |
+|.dat                      | .dat is a generic data file which store specific information related to an application |
+| JDBC                      | Java Database Connectivity is an API service provided by java to connect to the MySQL data server. |
+| REST                      | Representational State Transfer is an architecture provided by Spring to send and receive data between server and client. |
 ## 7. Contributions
 
 A one page statement of contributions that lists each member of the group and what they contributed to this document.
