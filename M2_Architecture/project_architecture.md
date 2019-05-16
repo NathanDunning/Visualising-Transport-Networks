@@ -357,7 +357,7 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 - Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
 
 
-- Query from the users requires the server to establishes a connection to the database, and return the result to the user terminal.
+- Query from the users requires the server to establishe a connection to the database, and return the result to the user terminal.
 
 ### 6.2 Acronyms and abbreviations
 
