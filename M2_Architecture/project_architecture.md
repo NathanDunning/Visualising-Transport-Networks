@@ -291,12 +291,91 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 
 ### 6.1 Assumptions and dependencies 
 
-one page on assumptions and dependencies (9.5.7) 
+#### 6.1.1 Assumptions
+
+- The primary users of this application will be members of Beca in order to consult local, regional agencies and councils as well as other decision makers who will impact the public transport in New Zealand.
+
+
+- The users do not need coding to use the application. Therefore they are not expected to have technical background nor have experienced using a similar system and understanding of any programming terminologies.
+
+
+- The users do not need a large amount of extra learning to use the application. A short, less than an hour tutorial would be sufficient for new users to understand how to use the application.
+
+
+- A log-in functionality would be a useful addition to the application but is not considered a necessity since the users will have the same permissions when using the application and there is no need of functionality that allows users to save and load decisions on the application.
+
+
+- The application should be user-friendly. Users should interact with the application intuitively which means by merely moving and clicking buttons on the front-end interface with the mouse or keyboard to achieve the functions and view the results. A "Help" tool should be added.
+
+
+- The application should be run and work on Internet Explorer 11 and does not need an Internet connection to run. Functionality can be added to other browsers.
+
+
+- More data datasets are needed to make necessary decisions from the tool, to extend this application's functionality. These can include New Zealand Transport Data (.csv files), Google Transport Data (.txt and .dat files) Telco, Onzo and census data for demographic information.
+
+
+- Extra data (most likely from Google) requires financial support.
+
+
+- The time needed for the client to retrieve the additional data is unpredictable. Because the efficiency of the application depends upon the quality of the data, lack of data limits the effectiveness of the minimum viable product.
+
+
+- The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds, so the user does not become uninterested in the application.
+
+
+- The application should be able to support no more than simultaneous ten users at a time. 
+
+
+- The transport data will be load manually and time depends on the amount of data, the goal is 95% of every load should occur within 5 minutes.
+
+
+- The database should have all the necessary data to support the application. Queries should be processed based on the chosen mode of transport, time of travel, lat-long details and other filters. Data for the different modes of transport should be stored separately to avoid latency.
+
+
+- Prior planning and taking necessary precautions should be made to mitigate the severity of certain risks.
+
+#### 6.1.2 Dependencies
+
+- The access of the application requires users to log in with a validated account.
+
+
+- The efficiency and accuracy of the application depend upon the quality and amount of the data.
+
+
+- The application response time depends on the amount of data and the processing of the data in the API backend interface.
+
+
+- The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+
+
+- The transport and demographic data will be load manually and time depends on the amount of data. 
+
+
+- The application needs to run on a browser.
+
+
+- Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
+
+
+- Query from the users requires the server to establishes a connection to the database, and return the result to the user terminal.
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required 
-
+| **Acronym/Abbreviation** | **Definition**                                                   |
+| ------------------------ | ------------------------------------------------------------ |
+| GIS                      | Geographic Information System, a system for storing and manipulating geographical information on computer. |
+| MVP                      | Minimum Viable Product, is a product with just enough features to satisfy early clients/customers, and to provide feedback for future product development. |
+| CBD                      | Central Business District, the main business and commercial area of a town or city. |
+| API                      | Application Program Interface, a set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service. |
+| Demo                     | Demonstration, a demonstration of a product or technique     |
+| Lab                      | Laboratory.                                                  |
+| App                      | Application, especially as downloaded by a user to a mobile device. |
+| CSS*                     | Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. |
+| CSV*                     | Comma-Separated Values files, delimited text file that uses a comma to separate values.(The transport data files are formatted to CVS the program is using). |
+|.txt                      | .txt is a text file used by text editors |
+|.dat                      | .dat is a generic data file which store specific information related to an application |
+| JDBC                      | Java Database Connectivity is an API service provided by java to connect to the MySQL data server. |
+| REST                      | Representational State Transfer is an architecture provided by Spring to send and receive data between server and client. |
 ## 7. Contributions
 
 A one page statement of contributions that lists each member of the group and what they contributed to this document.
