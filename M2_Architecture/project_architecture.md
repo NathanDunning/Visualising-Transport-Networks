@@ -207,13 +207,15 @@ The system has two main processes:
 
 ![image](https://drive.google.com/uc?export=view&id=1toOjCt4M8fRBAQ6I8uveAwIKvc6BIE_x)
 
-​	The Deployment Diagram shows the the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each others in order to achieve the functionalities of the application. 
+​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
 
-​	The Web Server supports/contains frontend of the the software which is the precentation of the user interface, the user interface is support by presentation logic and can be saperated into two parts: Login page and Map visualization page after user login succeed. 
+​	The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds. 
 
-​	The Application Server and Database Server supports/contains the backend of the software, they are responsible for Application Logic and Data Storage/Data Processing respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server is take charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
+​	The Application Server and Database Server supports/contains the backend of the software, they are responsible for Application Logic and Data Storage/Data Processing respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server takes charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
 
-​	The user's computer connect to the Web Server via HTTP through the Internet, so the users can login a web to access the application. Where the Web Server is connect to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connect to the Application Server via Spring REACT API.
+​	The user's computer is connected to the Web Server via HTTP through the Internet so the users can log in a webpage to access the application. Where the Web Server is connected to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connected to the Application Server via Spring REACT API.	
+
+
 
 
 
