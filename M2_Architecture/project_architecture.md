@@ -132,13 +132,13 @@ Performance is dependent on browser and hardware that the application is run on.
 
 Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
 
-![image](https://www.dropbox.com/s/cxdh2qh07y4oq1n/WebApplication.jpg?dl=0)
+![Web Application](https://gitlab.ecs.vuw.ac.nz/ENGR300-2019/Project-07/visualising-our-transport-networks/blob/lavanya/M2_Architecture/WebApplication.jpg)
 The above descibed process is shown in this activity diagram.
 
 #### 4.3.2 Data Storage
 Data from CSV files will be preloaded and stored in a database that will be synchronised to the web application via the business logic process. When a user interacts with the web application, requests are sent and the databases are queried and return the information. This process is visually represented by the diagram below.
 
-![image](https://www.dropbox.com/s/cxdh2qh07y4oq1n/WebApplication.jpg?dl=0)
+![Data Storage](https://gitlab.ecs.vuw.ac.nz/ENGR300-2019/Project-07/visualising-our-transport-networks/blob/lavanya/M2_Architecture/Backend.jpg)
 
 Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
 
@@ -149,7 +149,7 @@ Performance is dependent on the number of queries being executed and from what p
 
 High latency can occur is there are any issues with the Java Database Connectivity.
 
-![image](https://www.dropbox.com/s/exhn6p34tu0ups0/altogether.jpg?dl=0)
+![Business Logic](https://gitlab.ecs.vuw.ac.nz/ENGR300-2019/Project-07/visualising-our-transport-networks/blob/lavanya/M2_Architecture/altogether.jpg)
 This diagram shows the connections via the WebApplication process and the Data Storage. The business logic areas are represented by the control flow arrows between the front-end of the web application and the back-end of the data storage.
 
 ### 4.4 Physical 
