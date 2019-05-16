@@ -73,7 +73,7 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
-|                 Skateholders of the program                  | Concerns                                                     |
+|                 Skateholders of the program                  | Main Concerns                                                |
 | :----------------------------------------------------------: | ------------------------------------------------------------ |
 |                        User (Public)                         | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes. 6. The usability of the program |
 |                Owners (Client: Chris Vallyon)                | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system 6. The usability of the program |
@@ -148,13 +148,13 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
    
 
-5. Maintainability and evolvability of the system:
+5. The Maintainability and the  evolvability of the system:
 
    ​    Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
 
    
 
-6. Usability of the program:    
+6. The Usability of the program:    
 
    ​    The system should ensure ease of use to the end user. The layout of the system should be easy to perceive and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
 
