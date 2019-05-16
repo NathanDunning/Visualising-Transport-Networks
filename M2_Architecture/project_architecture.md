@@ -46,8 +46,11 @@ One paragraph describing the scope of the system.
 
 ### 1.3 Changes to requirements
 
-If the requirement have changed significantly since the requirements document, outline the changes here. Changes must be justified and supported by evidence, i.e. they must be substantiated.
-(max one page, only if required)
+There are significant changes to the specific requirements within the User Interface and Software Interface.
+
+For changes regarding the user interface, there will be extra graph functionality added; the graph can be used in conjunction with the animation, if selected by the user, and its axis will consist of average travel time in minutes to or from the city centre over time of day, which directly reflect the user's given parameter for animation length. This change has been added as the user has requested this feature be added to our system as this tool will further allow ease of analysis by identifying peaks and troughs.
+
+For changes regarding the software interface, previous requirements stated that data would be stored as CSV files in different sub-directories on the user's local system. The change to this specific requirement is that the given data will no longer be stored in the user's local system but instead, stored in a remote database - as a result the system no longer has to read or parse the CSV files per each request from the user, instead, data will only need to be loaded once and the system will query the database for the specified data. There will be different tables in the database for the different given types data however, the format of the query string will stay the same - this way, the use of a parser will no longer be required to read the different data formats. The purpose of the software interface will now be to retrieve data by querying the database, process the data and diplay the data onto the user interface. This change has been made to the specifications as this will clearly set apart our system to having a front end and a back end - allowing for a clear breakdown of the structure of the system as well as packages, layers and processes that our system will use.
 
 ## 2. References
 
