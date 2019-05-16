@@ -339,25 +339,25 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 - The access of the application requires users to log in with a validated account.
 
 
-- The efficiency and accuracy of the application depend upon the quality and amount of the data.
+- The efficiency and accuracy of the application depends upon the quality and amount of the data.
 
 
 - The application response time depends on the amount of data and the processing of the data in the API backend interface.
 
 
-- The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
+- The financial support and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
 
 
-- The transport and demographic data will be load manually and time depends on the amount of data. 
+- The transport and demographic data will be loaded manually and time to load depends on the amount of data. 
 
 
-- The application needs to run on a browser.
+- The application needs to run on a web browser.
 
 
 - Mouse and keyboard inputs are required for the navigation of the map and parameters settings.
 
 
-- Query from the users requires the server to establishe a connection to the database, and return the result to the user terminal.
+- Query from the users requires the server to establish a connection to the database, and return the result to the user terminal.
 
 ### 6.2 Acronyms and abbreviations
 
