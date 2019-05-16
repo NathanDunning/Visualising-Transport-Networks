@@ -205,7 +205,7 @@ The system has two main processes:
 
 #####4.4.1. A Deployment Diagram shows the physical architecture:
 
-![Deployment Diagram](/Users/tszkinau/Downloads/Deployment Diagram.png)
+![image](https://drive.google.com/uc?export=view&id=1ingJ3fHBceluXYwSBhiW08VMUJ7SIYw5)
 
 #####4.4.2 
 
