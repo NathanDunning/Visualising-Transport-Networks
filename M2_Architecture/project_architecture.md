@@ -75,82 +75,89 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 |                 Skateholders of the program                  | Concerns                                                     |
 | :----------------------------------------------------------: | ------------------------------------------------------------ |
-|                        User (Public)                         | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes |
-|                Owners (Client: Chris Vallyon)                | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system |
+|                        User (Public)                         | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes. 6. The usability of the program |
+|                Owners (Client: Chris Vallyon)                | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system 6. The usability of the program |
 | Suppliers (Data Suppliers: Chris Vallyon, Google and other data providers, Victoria University of Wellington) | 1. The purposes of the system, for the data providers the purposes of the usage of their data. |
-|      Developers/Builders (Team members of the project)       | 1. The potential risks and impacts of the system to its stakeholders throughout its life cycle. 2. The feasibility of constructing and depolying the system. 3. The suitability of the architecture for achieving the system’s purposes. |
+|      Developers/Builders (Team members of the project)       | 1. The potential risks and impacts of the system to its stakeholders throughout its life cycle. 2. The feasibility of constructing and depolying the system. 3. The suitability of the architecture for achieving the system’s purposes. 6. The usability of the program |
 |          Maintainers (Team members of the project)           | 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system. |
 | Operators (The employee of Beca who use the program, Client: Chris Vallyon ) | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle |
 
 
 
-###Concers:
+### Main Concerns of Stakeholders:
 
 1. The purposes of the system: 
 
-The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
+   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
 
 
 
-2. The suitability of the architecture for achieving the system’s purposes; 
+2. The suitability of the architecture for achieving the system’s purposes: 
 
-The suitability is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the the implementation of  the program which satisified the functionalities required by the client.
+   ​    The suitability of the architecture for achieving the system’s purposes is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the implementation of the program which satisfies the functionalities required by the client.
 
 
 
-3. The feasibility of constructing and deploying the system; 
+3. The feasibility of constructing and deploying the system:
 
-The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+   ​    The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
 
 
 
 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle: 
 
-   ​	a.  Failure to obtain data from defined source
+   ​    a.  Failure to obtain data from a defined source
 
-      ​	Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
-
-   
-
-   ​	b. Financial risks to obtain resources
-
-     	 Extra data requires financial support, financial risk may lead to failure to obtain data to achieving the system’s purposes.
+      ​    Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
 
    
 
-   ​	c. Loss of data or code due to workstation failure
+   ​    b. Financial risks to obtain resources
 
-   ​	Data loss can lead to additional expenses to purchase data, it also causes application not functioning because lack of data.
-
-   
-
-   ​	d. Functionalities not performing as expected
-
-   ​	Functionalities not performing as expected will lead to failure of delay of deployment of the program.
+   ​	Extra data requires financial support, the financial risk may lead to failure to obtain data to achieving the system’s purposes.
 
    
 
-   ​	e. Miscommunication within the team or with the client
+   ​    c. Loss of data or code due to workstation failure
 
-   ​	Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
-
-   
-
-   ​	f. Resources are ill at critical times in the project
-
-   ​	Resources are ill at critical times in the project will lead to functionalities not performing as expected will lead to failure of delay of deployment of the program.
+   ​    Data loss can lead to additional expenses to purchase data, it also causes application not functioning because of a lack of data.
 
    
 
-   ​	g. Data breach
+   ​    d. Functionalities not performing as expected
 
-   ​	If data breach from inner of the team, the team member would be liable if the data breach results in a lawsuit.
+   ​    Functionalities not performing as expected will lead to delay or failure of deployment of the program.
 
+   
 
+   ​    e. Miscommunication within the team or with the client
 
-􏰀5. Maintainability and evolvability of the system：
+   ​    Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
 
-​	Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
+   
+
+   ​    f. Members are ill at critical times in the project
+
+   ​    Members are ill at critical times in the project will lead to delay or failure of deployment of the program.
+
+   
+
+   ​    g. Data Breach
+
+   ​    If data breach from the inner of the team, the team member would be liable if the data breach results in a lawsuit.
+
+   
+
+5. Maintainability and evolvability of the system:
+
+   ​    Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
+
+   
+
+6. Usability of the program:    
+
+   ​    The system should ensure ease of use to the end user. The layout of the system should be easy to perceive and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
+
 
 
 
