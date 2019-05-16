@@ -106,33 +106,45 @@ The source code will be constructed using JavaScript with frameworks comprising 
 
 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle: 
 
-   a.  Failure to obtain data from defined source
+   ​	a.  Failure to obtain data from defined source
 
-   ​	Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
+      ​	Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
 
-​	b. Financial risks to obtain resources
+   
 
-  	 Extra data requires financial support, financial risk may lead to failure to obtain data to achieving the system’s purposes.
+   ​	b. Financial risks to obtain resources
 
-​	c. Loss of data or code due to workstation failure
+     	 Extra data requires financial support, financial risk may lead to failure to obtain data to achieving the system’s purposes.
 
-​	Data loss can lead to additional expenses to purchase data, it also causes application not functioning because lack of data.
+   
 
-​	d. Functionalities not performing as expected
+   ​	c. Loss of data or code due to workstation failure
 
-​	Functionalities not performing as expected will lead to failure of delay of deployment of the program.
+   ​	Data loss can lead to additional expenses to purchase data, it also causes application not functioning because lack of data.
 
-​	e. Miscommunication within the team or with the client
+   
 
-​	Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
+   ​	d. Functionalities not performing as expected
 
-​	f. Resources are ill at critical times in the project
+   ​	Functionalities not performing as expected will lead to failure of delay of deployment of the program.
 
-​	Resources are ill at critical times in the project will lead to functionalities not performing as expected will lead to failure of delay of deployment of the program.
+   
 
-​	g. Data breach
+   ​	e. Miscommunication within the team or with the client
 
-​	If data breach from inner of the team, the team member would be liable if the data breach results in a lawsuit.
+   ​	Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
+
+   
+
+   ​	f. Resources are ill at critical times in the project
+
+   ​	Resources are ill at critical times in the project will lead to functionalities not performing as expected will lead to failure of delay of deployment of the program.
+
+   
+
+   ​	g. Data breach
+
+   ​	If data breach from inner of the team, the team member would be liable if the data breach results in a lawsuit.
 
 
 
