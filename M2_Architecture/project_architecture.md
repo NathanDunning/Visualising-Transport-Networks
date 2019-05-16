@@ -75,11 +75,12 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 |                 Skateholders of the program                  | Concerns                                                     |
 | :----------------------------------------------------------: | ------------------------------------------------------------ |
-| Users/Operators (the employee of Beca who use the program )  | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes |
-|          Owners            (Client: Chris Vallyon)           | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system |
-| Suppliers.         (Data suppliers: Chris Vallyon, Google and other data providers) | 1. The purposes of the system, for the data providers the purposes of the usage of their data. |
+|                        User (Public)                         | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes |
+|                Owners (Client: Chris Vallyon)                | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system |
+| Suppliers (Data Suppliers: Chris Vallyon, Google and other data providers, Victoria University of Wellington) | 1. The purposes of the system, for the data providers the purposes of the usage of their data. |
 |      Developers/Builders (Team members of the project)       | 1. The potential risks and impacts of the system to its stakeholders throughout its life cycle. 2. The feasibility of constructing and depolying the system. 3. The suitability of the architecture for achieving the system’s purposes. |
-|         Maintainers    (Team members of the project)         | 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system. |
+|          Maintainers (Team members of the project)           | 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system. |
+| Operators (The employee of Beca who use the program, Client: Chris Vallyon ) | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle |
 
 
 
@@ -103,17 +104,19 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle:
 
-   ​	a.Failure to obtain data from defined sources
+   ​	a. Failure to obtain data from defined source
 
-   ​	b.Financial risks to obtain resources
+   ​	b. Financial risks to obtain resources
 
-   ​	c.Loss of data or code due to workstation failure
+   ​	c. Loss of data or code due to workstation failure
 
-   ​	d.Functionalities not performing as expected
+   ​	d. Functionalities not performing as expected
 
-   ​	e.Miscommunication within the team or with the client
+   ​	e. Miscommunication within the team or with the client
 
-   ​	f.Resources are ill at critical times in the project
+   ​	f. Resources are ill at critical times in the project
+
+   ​	g. Data breach
 
 
 
