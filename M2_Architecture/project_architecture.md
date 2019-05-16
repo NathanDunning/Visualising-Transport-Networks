@@ -24,7 +24,7 @@ All team members are expected to contribute equally to the document and list the
 
 ---
 
-# ENGR 301 Project *NN* Architectural Design and Proof-of-Concept
+# ENGR 301 Project *07* Architectural Design and Proof-of-Concept
 
 **Authors:** Nathan Dunning, Lavanya Sajwan, Aatharsh Vijaya Sugumar, Doris Tam, Tsz Au
 
@@ -34,15 +34,19 @@ One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010
 
 ### Client
 
-Identify the client and their contact details.
+| Name                   | Organisation | Role            | Contact Details         |
+| ----                   | ------------ | ----            | ---------------         |
+| Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
 
 ### 1.1 Purpose
 
-One sentence describing the purpose of the system.
+The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
 
 ### 1.2 Scope
 
-One paragraph describing the scope of the system.
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system should be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will be therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more effective for consultants as decisions can be made dependent on different and specific socio-economic groups.
+
+
 
 ### 1.3 Changes to requirements
 
@@ -63,6 +67,8 @@ If the requirement have changed significantly since the requirements document, o
 [4] Wikipedia, "Geographic information system", wikipedia.com [12 Apr 2019] [Online] Available:
 <br>https://en.wikipedia.org/w/index.php?title=Geographic_information_system&action=history [Accessed 26 March 2019]
 
+[5] Heroku, "Heroku Security", heroku.com [2019] [Online] Available: https://www.heroku.com/policy/security [Accessed 16 May 2019].
+
 
 ## 3. Architecture
 
@@ -81,13 +87,13 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4)
+(1 page, 42010 5.4) 
 
 Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
 
 ### 4. Architectural Views
 
-(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288)
+(5 sub-sections of 2 pages each sub-section, per 42010, 5.5, 5.6, with reference to Annex F of both 12207 and 15288) 
 
 Describe your system's architecture in a series of architectural views, each view corresponding to one viewpoint.
 
@@ -96,7 +102,7 @@ You should include views from the following viewpoints (from Kruchten's 4+1 mode
  * Logical
  * Development
  * Process
- * Physical
+ * Physical 
  * Scenarios - present scenarios illustrating how two of your most important use cases are supported by your architecture
 
 As appropriate you should include the following viewpoints:
@@ -128,40 +134,18 @@ The data tier comprises of data access layer and database/data storage system. M
 
 
 ### 4.3 Process
-...
+This section provides an overview of the system processes and communication between them; including any weaknesses.
 
-### 4.4 Physical
+The system has two main processes:
+1. Web Application. 
+2. Database.  
+
+
+### 4.4 Physical 
 ...
 
 ### 4.5 Scenarios
-The overall system will be made up using two main sub-systems. The User Interface is an interactive map system, which is the connection between the user and the program. The user interface is the only way the user will be able to use the transporting program, it is essentially a graphical user interface which the user can use by changing parameters, clicking, and dragging across the screen. The returned information will be displayed either visually or textually to the user.
-
-The Database Manager is the core of the system's back-end. It essentially works by using a model to build string queries - the models contains headers to all the tables in the database. In between the database manager and the user interface is a controller that is responsible for dealing with receiving URL queries and forwarding to the database manager. The database manager will then query the required database and return it's contents. If an error were to arise in the process of querying the database, the data manager is responsible for handling and processing the error so that it can still be returned in the correct format.
-
-![Figure 4.5.1](https://drive.google.com/uc?export=view&id=1CuLdMzGoU5XzBZ8DDv6Y7e9jX_deiPRQ)
-Figure 4.5.1
-
-Figure 4.5.1 illustrates a scenario where the user would like to change the current city they are viewing.
-1. The user would select the city they would like to view in the navbar on the user interface and press the 'go' button to execute the request.
-2. Once the 'go' button is pressed, the user interface will set URI queries parameters based on the user given parameters.
-3. The controller will then process URI parameters and pass them on to the database manager.
-4. The database manager will build a query by using values from the database models. The models will contain headers where one of which, will correspond to the city requested by the user.
-5. The database manager will execute the query and return data back to the controller.
-6. The controller will format the data in a form that will be readable by the user interface and return it.
-7. The user interface will display the data given by the controller.
-
-
-![Figure 4.5.2](https://drive.google.com/uc?export=view&id=1Ak3Z9sMWwIjqkyxkq7cn2S8L0ukClKr3)
-Figure 4.5.2
-
-Figure 4.5.2 illustrates a scenario where the user would like to change the navigate the map to view a new area within the same city.
-1. The user will use either arrow key inputs or mouse inputs to drag across the screen on the user interface - indicating they would like to pan across the map.
-2. The user interface will set URI queries parameters according to user inputs.
-3. The controller will process URI query parameters, database parameters will be a null value hence, the controller will instruct the user interface to update display.
-4. The user interface will update the display and icons to offset the distance moved given by the user inputs.
-
-Comparing the two core use cases given above, use case displayed in Figure 4.5.1 requires more processes and layers to execute as to figure 4.5.2. This can not only be seen directly through the steps taken to execute each use case as each step taken requires the system to allocate more resources to process but also the interaction between other sub-systems.
-Use case described in Figure 4.5.2 only needs to allocate resources for the controller to return data given from the URI queries back the user interface, the majority of resources allocated such as threads and cores will be allocated for the user interface as this is where the processing will occur. Use case described in Figure 4.5.1 on the other hand requires more classes and packages to execute hence, the system will need to allocate more resources the controller and data manager; starting at step (1) the system will only be required to allocate resource to use packages from the presentation layer, after step (3) and (5) has been executed the system is now allocating resource towards the processing and retrieval of data and both the application and data layers are being used.
+...
 
 ## 5. Development Schedule
 The schedule and number of sprints for MVP1 has been changed from the requirements documents to incorporate the number of issues identified during MVP planning. Initial estimate of budget from project requiremets has been reduced as client has agreed to get the data.
@@ -201,7 +185,7 @@ The demo for each MVP will be showcased to the client, and feedback will be take
     2. Sprint2 - 22 August to 9 September
 
 
-4. MVP4 (10 September to 11 October)
+4. End-Product - 11 October
     1. Sprint1 - 10 September to 23 September
     2. Sprint2 - 24 September to 11 October (close-off sprint)
 
@@ -209,9 +193,16 @@ The demo for each MVP will be showcased to the client, and feedback will be take
 #### 5.2.1 Budget
 | Budget Item                                           | Budget     |
 | ----------------------------------------------------- |:----------:|
-| Obtain required data from different sources           | 200       |
+| Obtain required data from different sources           | 200        |
+| Hosting platform                                      | 100        |
+| Database Server                                       | 50         |
 
-The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources has to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Eventhough client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing. Google Distance Matrix API for travel time and distance, costs 10 dollars per 1000 API hits. Budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources have to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo data, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Even though the client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing, platform hosting and database server. 
+* Google Distance Matrix API for travel time and distance, costs 10$/1000 API hits. The budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. 
+* For hosting the application, a linux basic-tier Azure virtual machine with 1-core costs 18$/month. Apart from the 200 dollar credit provided by azure, a 100 dollar budget has been estimated to host the application in Azure cloud. 
+* For hosting a database server, heroku provides hobby-basic plan of 9$/month. It provides an expected uptime of 99.5% with a support upto 20 connections and a data limit of 10 million rows.
+
+Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
 
 #### 5.2.2 Procurement
 | Procurement Item                                      | Source            |
@@ -219,12 +210,19 @@ The application uses data to analyse the traffic volume within the city along wi
 | Travel Data                                           | Google Maps API   |
 | Demographic Data                                      | Census Data       |
 | GIS Tool (open source)                                | QGIS              |
+| Database server                                       | Heroku            |
+| Spring Libraries (open source)                        | mvnrepository     |
 
-Application maps travel data to estimate the time taken to reach a particular point in map (wellington CBD in this case) from different regions of wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
+The application maps travel data to estimate the time taken to reach the destination (Wellington CBD in this case) from different regions of Wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
 
-Demographic data from Census 2013 will be used to map the population metrics with different regions of wellington. This will be combined with travel data to identify regions and the percentage of population that would reach the destination within a specific time frame. 
+Demographic data from Census 2013 will be used to map the population metrics with different regions of Wellington. This will be combined with travel data to identify the regions and the percentage of population that would reach the destination within a specific time frame. 
 
 GIS applications are tools that are used to create interactive queries, analyze spatial information, edit data in maps, and present the results of all these operations [4]. Demographic data will be overlaid on the geographic information and analysis will be done using the GIS tool.
+
+Online database server can be used to maintain a single replica of data that supports the development process. There are many online MySQL database service providers including Azure MySQL database server and Google SQL Cloud. But heroku provides an excellent support with a sufficient uptime (99.5%) at affordable cost. Heroku platform is designed to protect customers from threats by applying security controls at every layer from physical to application, isolating customer applications and data, and with its ability to rapidly deploy security updates without customer interaction or service interruption [5]. This service can be utilised for hosting MySQL database.
+
+Maven central repository is a open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
+
 
 ### 5.3 Risks
 
@@ -291,13 +289,13 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 
 ## 6. Appendices
 
-### 6.1 Assumptions and dependencies
+### 6.1 Assumptions and dependencies 
 
-one page on assumptions and dependencies (9.5.7)
+one page on assumptions and dependencies (9.5.7) 
 
 ### 6.2 Acronyms and abbreviations
 
-one page glossary as required
+one page glossary as required 
 
 ## 7. Contributions
 
@@ -305,20 +303,20 @@ A one page statement of contributions that lists each member of the group and wh
 
 ---
 
-## Formatting Rules
+## Formatting Rules 
 
  * Write your document using [Markdown](https://gitlab.ecs.vuw.ac.nz/help/user/markdown#gitlab-flavored-markdown-gfm) in your team's Git repository.
  * Submit only a single PDF file generated from the Markdown.
  * Major sections should be separated by a horizontal rule.
 
 
-## Assessment
+## Assessment 
 
 This assessment will be weighted at 20% on the architectural proof-of-concept(s), and 80% on the architecture document.
 
 The proof-of-concept will be assessed for coverage (does it demonstrate all the technologies needed in your project, and all the technologies needed to build your project?) and quality (with an emphasis on simplicity, modularity, and modifiability).
 
-The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc.
+The document assessment will consider both presentation and content. Group and individual marks will be assessed by identical criteria, the group mark for the finished PDF and the individual mark on the contributions visible through `git blame`, `git diff`, file histories, etc. 
 
 The presentation will be based on how easy it is to read, correct spelling, grammar, punctuation, clear diagrams, and so on.
 
