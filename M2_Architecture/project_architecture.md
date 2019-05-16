@@ -201,9 +201,13 @@ The system has two main processes:
 1. Web Application. 
 2. Database.  
 
-
 ### 4.4 Physical 
-...
+
+#####4.4.1. A Deployment Diagram shows the physical architecture:
+
+![Deployment Diagram](/Users/tszkinau/Downloads/Deployment Diagram.png)
+
+#####4.4.2 
 
 ### 4.5 Scenarios
 ...
