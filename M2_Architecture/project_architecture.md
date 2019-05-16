@@ -160,11 +160,11 @@ Key dates for project deliverables:
 
 The initial phase of the project will focus on architecture and design. Data sources will be identified, and the product architecture will be finalised during this phase.
 
-Agile development methodology [1] will be followed for product development. Entire product cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, apart from MVP1 and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
+Agile development methodology [1] will be followed for product development. Entire product life-cycle is split into four MVPs (Minimum Viable Product). Each MVP consists of two sprints, apart from MVP1 and each sprint will run for two weeks. During the start of each sprint, potential tasks will be identified and will be equally distributed to team members. The tasks will be updated on the Gitlab repository and there should be a continuous update on the progress of each task so that every team member is aware of the deliverable for that sprint. If some tasks are not completed (worst case), they will be pushed to the next sprint. Each sprint will have a  board on the Gitlab, and the tasks for that sprint will be updated on the corresponding board.  
 
 There will be two stand-up sessions each week during the lab hours to discuss the status of each task. Each task will have a completion date, and the track for completion of each task will be updated during the stand-up.
 
-The demo for each MVP will be showcased to the client, and feedback will be taken into account during the planning of the next MVP. The last MVP will have a close off sprint, during which all the backlogs will be considered for completion.
+The demo of each MVP will be showcased to the client, and feedback will be taken into account during the planning of the next MVP. The last MVP will have a close off sprint, during which all the backlogs will be considered for completion.
 
 #### Architecture Design Phase - 1 April to 5 May  
 #### MVP - 8 Apr to 11 October
@@ -200,13 +200,13 @@ The demo for each MVP will be showcased to the client, and feedback will be take
 The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources have to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo data, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Even though the client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing, platform hosting and database server. 
 * Google Distance Matrix API for travel time and distance, costs 10$/1000 API hits. The budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. 
 * For hosting the application, a linux basic-tier Azure virtual machine with 1-core costs 18$/month. Apart from the 200 dollar credit provided by azure, a 100 dollar budget has been estimated to host the application in Azure cloud. 
-* For hosting a database server, heroku provides hobby-basic plan of 9$/month. It provides an expected uptime of 99.5% with a support upto 20 connections and a data limit of 10 million rows.
+* For hosting a database server, heroku provides hobby-basic plan of 9$/month. It provides an expected uptime of 99.5% with a support of upto 20 connections and a data limit of 10 million rows.
 
 Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
 
 #### 5.2.2 Procurement
 | Procurement Item                                      | Source            |
-| ----------------------------------------------------- |:-----------------:|
+|:-----------------------------------------------------:|:-----------------:|
 | Travel Data                                           | Google Maps API   |
 | Demographic Data                                      | Census Data       |
 | GIS Tool (open source)                                | QGIS              |
@@ -221,7 +221,7 @@ GIS applications are tools that are used to create interactive queries, analyze 
 
 Online database server can be used to maintain a single replica of data that supports the development process. There are many online MySQL database service providers including Azure MySQL database server and Google SQL Cloud. But heroku provides an excellent support with a sufficient uptime (99.5%) at affordable cost. Heroku platform is designed to protect customers from threats by applying security controls at every layer from physical to application, isolating customer applications and data, and with its ability to rapidly deploy security updates without customer interaction or service interruption [5]. This service can be utilised for hosting MySQL database.
 
-Maven central repository is a open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
+Maven central repository is an open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
 
 
 ### 5.3 Risks
