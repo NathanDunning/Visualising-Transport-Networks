@@ -449,7 +449,7 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 | ----------------------- | ----------------- |
 | Aatharsh Vijaya Sugumar | 4.2, 5, 6 |
 | Doris Tam               | 1.1, 1.2, 4.1 |
-| Lavanya Sajwan          | 3.2, 4.3 |
+| Lavanya Sajwan          | 1.1, 1.2, 3.2, 4.3 |
 | Nathan Dunning          | 1.3, 4.5 |
 | Tsz Kin Au              | 3.1, 4.4 |
 
