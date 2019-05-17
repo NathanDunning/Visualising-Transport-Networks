@@ -103,11 +103,7 @@ Each architectural view should include at least one architectural model. If arch
 ### 4.1 Logical View
 The logical view of the Visualisation System holds one main components - the Map Visualisation Application.
 
-<<<<<<< HEAD
 ![image](react-logical-architecture2.png)
-=======
-![image](react-logical-architecture.png)
->>>>>>> 7a200b3e2f6cd0ca1f0b182cadd4bf115bf14a2e
 
 #### 4.1.1 Map Visualisation Application
 The logical view of the Map Visualisation Application consists of three packages:
@@ -118,10 +114,6 @@ The logical view of the Map Visualisation Application consists of three packages
 **Front-end UI - Client Package**  
 The Front-end UI contains modular classes and components that enables the actors to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph. Additonal React Libraries are used to support component functionality.
 
-| Component/Class | Description   |
-| :------------- | :------------- |
-| Item One       | Item Two       |
-
 **Business Logic - Server Package**  
 The Business Logic contains a controller classes that ... loading data from the SQL Database backend into the front-end Application using Spring Rest.
 
@@ -131,24 +123,6 @@ The server establishes the connection to the database, query the database and re
 The Data Package holds the ... organised by city, transport mode, to/from, date and time
 
 Database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
-
-- [ ] Class diagram  
-- [ ] State machine Diagram?
-
-# *From requirements report for reference*
-
-Object Model: what components will be made, and how they will behave
-
-Identified classes:
-- Map
-- City
-- Location
-- TransportMode
-- Database
-- Server
-
-## *will change up*
-![image](https://drive.google.com/uc?export=view&id=1uthiaR9KXYPtLD8d5fIdD4p2CY80Lsb7)
 
 Process flow for the applicaton:
 * User logs in.
@@ -163,15 +137,14 @@ Process flow for the applicaton:
 ##### User:
 User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user
 
-##### User terminal:
-The User Terminal is an interface that connects the user to the back-end application. It gathers all the required inputs from the user and interacts with the vehicle and location to cross-check the validity of the input.
-
 ##### Vehicle:
 Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
 
 ##### Location:
 Location has details about the geographical area that the application supports. As the application scales up to support different locations, location data can be updated.
 
+##### Map:
+Map is a leaflet component that reads the vehicle and location information from the database and presents the data on the map.
 
 
 ### 4.2 Development
