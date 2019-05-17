@@ -56,6 +56,94 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
+|                 Skateholders of the program                  | Main Concerns                                                |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+|                        User (Public)                         | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes. 6. The usability of the program |
+|                Owners (Client: Chris Vallyon)                | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 3. The feasibility of constructing and deploying the system 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system 6. The usability of the program |
+| Suppliers (Data Suppliers: Chris Vallyon, Google and other data providers, Victoria University of Wellington) | 1. The purposes of the system, for the data providers the purposes of the usage of their data. |
+|      Developers/Builders (Team members of the project)       | 1. The potential risks and impacts of the system to its stakeholders throughout its life cycle. 2. The feasibility of constructing and depolying the system. 3. The suitability of the architecture for achieving the system’s purposes. 6. The usability of the program |
+|          Maintainers (Team members of the project)           | 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle 5. Maintainability and evolvability of the system. |
+| Operators (The employee of Beca who use the program, Client: Chris Vallyon ) | 1. The purposes of the system 2. The suitability of the architecture for achieving the system’s purposes 4. The potential risks and impacts of the system to its stakeholders throughout its life cycle |
+
+
+
+### Main Concerns of Stakeholders:
+
+1. The purposes of the system: 
+
+   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
+
+
+
+2. The suitability of the architecture for achieving the system’s purposes: 
+
+   ​    The suitability of the architecture for achieving the system’s purposes is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the implementation of the program which satisfies the functionalities required by the client.
+
+
+
+3. The feasibility of constructing and deploying the system:
+
+   ​    The source code will be constructed using JavaScript with frameworks comprising of React together with Redux. The final product can be deployed to an office web server for multiple clients to use or ran through a localhost server for an individual.
+
+
+
+4. The potential risks and impacts of the system to its stakeholders throughout its life cycle: 
+
+   ​    a.  Failure to obtain data from a defined source
+
+      ​    Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
+
+   
+
+   ​    b. Financial risks to obtain resources
+
+   ​	Extra data requires financial support, the financial risk may lead to failure to obtain data to achieving the system’s purposes.
+
+   
+
+   ​    c. Loss of data or code due to workstation failure
+
+   ​    Data loss can lead to additional expenses to purchase data, it also causes application not functioning because of a lack of data.
+
+   
+
+   ​    d. Functionalities not performing as expected
+
+   ​    Functionalities not performing as expected will lead to delay or failure of deployment of the program.
+
+   
+
+   ​    e. Miscommunication within the team or with the client
+
+   ​    Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
+
+   
+
+   ​    f. Members are ill at critical times in the project
+
+   ​    Members are ill at critical times in the project will lead to delay or failure of deployment of the program.
+
+   
+
+   ​    g. Data Breach
+
+   ​    If data breach from the inner of the team, the team member would be liable if the data breach results in a lawsuit.
+
+   
+
+5. The Maintainability and the  evolvability of the system:
+
+   ​    Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
+
+   
+
+6. The Usability of the program:    
+
+   ​    The system should ensure ease of use to the end user. The layout of the system should be easy to perceive and components developed should carry necessary information required to guide the end user to attain the information he/she seeks from the system.
+
+
+
+
 ### 3.2 Architectural Viewpoints
 (1 page, 42010 5.4)
 
@@ -158,20 +246,21 @@ Data from CSV files will be preloaded and stored in a database that will be sync
 
 ![Data Storage](Backend.jpg)
 
-Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
+### 4.4 Physical 
 
-#### 4.3.2 Business Logic
-The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application.
+##### A Deployment Diagram shows the physical architecture:
 
-Performance is dependent on the number of queries being executed and from what parts of the web application. Negative performance can also occur with greater datasets, which can occur as we are provided more data from multiple different sources.
+![image](https://drive.google.com/uc?export=view&id=1dlFQ_Tz5Pniqv2RAIHvoXe08lMXinQ9j)
 
-High latency can occur if there are any issues with the Java Database Connectivity.
+​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
 
-![Business Logic](altogether.jpg)
-This diagram shows the connections via the web application process and the Data Storage. The business logic areas are represented by the control flow arrows between the front-end of the web application and the back-end of the data storage.
+​	The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds. 
 
-### 4.4 Physical
-...
+​	The Application Server and Database Server supports/contains the backend of the software, they are responsible for Application Logic and Data Storage/Data Processing respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server takes charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
+
+​	The user's computer is connected to the Web Server via HTTP through the Internet so the users can log in a webpage to access the application. Where the Web Server is connected to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connected to the Application Server via Spring REACT API.	
+
+
 
 ### 4.5 Scenarios
 The overall system will be made up using two main sub-systems. The User Interface is an interactive map system, which is the connection between the user and the program. The user interface is the only way the user will be able to use the transporting program, it is essentially a graphical user interface which the user can use by changing parameters, clicking, and dragging across the screen. The returned information will be displayed either visually or textually to the user.
