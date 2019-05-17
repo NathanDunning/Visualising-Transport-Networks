@@ -4,8 +4,6 @@
 
 ## 1. Introduction
 
-One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)
-
 #### Client
 
 | Name                   | Organisation | Role            | Contact Details         |
