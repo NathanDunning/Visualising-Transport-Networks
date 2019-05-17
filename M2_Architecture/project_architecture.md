@@ -30,10 +30,10 @@ For changes regarding the software interface, previous requirements stated that 
 ## 2. References
 
 [1] Wikipedia, "Agile software development", wikipedia.com, Section 6 [22 November 2018] [Online] Available:
-<br>https://en.wikipedia.org/wiki/Agile_software_development#Agile_software_development_practices [Accessed 26 March 2019] 
+<br>https://en.wikipedia.org/wiki/Agile_software_development#Agile_software_development_practices [Accessed 26 March 2019]
 
 [2] Future plc, "Top 10 Software Development Risks",IT Pro Portal, Section 1 & 7 [2019] [online] Available:
-<br>https://www.itproportal.com/2010/06/14/top-ten-software-development-risks/ [Accessed 27 March 2019] 
+<br>https://www.itproportal.com/2010/06/14/top-ten-software-development-risks/ [Accessed 27 March 2019]
 
 [3] Betterhealth, "Workplace safety - overuse injuries",Betterhealth.vic.gov.au, Para.1 [2019] [online] Availbale:
 <br>https://www.betterhealth.vic.gov.au/health/healthyliving/workplace-safety-overuse-injuries [Accessed 27 March 2019]
@@ -57,11 +57,7 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-The following section of architectural viewpoints are used to breakdown the structure of the system and analyse the different components which will be used [[6]](https://ieeexplore.ieee.org/document/6129467). The five viewpoints evaluated are Logical, Development, Process, Physical and Scenarios. It is essential to analyse the system this way as combined; they show multiple, concurrent views on the system and how they might affect functionality. Therefore, it provides a way to plan for any latency in our design.
-
-The Logical Architecture viewpoint outlines the functionality that the system will provide to its users [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). The main characteristics are displayed in a class diagram. This is necessary so the team can identify what is needed. Therefore the two stakeholders involved are; the team, and the client.
-
-The Development Architecture viewpoint encompasses the system from the perspective of those involved in software development. In regards to the stakeholders; this is every team member. While the above viewpoint described the external requirements needed for the clients, this section provides an overview of the internal characteristics. Therefore, this section outlines the layers of the architecture and the critical components within it [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). A package diagram supports this section to show the organisation of the different layers.
+(1 page, 42010 5.4)
 
 The Process Architecture viewpoint provides an overview of the behaviour of the end product. This supplies the stakeholders; the clients, and the team, with possible ineffectiveness that the system may encounter due to the connections between layers and interaction with users. The activity diagram displays different tasks that the system may undergo simultaneously, which can also affect functionality [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).
 
@@ -86,10 +82,57 @@ The application will be designed based on a simple three-tier architecture. Thre
 The presentation tier is the front end layer in the three-tier system and consists of the user interface and the presentation logic. The user interface is accessible through a web browser or web-based application which displays the content of the application to an end user. This tier will be built on React web technology and communicates with the application layer through REST API calls. Security of the application will be implemented by having a login page which will use spring security API at the backend.
 
 ##### Application Layer:
-The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using by JDBC. JDBC is a Java API used to connect to the database and execute queries. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application. 
+The application tier contains the functional business logic which drives the core capabilities of the application. It will be developed using Java and Spring REST APIs will be used to implement different application components. Application and Data layer Connectivity will be implemented using by JDBC. JDBC is a Java API used to connect to the database and execute queries. The retrieved data from the data layer will be processed and the information will be exposed as APIs to the front end. Spring security framework will be used to manage security of the application.
+
+### 4.1 Logical View
+The logical view of the Visualisation System holds one main components - the Map Visualisation Application.
+
+![image](react-logical-architecture2.png)
+
+#### 4.1.1 Map Visualisation Application
+The logical view of the Map Visualisation Application consists of three packages:
+1. Front-end UI
+2. Business Logic
+3. Data
+
+**Front-end UI - Client Package**  
+The Front-end UI contains modular classes and components that enables the actors to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph. Additonal React Libraries are used to support component functionality.
+
+**Business Logic - Server Package**  
+The Business Logic contains a controller classes that ... loading data from the SQL Database backend into the front-end Application using Spring Rest.
+
+The server establishes the connection to the database, query the database and return the result to the user terminal.
+
+**Data Package**
+The Data Package holds the ... organised by city, transport mode, to/from, date and time
+
+Database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
+
+Process flow for the applicaton:
+* User logs in.
+* User enters the necessary details.
+* User terminal gathers required details.
+* User can only choose from the available transport options and the location details.
+* User terminal establishes a connection through server.
+* Server interacts with the database to process the request.
+* Database returns appropriate results.
+* User terminal displays the results to the user.
+
+##### User:
+User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user
+
+##### Vehicle:
+Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
+
+##### Location:
+Location has details about the geographical area that the application supports. As the application scales up to support different locations, location data can be updated.
+
+##### Map:
+Map is a leaflet component that reads the vehicle and location information from the database and presents the data on the map.
 
 ##### Data Layer:
-The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials. The efficiency of the system directly depends on the size of the database. Query processing will be affected by the non-normalized tables with high content. For example, in this case the travel details about different modes of transport can be stored seperately and the appropriate tables can be queried for results, instead of having all the data under one table. 
+The data tier comprises of data access layer and database/data storage system. MySQL database management system will be used to maintain the data. Data is accessed by the application layer via JDBC. External services like Google Maps API will be invoked for data gathering. In-built security of MySQL will be used to maintain the security of the database. Data encryption should be used to maintain the privacy of user details especially the login credentials. The efficiency of the system directly depends on the size of the database. Query processing will be affected by the non-normalized tables with high content. For example, in this case the travel details about different modes of transport can be stored seperately and the appropriate tables can be queried for results, instead of having all the data under one table.
+
 
 
 ### 4.3 Process
@@ -212,12 +255,12 @@ The demo of each MVP will be showcased to the client, and feedback will be taken
 | Hosting platform                                      | 100        |
 | Database Server                                       | 50         |
 
-The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources have to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo data, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Even though the client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing, platform hosting and database server. 
-* Google Distance Matrix API for travel time and distance, costs 10$/1000 API hits. The budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data. 
-* For hosting the application, a linux basic-tier Azure virtual machine with 1-core costs 18$/month. Apart from the 200 dollar credit provided by azure, a 100 dollar budget has been estimated to host the application in Azure cloud. 
+The application uses data to analyse the traffic volume within the city along with demographic data. Data from these sources have to be combined for analysing and processing. The efficiency of the application depends upon the quality of the data. So it is essential to obtain data from trusted sources and have plenty of it to support the use cases. These sources may include google API for travel data, onzo data, taxi-data, telco and census data for demographic information. Sourcing one month of travel data from Google API costs around 1500 dollars approx. Even though the client has agreed to get the data, a considerable amount would be required for any unplanned data sourcing, platform hosting and database server.
+* Google Distance Matrix API for travel time and distance, costs 10$/1000 API hits. The budget has been estimated for 20,000 Distance Matrix API hits for gathering travel data.
+* For hosting the application, a linux basic-tier Azure virtual machine with 1-core costs 18$/month. Apart from the 200 dollar credit provided by azure, a 100 dollar budget has been estimated to host the application in Azure cloud.
 * For hosting a database server, heroku provides hobby-basic plan of 9$/month. It provides an expected uptime of 99.5% with a support of upto 20 connections and a data limit of 10 million rows.
 
-Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources. 
+Considering the time and the agreement related issues, a data source can be finalised and development can start on the obtained data. The product can be modified further to analyse data from different sources.
 
 #### 5.2.2 Procurement
 | Procurement Item                                      | Source            |
@@ -230,7 +273,7 @@ Considering the time and the agreement related issues, a data source can be fina
 
 The application maps travel data to estimate the time taken to reach the destination (Wellington CBD in this case) from different regions of Wellington. The time estimate is calculated for different modes of transport like private (car) and public (bus). Google Maps API will be used to gather data and analysis will be done on top of this data.  
 
-Demographic data from Census 2013 will be used to map the population metrics with different regions of Wellington. This will be combined with travel data to identify the regions and the percentage of population that would reach the destination within a specific time frame. 
+Demographic data from Census 2013 will be used to map the population metrics with different regions of Wellington. This will be combined with travel data to identify the regions and the percentage of population that would reach the destination within a specific time frame.
 
 GIS applications are tools that are used to create interactive queries, analyze spatial information, edit data in maps, and present the results of all these operations [4]. Demographic data will be overlaid on the geographic information and analysis will be done using the GIS tool.
 
@@ -241,7 +284,7 @@ Maven central repository is an open source repository provided by Maven communit
 
 ### 5.3 Risks
 
-Risks in software development is a potential problem which prevents an individual or a group of people from reaching the project goal [2]. The outcome of these is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss. 
+Risks in software development is a potential problem which prevents an individual or a group of people from reaching the project goal [2]. The outcome of these is the possibility of suffering loss, and total risk exposure to a specific project will account for both the probability and the size of the potential loss.
 
 | Risks                                                 | Likelihood |   Severity  |
 | ----------------------------------------------------- |:----------:|:-----------:|
@@ -338,7 +381,7 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 - The application should react within a relatively quick response time; 90% of the responses should within range of 10 seconds, so the user does not become uninterested in the application.
 
 
-- The application should be able to support no more than simultaneous ten users at a time. 
+- The application should be able to support no more than simultaneous ten users at a time.
 
 
 - The transport data will be load manually and time depends on the amount of data, the goal is 95% of every load should occur within 5 minutes.
@@ -363,7 +406,7 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 - The financial and additional data are required, there is a dependency on support from third party, most likely course coordinator and Beca.
 
 
-- The transport and demographic data will be load manually and time depends on the amount of data. 
+- The transport and demographic data will be load manually and time depends on the amount of data.
 
 
 - The application needs to run on a browser.
@@ -402,4 +445,3 @@ Project requirements do not involve the risk of death, serious harm, or any mino
 | Tsz Kin Au              | 3.1, 4.4 |
 
 ---
-
