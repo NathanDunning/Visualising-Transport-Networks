@@ -64,7 +64,7 @@ For changes regarding the software interface, previous requirements stated that 
 
 1. The purposes of the system:
 
-   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions; users can add CSV data sets to the application in order to display the information. 
+   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions; users can add CSV data sets to the application in order to display the information.
 
 
 
@@ -166,13 +166,12 @@ The Front-end UI contains modular classes and components that enables the actors
 
 **Business Logic - Server Package**  
 The Business Logic contains classes responsible for loading data from the SQL Database backend and passing it the front-end Application using Spring Rest.
-
 The server establishes the connection to the database, query the database and return the result to the user terminal.
 
 **Data Package**
-The Data Package provides the data that is accessed by the client. Stored in the database, the package is organised by city, transport mode, to/from, date and time
+The Data Package provides data that is accessed by the client. Stored in the database, the package is organised by city, transport mode, to/from, date and time
 
-Database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
+The database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
 Process flow for the applicaton:
 * User logs in.
@@ -185,7 +184,7 @@ Process flow for the applicaton:
 * User terminal displays the results to the user.
 
 ##### User:
-User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user
+User will be the primary actor to interact with the application through the user interface. The query to a process will be formed based on the input provided by the user.
 
 ##### Vehicle:
 Vehicle class has information about the mode of transport that the application supports. As the application scales up to support different modes of transport, vehicle class can be updated to reflect the same.
@@ -246,9 +245,9 @@ Data from CSV files will be preloaded and stored in a database that will be sync
 
 ![image](https://drive.google.com/uc?export=view&id=1dlFQ_Tz5Pniqv2RAIHvoXe08lMXinQ9j)
 
-​    The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
+​    The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application.
 
-​    The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds. 
+​    The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds.
 
 ​    The Application Server and Database Server supports/contains the backend of the software, and they are responsible for Application Logic and Data Storage/Data Processing, respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server takes charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
 
