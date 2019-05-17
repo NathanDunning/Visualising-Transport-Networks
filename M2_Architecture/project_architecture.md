@@ -290,7 +290,6 @@ Online database server can be used to maintain a single replica of data that sup
 
 Maven central repository is an open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
 
-### 5.3 Risks
 
 ### 5.3 Risks
 
