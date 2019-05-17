@@ -69,6 +69,10 @@ For changes regarding the software interface, previous requirements stated that 
 [5] Heroku, "Heroku Security", heroku.com [2019] [Online] Available: https://www.heroku.com/policy/security [Accessed 16 May 2019].
 
 
+[6] "42010-2011 - ISO/IEC/IEEE Systems and software engineering -- Architecture description - IEEE Standard", Ieeexplore.ieee.org, 2011. [Online]. Available: https://ieeexplore.ieee.org/document/6129467. [Accessed: 13- May- 2019].
+
+[7] P. Kruchten, "The 4+1 View Model of architecture", IEEE Software, vol. 12, no. 6, pp. 42-50, 1995. Available: 10.1109/52.469759 [Accessed 9 May 2019].
+
 ## 3. Architecture
 
 Describe your system's architecture according to ISO/IEC/IEEE 42010:2011(E), ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15289 and ISO/IEC/IEEE 15288.
