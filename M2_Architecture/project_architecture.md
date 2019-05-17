@@ -63,13 +63,13 @@ For changes regarding the software interface, previous requirements stated that 
 
 ### Main Concerns of Stakeholders:
 
-1. The purposes of the system: 
+1. The purposes of the system:
 
-   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information. 
+   ​    The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions, users can add CSV data sets to the application in order to display the information.
 
 
 
-2. The suitability of the architecture for achieving the system’s purposes: 
+2. The suitability of the architecture for achieving the system’s purposes:
 
    ​    The suitability of the architecture for achieving the system’s purposes is the amount of the suitable/useful work accomplished in the program. The suitable/useful work means the implementation of the program which satisfies the functionalities required by the client.
 
@@ -81,55 +81,55 @@ For changes regarding the software interface, previous requirements stated that 
 
 
 
-4. The potential risks and impacts of the system to its stakeholders throughout its life cycle: 
+4. The potential risks and impacts of the system to its stakeholders throughout its life cycle:
 
    ​    a.  Failure to obtain data from a defined source
 
       ​    Failure to obtain data from defined source will cause application not functioning. The map needs enough data to display a terrain topographic map which shows how long it takes to get into the city(CBD) from different sections of a region using different modes such as cars, trains and buses.
 
-   
+
 
    ​    b. Financial risks to obtain resources
 
    ​	Extra data requires financial support, the financial risk may lead to failure to obtain data to achieving the system’s purposes.
 
-   
+
 
    ​    c. Loss of data or code due to workstation failure
 
    ​    Data loss can lead to additional expenses to purchase data, it also causes application not functioning because of a lack of data.
 
-   
+
 
    ​    d. Functionalities not performing as expected
 
    ​    Functionalities not performing as expected will lead to delay or failure of deployment of the program.
 
-   
+
 
    ​    e. Miscommunication within the team or with the client
 
    ​    Miscommunication within the team or with the client can lead to functionalities of the system not performing as expected and waste of funds support.
 
-   
+
 
    ​    f. Members are ill at critical times in the project
 
    ​    Members are ill at critical times in the project will lead to delay or failure of deployment of the program.
 
-   
+
 
    ​    g. Data Breach
 
    ​    If data breach from the inner of the team, the team member would be liable if the data breach results in a lawsuit.
 
-   
+
 
 5. The Maintainability and the  evolvability of the system:
 
-   ​    Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works. 
+   ​    Maintainability and evolvability of the system involves continuous improvement of the system which means the code needs to be well documented for the understanding of the team and the required data(CSV files) for the system should also be updatable as well as future handoff to client so they can build upon the application and understand how it works.
 
-   
+
 
 6. The Usability of the program:    
 
@@ -168,12 +168,12 @@ The logical view of the Map Visualisation Application consists of three packages
 The Front-end UI contains modular classes and components that enables the actors to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph. Additonal React Libraries are used to support component functionality.
 
 **Business Logic - Server Package**  
-The Business Logic contains a controller classes that ... loading data from the SQL Database backend into the front-end Application using Spring Rest.
+The Business Logic contains classes responsible for loading data from the SQL Database backend and passing it the front-end Application using Spring Rest.
 
 The server establishes the connection to the database, query the database and return the result to the user terminal.
 
 **Data Package**
-The Data Package holds the ... organised by city, transport mode, to/from, date and time
+The Data Package provides the data that is accessed by the client. Stored in the database, the package is organised by city, transport mode, to/from, date and time
 
 Database will hold all the necessary data to support the application. Queries will be processed based on the mode of transport, time of travel and the lat-long details. Data related to the different mode of transport will be stored separately to avoid latency.
 
@@ -244,19 +244,19 @@ Data from CSV files will be preloaded and stored in a database that will be sync
 
 ![Data Storage](Backend.jpg)
 
-### 4.4 Physical 
+### 4.4 Physical
 
 ##### A Deployment Diagram shows the physical architecture:
 
 ![image](https://drive.google.com/uc?export=view&id=1dlFQ_Tz5Pniqv2RAIHvoXe08lMXinQ9j)
 
-​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application. 
+​	The Deployment Diagram shows the relationships and connectivities between the software components and hardware components in the system and the physical distribution of the processing. The physical hardware are users, the browser in computers they are using to interact with the application and three servers(Web Server, Application Server, Database Server) connect each other in order to achieve the functionalities of the application.
 
-​	The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds. 
+​	The Web Server supports/contains frontend of the software which is the presentation of the user interface, the user interface is supported by presentation logic and can be separated into two parts: Login page and Map visualization page after user login succeeds.
 
 ​	The Application Server and Database Server supports/contains the backend of the software, they are responsible for Application Logic and Data Storage/Data Processing respectively. The Application server takes into account primarily in how different data are used to display the different state of traffic flow and the functionalities navigation bar. The Database Server takes charge of the storage of both census traffic data and user login data and the encryption/decryption of the data.
 
-​	The user's computer is connected to the Web Server via HTTP through the Internet so the users can log in a webpage to access the application. Where the Web Server is connected to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connected to the Application Server via Spring REACT API.	
+​	The user's computer is connected to the Web Server via HTTP through the Internet so the users can log in a webpage to access the application. Where the Web Server is connected to the Application Server by using the JDBC(Java Database Connectivity). And Database Server is connected to the Application Server via Spring REACT API.
 
 
 
