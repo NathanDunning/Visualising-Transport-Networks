@@ -32,21 +32,17 @@ All team members are expected to contribute equally to the document and list the
 
 One page overall introduction including sections 1.1 and 1.2 (ISO/IEC/IEEE 42010:2011(E) clause 5.2)
 
-### Client
+#### Client
 
 | Name                   | Organisation | Role            | Contact Details         |
 | ----                   | ------------ | ----            | ---------------         |
 | Chris Vallyon          | Beca         | Client          | chris.vallyon@beca.com<br>021 522 700 |
 
 ### 1.1 Purpose
-
-The purpose of this system is to analyse the different modes and the current state of traffic flow of major cities in New Zealand to give insight for making transport-related decisions.
+The purpose of this system is to analyse different modes of transport (car, bus, train) and the current state of traffic flow on major city networks (Wellington, Christchurch and Auckland) in New Zealand to give insight for making transport-related decisions.
 
 ### 1.2 Scope
-
-The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The existing system should be able to run on any browser. The system will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another potential aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will be therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more effective for consultants as decisions can be made dependent on different and specific socio-economic groups.
-
-
+The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data.  The system should be able to run on any browser. It will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will, therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more useful for consultants as decisions can be made dependent on different and specific socio-economic groups.
 
 ### 1.3 Changes to requirements
 
@@ -90,9 +86,17 @@ See ISO/IEC/IEEE 42010 clause 5.3 and ISO/IEC/IEEE 12207 clause 6.4.4.3(2).
 For most systems this will be about 2 pages, including a table mapping concerns to stakeholder.
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4)
+The following section of architectural viewpoints are used to breakdown the structure of the system and analyse the different components which will be used [[1]](https://ieeexplore.ieee.org/document/6129467). The five viewpoints evaluated are Logical, Development, Process, Physical and Scenarios. It is essential to analyse the system this way as combined; they show multiple, concurrent views on the system and how they might affect functionality. Therefore, it provides a way to plan for any latency in our design.
 
-Identify the architectural viewpoints you will use to present your system's architecture. Write one sentence to outline each viewpoint. Show which viewpoint frames which architectural concern.
+The Logical Architecture viewpoint outlines the functionality that the system will provide to its users [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). The main characteristics are displayed in a class diagram. This is necessary so the team can identify what is needed. Therefore the two stakeholders involved are; the team, and the client.
+
+The Development Architecture viewpoint encompasses the system from the perspective of those involved in software development. In regards to the stakeholders; this is every team member. While the above viewpoint described the external requirements needed for the clients, this section provides an overview of the internal characteristics. Therefore, this section outlines the layers of the architecture and the critical components within it [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). A package diagram supports this section to show the organisation of the different layers.
+
+The Process Architecture viewpoint provides an overview of the behaviour of the end product. This supplies the stakeholders; the clients, and the team, with possible ineffectiveness that the system may encounter due to the connections between layers and interaction with users. The activity diagram displays different tasks that the system may undergo simultaneously, which can also affect functionality [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).
+
+The Physical Architecture viewpoint focuses on mainly the non-functional requirements of the system such as availability, reliability, performance and scalability [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).  This is supported by the use of a deployment diagram to show the processing nodes and how they communicate. The main stakeholders that would be interested in this would be the team so that they have oversight on what nodes need to connect in order for the system to function.
+
+The Scenario Architecture viewpoint provides functional scenarios which show how each combined previous viewpoints interact with each other in the system [[2]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). This section details the primary outcomes that users may take while using this software. Stakeholders interested in this are the clients and the team. Use case diagrams provide a visual overview of the wanted characterises to outline the desired architecture of the final software.
 
 ### 4. Architectural Views
 
@@ -137,12 +141,42 @@ The data tier comprises of data access layer and database/data storage system. M
 
 
 ### 4.3 Process
+
 This section provides an overview of the system processes and communication between them; including any weaknesses.
 
 The system has two main processes:
-1. Web Application. 
-2. Database.  
+1. Web Application.
+2. Data Storage
+3. Business Logic
 
+#### 4.3.1 Web Application
+The first interaction that the user will have is with the web application. The user initiates this process by running the program by opening the webpage hosted by Heroku or another approved cloud hosting program. This front end that the user sees has a permanent connection to the databases containing the transport network data as well as a database of logins ids. The user will have to use their specific login details to enter the main application. If the incorrect login is shown, the user will be prompted again. Once accepted, the user will be granted access to the main map visuals. No other authentication is necessary to be provided.
+
+The map will be displayed using data from the database. Data will also be able to be filtered here for users to make necessary consulting decisions.  
+
+Performance is dependent on browser and hardware that the application is run on. There are also multiple errors on the back-end, which can cause errors as the layout is dependent on the data being fed to the front-end. Error messages would show up, but need to be resolved as soon as possible. For users, error messages should also involve minimal jargon.
+
+Network latency can occur with bad and no internet connection as it will be hosted on a platform that requires internet access.
+
+![Web Application](WebApplication.jpg)
+The above-described process is shown in this activity diagram.
+
+#### 4.3.2 Data Storage
+Data from CSV files will be preloaded and stored in a database that will be synchronised to the web application via the business logic process. When a user interacts with the web application, requests are sent, and the databases are queried and return the information. This process is visually represented by the diagram below.
+
+![Data Storage](Backend.jpg)
+
+Performance is dependent on how much data is loaded. Latency can occur due to this as it needs to process through all data points.  
+
+#### 4.3.2 Business Logic
+The business logic is the process which manages outward and inward communication from the databases to the user interface of the web application.
+
+Performance is dependent on the number of queries being executed and from what parts of the web application. Negative performance can also occur with greater datasets, which can occur as we are provided more data from multiple different sources.
+
+High latency can occur if there are any issues with the Java Database Connectivity.
+
+![Business Logic](altogether.jpg)
+This diagram shows the connections via the web application process and the Data Storage. The business logic areas are represented by the control flow arrows between the front-end of the web application and the back-end of the data storage.
 
 ### 4.4 Physical
 ...
@@ -252,6 +286,7 @@ Online database server can be used to maintain a single replica of data that sup
 
 Maven central repository is an open source repository provided by Maven community. It contains a large number of commonly used libraries. All the necessary spring-based dependencies required for product development is available for download from maven repository.
 
+### 5.3 Risks
 
 ### 5.3 Risks
 
