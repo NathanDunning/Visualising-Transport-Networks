@@ -1,4 +1,3 @@
-
 # ENGR 301 Project *07* Architectural Design and Proof-of-Concept
 
 **Authors:** Nathan Dunning, Lavanya Sajwan, Aatharsh Vijaya Sugumar, Doris Tam, Tsz Au
@@ -145,7 +144,11 @@ For most systems this will be about 2 pages, including a table mapping concerns 
 
 
 ### 3.2 Architectural Viewpoints
-(1 page, 42010 5.4)
+The following section of architectural viewpoints are used to breakdown the structure of the system and analyse the different components which will be used [[6]](https://ieeexplore.ieee.org/document/6129467). The five viewpoints evaluated are Logical, Development, Process, Physical and Scenarios. It is essential to analyse the system this way as combined; they show multiple, concurrent views on the system and how they might affect functionality. Therefore, it provides a way to plan for any latency in our design.
+
+The Logical Architecture viewpoint outlines the functionality that the system will provide to its users [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). The main characteristics are displayed in a class diagram. This is necessary so the team can identify what is needed. Therefore the two stakeholders involved are; the team, and the client.
+
+The Development Architecture viewpoint encompasses the system from the perspective of those involved in software development. In regards to the stakeholders; this is every team member. While the above viewpoint described the external requirements needed for the clients, this section provides an overview of the internal characteristics. Therefore, this section outlines the layers of the architecture and the critical components within it [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf). A package diagram supports this section to show the organisation of the different layers.
 
 The Process Architecture viewpoint provides an overview of the behaviour of the end product. This supplies the stakeholders; the clients, and the team, with possible ineffectiveness that the system may encounter due to the connections between layers and interaction with users. The activity diagram displays different tasks that the system may undergo simultaneously, which can also affect functionality [[7]](https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf).
 
