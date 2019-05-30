@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Map from "../components/Map";
+import MapNav from "../components/MapNav/MapNav";
 class Home extends Component {
   render() {
     return (
@@ -9,6 +10,7 @@ class Home extends Component {
           <h1>Map</h1>
           <p>Visualising our Transport Networks</p>
           <Map />
+          <MapNav />
         </div>
       </div>
     );
