@@ -1,18 +1,22 @@
-stages:
-    - build
-    - test
-
-before_script:
-    - npm install
-
-build:
-    stage: build
-    script:
-        - echo "Building Client"
-        - npm build
-
-test:
-    stage: test
-    script:
-        - echo "Testing Client"
-        - npm test
+linux job:    
+    stages:
+        - build
+        - test
+    
+    tags:
+        - linux
+        
+    before_script:
+        - npm install
+    
+    build:
+        stage: build
+        script:
+            - echo "Building Client"
+            - npm build
+    
+    test:
+        stage: test
+        script:
+            - echo "Testing Client"
+            - npm test
