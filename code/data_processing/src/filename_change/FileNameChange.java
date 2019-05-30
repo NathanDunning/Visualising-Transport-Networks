@@ -16,7 +16,7 @@ public static void main(String[] args) throws IOException {
 }
 
 public static void dirTree(File dir) throws IOException {
-	BufferedWriter bw = new BufferedWriter(new FileWriter(dir + "\\wel_car_from.csv"));
+	BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\workspace\\transporting\\visualising-transport-networks\\data\\Wellington\\driving\\from_mod\\wel_car_from.csv"));
 	boolean firstline = false;
     File[] subdirs=dir.listFiles();
     for(File subdir: subdirs) {
@@ -38,7 +38,7 @@ public static void dirTree(File dir) throws IOException {
 public static void doFile(File file, BufferedWriter bw, boolean firstLine) throws IOException {
    String filePath = file.getAbsolutePath();
    String fileName = filePath.substring(filePath.lastIndexOf("\\")+1, filePath.length());
-   String data = fileName.replace(".csv", "");
+   String[] date_time = fileName.replace(".csv", "").split(" ");
    System.out.println(filePath);
    BufferedReader br = new BufferedReader(new FileReader(filePath));
    String line;
@@ -52,8 +52,10 @@ public static void doFile(File file, BufferedWriter bw, boolean firstLine) throw
 		   bw.newLine();
 		   firstLine = false;
 	   }
-	   else
-		   cols.add(data);
+	   else {
+		   cols.add(date_time[0]);
+		   cols.add(date_time[1]);
+	   }
 	   bw.write(String.join(",",cols));
 	   bw.newLine();
    }
