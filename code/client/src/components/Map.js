@@ -34,7 +34,7 @@ let mapboxLayer = L.tileLayer(orgURL, {
     accessToken: MAPBOX_KEY,
 })
 
-// Black and white tile layer
+// transit tile layer
 let mapboxCustomLayer = L.tileLayer(extraSauce, {
     zoom : 10,
     maxZoom: 18,
@@ -81,9 +81,9 @@ class Map extends Component {
         // this.pushMap(map)
         pushMap(map)
 
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //     attribution: '&copy <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        // }).addTo(map)
+         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+             attribution: '&copy <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+         }).addTo(map)
         baseControl = L.control.layers(baseMaps, )
         baseControl.addTo(map)
 
