@@ -52,7 +52,7 @@ class Login extends Component {
         userService.login(username, password)
             .then(
                 user => {
-                    localStorage.setItem('useremail', user.email);
+                    localStorage.setItem('useremail', user.username);
                     const { from } = this.props.location.state || { from: { pathname: "/" } };
                     this.props.history.push(from);
                 },
@@ -60,19 +60,20 @@ class Login extends Component {
             );
   }
 
-  // we connect the state to our two fields in the form by setting this.state.email and this.state.password as the value in our input fields
+  // we connect the state to our two fields in the form by setting this.state.username and this.state.password as the value in our input fields
   // this means when the state changes, React will re-render these components with the updated value
 
-  // we set the autoFocus flag to our email field, so that when our form loads, it will set it's focus to that field
+  // we set the autoFocus flag to our username field, so that when our form loads, it will set it's focus to that field
   render() {
     return (
       <div className="Login">
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="email" bsSize="large">
+          <Form.Group controlId="username" bsSize="large">
             <Form.Control
               autoFocus
-              // type="email"
-              value={this.state.email}
+              type="username"
+              value={this.state.username}
+              placeholder="Enter username"
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -81,6 +82,7 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               type="password"
+              placeholder="Password"
             />
           </Form.Group>
           <Button
