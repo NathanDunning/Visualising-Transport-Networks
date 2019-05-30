@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Map from "../components/Map";
-import Navbar from "../components/Navbar";
-
 class Home extends Component {
   render() {
     return (

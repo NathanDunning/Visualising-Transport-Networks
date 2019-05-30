@@ -4,7 +4,7 @@ import { Nav, NavItem } from "react-bootstrap";
 import "./App.css";
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
-import Navbar from "./components/Navbar"
+import NavBar from "./components/NavBar"
 
 class App extends Component {
     render() {
