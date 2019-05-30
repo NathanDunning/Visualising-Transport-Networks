@@ -19,12 +19,12 @@ let orgURL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=
 let extraSauce = 'https://api.mapbox.com/styles/v1/droptableusers/cjribgf2613sy2slev7f8wvsj/tiles/256/{z}/{x}/{y}?access_token={accessToken}'
 
 //Colour OpenStreetMap tile layer
-// let osmLayer = L.tileLayer(orgURL, {
-//     zoom : 10,
-//     maxZoom: 18,
-//     id: 'mapbox.wheatpaste',
-//     accessToken: MAPBOX_KEY,
-// })
+let osmLayer = L.tileLayer(orgURL, {
+    zoom : 10,
+    maxZoom: 18,
+    id: 'mapbox.wheatpaste',
+    accessToken: MAPBOX_KEY,
+})
 
 // Black and white tile layer
 let mapboxLayer = L.tileLayer(orgURL, {
@@ -35,16 +35,16 @@ let mapboxLayer = L.tileLayer(orgURL, {
 })
 
 // Black and white tile layer
-// let mapboxCustomLayer = L.tileLayer(extraSauce, {
-//     zoom : 10,
-//     maxZoom: 18,
-//     accessToken: MAPBOX_KEY,
-// })
+let mapboxCustomLayer = L.tileLayer(extraSauce, {
+    zoom : 10,
+    maxZoom: 18,
+    accessToken: MAPBOX_KEY,
+})
 
 let baseMaps = {
-    // "Colour": osmLayer,
+    "Colour": osmLayer,
     "Mono-tone": mapboxLayer,
-    // "Transit": mapboxCustomLayer,
+    "Transit": mapboxCustomLayer,
 }
 
 function projectPoint(x, y) {
