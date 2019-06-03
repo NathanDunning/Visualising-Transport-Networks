@@ -1,4 +1,4 @@
-package com.spring.example.model;
+package com.spring.application.model;
 
 public class Greetings {
 

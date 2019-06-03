@@ -1,4 +1,4 @@
-package com.spring.example.security;
+package com.spring.application.security;
 
 import java.io.IOException;
 
@@ -26,6 +26,7 @@ public class AuthorizationFilter implements Filter {
 
     public AuthorizationFilter(String[] allowedOrigins) {
         super();
+        System.out.println("------------------ Allowed origins ----------: " + allowedOrigins );
         this.allowedOrigins = new HashSet<>(Arrays.asList(allowedOrigins));
     }
 

@@ -1,4 +1,4 @@
-package com.spring.example.security;
+package com.spring.application.security;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
