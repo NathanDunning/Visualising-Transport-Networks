@@ -1,9 +1,8 @@
-package com.spring.example;
+package com.spring.application;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import com.spring.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,22 +13,22 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.spring.example.model.Role;
-import com.spring.example.model.User;
-import com.spring.example.repository.UserRepository;
-
+import com.spring.application.model.Role;
+import com.spring.application.model.User;
+import com.spring.application.repository.UserRepository;
+import com.spring.application.service.UserService;
 
 
 @SpringBootApplication
 @Configuration
-public class App 
+public class VisualisingtTransportNetworks 
 {
 	@Autowired
 	private UserService userService;
 	
 	public static void main(String[] args) {
 
-		SpringApplication.run(App.class, args);
+		SpringApplication.run(VisualisingtTransportNetworks.class, args);
 	}
 	
 	@Bean
@@ -51,7 +50,7 @@ public class App
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/*").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/**").allowedOrigins("*");
             }
         };
     }

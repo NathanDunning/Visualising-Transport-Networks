@@ -1,4 +1,4 @@
-package com.spring.example.security;
+package com.spring.application.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;

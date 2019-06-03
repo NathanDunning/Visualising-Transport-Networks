@@ -1,4 +1,4 @@
-package com.spring.example.security;
+package com.spring.application.security;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.example.repository.UserRepository;
+import com.spring.application.repository.UserRepository;
 
 @Component
 public class CustomAuthenticationSuccessHandler  implements AuthenticationSuccessHandler {

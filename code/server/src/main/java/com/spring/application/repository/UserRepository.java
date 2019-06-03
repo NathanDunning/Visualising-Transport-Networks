@@ -1,10 +1,10 @@
-package com.spring.example.repository;
+package com.spring.application.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.spring.example.model.User;
+import com.spring.application.model.User;
 
 
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {

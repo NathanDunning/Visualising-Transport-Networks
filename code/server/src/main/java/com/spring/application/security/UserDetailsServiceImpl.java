@@ -1,4 +1,4 @@
-package com.spring.example.security;
+package com.spring.application.security;
 
 
 import java.util.Collection;
@@ -12,10 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.spring.example.model.Role;
-import com.spring.example.model.User;
-import com.spring.example.repository.RoleRepository;
-import com.spring.example.repository.UserRepository;
+import com.spring.application.model.Role;
+import com.spring.application.model.User;
+import com.spring.application.repository.RoleRepository;
+import com.spring.application.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
