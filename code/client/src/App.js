@@ -15,8 +15,8 @@ class App extends Component {
 
                 <Nav activeKey="/home" onSelect={selectedKey => alert(`selected ${selectedKey}`)}
                 >
-                  <LinkContainer to="/signup">
-                    <NavItem>Signup</NavItem>
+                  <LinkContainer to="/help">
+                    <NavItem>Help</NavItem>
                   </LinkContainer>
                   <LinkContainer to="/login">
                     <NavItem>Login</NavItem>
@@ -26,7 +26,6 @@ class App extends Component {
                 <Routes />
             </div>
         )
-
     }
 }
 
