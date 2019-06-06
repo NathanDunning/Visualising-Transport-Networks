@@ -18,13 +18,17 @@ import {
 class MapNav extends Component {
     state = {};
 
+    // set up and bind dropdown from NavBarHelpers
     constructor(props) {
         super(props);
         this.dropdown = dropdown.bind(this);
     }
 
+
   render() {
+      // render a grid that holds dropdown menu options
     return (
+        <div>
         <Grid id="grid"
             container
             direction='row'
@@ -37,6 +41,8 @@ class MapNav extends Component {
             {this.dropdown('Time')}
 
         </Grid>
+
+    </div>
     );
   }
 }
