@@ -1,7 +1,7 @@
 .Home .lander {
   /* padding: 0px 0; */
   text-align: center;
-  width: 80vw;
+  /* width: 80vw; */
 }
 
 .Home .lander h1 {
@@ -14,5 +14,5 @@
 }
 
 .Home .sidenav {
-  width: 20vw;
+  /* width: 20vw; */
 }
