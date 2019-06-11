@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { PostData } from "../util/_services/PostData";
 import "./Login.css";
 
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Bootstrap from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-import { userService } from '../util/_services';
+var btoa = require('btoa');
 
 class Login extends Component {
   // in this constructor, we create a state object where we'll store what the user enters in the form
@@ -15,60 +16,79 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      submitted: false,
-      loading: false,
-      error: '',
-      greetings: ''
+      redirect: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //  we link up our submit button with our state by using this validate function. This checks our fields are non-empty, byt can easily do more.
+  // Checks to see if button can be pressed
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 0;
   }
 
-  // to update the state when the user types something into these fields, this handleChange function grabs the id (set as controlId for the <FormGroup>) of the field being change and updates its state with the value the user is typing in. Using this keyword inside handleChange, we store the reference to an anonymous function like: handleChange = (event) => {}
+  // Updates fields when user is typing
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
 
     const { name, value } = event.target;
-        this.setState({ [name]: value });
-  }
+    this.setState({ [name]: value });
+  };
 
-  // finally, we trigger our callback handleSubmit when the form is submitted. For now we are simply supressing the browsers default behaviour on submit but we'll do more later
+  // Actions to take when submission request
   handleSubmit = event => {
     event.preventDefault();
-
-    this.setState({ submitted: true });
-        const { username, password, returnUrl } = this.state;
-
-        this.setState({ loading: true });
-        console.log("inside handle submit");
-        userService.login(username, password)
+    console.log("User name :" + this.state.username);
+    console.log("Password :" + this.state.password);
+    var auth = 'Basic '+btoa(""+this.state.username+":"+this.state.password+"");
+    // Send a request to the database
+    PostData("login", auth)
             .then(
                 user => {
-                    localStorage.setItem('useremail', user.username);
-                    const { from } = this.props.location.state || { from: { pathname: "/" } };
-                    this.props.history.push(from);
+                    localStorage.setItem('auth', auth);
+                    console.log("item auth : " + localStorage.getItem('auth'))
+                    this.setState({ redirect: true });
                 },
-                error => this.setState({ error, loading: false })
+                error => this.setState({ redirect: false })
             );
-  }
 
-  // we connect the state to our two fields in the form by setting this.state.username and this.state.password as the value in our input fields
-  // this means when the state changes, React will re-render these components with the updated value
 
-  // we set the autoFocus flag to our username field, so that when our form loads, it will set it's focus to that field
+    /* PostData("login", auth).then(result => {
+      console.log("inside post");
+      // Getting the result from the fetch
+      let responseJSON = result;
+
+      // Check if the response contains userData
+      if (responseJSON) {
+        console.log("inside post if")
+        sessionStorage.setItem("auth", auth);
+        this.setState({ redirect: true });
+      } else {
+        console.log("Login Error");
+      }
+    }); */
+  };
+
+  // Use states for the fields to make them dynamic
+  // Checks to see whether user has been authorised to redirect to the main app
   render() {
+    const { redirect } = this.state;
+    
+    if (this.state.redirect) {
+      return <Redirect to={"/home"} />;
+    }
+
+    if (sessionStorage.getItem("auth")) {
+      return <Redirect to={"/home"} />;
+    }
+
     return (
       <div className="Login">
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="username" bsSize="large">
+          <Form.Group controlId="username" bssize="large">
             <Form.Control
               autoFocus
               type="username"
@@ -77,7 +97,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Group controlId="password" bsSize="large">
+          <Form.Group controlId="password" bssize="large">
             <Form.Control
               value={this.state.password}
               onChange={this.handleChange}
@@ -87,7 +107,7 @@ class Login extends Component {
           </Form.Group>
           <Button
             block
-            bsSize="large"
+            bssize="large"
             disabled={!this.validateForm()}
             type="submit"
           >
