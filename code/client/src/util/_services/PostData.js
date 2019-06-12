@@ -1,7 +1,7 @@
 export function PostData(type, auth) {
     console.log("Inside PostData")
         let BaseUrl = 'http://localhost:8080/home'
-    
+        //console.log(BaseUrl)
        /*  return new Promise((resolve, reject) => {
             // Fetch from URL + path
             fetch(BaseUrl, {
@@ -28,22 +28,26 @@ export function PostData(type, auth) {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest',
-                'Access-Control-Allow-Origin' : '*',
+               
+                'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
                 'Authorization':auth}
         };
 
-        return fetch(`http://localhost:8080/home`, requestOptions)
+        return fetch(BaseUrl, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
             if (user) {
                 // store user details and basic auth credentials in local storage 
                 // to keep user logged in between page refreshes
-                console.log("auth:" + auth)
-                
+                console.log("auth:" + auth)   
             }
-
             return user;
+        }).catch(function() {
+           console.log("inside catch")
+           alert("Invalid username or password")
+           return Promise.reject("error");
         });
 
     }
@@ -51,12 +55,14 @@ export function PostData(type, auth) {
     function handleResponse(response) {
         return response.text().then(text => {
             const data = text && JSON.parse(text);
-            if (!response.ok) {
-                if (response.status === 401) {
+            console.log("Inside handle response")
+            if (response.status === 401) {
+                console.log("Inside handle response if")
+                /* if (response.status === 401) { */
                     console.log("Inside error");
                     alert("Invalid username or password")
-                    }
-    
+                   /*  }
+ */    console.log("Inside handle response out if")
                 const error = (data && data.message) || response.statusText;
                 return Promise.reject(error);
             }
