@@ -3,7 +3,6 @@ package com.spring.application.service;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +14,17 @@ import com.spring.application.repository.UserRepository;
 
 @Service
 public class UserService {
-	 @Autowired
-	    private UserRepository userRepository;
-	    @Autowired
-	    private RoleRepository roleRepository;
-	    @Autowired
-	    private BCryptPasswordEncoder bCryptPasswordEncoder;
+	    private final UserRepository userRepository;
+	    private final RoleRepository roleRepository;
+	    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	    
+	    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	    	this.userRepository = userRepository;
+	    	this.roleRepository = roleRepository;
+	    	this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	    }
+	    
+	    
 
 		public void save(User user,boolean encoded) {
 			Set<Role> roleSet = new HashSet<>();
