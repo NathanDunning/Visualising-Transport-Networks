@@ -1,6 +1,6 @@
 export function PostData(type, auth) {
     console.log("Inside PostData")
-        let BaseUrl = 'http://localhost:8080/home'
+        let BaseUrl = 'http://localhost:8081/home'
         //console.log(BaseUrl)
        /*  return new Promise((resolve, reject) => {
             // Fetch from URL + path
@@ -24,11 +24,11 @@ export function PostData(type, auth) {
             })
         }) */
         const requestOptions = {
-            headers: { 
+            headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest',
-               
+
                 'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
                 'Authorization':auth}
@@ -39,9 +39,9 @@ export function PostData(type, auth) {
         .then(user => {
             // login successful if there's a user in the response
             if (user) {
-                // store user details and basic auth credentials in local storage 
+                // store user details and basic auth credentials in local storage
                 // to keep user logged in between page refreshes
-                console.log("auth:" + auth)   
+                console.log("auth:" + auth)
             }
             return user;
         }).catch(function() {
@@ -66,7 +66,7 @@ export function PostData(type, auth) {
                 const error = (data && data.message) || response.statusText;
                 return Promise.reject(error);
             }
-    
+
             return data;
         });
     }

@@ -8,10 +8,10 @@ import NotFound from "./containers/NotFound";
 
 export default () => (
   <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/login" exact component={Login} />
-    <Route path="/about" exact component={About} />
-    <Route path="/home" exact component={Home} />
+    <Route exact path="/"  component={Login} />
+    <Route path="/login"  component={Login} />
+    <Route path="/about"  component={About} />
+    <Route path="/home"  component={Home} />
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>

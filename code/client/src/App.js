@@ -10,21 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <nav className="navbar navbar-right navbar-expand-lg navbar-light bg-light">
-          <Link to="/">Map</Link>
-
-          <Nav
-            activeKey="/home"
-            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-          >
-            <LinkContainer to="/about">
-              <NavItem>About</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <NavItem>Login</NavItem>
-            </LinkContainer>
-          </Nav>
-        </nav>
+        
         <Routes />
       </div>
     );
