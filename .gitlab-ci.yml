@@ -8,7 +8,7 @@ stages:
 build:
     stage: build
     script:
-        - echo "Job: Building"
+        - 'echo "Job: Building"'
         - mkdir build
         - touch build/info.txt
         
@@ -16,5 +16,5 @@ build:
 test:
     stage: test
     script:
-        - echo "Job: Testing"
+        - 'echo "Job: Testing"'
         - test -f "build/info.txt"
