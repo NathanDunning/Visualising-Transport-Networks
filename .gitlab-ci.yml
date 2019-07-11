@@ -1,0 +1,20 @@
+# Hey group, this is a sample pipeline file.
+
+stages:
+    - build
+    - test
+    
+# Define a job called build
+build:
+    stage:build
+    script:
+        - echo "Job: Building"
+        - mkdir build
+        - touch build/info.txt
+        
+# Define a job called test
+test:
+    stage: test
+    script:
+        - echo "Job: Testing"
+        - test -f "build/info.txt"
