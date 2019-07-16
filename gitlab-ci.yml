@@ -11,6 +11,7 @@ stages:
 
 maven-install:
   image: maven:3-jdk-8
+  tags: shell
   stage: build
   script: 
     - cd ./code/server
