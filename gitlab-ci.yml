@@ -1,7 +1,5 @@
 # Define the image for the run environment
 image: node:latest
-services:
-- docker:dind
     
 # Name the stages involved in the pipeline
 stages:
