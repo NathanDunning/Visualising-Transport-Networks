@@ -19,37 +19,36 @@ import javax.persistence.Table;
 @Table(name = "car_from")
 public class Car {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id", nullable = false)
+	private Long id;
 
-    @Column(name = "lat")
-    private double latitude;
-    
-    @Column(name = "lng")
-    private double longitude;
-    
-    @Column(name = "duration")
-    private long duration;
-    
-    @Column(name = "distance")
-    private long distance;
-    
-    @Column(name = "city")
-    private String city;
-    
-    @Column(name = "date")
-    private Timestamp date;
-    
-    @Column(name = "time")
-    private int time;
-    
-	/*public User(String email, String password, Set<Role> roles) {
-        this.email = email;
-        setPassword(password);
-        this.roles = roles;
-    }*/
+	@Column(name = "lat")
+	private double latitude;
+
+	@Column(name = "lng")
+	private double longitude;
+
+	@Column(name = "duration")
+	private long duration;
+
+	@Column(name = "distance")
+	private long distance;
+
+	@Column(name = "city")
+	private String city;
+
+	@Column(name = "date")
+	private Timestamp date;
+
+	@Column(name = "time")
+	private int time;
+
+	/*
+	 * public User(String email, String password, Set<Role> roles) { this.email
+	 * = email; setPassword(password); this.roles = roles; }
+	 */
 
 	public double getLatitude() {
 		return latitude;
@@ -102,5 +101,17 @@ public class Car {
 	public Long getId() {
 		return id;
 	}
-    
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
