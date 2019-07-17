@@ -1,49 +1,25 @@
-# Define the image for the run environment
 image: node:latest
-    
-# Name the stages involved in the pipeline
+
 stages:
-- build-npm
-- test-mvn
-- install-mvn
-
-cache:
-  path:
-    - node_modules/
-    - ./code/client/node_modules/
-
-install-npm-dependencies:
-  stage: build-npm
-  tags:
-    - shell
-  script:
-    - cd ./code/client
-    - npm install
-  only:
-    - master
-  artifacts:
-    paths:
-      - node_modules/
+  - build
+  - test
   
-maven-test:
-  stage: test-mvn
-  tags: 
-    - shell
-  script: 
-    - cd ./code/server
-    - mvn clean test
+install-npm-dependencies:
+  tags:
+    - docker
+  stage: build
+  script:
+    - echo "npm install script here"
   only:
     - master
     
-maven-install:
-  stage: install-mvn
+maven-test:
   tags:
-    - shell
+    - docker
+  stage: test
   script:
-    - cd ./code/server
-    - mvn install
-  artifacts:
-    paths:
-      - target/*.jar
+  - echo "maven tests here"
   only:
     - master
+  
+  
