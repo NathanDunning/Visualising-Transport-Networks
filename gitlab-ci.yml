@@ -1,27 +1,51 @@
 # Define the image for the run environment
-image: docker:latest
+image: node:latest
 services:
 - docker:dind
     
 # Name the stages involved in the pipeline
 stages:
-- build
-- test
-- deploy
+- build-npm
+- test-mvn
+- install-mvn
 
-maven-install:
-  image: maven:3-jdk-8
-  tags: shell
-  stage: build
+cache:
+  path:
+    - node_modules/
+    - ./code/client/node_modules/
+
+install-npm-dependencies:
+  stage: build-npm
+  tags:
+    - shell
+  script:
+    - cd ./code/client
+    - npm install
+  only:
+    - master
+  artifacts:
+    paths:
+      - node_modules/
+  
+maven-test:
+  stage: test-mvn
+  tags: 
+    - shell
   script: 
     - cd ./code/server
-    - mvn clean install
-  artifacts: target/*.jar
-  paths: target/*.jar
-
-test:
-    stage: test
-    only:
-        - master
-    script:
-        - echo run tests in this phase
+    - mvn clean test
+  only:
+    - master
+    
+maven-install:
+  stage: install-mvn
+  tags:
+    - shell
+  script:
+    - cd ./code/server
+    - mvn install
+  artifacts:
+    paths:
+      - target/*.jar
+  only:
+    - master
