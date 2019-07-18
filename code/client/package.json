@@ -34,7 +34,7 @@
     "topojson-client": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=59311 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
