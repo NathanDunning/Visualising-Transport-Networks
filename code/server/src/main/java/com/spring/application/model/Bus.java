@@ -21,7 +21,7 @@ public class Bus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "lat")
@@ -102,5 +102,16 @@ public class Bus {
 	public Long getId() {
 		return id;
 	}
-    
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
