@@ -1,6 +1,6 @@
 export function PostData(type, auth) {
     console.log("Inside PostData")
-        let BaseUrl = 'http://localhost:8081/home'
+        let BaseUrl = 'http://localhost:8080/home'
         //console.log(BaseUrl)
        /*  return new Promise((resolve, reject) => {
             // Fetch from URL + path
