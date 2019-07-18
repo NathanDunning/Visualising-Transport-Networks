@@ -6,20 +6,18 @@ stages:
   
 install-npm-dependencies:
   tags:
-    - docker
+    only:
+      - docker
   stage: build
   script:
     - echo "npm install script here"
-  only:
-    - master
     
 maven-test:
   tags:
-    - docker
+    only:
+      - docker
   stage: test
   script:
   - echo "maven tests here"
-  only:
-    - master
   
   
