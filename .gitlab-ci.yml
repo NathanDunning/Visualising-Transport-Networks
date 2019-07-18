@@ -1,0 +1,33 @@
+# image: node:latest
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - node_modules/
+    - ./code/client/node_modules/
+
+install-npm-dependencies:
+  stage: build
+  tags:
+    - shell
+  script:
+    - cd ./code/client
+    - npm install
+  only:
+    - master
+  artifacts:
+    paths:
+      - node_modules/
+  
+maven-test:
+  stage: test
+  tags: 
+    - shell
+  script: 
+    - cd ./code/server
+    - mvn clean test
+  only:
+    - master
