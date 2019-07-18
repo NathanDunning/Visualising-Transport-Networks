@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import L from "leaflet";
 import * as d3 from "d3";
 import "leaflet/dist/leaflet.css";
-import { MAPBOX_KEY } from "./Secrets";
+import { MAPBOX_KEY } from "../Secrets";
 import "./Map.css";
 import * as topojson from "topojson-client";
-import { get_city_centres } from "../util/redux/city_centre_helper";
+import { get_city_centres } from "../../util/redux/city_centre_helper";
 import { bindActionCreators } from "redux";
-import { pushMap } from "../util/redux/actions";
+import { pushMap } from "../../util/redux/actions";
 
 const mapid = "mapid";
 let map = null;

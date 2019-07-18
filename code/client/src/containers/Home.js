@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Map from "../components/Map";
+import Map from "../components/Map/Map";
 import MapNav from "../components/MapNav/MapNav";
 import { Link } from "react-router-dom";
 import { Nav, NavItem } from "react-bootstrap";
