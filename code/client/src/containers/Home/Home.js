@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Home.css";
 import Map from "../../components/Map/Map";
 import MapNav from "../../components/MapNav/MapNav";
-import MenuBar from "../MenuBar/MenuBar";
+import { MenuBar } from "../MenuBar/MenuBar";
 
 
 class Home extends Component {
