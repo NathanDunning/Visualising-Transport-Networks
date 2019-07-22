@@ -1,10 +1,10 @@
 import React from "react";
 
 import { Route, Switch } from "react-router-dom";
-import Home from "./containers/Home";
-import Login from "./containers/Login";
-import About from "./containers/About";
-import NotFound from "./containers/NotFound";
+import Home from "./containers/Home/Home";
+import Login from "./containers/Login/Login";
+import About from "./containers/About/About";
+import NotFound from "./containers/NotFound/NotFound";
 
 export default () => (
   <Switch>
