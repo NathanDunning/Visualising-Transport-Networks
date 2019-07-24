@@ -5,8 +5,29 @@ import MapNav from "../components/MapNav/MapNav";
 import { Link } from "react-router-dom";
 import { Nav, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { getTravelData } from "../util/_services/PostData";
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      travelData: []
+    }
+  }
+
+  getData(){
+    getTravelData("travel", localStorage.getItem('auth'))
+    .then(
+        data => {
+            console.log("Results : " + JSON.stringify(data))
+            this.setState({travelData : data})
+            });
+        }
+
+  componentDidMount(){
+    this.getData();
+  }
+  
   render() {
     return (
       <div className="Home">

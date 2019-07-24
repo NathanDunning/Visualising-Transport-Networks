@@ -41,8 +41,6 @@ class Login extends Component {
   // Actions to take when submission request
   handleSubmit = event => {
     event.preventDefault();
-    console.log("User name :" + this.state.username);
-    console.log("Password :" + this.state.password);
     var auth = 'Basic '+btoa(""+this.state.username+":"+this.state.password+"");
     // Send a request to the database
     PostData("login", auth)
@@ -54,22 +52,6 @@ class Login extends Component {
                 },
                 error => this.setState({ redirect: false })
             );
-
-
-    /* PostData("login", auth).then(result => {
-      console.log("inside post");
-      // Getting the result from the fetch
-      let responseJSON = result;
-
-      // Check if the response contains userData
-      if (responseJSON) {
-        console.log("inside post if")
-        sessionStorage.setItem("auth", auth);
-        this.setState({ redirect: true });
-      } else {
-        console.log("Login Error");
-      }
-    }); */
   };
 
   // Use states for the fields to make them dynamic
