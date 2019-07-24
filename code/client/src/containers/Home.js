@@ -5,13 +5,14 @@ import MapNav from "../components/MapNav/MapNav";
 import { Link } from "react-router-dom";
 import { Nav, NavItem } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { getTravelData } from "../util/_services/PostData";
+import { getTravelData, getDemographicData } from "../util/_services/PostData";
 
 class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      travelData: []
+      travelData: [],
+      demographicData: []
     }
   }
 
@@ -22,7 +23,13 @@ class Home extends Component {
             console.log("Results : " + JSON.stringify(data))
             this.setState({travelData : data})
             });
-        }
+      getDemographicData("geocode", localStorage.getItem('auth'))
+      .then(
+        data => {
+          console.log("Results : " + JSON.stringify(data))
+          this.setState({demographicData : data})
+        });
+      }
 
   componentDidMount(){
     this.getData();

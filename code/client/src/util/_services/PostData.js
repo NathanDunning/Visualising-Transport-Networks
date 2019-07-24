@@ -48,19 +48,45 @@ export function PostData(type, auth) {
                         'to_time':960,
                         'date':'2018-11-28'
                 }),
-                method: 'post'
+                method: 'POST'
             };
     
             return fetch(BaseUrl, requestOptions)
             .then(handleResponse)
             .then(data => {
-                console.log("Inside travel data" + JSON.stringify(data))
+                console.log("Inside travel data:" + JSON.stringify(data))
                 return data;
             }).catch(function() {
                console.log("inside catch")
                return Promise.reject("error");
             });
         }
+
+        export function getDemographicData(type, auth) {
+            console.log("Inside demographic data")
+                let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes'
+                const requestOptions = {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                        'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                        'Authorization':auth
+                    },
+                    method: 'GET'
+                };
+        
+                return fetch(BaseUrl, requestOptions)
+                .then(handleResponse)
+                .then(data => {
+                    console.log("Inside demographic data:" + JSON.stringify(data))
+                    return data;
+                }).catch(function() {
+                   console.log("inside catch")
+                   return Promise.reject("error");
+                });
+            }
     
 
     function handleResponse(response) {
@@ -68,7 +94,6 @@ export function PostData(type, auth) {
             const data = text && JSON.parse(text);
             console.log("Inside handle response")
             if (response.status === 401) {
-        
                     console.log("Inside error");
                     alert("Invalid username or password")
                 const error = (data && data.message) || response.statusText;
