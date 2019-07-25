@@ -20,14 +20,18 @@ class Home extends Component {
     getTravelData("travel", localStorage.getItem('auth'))
     .then(
         data => {
-            console.log("Results : " + JSON.stringify(data))
-            this.setState({travelData : data})
-            });
-      getDemographicData("geocode", localStorage.getItem('auth'))
+          data.map((item) => { 
+            this.setState({travelData: [...this.state.travelData, JSON.stringify(item)]});
+        });
+        console.log("Final travel data : " + this.state.travelData)
+        });
+       getDemographicData("geocode", localStorage.getItem('auth'))
       .then(
         data => {
-          console.log("Results : " + JSON.stringify(data))
-          this.setState({demographicData : data})
+          data.map((item) => { 
+            this.setState({travelData: [...this.state.travelData, JSON.stringify(item)]});
+        });
+        console.log("Final demographic data : " + this.state.demographicData)
         });
       }
 

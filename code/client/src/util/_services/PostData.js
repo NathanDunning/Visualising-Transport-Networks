@@ -54,7 +54,7 @@ export function PostData(type, auth) {
             return fetch(BaseUrl, requestOptions)
             .then(handleResponse)
             .then(data => {
-                console.log("Inside travel data:" + JSON.stringify(data))
+                //console.log("Inside travel data:" + JSON.stringify(data))
                 return data;
             }).catch(function() {
                console.log("inside catch")
@@ -80,7 +80,7 @@ export function PostData(type, auth) {
                 return fetch(BaseUrl, requestOptions)
                 .then(handleResponse)
                 .then(data => {
-                    console.log("Inside demographic data:" + JSON.stringify(data))
+                    //console.log("Inside demographic data:" + JSON.stringify(data))
                     return data;
                 }).catch(function() {
                    console.log("inside catch")
