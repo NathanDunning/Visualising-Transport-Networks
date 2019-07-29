@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
@@ -24,6 +25,7 @@ export const MenuBar = () => {
     setOpen(false);
   }
 
+
   return (
     <div>
       <Drawer
@@ -43,15 +45,27 @@ export const MenuBar = () => {
           <Divider />
 
           <List>
-            {["About", "Home", "Logout"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
+            <ListItem button name="About">
+              <ListItemIcon>
                 Icon 
-                {/* Can use index here */}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+              </ListItemIcon>
+              <ListItemText primary="About" />
+            </ListItem>
+
+            <ListItem button name="Home">
+              <ListItemIcon>
+                Icon 
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+
+            <ListItem button name="Logout">
+              <ListItemIcon>
+                Icon 
+              </ListItemIcon>
+              <ListItemText primary="Logout" />      
+            </ListItem>
+
           </List>
           <Divider />
         </div>
