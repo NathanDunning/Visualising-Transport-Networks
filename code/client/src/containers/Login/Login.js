@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { PostData } from "../util/_services/PostData";
+import { PostData } from "../../util/_services/PostData";
 import "./Login.css";
 
 import Form from "react-bootstrap/Form";
