@@ -48,6 +48,7 @@ typings/
 
 # Optional npm cache directory
 .npm
+code/client/package-lock.json
 
 # Optional eslint cache
 .eslintcache
@@ -131,6 +132,11 @@ cmake-build-*/
 
 # IntelliJ
 out/
+**.iml
+code/server/target/
+
+# VSCode
+**.vscode
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -166,6 +172,9 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/webstorm
 .idea
+
+# MacOS Files
+**.DS_Store
 
 #public/data/**/*.csv
 #secrets.js
