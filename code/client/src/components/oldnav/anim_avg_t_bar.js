@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import 'rc-slider/assets/index.css';
+// import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import {
     componentDidMount,

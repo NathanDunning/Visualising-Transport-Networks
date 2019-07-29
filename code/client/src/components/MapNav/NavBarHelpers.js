@@ -93,10 +93,11 @@ export function getValidOptions() {
 export function dropdown(name) {
 
     return (
-        <Grid item xs={2}>
+        <Grid item xs={6}>
             <FormControl>
                 <InputLabel>{name}</InputLabel>
                 <Select
+                    value='example'
                     // value={this.state[variable]}
                     // onChange={this.handleDropDownChange(variable)}
                     // disabled=
