@@ -36,7 +36,7 @@ maven-test:
       - target/site/jacoco/
       
 deploy:
-  stage: build
+  stage: deploy
   tags: 
     - shell
   script:
