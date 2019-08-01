@@ -49,13 +49,6 @@ public class BusControllerTest {
 	@MockBean
 	private BusService busService;
 
-	private static final String CREATE_SQL_SCRIPT = "scripts/create/create_schema.sql";
-	
-	@Before
-	public void before() throws ScriptException, SQLException {
-		//ScriptUtils.executeSqlScript(jdbc.getDataSource().getConnection(), new ClassPathResource(CREATE_SQL_SCRIPT));
-	}
-	
 	@Test
 	@WithMockUser
 	public void getOneBusTest() throws Exception {

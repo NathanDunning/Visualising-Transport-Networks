@@ -15,8 +15,8 @@ install-npm-dependencies:
   script:
     - cd ./code/client
     - npm install
-  #only:
-    #- master
+  only:
+    - master
   artifacts:
     paths:
       - node_modules/
@@ -28,5 +28,5 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
-  #only:
-    #- master
+  only:
+    - master
