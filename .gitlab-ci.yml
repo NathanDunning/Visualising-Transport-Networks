@@ -1,24 +1,20 @@
 # image: node:latest
-stages:
-  - run_jobs
-  - build
-  - test
+services:
+- mysql
 
 variables:
-  MYSQL_DATABASE: react_spring
+  # Configure mysql service (https://hub.docker.com/_/mysql/)
+  MYSQL_DATABASE: database
   MYSQL_ROOT_PASSWORD: password
 
-gitab_mysql_service:
-  stage: run_jobs
-  image: alpine:latest
-  services:
-  - mariadb:latest
+connect:
+  image: mysql
+  script:
+  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
 
-script:
-   - apk --no-cache add mysql-client
-   - mysql --version
-   - sleep 20
-   - echo "SHOW tables;"| mysql -u root -p"$MYSQL_ROOT_PASSWORD" -h 127.0.0.1 "${MYSQL_DATABASE}"
+stages:
+  - build
+  - test
 
 cache:
   paths:
@@ -45,5 +41,5 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
-  only:
-    - master
+  #only:
+  # - master
