@@ -29,20 +29,7 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
-    - cat target/site/jacoco/index.html
+    - "mvn jacoco:report"
+    - "echo \"$(cat target/site/jacoco/testcoverage.txt)% covered\""
   #only:
     #- master
-  artifacts:
-    paths:
-      - target/site/jacoco/
-      
-publish-report:
-  stage: deploy
-  tags: 
-    - shell
-  script:
-   - mkdir public
-   - mv target/site/jacoco/index.html public
-  artifacts:
-    paths:
-      - public
