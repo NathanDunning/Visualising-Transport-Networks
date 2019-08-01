@@ -2,7 +2,8 @@
 stages:
   - build
   - test
-
+  - deploy
+  
 cache:
   paths:
     - node_modules/
@@ -30,3 +31,17 @@ maven-test:
     - mvn clean test
   only:
     - master
+    
+  artifacts:
+    paths:
+      - target/site/jacoco/
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+   - mkdir public
+   - mv target/site/jacoco/index.html public
+  artifacts:
+    paths:
+      - public
