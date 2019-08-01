@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./Home.css";
-import Map from "../components/Map/Map";
-import MapNav from "../components/MapNav/MapNav";
+import Map from "../../components/Map/Map";
+import MapNav from "../../components/MapNav/MapNav";
 import { getTravelData, getDemographicData } from "../../util/_services/PostData";
+import { MenuBar } from "../MenuBar/MenuBar";
 
 class Home extends Component {
   constructor(props){
@@ -26,7 +27,7 @@ class Home extends Component {
       .then(
         data => {
           data.map((item) => { 
-            this.setState({travelData: [...this.state.travelData, JSON.stringify(item)]});
+            this.setState({demographicData: [...this.state.demographicData, JSON.stringify(item)]});
         });
         console.log("Final demographic data : " + this.state.demographicData)
         });
