@@ -5,16 +5,23 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.script.ScriptException;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -32,6 +39,9 @@ public class BusControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
+	
+	@Autowired
+	private JdbcTemplate jdbc;
 
 	@MockBean
 	private AuthenticationManager auth;
@@ -39,6 +49,13 @@ public class BusControllerTest {
 	@MockBean
 	private BusService busService;
 
+	private static final String CREATE_SQL_SCRIPT = "scripts/create/create_schema.sql";
+	
+	@Before
+	public void before() throws ScriptException, SQLException {
+		//ScriptUtils.executeSqlScript(jdbc.getDataSource().getConnection(), new ClassPathResource(CREATE_SQL_SCRIPT));
+	}
+	
 	@Test
 	@WithMockUser
 	public void getOneBusTest() throws Exception {

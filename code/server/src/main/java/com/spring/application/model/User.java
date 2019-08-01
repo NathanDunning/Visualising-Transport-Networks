@@ -29,7 +29,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
     
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roleid"))
     private Set<Role> roles;
 

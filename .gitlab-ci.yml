@@ -1,7 +1,6 @@
 # image: node:latest
 stages:
   - build
-  - connect
   - test
 
 cache:
@@ -16,27 +15,11 @@ install-npm-dependencies:
   script:
     - cd ./code/client
     - npm install
-  only:
-    - master
+  #only:
+    #- master
   artifacts:
     paths:
       - node_modules/
-      
-mysql_build:
-  stage: connect
-  tags:
-    - shell
-  variables:
-    MYSQL_DATABASE: react_spring
-    MYSQL_ROOT_PASSWORD: password
-  services:
-  - mysql
-  image: mysql
-  before_script:
-  - mysql --version
-  script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" --host=localhost "${MYSQL_DATABASE}"
-
   
 maven-test:
   stage: test
@@ -45,5 +28,5 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
-  only:
-    - master
+  #only:
+    #- master
