@@ -2,7 +2,7 @@
 stages:
   - build
   - test
-  - pages
+  - deploy
   
 cache:
   paths:
@@ -35,7 +35,7 @@ maven-test:
     paths:
       - target/site/jacoco/
       
-pages:
+deploy:
   stage: build
   tags: 
     - shell
