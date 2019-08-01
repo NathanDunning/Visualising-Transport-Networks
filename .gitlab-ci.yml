@@ -1,6 +1,7 @@
 # image: node:latest
 stages:
   - build
+  - connect
   - test
 
 cache:
@@ -22,7 +23,7 @@ install-npm-dependencies:
       - node_modules/
       
 mysql_build:
-  stage: build
+  stage: connect
   tags:
     - shell
   variables:
