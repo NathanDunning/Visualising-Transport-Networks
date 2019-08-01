@@ -37,8 +37,6 @@ maven-test:
       
 pages:
   stage: build
-  dependencies:
-    - test
   tags: 
     - shell
   script:
