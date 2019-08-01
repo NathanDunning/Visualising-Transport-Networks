@@ -32,14 +32,8 @@ public class UserController {
     public ResponseEntity<?> getUsers(){
     	 //return new ResponseEntity(userRepository.findUsers(), HttpStatus.OK);
 		User user = userRepository.findUsers();
-		System.out.println("USER : " + user.getEmail());
+		//System.out.println("USER : " + user.getEmail());
         return new ResponseEntity<>(user,HttpStatus.OK);
-    }
-	
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<?> hello(){
-        return new ResponseEntity<>("Hello world from spring!!!!!",HttpStatus.OK);
     }
 
 }

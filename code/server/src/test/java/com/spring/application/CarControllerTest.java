@@ -21,14 +21,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spring.application.model.Bus;
+import com.spring.application.model.Car;
 import com.spring.application.model.Request;
-import com.spring.application.service.BusService;
+import com.spring.application.service.CarService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class BusControllerTest {
+public class CarControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
@@ -37,32 +37,30 @@ public class BusControllerTest {
 	private AuthenticationManager auth;
 
 	@MockBean
-	private BusService busService;
+	private CarService carService;
 
 	@Test
 	@WithMockUser
-	public void getOneBusTest() throws Exception {
+	public void getOneCarTest() throws Exception {
 		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		Bus bus = new Bus();
-		bus.setCity("wellington");
-
-		when(busService.findOneBus()).thenReturn(bus);
-
-		mvc.perform(get("/get/buses/one").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		Car car = new Car();
+		car.setCity("wellington");
+		when(carService.findCar()).thenReturn(car);
+		mvc.perform(get("/get/cars/one").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
 	@Test
 	@WithMockUser
-	public void getBus() throws Exception {
+	public void getCar() throws Exception {
 		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		Bus bus = new Bus();
-		bus.setCity("wellington");
+		Car car = new Car();
+		car.setCity("wellington");
 
-		List<Bus> buses = Arrays.asList(bus);
+		List<Car> cars = Arrays.asList(car);
 		Request request = new Request("wellington", 944, 960, "2018-11-28");
-		when(busService.findBusTravelDetails(request)).thenReturn(buses);
+		when(carService.findCarTravelDetails(request)).thenReturn(cars);
 
-		mvc.perform(post("/get/bus/travelDetails").content(asJsonString(request))
+		mvc.perform(post("/get/car/travelDetails").content(asJsonString(request))
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
