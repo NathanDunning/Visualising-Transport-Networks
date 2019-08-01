@@ -29,6 +29,7 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
+    - cat target/site/jacoco/index.html
   #only:
     #- master
   artifacts:
@@ -41,7 +42,7 @@ publish-report:
     - shell
   script:
    - mkdir public
-   - mv ./code/server/target/site/jacoco/index.html public
+   - mv target/site/jacoco/index.html public
   artifacts:
     paths:
       - public
