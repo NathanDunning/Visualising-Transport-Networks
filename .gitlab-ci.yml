@@ -36,7 +36,7 @@ maven-test:
       - target/site/jacoco/
       
 pages:
-  stage: deploy
+  stage: build
   dependencies:
     - test
   tags: 
