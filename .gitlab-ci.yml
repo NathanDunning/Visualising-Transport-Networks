@@ -35,13 +35,13 @@ maven-test:
     paths:
       - target/site/jacoco/
       
-deploy:
+publish-report:
   stage: deploy
   tags: 
     - shell
   script:
    - mkdir public
-   - mv target/site/jacoco/index.html public
+   - mv ./code/server/target/site/jacoco/index.html public
   artifacts:
     paths:
       - public
