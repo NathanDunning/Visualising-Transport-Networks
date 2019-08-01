@@ -4,7 +4,7 @@ services:
 
 variables:
   # Configure mysql service (https://hub.docker.com/_/mysql/)
-  MYSQL_DATABASE: react_spring
+  MYSQL_DATABASE: database
   MYSQL_ROOT_PASSWORD: password
 
 connect:
@@ -28,8 +28,8 @@ install-npm-dependencies:
   script:
     - cd ./code/client
     - npm install
-  only:
-    - master
+  #only:
+  #  - master
   artifacts:
     paths:
       - node_modules/
