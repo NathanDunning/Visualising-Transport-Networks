@@ -29,7 +29,6 @@ maven-test:
   script: 
     - cd ./code/server
     - mvn clean test
-    - "mvn jacoco:report"
-    - "echo \"$(cat target/site/jacoco/testcoverage.txt)% covered\""
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
   #only:
     #- master
