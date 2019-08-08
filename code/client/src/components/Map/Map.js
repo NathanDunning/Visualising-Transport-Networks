@@ -16,37 +16,46 @@ let baseControl = null;
 let extraLayers = null;
 
 let orgURL =
-  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
-let extraSauce =
-  "https://api.mapbox.com/styles/v1/droptableusers/cjribgf2613sy2slev7f8wvsj/tiles/256/{z}/{x}/{y}?access_token={accessToken}";
+"https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}";
+// let extraSauce =
+// "https://api.mapbox.com/styles/v1/droptableusers/cjribgf2613sy2slev7f8wvsj/tiles/256/{z}/{x}/{y}?access_token={accessToken}";
+
+let token = 'pk.eyJ1IjoibmV0d29ya2luZyIsImEiOiJjancwNmR4NnMwN3ZiNDVtbW1qOHp5ejcyIn0.LPgE55NBYCKrsP7fdSvjHA#10.69/-41.2348/174.806'
+// let hotSauce = "https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4.html?fresh=true&title=true&access_token={token}"
+
+// let hotSauce="https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}"
 
 //Colour OpenStreetMap tile layer
-let osmLayer = L.tileLayer(orgURL, {
-  zoom: 10,
-  maxZoom: 18,
-  id: "mapbox.wheatpaste",
-  accessToken: MAPBOX_KEY
-});
+// let osmLayer = L.tileLayer(orgURL, {
+//   zoom: 10,
+//   maxZoom: 18,
+//   id: "mapbox.wheatpaste", 
+//   accessToken: MAPBOX_KEY
+// });
 
 // Black and white tile layer
 let mapboxLayer = L.tileLayer(orgURL, {
   zoom: 10,
   maxZoom: 18,
   id: "mapbox.high-contrast",
-  accessToken: MAPBOX_KEY
+  accessToken: MAPBOX_KEY,
 });
 
+
 // transit tile layer
-let mapboxCustomLayer = L.tileLayer(extraSauce, {
+let mapboxCustomLayer = L.tileLayer(orgURL, {
   zoom: 10,
   maxZoom: 18,
   accessToken: MAPBOX_KEY
 });
 
+// let unitAreaLayer = L.tileLayer(hotSauce);
+
 let baseMaps = {
   Transit: mapboxCustomLayer,
-  Colour: osmLayer,
-  "Mono-tone": mapboxLayer
+  // Colour: osmLayer,
+  "Mono-tone": mapboxLayer,
+  // "unit area": unitAreaLayer
 };
 
 function projectPoint(x, y) {
@@ -55,26 +64,54 @@ function projectPoint(x, y) {
 }
 
 export function addControlLayers(map, layer) {
-  map.removeControl(baseControl);
+  // map.removeControl(baseControl);
 
-  let layerToAdd = L.layerGroup([layer]);
-  let overlays = {
-    "Collection Points": layerToAdd
-  };
+  // let layerToAdd = L.layerGroup([layer]);
+  // let overlays = {
+  //   "Collection Points": layerToAdd
+  // };
 
-  baseControl.addOverlay(layerToAdd, "Collection Points");
+  // baseControl.addOverlay(layerToAdd, "Collection Points");
+  // baseControl.addOverlay(hotSauce, 'Area units');
 
-  if (extraLayers === null) {
-    extraLayers = L.control.layers(baseMaps, overlays).addTo(map);
-  }
-  extraLayers.addTo(map);
+  // if (extraLayers === null) {
+  //   extraLayers = L.control.layers(baseMaps, overlays).addTo(map);
+  // }
+  // extraLayers.addTo(map);
 }
+
+
+
+// --------------- temp
+
+// //More info: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+// function handleZipFile(file){
+//     var reader = new FileReader();
+//   reader.onload = function(){
+// 	  if (reader.readyState != 2 || reader.error){
+// 		  return;
+// 	  } else {
+// 		  convertToLayer(reader.result);
+//   	}
+//   }
+//   reader.readAsArrayBuffer(file);
+// }
+
+// function convertToLayer(buffer){
+// // 	shp(buffer).then(function(geojson){	//More info: https://github.com/calvinmetcalf/shapefile-js
+// //     var layer = L.shapefile(geojson).addTo(map);//More info: https://github.com/calvinmetcalf/leaflet.shapefile
+// //     console.log(layer);
+// //   });
+// }
+
+//  ------------------------- tempo
+
 
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
   componentDidMount() {
     map = L.map(mapid, {
-      layers: [mapboxCustomLayer],
+      layers: [mapboxLayer],
       zoom: 10,
       zoomControl: false
     }).setView([-41.2858, 174.78682], 14);
@@ -99,9 +136,13 @@ class Map extends Component {
   }
 
   render() {
+    // handleZipFile(this.file)http://jsfiddle.net/spytqamw/
     return (
       <div>
         <div id={mapid} />
+        <label for="input">Select a zipped shapefile:</label> 
+        <input type="file" id="file"></input>
+<input type="submit" id="submit"></input>
       </div>
     );
   }
@@ -134,6 +175,6 @@ class Map extends Component {
 }
 
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
-
+ 
 // export default connect(null, dispatchToProps)(Map)
 export default Map;
