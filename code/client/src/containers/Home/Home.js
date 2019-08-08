@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Home.css";
 import Map from "../../components/Map/Map";
 import MapNav from "../../components/MapNav/MapNav";
-import { getTravelData, getDemographicData } from "../../util/_services/PostData";
 import { MenuBar } from "../MenuBar/MenuBar";
 
 class Home extends Component {
@@ -12,29 +11,6 @@ class Home extends Component {
       travelData: [],
       demographicData: []
     }
-  }
-
-  getData(){
-    getTravelData("travel", localStorage.getItem('auth'))
-    .then(
-        data => {
-          data.map((item) => { 
-            this.setState({travelData: [...this.state.travelData, JSON.stringify(item)]});
-        });
-        console.log("Final travel data : " + this.state.travelData)
-        });
-       getDemographicData("geocode", localStorage.getItem('auth'))
-      .then(
-        data => {
-          data.map((item) => { 
-            this.setState({demographicData: [...this.state.demographicData, JSON.stringify(item)]});
-        });
-        console.log("Final demographic data : " + this.state.demographicData)
-        });
-      }
-
-  componentDidMount(){
-    this.getData();
   }
 
   render() {

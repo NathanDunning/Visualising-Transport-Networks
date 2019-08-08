@@ -1,5 +1,4 @@
 export function PostData(type, auth) {
-    console.log("Inside PostData")
         let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/home'
         const requestOptions = {
             headers: {
@@ -19,11 +18,9 @@ export function PostData(type, auth) {
             if (user) {
                 // store user details and basic auth credentials in local storage
                 // to keep user logged in between page refreshes
-                console.log("auth:" + auth)
             }
             return user;
         }).catch(function() {
-           console.log("inside catch")
            alert("Invalid username or password")
            return Promise.reject("error");
         });
@@ -31,7 +28,6 @@ export function PostData(type, auth) {
     }
 
     export function getTravelData(type, auth) {
-        console.log("Inside travel data")
             let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails'
             const requestOptions = {
                 headers: {
@@ -54,16 +50,13 @@ export function PostData(type, auth) {
             return fetch(BaseUrl, requestOptions)
             .then(handleResponse)
             .then(data => {
-                //console.log("Inside travel data:" + JSON.stringify(data))
                 return data;
             }).catch(function() {
-               console.log("inside catch")
                return Promise.reject("error");
             });
         }
 
         export function getDemographicData(type, auth) {
-            console.log("Inside demographic data")
                 let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes'
                 const requestOptions = {
                     headers: {
@@ -80,16 +73,13 @@ export function PostData(type, auth) {
                 return fetch(BaseUrl, requestOptions)
                 .then(handleResponse)
                 .then(data => {
-                    //console.log("Inside demographic data:" + JSON.stringify(data))
                     return data;
                 }).catch(function() {
-                   console.log("inside catch")
                    return Promise.reject("error");
                 });
             }
 
             export function getCities(type, auth) {
-                console.log("Inside get cities data")
                     let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/cities'
                     const requestOptions = {
                         headers: {
@@ -106,16 +96,13 @@ export function PostData(type, auth) {
                     return fetch(BaseUrl, requestOptions)
                     .then(handleResponse)
                     .then(data => {
-                        //console.log("Inside demographic data:" + JSON.stringify(data))
                         return data;
                     }).catch(function() {
-                       console.log("inside catch")
                        return Promise.reject("error");
                     });
                 }
 
                 export function getTime(type, auth) {
-                    console.log("Inside get time data")
                         let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time'
                         const requestOptions = {
                             headers: {
@@ -132,10 +119,8 @@ export function PostData(type, auth) {
                         return fetch(BaseUrl, requestOptions)
                         .then(handleResponse)
                         .then(data => {
-                            //console.log("Inside demographic data:" + JSON.stringify(data))
                             return data;
                         }).catch(function() {
-                           console.log("inside catch")
                            return Promise.reject("error");
                         });
                     }
@@ -144,9 +129,7 @@ export function PostData(type, auth) {
     function handleResponse(response) {
         return response.text().then(text => {
             const data = text && JSON.parse(text);
-            console.log("Inside handle response")
             if (response.status === 401) {
-                    console.log("Inside error");
                     alert("Invalid username or password")
                 const error = (data && data.message) || response.statusText;
                 return Promise.reject(error);
