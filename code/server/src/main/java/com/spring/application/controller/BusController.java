@@ -38,6 +38,17 @@ public class BusController {
         return new ResponseEntity<>(bus,HttpStatus.OK);
     }
 	
+	@RequestMapping(value = "/get/cities", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getCities(){
+		List<Object> cities = busService.findCities();
+        return new ResponseEntity<>(cities,HttpStatus.OK);
+    }
 	
-	
+	@RequestMapping(value = "/get/time", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getTime(){
+		List<Object> time = busService.findTime();
+        return new ResponseEntity<>(time,HttpStatus.OK);
+    }
 }
