@@ -56,7 +56,6 @@ class MapNav extends Component {
       .then(
         data => {
           this.setState({ cities: data });
-          console.log(this.state.cities)
         })
 
 
@@ -64,20 +63,24 @@ class MapNav extends Component {
     getTime("time", localStorage.getItem('auth'))
       .then(data => {
         this.setState({ times: data });
-        console.log(this.state.times)
       })
   }
 
 
   handleCityChange = (event) => {
-    console.log("EVENT VAL : " + event.target.value)
     this.setState({city : event.target.value})
   }
-
+  
+  handleFromTimeChange = (event) => {
+    this.setState({from : event.target.value})
+  }
+  
+  handleToTimeChange = (event) => {
+    this.setState({to : event.target.value})
+  }
+  
   handleChange = (event) => {
-    console.log("EVENT VAL : " + event.target.value)
     if(event === 'city') {
-    console.log("City selected ")
     }
   }
 
@@ -101,22 +104,20 @@ class MapNav extends Component {
           <Grid item xs={3}>
             <FormControl>
               <InputLabel className={this.useStyles.paper}>{this.state.city}</InputLabel>
-              <Select
+              <Select style={{width: `150px`}} 
                 onChange={this.handleCityChange}>
-
                 {this.state.cities.map(city => {
                   return <MenuItem value={city}> {city} </MenuItem>
                 })}
-
               </Select>
             </FormControl>
           </Grid>
 
           <Grid item xs={3}>
             <FormControl className="NavForm">
-              <InputLabel className={this.useStyles.paper}>From</InputLabel>
-              <Select
-                onChange={this.handleChange}>
+              <InputLabel className={this.useStyles.paper}>{this.state.from}</InputLabel>
+              <Select style={{width: `150px`}} 
+                onChange={this.handleFromTimeChange}>
                 {this.state.times.map(time => {
                   return <MenuItem value={time}> {time} </MenuItem>
                 })}
@@ -126,9 +127,9 @@ class MapNav extends Component {
 
           <Grid item xs={3}>
             <FormControl>
-              <InputLabel>To</InputLabel>
-              <Select
-                onChange={this.handleChange}>
+              <InputLabel>{this.state.to}</InputLabel>
+              <Select style={{width: `150px`}} 
+                onChange={this.handleToTimeChange}>
                 {this.state.times.map(time => {
                   return <MenuItem value={time}> {time} </MenuItem>
                 })}
@@ -139,7 +140,7 @@ class MapNav extends Component {
           <Grid item xs={3}>
             <FormControl>
               <InputLabel>Location</InputLabel>
-              <Select
+              <Select style={{width: `150px`}} 
                 onChange={this.handleChange}>
                 <MenuItem value={this.state.location}>
                 </MenuItem>
