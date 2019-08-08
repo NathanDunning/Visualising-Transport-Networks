@@ -87,6 +87,58 @@ export function PostData(type, auth) {
                    return Promise.reject("error");
                 });
             }
+
+            export function getCities(type, auth) {
+                console.log("Inside get cities data")
+                    let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/cities'
+                    const requestOptions = {
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                            'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                            'Authorization':auth
+                        },
+                        method: 'GET'
+                    };
+            
+                    return fetch(BaseUrl, requestOptions)
+                    .then(handleResponse)
+                    .then(data => {
+                        //console.log("Inside demographic data:" + JSON.stringify(data))
+                        return data;
+                    }).catch(function() {
+                       console.log("inside catch")
+                       return Promise.reject("error");
+                    });
+                }
+
+                export function getTime(type, auth) {
+                    console.log("Inside get time data")
+                        let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time'
+                        const requestOptions = {
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                                'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                                'Authorization':auth
+                            },
+                            method: 'GET'
+                        };
+                
+                        return fetch(BaseUrl, requestOptions)
+                        .then(handleResponse)
+                        .then(data => {
+                            //console.log("Inside demographic data:" + JSON.stringify(data))
+                            return data;
+                        }).catch(function() {
+                           console.log("inside catch")
+                           return Promise.reject("error");
+                        });
+                    }
     
 
     function handleResponse(response) {
