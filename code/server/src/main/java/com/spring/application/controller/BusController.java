@@ -51,4 +51,11 @@ public class BusController {
 		List<Object> time = busService.findTime();
         return new ResponseEntity<>(time,HttpStatus.OK);
     }
+	
+	@RequestMapping(value = "/get/dates", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getDates(){
+		List<Object> time = busService.findDate();
+        return new ResponseEntity<>(time,HttpStatus.OK);
+    }
 }

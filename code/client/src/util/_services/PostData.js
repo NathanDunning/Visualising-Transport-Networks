@@ -124,6 +124,29 @@ export function PostData(type, auth) {
                            return Promise.reject("error");
                         });
                     }
+
+                    export function getDate(type, auth) {
+                        let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/dates'
+                        const requestOptions = {
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                                'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                                'Authorization':auth
+                            },
+                            method: 'GET'
+                        };
+                
+                        return fetch(BaseUrl, requestOptions)
+                        .then(handleResponse)
+                        .then(data => {
+                            return data;
+                        }).catch(function() {
+                           return Promise.reject("error");
+                        });
+                    }
     
 
     function handleResponse(response) {

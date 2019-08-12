@@ -32,4 +32,9 @@ public class BusService {
 		List<Object> time = busRepo.findTime();
 		return time;
 	}
+	
+	public List<Object> findDate() {
+		List<Object> date = busRepo.findDate();
+		return date;
+	}
 }

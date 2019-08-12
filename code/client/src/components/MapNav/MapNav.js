@@ -24,10 +24,12 @@ class MapNav extends Component {
     to: 'to',
     from: 'from',
     location: 'area',
+    date: 'yyyy/mm/dd',
     demographic: [],
     travel: [],
     cities: [],
-    times: []
+    times: [],
+    dates: []
   };
 
   // set up and bind dropdown from NavBarHelpers
@@ -50,6 +52,11 @@ class MapNav extends Component {
     getDemographicData("geocode", localStorage.getItem('auth'))
       .then(
         data => {
+          data.map(area => {
+            this.state.demographic.push(area.areaName);
+          })
+          console.log(this.state.demographic)
+
         });
 
     getCities("cities", localStorage.getItem('auth'))
@@ -58,29 +65,40 @@ class MapNav extends Component {
           this.setState({ cities: data });
         })
 
-
-
     getTime("time", localStorage.getItem('auth'))
       .then(data => {
         this.setState({ times: data });
+      })
+
+    getDate("date", localStorage.getItem('auth'))
+      .then(data => {
+        this.setState({ dates: data });
       })
   }
 
 
   handleCityChange = (event) => {
-    this.setState({city : event.target.value})
+    this.setState({ city: event.target.value })
   }
-  
+
   handleFromTimeChange = (event) => {
-    this.setState({from : event.target.value})
+    this.setState({ from: event.target.value })
   }
-  
+
   handleToTimeChange = (event) => {
-    this.setState({to : event.target.value})
+    this.setState({ to: event.target.value })
   }
-  
+
+  handleLocationChange = (event) => {
+    this.setState({ location: event.target.value })
+  }
+
+  handleDateChange = (event) => {
+    this.setState({ date: event.target.value })
+  }
+
   handleChange = (event) => {
-    if(event === 'city') {
+    if (event === 'city') {
     }
   }
 
@@ -104,7 +122,7 @@ class MapNav extends Component {
           <Grid item xs={3}>
             <FormControl>
               <InputLabel className={this.useStyles.paper}>{this.state.city}</InputLabel>
-              <Select style={{width: `150px`}} 
+              <Select style={{ width: `150px` }}
                 onChange={this.handleCityChange}>
                 {this.state.cities.map(city => {
                   return <MenuItem value={city}> {city} </MenuItem>
@@ -116,7 +134,7 @@ class MapNav extends Component {
           <Grid item xs={3}>
             <FormControl className="NavForm">
               <InputLabel className={this.useStyles.paper}>{this.state.from}</InputLabel>
-              <Select style={{width: `150px`}} 
+              <Select style={{ width: `150px` }}
                 onChange={this.handleFromTimeChange}>
                 {this.state.times.map(time => {
                   return <MenuItem value={time}> {time} </MenuItem>
@@ -128,7 +146,7 @@ class MapNav extends Component {
           <Grid item xs={3}>
             <FormControl>
               <InputLabel>{this.state.to}</InputLabel>
-              <Select style={{width: `150px`}} 
+              <Select style={{ width: `150px` }}
                 onChange={this.handleToTimeChange}>
                 {this.state.times.map(time => {
                   return <MenuItem value={time}> {time} </MenuItem>
@@ -139,11 +157,24 @@ class MapNav extends Component {
 
           <Grid item xs={3}>
             <FormControl>
-              <InputLabel>Location</InputLabel>
-              <Select style={{width: `150px`}} 
-                onChange={this.handleChange}>
-                <MenuItem value={this.state.location}>
-                </MenuItem>
+              <InputLabel>{this.state.location}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleLocationChange}>
+                {this.state.demographic.map(area => {
+                  return <MenuItem value={area}> {area} </MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={3}>
+            <FormControl>
+              <InputLabel>{this.state.date}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleDateChange}>
+                {this.state.dates.map(date => {
+                  return <MenuItem value={date}> {date} </MenuItem>
+                })}
               </Select>
             </FormControl>
           </Grid>
