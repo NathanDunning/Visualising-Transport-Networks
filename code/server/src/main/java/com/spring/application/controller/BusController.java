@@ -1,5 +1,6 @@
 package com.spring.application.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class BusController {
 	@RequestMapping(value = "/get/dates", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<?> getDates(){
-		List<Object> time = busService.findDate();
+		List<Date> time = busService.findDate();
         return new ResponseEntity<>(time,HttpStatus.OK);
     }
 }

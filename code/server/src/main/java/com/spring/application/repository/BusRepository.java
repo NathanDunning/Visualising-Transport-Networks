@@ -1,5 +1,6 @@
 package com.spring.application.repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -32,5 +33,5 @@ public interface BusRepository extends PagingAndSortingRepository<Bus, Long> {
 	List<Object> findTime();
 	
 	@Query(value = FIND_DATE, nativeQuery = true)
-	List<Object> findDate();
+	List<Timestamp> findDate();
 }

@@ -1,5 +1,10 @@
 package com.spring.application.service;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +38,15 @@ public class BusService {
 		return time;
 	}
 	
-	public List<Object> findDate() {
-		List<Object> date = busRepo.findDate();
-		return date;
+	public List<Date> findDate() {
+		List<Timestamp> dates = busRepo.findDate();
+		List<Date> modified = new ArrayList();
+		Date date;
+	    Format format = new SimpleDateFormat("yyyy/MM/dd");
+		for(Timestamp time : dates) {
+			date = new Date(time.getTime());
+			modified.add(date);
+		}
+		return modified;
 	}
 }
