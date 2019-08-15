@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid/';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
 import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
-import { getTravelData, getDemographicData, getCities, getTime } from "../../util/_services/PostData";
+import { getTravelData, getDemographicData, getCities, getTime, getDate } from "../../util/_services/PostData";
 import "./MapNav.css";
 
 import {
@@ -72,7 +72,7 @@ class MapNav extends Component {
 
     getDate("date", localStorage.getItem('auth'))
       .then(data => {
-        this.setState({ dates: data });
+        data.map(date => {this.state.dates.push(new Date(date).toDateString());}) 
       })
   }
 
