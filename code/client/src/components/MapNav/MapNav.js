@@ -55,7 +55,6 @@ class MapNav extends Component {
           data.map(area => {
             this.state.demographic.push(area.areaName);
           })
-          console.log(this.state.demographic)
 
         });
 
@@ -125,7 +124,7 @@ class MapNav extends Component {
               <Select style={{ width: `150px` }}
                 onChange={this.handleCityChange}>
                 {this.state.cities.map(city => {
-                  return <MenuItem value={city}> {city} </MenuItem>
+                  return <MenuItem key={city} value={city}> {city} </MenuItem>
                 })}
               </Select>
             </FormControl>
@@ -137,7 +136,7 @@ class MapNav extends Component {
               <Select style={{ width: `150px` }}
                 onChange={this.handleFromTimeChange}>
                 {this.state.times.map(time => {
-                  return <MenuItem value={time}> {time} </MenuItem>
+                  return <MenuItem key={time} value={time}> {time} </MenuItem>
                 })}
               </Select>
             </FormControl>
@@ -149,7 +148,7 @@ class MapNav extends Component {
               <Select style={{ width: `150px` }}
                 onChange={this.handleToTimeChange}>
                 {this.state.times.map(time => {
-                  return <MenuItem value={time}> {time} </MenuItem>
+                  return <MenuItem key={time} value={time}> {time} </MenuItem>
                 })}
               </Select>
             </FormControl>
@@ -161,7 +160,7 @@ class MapNav extends Component {
               <Select style={{ width: `150px` }}
                 onChange={this.handleLocationChange}>
                 {this.state.demographic.map(area => {
-                  return <MenuItem value={area}> {area} </MenuItem>
+                  return <MenuItem key={area} value={area}> {area} </MenuItem>
                 })}
               </Select>
             </FormControl>
@@ -173,7 +172,7 @@ class MapNav extends Component {
               <Select style={{ width: `150px` }}
                 onChange={this.handleDateChange}>
                 {this.state.dates.map(date => {
-                  return <MenuItem value={date}> {date} </MenuItem>
+                  return <MenuItem key={date} value={date}> {date} </MenuItem>
                 })}
               </Select>
             </FormControl>

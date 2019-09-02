@@ -102,7 +102,7 @@ export function PostData(type, auth) {
                     });
                 }
 
-                export function getLatLng(type, auth) {
+                export function getLatLng(auth) {
                     let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/latlng'
                     const requestOptions = {
                         headers: {
