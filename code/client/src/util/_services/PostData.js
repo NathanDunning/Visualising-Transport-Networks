@@ -102,6 +102,29 @@ export function PostData(type, auth) {
                     });
                 }
 
+                export function getLatLng(type, auth) {
+                    let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/latlng'
+                    const requestOptions = {
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                            'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                            'Authorization':auth
+                        },
+                        method: 'GET'
+                    };
+            
+                    return fetch(BaseUrl, requestOptions)
+                    .then(handleResponse)
+                    .then(data => {
+                        return data;
+                    }).catch(function() {
+                       return Promise.reject("error");
+                    });
+                }
+
                 export function getTime(type, auth) {
                         let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time'
                         const requestOptions = {
