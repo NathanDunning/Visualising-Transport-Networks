@@ -38,7 +38,7 @@ heroku:
   tags:
     - shell
   script:
-    - git push -f heroku HEAD:master
+    - git push -f heroku HEAD:refs/heads/master
   environment:
     name: deployment
     url: https://stark-sea-22197.herokuapp.com/
