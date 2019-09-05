@@ -38,7 +38,6 @@ heroku:
   tags:
     - shell
   script:
-    - git remote add heroku https://git.heroku.com/visualising-transport-networks.git
     - git push -f heroku HEAD:master
   environment:
     name: deployment
