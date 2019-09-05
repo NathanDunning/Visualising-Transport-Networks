@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getDemographicData } from "../../util/_services/PostData";
+import { getAllTravelLatLng } from "../../util/_services/PostData";
 
 // import {connect} from 'react-redux'
 import L from "leaflet";
@@ -56,16 +56,16 @@ class Map extends Component {
       zoomControl: false
     }).setView([-41.2858, 174.78682], 14);
 
-    getDemographicData("demographic", localStorage.getItem('auth'))
+    getAllTravelLatLng(localStorage.getItem('auth'))
       .then(data => {
         console.log(data)
         data.map(line => {
-          L.circle([line.latitude, line.longitude], {
+          L.circle([line[0], line[1]], {
             // fillColor: '#f03',
             fillOpacity: 0.5,
             radius: 50
           })
-            .bindPopup('coordinates: ' + line.areaName + '\n' +'population: ' + line.population)
+            .bindPopup('latitude: ' + line[0] + '\n' +'longitude: ' + line[1])
             .addTo(map);
         })
       });
