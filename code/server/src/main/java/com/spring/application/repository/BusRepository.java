@@ -16,6 +16,7 @@ public interface BusRepository extends PagingAndSortingRepository<Bus, Long> {
 
 	public static final String FIND_BUS = "SELECT * FROM bus_from limit 1";
 	public static final String FIND_BUS_DETAILS = "SELECT * FROM bus_from where time>=?1 and time<=?2 and date=?3 ;";
+	public static final String FIND_ALL_BUS_DETAILS = "SELECT DISTINCT lat, lng FROM bus_from";
 	public static final String FIND_CITIES = "SELECT distinct city FROM bus_from";
 	public static final String FIND_TIME = "SELECT distinct time FROM bus_from order by time";
 	public static final String FIND_DATE = "SELECT distinct date FROM bus_from order by date";
@@ -25,6 +26,9 @@ public interface BusRepository extends PagingAndSortingRepository<Bus, Long> {
 
 	@Query(value = FIND_BUS_DETAILS, nativeQuery = true)
 	List<Bus> findBusDetails(@Param("from_time") int from_time, @Param("to_time") int to_time, @Param("date") String date);
+
+	@Query(value = FIND_ALL_BUS_DETAILS, nativeQuery = true)
+	List<Object> findAllBusDetails();
 
 	@Query(value = FIND_CITIES, nativeQuery = true)
 	List<Object> findCities();

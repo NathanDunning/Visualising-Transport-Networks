@@ -27,6 +27,11 @@ public class BusService {
 		List<Bus> bus = busRepo.findBusDetails(busRequest.getFrom_time(), busRequest.getTo_time(), busRequest.getDate());
 		return bus;
 	}
+
+	public List<Object> findAllBusTravelDetails() {
+		List<Object> bus = busRepo.findAllBusDetails();
+		return bus;
+	}
 	
 	public List<Object> findCities() {
 		List<Object> cities = busRepo.findCities();

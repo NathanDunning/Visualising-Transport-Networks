@@ -38,6 +38,13 @@ public class BusController {
 		List<Bus> bus = busService.findBusTravelDetails(busRequest);
         return new ResponseEntity<>(bus,HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/get/bus/travelAllDetails", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getBus(){
+        List<Object> bus = busService.findAllBusTravelDetails();
+        return new ResponseEntity<>(bus,HttpStatus.OK);
+    }
 	
 	@RequestMapping(value = "/get/cities", method = RequestMethod.GET)
     @ResponseBody
@@ -59,4 +66,8 @@ public class BusController {
 		List<Date> time = busService.findDate();
         return new ResponseEntity<>(time,HttpStatus.OK);
     }
+
+
+
+
 }
