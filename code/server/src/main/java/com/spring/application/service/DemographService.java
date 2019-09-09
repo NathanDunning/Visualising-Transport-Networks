@@ -17,4 +17,7 @@ public class DemographService {
 		return demoRepo.findAllAreaGeoCode();
 	}
 	
+	public List<Object> findAllAreaLatLng() {
+		return demoRepo.findAllAreaLatLng();
+	}
 }
