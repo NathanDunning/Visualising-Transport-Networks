@@ -5,12 +5,12 @@ import MapNav from "../../components/MapNav/MapNav";
 import { MenuBar } from "../MenuBar/MenuBar";
 
 class Home extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       travelData: [],
-      demographicData: []
-    }
+      demographicData: [],
+    };
   }
 
   render() {
@@ -18,11 +18,11 @@ class Home extends Component {
       <div className="Home">
         <div className="lander">
           <MenuBar />
-            <div id="map">
-                <h1>Map</h1>
-                <p>Visualising our Transport Networks</p>
-                <Map />
-            </div>
+          <div id="map">
+            <h1>Map</h1>
+            <p>Visualising our Transport Networks</p>
+            <Map />
+          </div>
         </div>
         <MapNav />
       </div>
