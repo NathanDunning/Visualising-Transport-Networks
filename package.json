@@ -38,9 +38,6 @@
     "topojson-client": "^3.0.0"
   },
   "scripts": {
-    "start": "cd code/client && npm start",
-    "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
+    "start": "cd code/client && npm start"
   }
 }
