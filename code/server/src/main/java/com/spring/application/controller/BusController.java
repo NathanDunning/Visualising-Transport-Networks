@@ -1,5 +1,6 @@
 package com.spring.application.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,36 @@ public class BusController {
 		List<Bus> bus = busService.findBusTravelDetails(busRequest);
         return new ResponseEntity<>(bus,HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/get/bus/travelAllDetails", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getBus(){
+        List<Object> bus = busService.findAllBusTravelDetails();
+        return new ResponseEntity<>(bus,HttpStatus.OK);
+    }
 	
+	@RequestMapping(value = "/get/cities", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getCities(){
+		List<Object> cities = busService.findCities();
+        return new ResponseEntity<>(cities,HttpStatus.OK);
+    }
 	
+	@RequestMapping(value = "/get/time", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getTime(){
+		List<Object> time = busService.findTime();
+        return new ResponseEntity<>(time,HttpStatus.OK);
+    }
 	
+	@RequestMapping(value = "/get/dates", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<?> getDates(){
+		List<Date> time = busService.findDate();
+        return new ResponseEntity<>(time,HttpStatus.OK);
+    }
+
+
+
+
 }

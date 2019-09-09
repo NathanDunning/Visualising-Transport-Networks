@@ -1,106 +1,187 @@
-import React, { Component } from 'react';
-import './MapNav.css';
+import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid/';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
-import {
-  FormControl, InputLabel, MenuItem, Select,
-} from '@material-ui/core';
+import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
+import { getAllTravelLatLng, getDemographicData, getCities, getTime, getDate } from "../../util/_services/PostData";
+import "./MapNav.css";
 
 import {
-// componentDidMount,
-// componentDidUpdate,
-// handleDropDownChange,
-// resetState,
-// mapStateToProps,
-// getValidOptions,
-// dropdown
-// addQuickInfoBox
+  // componentDidMount,
+  // componentDidUpdate,
+  // handleDropDownChange,
+  // resetState,
+  // mapStateToProps,
+  // getValidOptions,
+  // dropdown
+  // addQuickInfoBox
 } from './NavBarHelpers';
-import { red } from '@material-ui/core/colors';
+
 
 class MapNav extends Component {
-    state = {
-      city: 'no city',
-      to: 'TEST WELLINGTON',
-      from: 'TEST WELLINGTON',
-      time: 'random time',
-    };
+  state = {
+    city: 'city',
+    to: 'to',
+    from: 'from',
+    location: 'area',
+    date: 'yyyy/mm/dd',
+    demographic: [],
+    travel: [],
+    cities: [],
+    times: [],
+    dates: []
+  };
 
-    // set up and bind dropdown from NavBarHelpers
-    constructor(props) {
-      super(props);
-      // this.dropdown = dropdown.bind(this);
+  // set up and bind dropdown from NavBarHelpers
+  constructor(props) {
+    super(props);
+    // this.dropdown = dropdown.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData() {
+    getAllTravelLatLng(localStorage.getItem('auth'))
+      .then(
+        data => {
+          console.log(data)
+        });
+
+    getDemographicData("geocode", localStorage.getItem('auth'))
+      .then(
+        data => {
+          data.map(area => {
+            this.state.demographic.push(area.areaName);
+          })
+
+        });
+
+    getCities("cities", localStorage.getItem('auth'))
+      .then(
+        data => {
+          this.setState({ cities: data });
+        })
+
+    getTime("time", localStorage.getItem('auth'))
+      .then(data => {
+        this.setState({ times: data });
+      })
+
+    getDate("date", localStorage.getItem('auth'))
+      .then(data => {
+        data.map(date => {this.state.dates.push(new Date(date).toDateString());}) 
+      })
+  }
+
+
+  handleCityChange = (event) => {
+    this.setState({ city: event.target.value })
+  }
+
+  handleFromTimeChange = (event) => {
+    this.setState({ from: event.target.value })
+  }
+
+  handleToTimeChange = (event) => {
+    this.setState({ to: event.target.value })
+  }
+
+  handleLocationChange = (event) => {
+    this.setState({ location: event.target.value })
+  }
+
+  handleDateChange = (event) => {
+    this.setState({ date: event.target.value })
+  }
+
+  handleChange = (event) => {
+    if (event === 'city') {
     }
+  }
 
-    handleChange = (event) => {
-      this.setState({
+  useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
 
-      });
-    }
 
-
-    render() {
-      // render a grid that holds dropdown menu options
-      return (
-        <div className="navBar">
-          <Grid container spacing={4}>
-            <Grid item xs>
-              <FormControl>
-              <InputLabel>City</InputLabel>
-              <Select
-                  onChange={this.handleChange}
-                >
-                  <MenuItem value={this.state.city}>
-                  {this.state.city}
-                </MenuItem>
-                </Select>
+  render() {
+    // render a grid that holds dropdown menu options
+    return (
+      <div className={this.useStyles.root}>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <FormControl>
+              <InputLabel className={this.useStyles.paper}>{this.state.city}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleCityChange}>
+                {this.state.cities.map(city => {
+                  return <MenuItem key={city} value={city}> {city} </MenuItem>
+                })}
+              </Select>
             </FormControl>
-            </Grid>
-
-            <Grid item xs>
-              <FormControl className="NavForm">
-              <InputLabel>From</InputLabel>
-              <Select
-                  onChange={this.handleChange}
-                >
-                  <MenuItem value={this.state.from}>
-                  {`From: ${this.state.from}`}
-                </MenuItem>
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid item xs>
-              <FormControl>
-              <InputLabel>To</InputLabel>
-              <Select
-                  onChange={this.handleChange}
-                >
-                  <MenuItem value={this.state.to}>
-                  {`From: ${this.state.to}`}
-                </MenuItem>
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid item xs>
-              <FormControl>
-              <InputLabel>Time</InputLabel>
-              <Select
-                  onChange={this.handleChange}
-                >
-                  <MenuItem value={this.state.time}>
-                  {`Time: ${this.state.time}`}
-                </MenuItem>
-                </Select>
-            </FormControl>
-            </Grid>
           </Grid>
 
-        </div>
-      );
-    }
+          <Grid item xs={3}>
+            <FormControl className="NavForm">
+              <InputLabel className={this.useStyles.paper}>{this.state.from}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleFromTimeChange}>
+                {this.state.times.map(time => {
+                  return <MenuItem key={time} value={time}> {time} </MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={3}>
+            <FormControl>
+              <InputLabel>{this.state.to}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleToTimeChange}>
+                {this.state.times.map(time => {
+                  return <MenuItem key={time} value={time}> {time} </MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={3}>
+            <FormControl>
+              <InputLabel>{this.state.location}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleLocationChange}>
+                {this.state.demographic.map(area => {
+                  return <MenuItem key={area} value={area}> {area} </MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item xs={3}>
+            <FormControl>
+              <InputLabel>{this.state.date}</InputLabel>
+              <Select style={{ width: `150px` }}
+                onChange={this.handleDateChange}>
+                {this.state.dates.map(date => {
+                  return <MenuItem key={date} value={date}> {date} </MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+
+      </div>
+    );
+  }
 }
 
 export default MapNav;
