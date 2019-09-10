@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  sql:
+    image: mysql:8.0.17
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=react_spring
+    networks:
+      - clientnetwork
+    healthcheck:
+      test: ['CMD-SHELL', "mysqladmin -u root -p'password' status"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+    container_name: mysql
+  spring-boot:
+    build: ./code/server
+    depends_on:
+      sql:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+    networks:
+      - clientnetwork
+    container_name: spring
+  client:
+    build: ./code/client
+    ports:
+      - 3000:3000
+    depends_on:
+      - spring-boot
+    networks:
+      - clientnetwork
+    container_name: client
+networks:
+  clientnetwork:
+    driver: bridge
