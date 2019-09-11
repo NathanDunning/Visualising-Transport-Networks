@@ -47,6 +47,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://spring-boot:8080",
   "browserslist": {
     "production": [
       ">0.2%",

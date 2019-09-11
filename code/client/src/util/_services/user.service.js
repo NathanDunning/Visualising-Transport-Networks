@@ -5,7 +5,7 @@ const btoa = require('btoa');
 
 export const userService = {
   login,
-  logout,
+  logout
 };
 
 function login(username, password) {
@@ -17,15 +17,15 @@ function login(username, password) {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
       'Access-Control-Allow-Origin': '*',
-      Authorization: auth,
-    },
+      Authorization: auth
+    }
   };
 
   console.log('before fetch');
 
-  return fetch('http://localhost:8080/home', requestOptions)
+  return fetch('http://spring-boot:8080/home', requestOptions)
     .then(handleResponse)
-    .then((user) => {
+    .then(user => {
       // login successful if there's a user in the response
       if (user) {
         // store user details and basic auth credentials in local storage
@@ -53,7 +53,7 @@ function logout() {
 } */
 
 function handleResponse(response) {
-  return response.text().then((text) => {
+  return response.text().then(text => {
     const data = text && JSON.parse(text);
     if (!response.ok) {
       if (response.status === 401) {

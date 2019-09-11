@@ -23,14 +23,14 @@ import com.spring.application.service.UserService;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"com.spring.application.repository"})
 @Configuration
-public class VisualisingtTransportNetworks 
+public class VisualisingTransportNetworks
 {
 	@Autowired
 	private UserService userService;
 	
 	public static void main(String[] args) {
 
-		SpringApplication.run(VisualisingtTransportNetworks.class, args);
+		SpringApplication.run(VisualisingTransportNetworks.class, args);
 	}
 	
 	@Bean

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { PostData } from "../../util/_services/PostData";
-import "./Login.css";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { PostData } from '../../util/_services/PostData';
+import './Login.css';
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 var btoa = require('btoa');
 
@@ -14,8 +14,8 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       redirect: false
     };
 
@@ -41,57 +41,58 @@ class Login extends Component {
   // Actions to take when submission request
   handleSubmit = event => {
     event.preventDefault();
-    var auth = 'Basic '+btoa(""+this.state.username+":"+this.state.password+"");
+    var auth =
+      'Basic ' +
+      btoa('' + this.state.username + ':' + this.state.password + '');
     // Send a request to the database
-    PostData("login", auth)
-            .then(
-                user => {
-                    localStorage.setItem('auth', auth);
-                    console.log("item auth : " + localStorage.getItem('auth'))
-                    this.setState({ redirect: true });
-                },
-                error => this.setState({ redirect: false })
-            );
+    PostData('login', auth).then(
+      user => {
+        localStorage.setItem('auth', auth);
+        console.log('item auth : ' + localStorage.getItem('auth'));
+        this.setState({ redirect: true });
+      },
+      error => this.setState({ redirect: false })
+    );
   };
 
   // Use states for the fields to make them dynamic
   // Checks to see whether user has been authorised to redirect to the main app
   render() {
     const { redirect } = this.state;
-    
+
     if (this.state.redirect) {
-      return <Redirect to={"/home"} />;
+      return <Redirect to={'/home'} />;
     }
 
-    if (sessionStorage.getItem("auth")) {
-      return <Redirect to={"/home"} />;
+    if (sessionStorage.getItem('auth')) {
+      return <Redirect to={'/home'} />;
     }
 
     return (
-      <div className="Login">
+      <div className='Login'>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="username" bssize="large">
+          <Form.Group controlId='username' bssize='large'>
             <Form.Control
               autoFocus
-              type="username"
+              type='username'
               value={this.state.username}
-              placeholder="Enter username"
+              placeholder='Enter username'
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Group controlId="password" bssize="large">
+          <Form.Group controlId='password' bssize='large'>
             <Form.Control
               value={this.state.password}
               onChange={this.handleChange}
-              type="password"
-              placeholder="Password"
+              type='password'
+              placeholder='Password'
             />
           </Form.Group>
           <Button
             block
-            bssize="large"
+            bssize='large'
             disabled={!this.validateForm()}
-            type="submit"
+            type='submit'
           >
             Login
           </Button>

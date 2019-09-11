@@ -1,25 +1,37 @@
+## Build the React App
 # Pull base docker image from hub
-FROM node:10
+FROM node:10 as build
 
-# Update and install node + react env
-RUN apt-get update
-RUN npm install -g create-react-app
-RUN npm install -g serve
+# Define working directory
+WORKDIR /app
 
 # Copy over the dependencies
-COPY package.json package.json
+COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy over repository
-COPY . .
+COPY . ./
+
+# Arguments
+ARG REACT_APP_API_BASE_URL
+ENV REACT_APP_API_BASE_URL=${REACT_APP_API_BASE_URL}
 
 # Build the project
 RUN npm run build
+
+## Serve application from Nginx
+FROM nginx:1.17.0-alpine
+
+# Copy the react build to server app location
+COPY --from=build /app/build /var/www
+
+# Copy the custom Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Open port for outside connections
 EXPOSE 3000
 
 # Run
-CMD serve -p 3000 -s build
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
