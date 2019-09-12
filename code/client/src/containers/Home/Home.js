@@ -1,28 +1,33 @@
-import React, { Component } from "react";
-import "./Home.css";
-import Map from "../../components/Map/Map";
-import MapNav from "../../components/MapNav/MapNav";
-import { MenuBar } from "../MenuBar/MenuBar";
+import React, { Component } from 'react';
+import './Home.css';
+import Map from '../../components/Map/Map';
+import MapNav from '../../components/MapNav/MapNav';
+import { MenuBar } from '../MenuBar/MenuBar';
+import 'typeface-roboto';
+import Grid from '@material-ui/core/Grid';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       travelData: [],
-      demographicData: [],
+      demographicData: []
     };
   }
 
   render() {
     return (
-      <div className="Home">
-        <div className="lander">
-          <MenuBar />
-          <div id="map">
-            <h1>Map</h1>
-            <p>Visualising our Transport Networks</p>
-            <Map />
-          </div>
+      <div className='Home'>
+        <MenuBar />
+        <Grid
+          container
+          spacing={0}
+          direction='column'
+          justify='center'
+          style={{ minHeight: '75px' }}
+        ></Grid>
+        <div id='map'>
+          <Map />
         </div>
         <MapNav />
       </div>
