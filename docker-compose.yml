@@ -46,6 +46,8 @@ services:
         REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api
     ports:
       - '3000:3000'
+    dns:
+      - 8.8.8.8
     depends_on:
       - spring-boot
     networks:

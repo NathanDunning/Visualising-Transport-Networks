@@ -1,5 +1,5 @@
 export function PostData(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/home';
+  let BaseUrl = 'http://localhost:8080/home';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -12,6 +12,7 @@ export function PostData(type, auth) {
     }
   };
 
+  console.log('fetching: ' + BaseUrl);
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
@@ -29,7 +30,7 @@ export function PostData(type, auth) {
 }
 
 export function getTravelData(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/bus/travelDetails';
+  let BaseUrl = 'http://localhost:8080/get/bus/travelDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -59,7 +60,7 @@ export function getTravelData(type, auth) {
 }
 
 export function getAllTravelLatLng(auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/bus/travelAllDetails';
+  let BaseUrl = 'http://localhost:8080/get/bus/travelAllDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -83,7 +84,7 @@ export function getAllTravelLatLng(auth) {
 }
 
 export function getDemographicData(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/area/geocodes';
+  let BaseUrl = 'http://localhost:8080/get/area/geocodes';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -107,7 +108,7 @@ export function getDemographicData(type, auth) {
 }
 
 export function getCities(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/cities';
+  let BaseUrl = 'http://localhost:8080/get/cities';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -131,7 +132,7 @@ export function getCities(type, auth) {
 }
 
 export function getLatLng(auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/area/latlng';
+  let BaseUrl = 'http://localhost:8080/get/area/latlng';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -155,7 +156,7 @@ export function getLatLng(auth) {
 }
 
 export function getTime(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/time';
+  let BaseUrl = 'http://localhost:8080/get/time';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -179,7 +180,7 @@ export function getTime(type, auth) {
 }
 
 export function getDate(type, auth) {
-  let BaseUrl = 'http://spring-boot:8080:8080/get/dates';
+  let BaseUrl = 'http://localhost:8080/get/dates';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -205,6 +206,7 @@ export function getDate(type, auth) {
 function handleResponse(response) {
   return response.text().then(text => {
     const data = text && JSON.parse(text);
+    console.log(text);
     if (response.status === 401) {
       alert('Invalid username or password');
       const error = (data && data.message) || response.statusText;
