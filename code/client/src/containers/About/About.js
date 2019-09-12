@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 class About extends Component {
   render() {
     return (
-      <div className='landing'>
-        <MenuBar />
+      <div className='App'>
+        <MenuBar pageName='About' />
         <Grid
           container
           spacing={0}

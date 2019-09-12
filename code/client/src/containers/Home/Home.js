@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Home.css';
 import Map from '../../components/Map/Map';
 import MapNav from '../../components/MapNav/MapNav';
 import { MenuBar } from '../MenuBar/MenuBar';
@@ -17,7 +16,7 @@ class Home extends Component {
   render() {
     return (
       <div className='Home'>
-        <MenuBar />
+        <MenuBar pageName='Map' />
         <Grid
           container
           spacing={0}

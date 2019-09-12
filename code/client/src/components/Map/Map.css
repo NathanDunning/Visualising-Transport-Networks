@@ -1,60 +1,58 @@
 #mapid {
+  width: 77vw;
   height: 72vh;
+  margin: auto;
 }
 
 .legend {
-    line-height: 18px;
-    height: 550px;
-    overflow: auto;
-    color: #555;
-    background-color: white;
-    opacity: .8;
+  line-height: 18px;
+  height: 550px;
+  overflow: auto;
+  color: #555;
+  background-color: white;
+  opacity: 0.8;
 }
 .legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: .8;
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.8;
 }
 
 .legend-container {
-    font: 14px/18px Arial, Helvetica, sans-serif;
-    line-height: 18px;
-    height: 600px;
-    overflow: auto;
-    color: #555;
-    background-color: whitesmoke;
-    opacity: 1;
+  font: 14px/18px Arial, Helvetica, sans-serif;
+  line-height: 18px;
+  height: 600px;
+  overflow: auto;
+  color: #555;
+  background-color: whitesmoke;
+  opacity: 1;
 }
 
-.legend-container-label {
-
-}
-
-.leaflet-overlay-pane svg path{
-    pointer-events: auto;
+.leaflet-overlay-pane svg path {
+  pointer-events: auto;
 }
 
 .info {
-    padding: 6px 8px;
-    font: 16px/18px Arial, Helvetica, sans-serif;
-    background: whitesmoke;
-    background: rgba(255,255,255,.9);
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
-    border-radius: 5px;
+  padding: 6px 8px;
+  font: 16px/18px Arial, Helvetica, sans-serif;
+  background: whitesmoke;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
 }
 .info h4 {
-    margin: 0 0 5px;
-    color: #777;
+  margin: 0 0 5px;
+  color: #777;
 }
 
 .error {
-    padding: 6px 8px;
-    font: 16px/18px Arial, Helvetica, sans-serif;
-    background: whitesmoke;
-    background: rgba(255,255,255,.9);
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
-    border-radius: 5px;
-    color: red;
+  padding: 6px 8px;
+  font: 16px/18px Arial, Helvetica, sans-serif;
+  background: whitesmoke;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  color: red;
 }
