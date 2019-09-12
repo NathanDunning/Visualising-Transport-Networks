@@ -112,11 +112,10 @@ class MapNav extends Component {
     },
   }));
 
-
   render() {
     // render a grid that holds dropdown menu options
     return (
-      <div className={this.useStyles.root}>
+      <div className='MapNav'>
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <FormControl>
@@ -178,7 +177,6 @@ class MapNav extends Component {
             </FormControl>
           </Grid>
         </Grid>
-
       </div>
     );
   }
