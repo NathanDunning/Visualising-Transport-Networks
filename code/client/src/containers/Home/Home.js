@@ -3,7 +3,6 @@ import './Home.css';
 import Map from '../../components/Map/Map';
 import MapNav from '../../components/MapNav/MapNav';
 import { MenuBar } from '../MenuBar/MenuBar';
-import 'typeface-roboto';
 import Grid from '@material-ui/core/Grid';
 
 class Home extends Component {
