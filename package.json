@@ -19,6 +19,7 @@
     "leaflet-d3-svg-overlay": "^2.2.0",
     "leaflet-range": "^0.1.5",
     "lodash": "^4.17.15",
+    "jest": "6.10.2",
     "rc-slider": "^8.7.0",
     "rc-tooltip": "latest",
     "react": "^16.9.0",
@@ -39,5 +40,8 @@
   },
   "scripts": {
     "start": "cd code/client && npm start"
+  },
+  "devDependencies": {
+    "jest-config": "^24.9.0"
   }
 }
