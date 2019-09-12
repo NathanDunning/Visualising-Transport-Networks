@@ -1,26 +1,32 @@
-import { configure, shallow } from 'enzyme';
+// Dependencies for testing
+import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react'
 
+// Dependencies needed for test
 import MapNav from './MapNav';
-import Grid from '@material-ui/core/Grid/';
-import {
-    FormControl, InputLabel, MenuItem, Select,
-} from '@material-ui/core';
+import { FormControl, InputLabel } from '@material-ui/core';
 
-
+//adapters that provide compatibility with React for Enzyme
 configure({ adapter: new Adapter() });
 
 // The name inside < /> is what you'll see in console.output
 describe('<MapNav />', () => {
 
-    // write tests in here
+    // write tests in here...
 
-    it('should render one <Grid /> element', () => {
+    it('should render 4 <FormControl /> elements', () => {
         // wrapper is a container for where to test a specific component
         const wrapper = shallow(<MapNav />);
         // there are 4 FormControl elements in the MapNav.js, so we check that there are four of those elements
         expect(wrapper.find(FormControl)).toHaveLength(4);
+    });
+
+    it('One <InputLabel /> be inside', () => {
+        // wrapper is a container for where to test a specific component
+        const wrapper = shallow(<MapNav />);
+        // there are 4 FormControl elements in the MapNav.js, so we check that there are four of those elements
+        expect(wrapper.find(InputLabel));
     });
 });
 
