@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 # Define serives
 services:
@@ -12,7 +12,7 @@ services:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=react_spring
     volumes:
-      - db-data:/var/lib/mysql
+      - ./code/mysql/data_dump:/docker-entrypoint-initdb.d
     networks:
       - backend
     container_name: mysql
