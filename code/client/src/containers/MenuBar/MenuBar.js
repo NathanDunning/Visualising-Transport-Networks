@@ -15,7 +15,72 @@ import ListItemText from '@material-ui/core/ListItemText';
 export const MenuBar = () => {
   const [open, setOpen] = useState(true);
 
+<<<<<<< Updated upstream
   const handleDrawerOpen = () => {
+=======
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    margin: '50px'
+  },
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  hide: {
+    display: 'none'
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0
+  },
+  drawerPaper: {
+    width: drawerWidth
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end'
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    marginLeft: -drawerWidth
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    }),
+    marginLeft: 0
+  }
+}));
+
+export const MenuBar = props => {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+  function handleDrawerOpen() {
+>>>>>>> Stashed changes
     setOpen(true);
   };
 
@@ -31,6 +96,7 @@ export const MenuBar = () => {
             color="inherit"
             aria-label="Open drawer"
             onClick={handleDrawerOpen}
+<<<<<<< Updated upstream
             edge="start"
           >
             <MenuIcon />
@@ -61,6 +127,40 @@ export const MenuBar = () => {
 
           </List>
           <Divider />
+=======
+            edge='start'
+            className={clsx(classes.menuButton, open && classes.hide)}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant='h6' noWrap>
+            {/* This value needs to be dynamically assigned instead. */}
+            {props.pageName}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          </Typography>
+          <Typography variant='subtitle1' noWrap>
+            Visualing Our Transport Networks
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        className={classes.drawer}
+        variant='persistent'
+        anchor='left'
+        open={open}
+        classes={{
+          paper: classes.drawerPaper
+        }}>
+        <div className={classes.drawerHeader}>
+          <ListItem>
+            <ListItemText primary={'Navigation'} />
+          </ListItem>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+>>>>>>> Stashed changes
         </div>
       </Drawer>
     </div>
