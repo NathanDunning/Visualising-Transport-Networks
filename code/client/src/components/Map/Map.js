@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllTravelLatLng } from '../../util/_services/PostData';
+import { getAllTravelLatLng, getDemographicData } from '../../util/_services/PostData';
 
 // import {connect} from 'react-redux'
 import L from 'leaflet';
@@ -35,9 +35,20 @@ class Map extends Component {
       accessToken: MAPBOX_KEY
     });
 
+  
+
     map = L.map(mapid, {
       layers: [mapboxLayer]
     }).setView([-41.2858, 174.78682], 14);
+
+    
+    L.circle([-41.2865, 174.7762], {
+      fillColor: '#006400',
+      fillOpacity: 0.5,
+      radius: 100
+    })
+      .bindPopup('Destination : Wellington CBD' )
+      .addTo(map);
 
     getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
       console.log(data);
@@ -48,6 +59,19 @@ class Map extends Component {
           radius: 50
         })
           .bindPopup('latitude: ' + line[0] + '\n' + 'longitude: ' + line[1])
+          .addTo(map);
+      });
+    });
+
+    getDemographicData('demographic', localStorage.getItem('auth')).then(data => {
+      data.map(line => {
+        console.log(line);
+         L.rectangle([[line.latitude, line.longitude],[line.latitude +0.001, line.longitude -0.001]], {
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 100
+        })
+          .bindPopup('Area: ' + line.areaName + '\n' + 'Population: ' + line.population)
           .addTo(map);
       });
     });
