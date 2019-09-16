@@ -52,9 +52,26 @@ class Map extends Component {
       });
     });
 
+    // station
+    L.circle([-41.2792099, 174.7781513], {
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(map)
+
+    L.marker([-41.2792099, 174.7781513], {
+      icon: ({
+        iconSize: [25, 41],
+        iconAnchor: [13, 41],
+        iconUrl: 'leaflet/marker-icon.png',
+        shadowUrl: 'leaflet/marker-shadow.png'
+      })
+    }).addTo(map)
+
     this.addMask();
     get_city_centres();
     pushMap(map);
+
     //Give a scale on the bottom left
     L.control
       .scale({
@@ -76,7 +93,7 @@ class Map extends Component {
         }).addTo(map)._container
       );
 
-      L.marker([-41.250606, 174.774322]).addTo(map);
+      L.marker([-41.2792099, 174.7781513]).addTo(map);
       let data = topojson.feature(topo, topo.objects.newzealand);
 
       let projection = d3.geoTransform({ point: projectPoint });
@@ -89,7 +106,7 @@ class Map extends Component {
         .append('path')
         .attr('d', path(data));
 
-      map.on('moveend', function() {
+      map.on('moveend', function () {
         thingy.attr('d', path(data));
       });
     });
