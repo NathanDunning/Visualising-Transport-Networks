@@ -1,46 +1,15 @@
-# image: node:latest
-stages:
-  - build
-  - test
-  - deploy
+image: docker:latest
 
-cache:
-  paths:
-    - node_modules/
-    - ./code/client/node_modules/
+# Variable for performance enhancements
+variables:
+  - DOCKER_DRIVER: overlay
+  
+# Services required for running
+services:
+  - docker:dind
 
-install-npm-dependencies:
-  stage: build
-  tags:
-    - shell
-  script:
-    - cd ./code/client
-    - npm install
-  only:
-    - master
-  artifacts:
-    paths:
-      - node_modules/
-
-maven-test:
-  stage: test
-  tags:
-    - shell
-  script:
-    - cd ./code/server
-    - mvn clean test
-    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
-  only:
-    - master
-
-heroku:
-  stage: deploy
-  tags:
-    - shell
-  script:
-    - git push -f heroku HEAD:refs/heads/master
-  environment:
-    name: deployment
-    url: https://stark-sea-22197.herokuapp.com/
-  only:
-    - master
+# Before script excecutes before stages
+before_script:
+  - apk add --no-cache python py2-pip
+  - pip install --no-cache-dir docker-compose
+  - docker-compose -v
