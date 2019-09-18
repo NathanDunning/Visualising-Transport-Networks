@@ -2,7 +2,7 @@ image: docker:latest
 
 # Variable for performance enhancements
 variables:
-  - DOCKER_DRIVER: overlay
+  DOCKER_DRIVER: overlay
   
 # Services required for running
 services:
