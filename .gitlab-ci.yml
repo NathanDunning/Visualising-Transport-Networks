@@ -18,6 +18,8 @@ stages:
   - test
   
 test:
+  tags:
+    - docker
   stage: test
   script:
     - docker-compose -v
