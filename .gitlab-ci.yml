@@ -7,6 +7,7 @@ variables:
 # Services required for running
 services:
   - docker:dind
+  - gcc:latest
 
 # Before script excecutes before stages
 before_script:
