@@ -11,8 +11,6 @@ services:
 
 # Before script excecutes before stages
 before_script:
-  - apt-get update
-  - apt-get install gcc
   - apk add --no-cache python py2-pip
   - pip install --no-cache-dir docker-compose
   - docker-compose -v
