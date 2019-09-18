@@ -11,6 +11,8 @@ services:
 
 # Before script excecutes before stages
 before_script:
+  - apk --update add python py-pip openssl ca-certificates py-openssl wget
+  - apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
   - pip install --no-cache-dir docker-compose
   - docker-compose -v
