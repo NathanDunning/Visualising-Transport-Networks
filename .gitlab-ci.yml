@@ -1,12 +1,12 @@
-image: docker:18-dind
+image: docker:18.09.7
 
 # Variable for performance enhancements
-# variables:
-#   DOCKER_DRIVER: overlay
+variables:
+  DOCKER_DRIVER: overlay
   
 # Services required for running
 services:
-  - docker:dind
+  - docker:18.09.7-dind
 
 # Before script excecutes before stages
 before_script:
