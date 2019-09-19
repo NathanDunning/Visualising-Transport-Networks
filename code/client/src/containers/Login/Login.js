@@ -71,12 +71,14 @@ class Login extends Component {
     }
 
     return (
-      <div className='Login'>
+      <div className='BlueBack'>
         {/* menu bar */}
         <LoginMenuBar pageName='Login' />
 
         {/* login form */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div
+          className='BlueBack'
+          style={{ display: 'flex', justifyContent: 'center' }}>
           <Card
             style={{
               padding: '25px',

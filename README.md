@@ -1,13 +1,11 @@
 # Visualising Our Transport Networks
 
-This repository contains issues, boards and documents relating to project planning and requirements.
+This repository contains issues, boards, and documents relating to project planning and requirements.
 
 ## How to run the web application
 
-### `npm install`
-
-Clone this repo and then naviagte to the root of the repository. In the terminal, run the above command to install all of the dependencies needed to run the web application. This is required to run the `react-scripts start` and similar commands that are contained in the `code/client` package.json file.
-
 ### `npm start`
 
-The above command will execute the 'scripts' object in the package.json file at the root which will then execute the 'scripts' objects in the package.json file in the `code/client` subdirectory. There should be no need to run any other commands to run the web application.
+Clone this repo and then navigate to the root of the repository. In the terminal, run the `npm start` command to install all of the dependencies needed to run the web application. This command works by first installing all of the required dependencies, then it navigates into the `code/client` folder and executes the `npm install` command to install any devDependencies, and then lastly, it runs the `react-scripts start` command as described in the `scripts` object of the `code/client` package.json file.
+
+In the console, you can expect to encounter several warning messages. These are due to certain packages either requiring others or needing to be updated. Once the `react-scripts start` command is run, the development server should start. There should be no need to run any other commands to start the web application.

@@ -32,10 +32,10 @@ public interface BusRepository extends PagingAndSortingRepository<Bus, Long> {
 
 	@Query(value = FIND_CITIES, nativeQuery = true)
 	List<Object> findCities();
-	
+
 	@Query(value = FIND_TIME, nativeQuery = true)
 	List<Object> findTime();
-	
+
 	@Query(value = FIND_DATE, nativeQuery = true)
 	List<Timestamp> findDate();
 }

@@ -9,12 +9,12 @@
     "@turf/turf": "^5.1.6",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "4.3.1",
-    "jquery": "3.4.1",
     "btoa": "^1.2.1",
     "clone": "^2.1.2",
     "clsx": "^1.0.4",
     "d3": "^5.11.0",
     "d3-svg-legend": "^2.25.6",
+    "jquery": "3.4.1",
     "leaflet": "^1.5.1",
     "leaflet-d3-svg-overlay": "^2.2.0",
     "leaflet-range": "^0.1.5",
@@ -35,9 +35,16 @@
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.4",
     "tinygradient": "^1.0.0",
-    "topojson-client": "^3.0.0"
+    "topojson-client": "^3.0.0",
+    "typeface-roboto": "0.0.75",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "scripts": {
-    "start": "cd code/client && npm start"
+    "start": "npm install && cd code/client && npm install && npm start"
   }
 }

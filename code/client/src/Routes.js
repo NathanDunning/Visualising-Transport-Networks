@@ -9,11 +9,11 @@ import NotFound from './containers/NotFound/NotFound';
 export default () => (
   /* Switch is a component from React-Router that renders
      the first matching route that is defined within it. */
-  <Switch>
-    <Route exact path="/" component={Login} />
-    <Route path="/login" component={Login} />
-    <Route path="/about" component={About} />
-    <Route path="/home" component={Home} />
+  <Switch className='BlueBack'>
+    <Route exact path='/' component={Login} />
+    <Route path='/login' component={Login} />
+    <Route path='/about' component={About} />
+    <Route path='/home' component={Home} />
     {/* Finally, catch all unmatched routes */}
     <Route component={NotFound} />
   </Switch>
