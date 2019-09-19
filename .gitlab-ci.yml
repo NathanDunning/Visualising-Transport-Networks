@@ -10,9 +10,7 @@ services:
 
 # Before script excecutes before stages
 before_script:
-  - echo $CI_BUILD_TOKEN
-  - echo $CI_REGISTRY
-  - docker login -u gitlab+deploy-token-3 -p $CI_BUILD_TOKEN $CI_REGISTRY
+  - docker login -u gitlab+deploy-token-3 -p $CI_BUILD_TOKEN $GITLAB_REGISTRY
   - apk --update add python py-pip openssl ca-certificates py-openssl wget
   - apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
