@@ -10,7 +10,7 @@ services:
 
 # Before script excecutes before stages
 before_script:
-  - docker login -u gitlab+deploy-token-3 -p $CI_BUILD_TOKEN gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
+  - docker login -u gitlab+deploy-token-3 -p $CI_BUILD_TOKEN $CI_REGISTRY
   - apk --update add python py-pip openssl ca-certificates py-openssl wget
   - apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
