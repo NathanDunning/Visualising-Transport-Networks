@@ -2,7 +2,7 @@ image: docker:18.09.7
 
 # Variable for performance enhancements
 variables:
-  DOCKER_HOST: $(ip -4 addr show docker0 | grep -Po 'inet \K[\d.]+')
+  DOCKER_HOST: tcp://localhost:2376 
   DOCKER_DRIVER: overlay
   
 # Services required for running
