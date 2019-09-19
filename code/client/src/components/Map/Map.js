@@ -52,9 +52,39 @@ class Map extends Component {
       });
     });
 
+    var LeafIcon = L.Icon.extend({
+      options: {
+        shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+        iconSize: [38, 95],
+        shadowSize: [50, 64],
+        iconAnchor: [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor: [-3, -76]
+      }
+    });
+
+    let greenIcon = new LeafIcon({
+      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'
+    })
+
+    let redIcon = new LeafIcon({
+      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'
+    })
+
+    let orangeIcon = new LeafIcon({
+      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'
+    });
+
+    L.marker([-41.2792099, 174.7781513], {
+      icon: greenIcon
+    }).bindPopup('Destination: Wellington Train Station').addTo(map);
+
+
+
     this.addMask();
     get_city_centres();
     pushMap(map);
+
     //Give a scale on the bottom left
     L.control
       .scale({
@@ -64,7 +94,6 @@ class Map extends Component {
   }
 
   render() {
-    // handleZipFile(this.file); http://jsfiddle.net/spytqamw/
     return <div id={mapid} />;
   }
 
@@ -76,7 +105,6 @@ class Map extends Component {
         }).addTo(map)._container
       );
 
-      L.marker([-41.250606, 174.774322]).addTo(map);
       let data = topojson.feature(topo, topo.objects.newzealand);
 
       let projection = d3.geoTransform({ point: projectPoint });
@@ -89,7 +117,7 @@ class Map extends Component {
         .append('path')
         .attr('d', path(data));
 
-      map.on('moveend', function() {
+      map.on('moveend', function () {
         thingy.attr('d', path(data));
       });
     });
