@@ -46,13 +46,15 @@ test:
 # Push images to heroku
 push_images:
   stage: push
-  tags: docker
+  tags: 
+  - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-  tags: docker
+  tags: 
+  - docker
   script:
     - echo "deploy here"
