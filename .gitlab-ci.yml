@@ -2,7 +2,7 @@ image: docker:18.09.7
 
 # Variable for performance enhancements
 variables:
-  DOCKER_HOST: tcp://localhost:2376 
+  DOCKER_HOST: gitlab.ecs.vuw.ac.nz:4567
   DOCKER_DRIVER: overlay
   
 # Services required for running
