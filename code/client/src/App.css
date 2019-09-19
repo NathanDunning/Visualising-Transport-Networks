@@ -1,13 +1,4 @@
-.App {
-  text-align: center;
-  margin-top: 15px;
-}
+.root {
+  display: 'flex'
 
-.nav-item {
-  padding: 4px;
-}
-
-.nav-item :hover {
-  cursor: pointer;
-  color: red;
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './Home.css';
 import Map from '../../components/Map/Map';
 import MapNav from '../../components/MapNav/MapNav';
 import { MenuBar } from '../MenuBar/MenuBar';
-import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
 
 class Home extends Component {
   constructor(props) {
@@ -15,19 +16,29 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='Home'>
-        <MenuBar pageName='Map' />
-        <Grid
-          container
-          spacing={0}
-          direction='column'
-          justify='center'
-          style={{ minHeight: '75px' }}
-        ></Grid>
-        <div id='map'>
-          <Map />
+      <div className='BlueBack'>
+        {/* menu bar */}
+        <MenuBar pageName='Home' />
+
+        {/* login form */}
+        <div
+          className='BlueBack'
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'justify'
+          }}>
+          <Card
+            style={{
+              padding: '25px',
+              width: '1'
+            }}>
+            <div id='map'>
+              <Map />
+            </div>
+            <MapNav />
+          </Card>
         </div>
-        <MapNav />
       </div>
     );
   }

@@ -28,7 +28,8 @@ const drawerWidth = 200;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    margin: '50px'
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -101,21 +102,17 @@ export const MenuBar = props => {
         position='fixed'
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
-        })}
-        // style={{ background: '#2196F3' }}
-      >
+        })}>
         <Toolbar>
           <IconButton
             color='inherit'
             aria-label='open drawer'
             onClick={handleDrawerOpen}
             edge='start'
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
+            className={clsx(classes.menuButton, open && classes.hide)}>
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
-            {/* This value needs to be dynamically assigned instead. */}
             {props.pageName}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           </Typography>
           <Typography variant='subtitle1' noWrap>
@@ -130,8 +127,7 @@ export const MenuBar = props => {
         open={open}
         classes={{
           paper: classes.drawerPaper
-        }}
-      >
+        }}>
         <div className={classes.drawerHeader}>
           <ListItem>
             <ListItemText primary={'Navigation'} />
