@@ -10,6 +10,7 @@ import './Map.css';
 import * as topojson from 'topojson-client';
 import { get_city_centres } from '../../util/redux/city_centre_helper';
 import { pushMap } from '../../util/redux/actions';
+import {jsonResponse} from './AreaPolygons';
 
 const mapid = 'mapid';
 let map = null;
@@ -27,6 +28,7 @@ class Map extends Component {
   geocodes = [];
 
   componentDidMount() {
+    var geojson;
     // Black and white tile layer
     let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
@@ -41,14 +43,82 @@ class Map extends Component {
       layers: [mapboxLayer]
     }).setView([-41.2858, 174.78682], 14);
 
+    function style(feature) {
+      return {
+       fillColor: '#FFEDA0',
+        weight: 2,
+        opacity: 1,
+        color: 'blue',
+        dashArray: '3',
+        fillOpacity: 0.1
+      };
+    }
+
+    function highlightFeature(e) {
+      console.log("Mouse hover on")
+      var layer = e.target;
     
-    L.circle([-41.2865, 174.7762], {
+      layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+      });
+    
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        //layer.bringToFront();
+      }
+      info.update(layer.feature.properties);
+    }
+    
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+    
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+    
+    geojson = L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    L.geoJson(jsonResponse, {style: style, onEachFeature: onEachFeature}).addTo(map);
+
+
+    var info = L.control();
+
+info.onAdd = function (map) {
+	this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	this.update();
+	return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+	this._div.innerHTML = '<h4>Demographic Info</h4>' +  (props ?
+		'<b>' + props.name + '</b><br />' + props.population + ' people'
+		: 'Hover over a region');
+};
+
+info.addTo(map);
+
+   /*  L.circle([-41.2865, 174.7762], {
       fillColor: '#006400',
       fillOpacity: 0.5,
       radius: 100
     })
       .bindPopup('Destination : Wellington CBD' )
-      .addTo(map);
+      .addTo(map); */
 
     getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
       console.log(data);
@@ -63,7 +133,7 @@ class Map extends Component {
       });
     });
 
-    getDemographicData('demographic', localStorage.getItem('auth')).then(data => {
+/*     getDemographicData('demographic', localStorage.getItem('auth')).then(data => {
       data.map(line => {
         console.log(line);
          L.rectangle([[line.latitude, line.longitude],[line.latitude +0.001, line.longitude -0.001]], {
@@ -74,7 +144,7 @@ class Map extends Component {
           .bindPopup('Area: ' + line.areaName + '\n' + 'Population: ' + line.population)
           .addTo(map);
       });
-    });
+    }); */
 
     this.addMask();
     get_city_centres();
@@ -119,6 +189,7 @@ class Map extends Component {
     });
   };
 }
+
 
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
 
