@@ -27,8 +27,8 @@ stages:
 # Build the images and pushes it to gitlab registry
 build_image:
   stage: build
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - docker-compose build
     - docker push visualising-our-transport-networks_client:latest
@@ -38,23 +38,23 @@ build_image:
 # Run containerised tests
 test:
   stage: test
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "Tests here"
     
 # Push images to heroku
 push_images:
   stage: push
-#   tags: 
-#   - docker
+  tags: 
+  - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "deploy here"
