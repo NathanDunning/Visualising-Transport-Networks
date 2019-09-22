@@ -12,8 +12,8 @@ services:
 # Before script excecutes before stages
 before_script:
   - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-  - apk --update add python py-pip openssl ca-certificates py-openssl wget
-  - apk --update add --virtual build-dependencies libffi-dev openssl-dev python-dev py-pip build-base
+#  - apk --update add python py-pip openssl ca-certificates py-openssl wget
+  - apk --update add --virtual build-dependencies libffi-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
   - pip install --no-cache-dir docker-compose
   - docker-compose -v
@@ -27,8 +27,8 @@ stages:
 # Build the images and pushes it to gitlab registry
 build_image:
   stage: build
-  tags:
-    - docker
+#   tags:
+#     - docker
   script:
     - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
     - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/server/
@@ -39,23 +39,23 @@ build_image:
 # Run containerised tests
 test:
   stage: test
-  tags:
-    - docker
+#   tags:
+#     - docker
   script:
     - echo "Tests here"
     
 # Push images to heroku
 push_images:
   stage: push
-  tags: 
-  - docker
+#   tags: 
+#   - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-  tags:
-    - docker
+#   tags:
+#     - docker
   script:
     - echo "deploy here"
