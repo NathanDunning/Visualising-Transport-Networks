@@ -1,9 +1,7 @@
-image: docker:dind
-
 # Variable for performance enhancements
 variables:
   DOCKER_HOST: /var/run/docker.sock
-  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
 
   # Services required for running
 services:
@@ -26,7 +24,7 @@ stages:
   
 # Build the images and pushes it to gitlab registry
 build_image:
-  image: docker:dind
+  image: docker:stable
   stage: build
 #   tags:
 #     - docker
