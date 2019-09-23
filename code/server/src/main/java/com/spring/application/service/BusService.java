@@ -18,11 +18,11 @@ import com.spring.application.repository.BusRepository;
 public class BusService {
 	@Autowired
     private BusRepository busRepo;
-	
+
 	public Bus findOneBus() {
 		return busRepo.findBus();
 	}
-	
+
 	public List<Bus> findBusTravelDetails(Request busRequest) {
 		List<Bus> bus = busRepo.findBusDetails(busRequest.getFrom_time(), busRequest.getTo_time(), busRequest.getDate());
 		return bus;
@@ -32,17 +32,17 @@ public class BusService {
 		List<Object> bus = busRepo.findAllBusDetails();
 		return bus;
 	}
-	
+
 	public List<Object> findCities() {
 		List<Object> cities = busRepo.findCities();
 		return cities;
 	}
-	
+
 	public List<Object> findTime() {
 		List<Object> time = busRepo.findTime();
 		return time;
 	}
-	
+
 	public List<Date> findDate() {
 		List<Timestamp> dates = busRepo.findDate();
 		List<Date> modified = new ArrayList();

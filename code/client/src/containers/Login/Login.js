@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { PostData } from '../../util/_services/PostData';
 import './Login.css';
+import { LoginMenuBar } from '../LoginMenuBar/LoginMenuBar';
+import Card from '@material-ui/core/Card';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -69,34 +71,50 @@ class Login extends Component {
     }
 
     return (
-      <div className='Login'>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId='username' bssize='large'>
-            <Form.Control
-              autoFocus
-              type='username'
-              value={this.state.username}
-              placeholder='Enter username'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='password' bssize='large'>
-            <Form.Control
-              value={this.state.password}
-              onChange={this.handleChange}
-              type='password'
-              placeholder='Password'
-            />
-          </Form.Group>
-          <Button
-            block
-            bssize='large'
-            disabled={!this.validateForm()}
-            type='submit'
+      <div className='BlueBack'>
+        {/* menu bar */}
+        <LoginMenuBar pageName='Login' />
+
+        {/* login form */}
+        <div
+          className='BlueBack'
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <Card
+            style={{
+              padding: '25px',
+              width: '375px'
+            }}
           >
-            Login
-          </Button>
-        </Form>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId='username' bssize='large'>
+                <Form.Control
+                  autoFocus
+                  type='username'
+                  value={this.state.username}
+                  placeholder='Enter username'
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId='password' bssize='large'>
+                <Form.Control
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  type='password'
+                  placeholder='Password'
+                />
+              </Form.Group>
+              <Button
+                block
+                bssize='large'
+                disabled={!this.validateForm()}
+                type='submit'
+              >
+                Log In
+              </Button>
+            </Form>
+          </Card>
+        </div>
       </div>
     );
   }

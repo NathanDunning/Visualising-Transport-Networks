@@ -1,4 +1,10 @@
 .NavForm {
-    font-size: 4em;
-    color: pink;
+  font-size: 4em;
+  color: pink;
+}
+
+.MapNav {
+  width: 77vw;
+  height: 72vh;
+  margin: auto;
 }
