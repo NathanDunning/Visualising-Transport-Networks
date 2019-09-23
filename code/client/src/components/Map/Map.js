@@ -40,26 +40,41 @@ class Map extends Component {
       layers: [mapboxLayer]
     }).setView([-41.2858, 174.78682], 14);
 
+    /**
+     * region borders
+     * color - border color
+     * weight -  border weight
+     * opacity - borders opacity
+     * dashArray - border dash weight
+     * 
+     * region fills
+     * fillColor - fill color
+     * fillOpactiy - fill opacity
+     * @param {*} feature 
+     */
     function style(feature) {
       return {
-        fillColor: '#FFEDA0',
+        color: 'darkgreen',
         weight: 2,
         opacity: 1,
-        color: 'blue',
-        dashArray: '3',
-        fillOpacity: 0.1
+        dashArray: 4.5,
+        
+        fillColor: 'red',
+        fillOpacity: 0.04
       };
     }
 
+    /**
+     * hovered reigon
+     * dashArray - border dash weight
+     * fillOpactiy - fill opacity
+     */
     function highlightFeature(e) {
       console.log('Mouse hover on');
       var layer = e.target;
-
       layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
+       dashArray: 0,
+        fillOpacity: 0.1
       });
 
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
