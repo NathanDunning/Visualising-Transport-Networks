@@ -12,7 +12,7 @@ services:
 # Before script excecutes before stages
 before_script:
   - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-#  - apk --update add python py-pip openssl ca-certificates py-openssl wget
+  - apk --update add python py-pip openssl ca-certificates py-openssl wget
   - apk --update add --virtual build-dependencies libffi-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
   - pip install --no-cache-dir docker-compose
