@@ -2,7 +2,7 @@ image: docker:18.09.7
 
 # Variable for performance enhancements
 variables:
-#   DOCKER_HOST: gitlab.ecs.vuw.ac.nz:4567
+  DOCKER_HOST: tcp://0.0.0.0:2376
   DOCKER_DRIVER: overlay
   
 # Services required for running
@@ -27,8 +27,8 @@ stages:
 # Build the images and pushes it to gitlab registry
 build_image:
   stage: build
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
     - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/server/
@@ -39,23 +39,23 @@ build_image:
 # Run containerised tests
 test:
   stage: test
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "Tests here"
     
 # Push images to heroku
 push_images:
   stage: push
-#   tags: 
-#   - docker
+  tags: 
+  - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "deploy here"
