@@ -1,7 +1,7 @@
 # Variable for performance enhancements
 variables:
   DOCKER_HOST: /var/run/docker.sock
-  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_TLS_CERTDIR: ""
 
   # Services required for running
 services:
@@ -39,23 +39,23 @@ build_image:
 # Run containerised tests
 test:
   stage: test
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "Tests here"
     
 # Push images to heroku
 push_images:
   stage: push
-#   tags: 
-#   - docker
+  tags: 
+  - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "deploy here"
