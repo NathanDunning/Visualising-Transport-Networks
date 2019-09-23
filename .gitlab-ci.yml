@@ -26,8 +26,8 @@ stages:
 build_image:
   image: docker:stable
   stage: build
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - docker-compose build
     # - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
