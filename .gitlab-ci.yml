@@ -2,7 +2,7 @@ image: docker:18.09.7
 
 # Variable for performance enhancements
 variables:
-  DOCKER_HOST: tcp://0.0.0.0:2376
+  DOCKER_HOST: /var/run/docker.sock
   DOCKER_DRIVER: overlay
   
 # Services required for running
