@@ -53,7 +53,8 @@ class MapNav extends Component {
 
     getDemographicData('geocode', localStorage.getItem('auth')).then(data => {
       data.map(area => {
-        this.state.demographic.push(area.areaName);
+        console.log(area[0])
+        this.state.demographic.push(area[0]);
       });
     });
 

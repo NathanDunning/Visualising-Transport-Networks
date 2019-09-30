@@ -23,15 +23,7 @@ public class DemographController {
 	@ResponseBody
 	public ResponseEntity<?> getOneBus() {
 		// return new ResponseEntity(userRepository.findUsers(), HttpStatus.OK);
-		List<AreaDemograph> areaGeocodes = demoService.findAllAreaGeoCode();
-		return new ResponseEntity<>(areaGeocodes, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/get/area/latlng", method = RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<?> getLatLng() {
-		// return new ResponseEntity(userRepository.findUsers(), HttpStatus.OK);
-		List<Object> areaGeocodes = demoService.findAllAreaLatLng();
+		List<Object[]> areaGeocodes = demoService.findAllAreaGeoCode();
 		return new ResponseEntity<>(areaGeocodes, HttpStatus.OK);
 	}
 
