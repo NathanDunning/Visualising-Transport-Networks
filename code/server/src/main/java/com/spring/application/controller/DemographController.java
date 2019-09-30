@@ -26,5 +26,13 @@ public class DemographController {
 		List<AreaDemograph> areaGeocodes = demoService.findAllAreaGeoCode();
 		return new ResponseEntity<>(areaGeocodes, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/get/area/latlng", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<?> getLatLng() {
+		// return new ResponseEntity(userRepository.findUsers(), HttpStatus.OK);
+		List<Object> areaGeocodes = demoService.findAllAreaLatLng();
+		return new ResponseEntity<>(areaGeocodes, HttpStatus.OK);
+	}
 
 }

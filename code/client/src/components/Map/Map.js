@@ -1,124 +1,176 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import {
+  getAllTravelLatLng,
+  getDemographicData
+} from '../../util/_services/PostData';
+
 // import {connect} from 'react-redux'
-import L from "leaflet";
-import * as d3 from "d3";
-import "leaflet/dist/leaflet.css";
-import { MAPBOX_KEY } from "../Secrets";
-import "./Map.css";
-import * as topojson from "topojson-client";
-import { get_city_centres } from "../../util/redux/city_centre_helper";
-import { bindActionCreators } from "redux";
-import { pushMap } from "../../util/redux/actions";
+import L from 'leaflet';
+import * as d3 from 'd3';
+import 'leaflet/dist/leaflet.css';
+import { MAPBOX_KEY } from '../Secrets';
+import './Map.css';
+import * as topojson from 'topojson-client';
+import { get_city_centres } from '../../util/redux/city_centre_helper';
+import { pushMap } from '../../util/redux/actions';
+import { jsonResponse } from './AreaPolygons';
 
-const mapid = "mapid";
+const mapid = 'mapid';
 let map = null;
-let baseControl = null;
-let extraLayers = null;
-
 let orgURL =
-"https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}";
-
-let token = 'pk.eyJ1IjoibmV0d29ya2luZyIsImEiOiJjancwNmR4NnMwN3ZiNDVtbW1qOHp5ejcyIn0.LPgE55NBYCKrsP7fdSvjHA#10.69/-41.2348/174.806'
-
-// Black and white tile layer
-let mapboxLayer = L.tileLayer(orgURL, {
-  zoom: 10,
-  maxZoom: 18,
-  id: "mapbox.high-contrast",
-  accessToken: MAPBOX_KEY,
-});
-
-
-// transit tile layer
-let mapboxCustomLayer = L.tileLayer(orgURL, {
-  zoom: 10,
-  maxZoom: 18,
-  accessToken: MAPBOX_KEY
-});
-
-// let unitAreaLayer = L.tileLayer(hotSauce);
-
-let baseMaps = {
-  Transit: mapboxCustomLayer,
-  "Mono-tone": mapboxLayer,
-};
-
+  'https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
 function projectPoint(x, y) {
   let point = map.latLngToLayerPoint(new L.LatLng(y, x));
   this.stream.point(point.x, point.y);
 }
-
-
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
-
-  data = [
-    [-41.283031, 174.771004],
-[-41.286901,	174.773237],
-[-41.275388,	174.772378],
-[-41.282902,	174.760791],
-[-41.296066,	174.776434],
-[-41.288417,	174.764653],
-[-41.292637,	174.786935],
-[-41.297614,	174.787135],
-[-41.291374,	174.794803],
-[-41.26471	 ,174.781603],
-[-41.27542	  ,174.76255],
-[-41.289481, 	174.75813],
-[-41.281322,	174.751049],
-[-41.262098,	174.771132],
-[-41.269324,	174.755727],
-[-41.295704,	174.766499],
-[-41.292577,	174.758859],
-[-41.289274,	174.802318],
-[-41.302029,	174.773721],
-[-41.282153,	174.73967],
-[-41.30436	,174.777654],
-[-41.306631,	174.763274],
-[-41.293995,	174.745244],
-[-41.250606,	174.774322],
-[-41.304154,	174.794271],
-[-41.288732,	 174.72348],
-[-41.315654,	174.769062],
-[-41.254657,	174.764082],
-[-41.25122	, 174.794796],
-[-41.298913,	174.803242],
-[-41.313123,	174.783613],
-[-41.332269,	174.782759],
-[-41.319761,	174.798538],
-[-41.317875,	174.818772],
-[-41.220619,	174.807044],
-[-41.340982,	174.785529],
-[-41.302651,	174.820633],
-[-41.345142,	174.768771],
-[-41.325314,	174.832745],
-[-41.213739,	174.869182],
-[-41.215958,	174.894373],
-[-41.178922,	174.821848],
-[-41.215184,	174.926403],
-[-41.15544	,  174.83548],
-[-41.262277,	174.947742],
-[-41.129259,	174.832848],
-[-41.155545,	174.978026],
-[-41.072184,	174.860037],
-[-41.14532	,  175.03054]
-];
+  geocodes = [];
   componentDidMount() {
-    map = L.map(mapid, {
-      layers: [mapboxLayer],
+    var geojson;
+    // Black and white tile layer
+    let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
-      zoomControl: false
-    }).setView([-41.2858, 174.78682], 14);
-    
-    this.data.forEach(point => {
-      L.circle(point, {
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 200
-      })
-      .bindPopup(point.toString())
-      .addTo(map);
+      maxZoom: 18,
+      id: 'mapbox.high-contrast',
+      accessToken: MAPBOX_KEY
     });
+
+    map = L.map(mapid, {
+      layers: [mapboxLayer]
+    }).setView([-41.2858, 174.78682], 14);
+
+    /**
+     * region borders
+     * color - border color
+     * weight -  border weight
+     * opacity - borders opacity
+     * dashArray - border dash weight
+     * 
+     * region fills
+     * fillColor - fill color
+     * fillOpactiy - fill opacity
+     * @param {*} feature 
+     */
+    function style(feature) {
+      return {
+        color: 'darkgreen',
+        weight: 2,
+        opacity: 1,
+        dashArray: 4.5,
+        
+        fillColor: 'red',
+        fillOpacity: 0.04
+      };
+    }
+
+    /**
+     * hovered reigon
+     * dashArray - border dash weight
+     * fillOpactiy - fill opacity
+     */
+    function highlightFeature(e) {
+      console.log('Mouse hover on');
+      var layer = e.target;
+      layer.setStyle({
+       dashArray: 0,
+        fillOpacity: 0.1
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        //layer.bringToFront();
+      }
+      info.update(layer.feature.properties);
+    }
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    geojson = L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    var info = L.control();
+
+    info.onAdd = function(map) {
+      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+      this.update();
+      return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function(props) {
+      this._div.innerHTML =
+        '<h4>Demographic Info</h4>' +
+        (props
+          ? '<b>' + props.name + '</b><br />' + props.population + ' people'
+          : 'Hover over a region');
+    };
+
+    info.addTo(map);
+
+    /*  L.circle([-41.2865, 174.7762], {
+      fillColor: '#006400',
+      fillOpacity: 0.5,
+      radius: 100
+    })
+      .bindPopup('Destination : Wellington CBD' )
+      .addTo(map); */
+
+    getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
+      console.log(data);
+      data.map(line => {
+        L.circle([line[0], line[1]], {
+          // fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 50
+        })
+          .bindPopup('latitude: ' + line[0] + '\n' + 'longitude: ' + line[1])
+          .addTo(map);
+      });
+    });
+
+    var myIcon = L.icon({
+      iconUrl:
+        'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+      iconSize: [32, 50],
+      iconAnchor: [6, 49],
+      popupAnchor: [9, -30]
+    });
+    L.marker([-41.2792099, 174.7803], { icon: myIcon })
+      .bindPopup('Destination: Wellington Railway Station')
+      .addTo(map);
+    /*     getDemographicData('demographic', localStorage.getItem('auth')).then(data => {
+      data.map(line => {
+        console.log(line);
+         L.rectangle([[line.latitude, line.longitude],[line.latitude +0.001, line.longitude -0.001]], {
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 100
+        })
+          .bindPopup('Area: ' + line.areaName + '\n' + 'Population: ' + line.population)
+          .addTo(map);
+      });
+    }); */
 
     this.addMask();
     get_city_centres();
@@ -130,48 +182,31 @@ class Map extends Component {
       })
       .addTo(map);
   }
-
   render() {
-    // handleZipFile(this.file)http://jsfiddle.net/spytqamw/
-    return (
-      <div>
-        <div id={mapid} />
-        <label for="input">Select a zipped shapefile:</label> 
-        <input type="file" id="file"></input>
-<input type="submit" id="submit"></input>
-      </div>
-    );
+    return <div id={mapid} />;
   }
-
   addMask = () => {
-    d3.json(process.env.PUBLIC_URL + "/newzealand.topo.json").then(topo => {
+    d3.json(process.env.PUBLIC_URL + '/newzealand.topo.json').then(topo => {
       let svg = d3.select(
         L.svg({
-          attribution: "New Zealand topology &copy Statistics New Zealand"
+          attribution: 'New Zealand topology &copy Statistics New Zealand'
         }).addTo(map)._container
       );
-
-      L.marker([-41.250606,	174.774322]).addTo(map);
       let data = topojson.feature(topo, topo.objects.newzealand);
-
       let projection = d3.geoTransform({ point: projectPoint });
       let path = d3.geoPath(projection);
-
       let thingy = svg
-        .append("defs")
-        .append("clipPath")
-        .attr("id", "nz")
-        .append("path")
-        .attr("d", path(data));
-
-      map.on("moveend", function() {
-        thingy.attr("d", path(data));
+        .append('defs')
+        .append('clipPath')
+        .attr('id', 'nz')
+        .append('path')
+        .attr('d', path(data));
+      map.on('moveend', function() {
+        thingy.attr('d', path(data));
       });
     });
   };
 }
-
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
- 
 // export default connect(null, dispatchToProps)(Map)
 export default Map;
