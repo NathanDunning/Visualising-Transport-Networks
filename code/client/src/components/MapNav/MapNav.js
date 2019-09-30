@@ -140,44 +140,6 @@ class MapNav extends Component {
           </Grid>
 
           <Grid item>
-            <FormControl className='NavForm'>
-              <InputLabel className={this.useStyles.paper}>From</InputLabel>
-              <Select
-                value={this.state.from}
-                style={{ width: `150px` }}
-                onChange={this.handleFromTimeChange}>
-                {this.state.times.map(time => {
-                  return (
-                    <MenuItem key={time} value={time}>
-                      {' '}
-                      {time}{' '}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item>
-            <FormControl>
-              <InputLabel>To</InputLabel>
-              <Select
-                value={this.state.to}
-                style={{ width: `150px` }}
-                onChange={this.handleToTimeChange}>
-                {this.state.times.map(time => {
-                  return (
-                    <MenuItem key={time} value={time}>
-                      {' '}
-                      {time}{' '}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item>
             <FormControl>
               <InputLabel>Location</InputLabel>
               <Select
@@ -208,6 +170,44 @@ class MapNav extends Component {
                     <MenuItem key={date} value={date}>
                       {' '}
                       {date}{' '}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item>
+            <FormControl className='NavForm'>
+              <InputLabel className={this.useStyles.paper}>From</InputLabel>
+              <Select
+                value={this.state.from}
+                style={{ width: `150px` }}
+                onChange={this.handleFromTimeChange}>
+                {this.state.times.map(time => {
+                  return (
+                    <MenuItem key={time} value={time}>
+                      {' '}
+                      {time}{' '}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+          <Grid item>
+            <FormControl>
+              <InputLabel>To</InputLabel>
+              <Select
+                value={this.state.to}
+                style={{ width: `150px` }}
+                onChange={this.handleToTimeChange}>
+                {this.state.times.map(time => {
+                  return (
+                    <MenuItem key={time} value={time}>
+                      {' '}
+                      {time}{' '}
                     </MenuItem>
                   );
                 })}
