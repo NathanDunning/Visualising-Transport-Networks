@@ -1,5 +1,5 @@
 export function PostData(type, auth) {
-  const BaseUrl = 'http://localhost:59312/home';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/home';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -28,7 +28,7 @@ export function PostData(type, auth) {
 }
 
 export function getTravelData(type, auth) {
-  const BaseUrl = 'http://localhost:59312/get/bus/travelDetails';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -49,11 +49,11 @@ export function getTravelData(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 export function getAllTravelLatLng(auth) {
-  const BaseUrl = 'http://localhost:59312/get/bus/travelAllDetails';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelAllDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -68,11 +68,11 @@ export function getAllTravelLatLng(auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 export function getDemographicData(type, auth) {
-  const BaseUrl = 'http://localhost:59312/get/area/geocodes';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -87,11 +87,11 @@ export function getDemographicData(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 export function getCities(type, auth) {
-  const BaseUrl = 'http://localhost:59312/get/cities';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/cities';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -106,11 +106,11 @@ export function getCities(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 export function getTime(type, auth) {
-  const BaseUrl = 'http://localhost:59312/get/time';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -125,11 +125,11 @@ export function getTime(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 export function getDate(type, auth) {
-  const BaseUrl = 'http://localhost:59312/get/dates';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/dates';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -144,7 +144,7 @@ export function getDate(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject("error"));
+    .then((data) => data).catch(() => Promise.reject('error'));
 }
 
 
