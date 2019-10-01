@@ -25,10 +25,8 @@ function projectPoint(x, y) {
 }
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
-  latLng = [];
   suburbPolygons = {};
   componentDidMount() {
-    var geojson;
     // Black and white tile layer
     let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
@@ -41,18 +39,31 @@ class Map extends Component {
       layers: [mapboxLayer]
     }).setView([-41.2858, 174.78682], 14);
 
-    /**
-     * region borders
-     * color - border color
-     * weight -  border weight
-     * opacity - borders opacity
-     * dashArray - border dash weight
-     *
-     * region fills
-     * fillColor - fill color
-     * fillOpactiy - fill opacity
-     * @param {*} feature
-     */
+    this.addMask();
+    get_city_centres();
+    pushMap(map);
+
+    //Give a scale on the bottom left
+    L.control
+      .scale({
+        maxWidth: 400
+      })
+      .addTo(map);
+
+    this.createDemographicUnits();
+
+    this.plotTravelPoints();
+
+    this.createDestinationIcon();
+
+    this.suburbPolygons = this.createSuburbTravelPointJson();
+
+    console.log(this.suburbPolygons)
+  }
+
+  createDemographicUnits = () => {
+    var geojson;
+    var info = L.control();
     function style(feature) {
       return {
         color: "darkgreen",
@@ -65,22 +76,13 @@ class Map extends Component {
       };
     }
 
-    /**
-     * hovered reigon
-     * dashArray - border dash weight
-     * fillOpactiy - fill opacity
-     */
     function highlightFeature(e) {
-      console.log("Mouse hover on");
       var layer = e.target;
       layer.setStyle({
         dashArray: 0,
         fillOpacity: 0.1
       });
 
-      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        //layer.bringToFront();
-      }
       info.update(layer.feature.properties);
     }
 
@@ -100,44 +102,12 @@ class Map extends Component {
       });
     }
 
-    geojson = L.geoJson(jsonResponse, {
-      style: style,
-      onEachFeature: onEachFeature
-    }).addTo(map);
-
-    console.log(jsonResponse.features);
-
-    jsonResponse.features.map(suburb => {
-      this.suburbPolygons[suburb.properties.name] = suburb.geometry.coordinates;
-
-      // suburbPolygons = {
-      //   suburb: [polypoint],
-      //   latlon: [travelpoints]
-      // }
-
-     /* getAllTravelLatLng(localStorage.getItem("auth")).then(data => {
-        this.latLng = data;
-        data.map(travelPoint => {
-          var polygon = L.polygon(suburb.geometry.coordinates[0])
-          
-          if(this.isMarkerInsidePolygon(travelPoint, polygon)) {
-            console.log("Point : ", travelPoint, " in ", polygon)
-            //this.suburbPolygons[suburb.properties.name+ "_latlng"] = travelPoint;      
-          }
-        });
-      }); */
-    });
-    
-    console.log(this.suburbPolygons);
-
-    var info = L.control();
     info.onAdd = function (map) {
-      this._div = L.DomUtil.create("div", "info"); // create a div with a class "info"
+      this._div = L.DomUtil.create("div", "info");
       this.update();
       return this._div;
     };
 
-    // method that we will use to update the control based on feature properties passed
     info.update = function (props) {
       this._div.innerHTML =
         "<h4>Demographic Info</h4>" +
@@ -148,8 +118,14 @@ class Map extends Component {
 
     info.addTo(map);
 
+    geojson = L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+  }
+
+  plotTravelPoints = () => {
     getAllTravelLatLng(localStorage.getItem("auth")).then(data => {
-      console.log(data);
       this.latLng = data;
       data.map(line => {
         L.circle([line[0], line[1]], {
@@ -159,10 +135,11 @@ class Map extends Component {
         })
           .bindPopup("latitude: " + line[0] + "\n" + "longitude: " + line[1])
           .addTo(map);
-
       });
     });
-
+  }
+  
+  createDestinationIcon = () => {
     var myIcon = L.icon({
       iconUrl:
         "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
@@ -174,40 +151,55 @@ class Map extends Component {
     L.marker([-41.2792099, 174.7803], { icon: myIcon })
       .bindPopup("Destination: Wellington Railway Station")
       .addTo(map);
-
-    this.addMask();
-    get_city_centres();
-    pushMap(map);
-
-    //Give a scale on the bottom left
-    L.control
-      .scale({
-        maxWidth: 400
-      })
-      .addTo(map);
   }
 
-   isMarkerInsidePolygon = (marker, poly) => {
-    var polyPoints = poly.getLatLngs();       
-    var x = marker[0], y = marker[1];
+  createSuburbTravelPointJson = () => {
+    var suburbPolygons = {};
+    jsonResponse.features.map(suburb => {
+      suburbPolygons["'" + suburb.properties.name + "'"] = suburb.geometry.coordinates;
 
+      getAllTravelLatLng(localStorage.getItem("auth")).then(data => {
+        data.map(travelPoint => {
+          var suburb_name = suburb.properties.name;
+          var polygon = L.polygon(suburb.geometry.coordinates[0])
+          if (this.isMarkerInsidePolygon(travelPoint, polygon)) {
+            var travelPointMatched = [];
+            if (suburbPolygons.hasOwnProperty("'" + suburb_name + "_latlng'")) {
+              travelPointMatched = suburbPolygons["'" + suburb_name + "_latlng'"];
+              travelPointMatched.push(travelPoint);
+              suburbPolygons["'" + suburb_name + "_latlng'"] = travelPointMatched;
+            } else {
+              travelPointMatched.push(travelPoint);
+              suburbPolygons["'" + suburb_name + "_latlng'"] = travelPointMatched;
+            }
+          }
+        });
+      });
+    });
+    return suburbPolygons;
+  }
+
+  isMarkerInsidePolygon = (marker, poly) => {
+    var polyPoints = poly.getLatLngs();
+    var x = marker[0], y = marker[1];
     var inside = false;
+
     for (var i = 0, j = polyPoints[0].length - 1; i < polyPoints[0].length; j = i++) {
-        var xi = polyPoints[0][i].lat, yi = polyPoints[0][i].lng;
-        var xj = polyPoints[0][j].lat, yj = polyPoints[0][j].lng;
-        console.log(xi, xj, yi, yj, i ,j)
-        debugger
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
+      var xi = polyPoints[0][i].lng, yi = polyPoints[0][i].lat;
+      var xj = polyPoints[0][j].lng, yj = polyPoints[0][j].lat;
+
+      var intersect = ((yi > y) != (yj > y))
+        && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
     }
     console.log(inside)
     return inside;
-};
+  };
 
   render() {
     return <div id={mapid} />;
   }
+  
   addMask = () => {
     d3.json(process.env.PUBLIC_URL + "/newzealand.topo.json").then(topo => {
       let svg = d3.select(
@@ -233,3 +225,4 @@ class Map extends Component {
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
 // export default connect(null, dispatchToProps)(Map)
 export default Map;
+
