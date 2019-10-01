@@ -58,7 +58,10 @@ class Map extends Component {
 
     this.suburbPolygons = this.createSuburbTravelPointJson();
 
-    console.log(this.suburbPolygons)
+    setTimeout(() => {
+      console.log(this.suburbPolygons)
+    }, 10000);
+
   }
 
   createDemographicUnits = () => {
@@ -138,7 +141,7 @@ class Map extends Component {
       });
     });
   }
-  
+
   createDestinationIcon = () => {
     var myIcon = L.icon({
       iconUrl:
@@ -199,7 +202,7 @@ class Map extends Component {
   render() {
     return <div id={mapid} />;
   }
-  
+
   addMask = () => {
     d3.json(process.env.PUBLIC_URL + "/newzealand.topo.json").then(topo => {
       let svg = d3.select(
