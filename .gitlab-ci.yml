@@ -1,18 +1,20 @@
-image: docker:18.09.7
+image: docker:latest
 
 # Variable for performance enhancements
 variables:
-#   DOCKER_HOST: gitlab.ecs.vuw.ac.nz:4567
-  DOCKER_DRIVER: overlay
-  
-# Services required for running
-services:
-  - docker:18.09.7-dind
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
+  # DOCKER_HOST: /var/run/docker.sock
+  DOCKER_TLS_CERTDIR: ""
 
+  # Services required for running
+services:
+    - docker:dind
+    
 # Before script excecutes before stages
 before_script:
   - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-#  - apk --update add python py-pip openssl ca-certificates py-openssl wget
+  - apk --update add python py-pip openssl ca-certificates py-openssl wget
   - apk --update add --virtual build-dependencies libffi-dev python-dev py-pip build-base
   - apk add --no-cache python py2-pip
   - pip install --no-cache-dir docker-compose
@@ -26,36 +28,38 @@ stages:
   
 # Build the images and pushes it to gitlab registry
 build_image:
+  # image: docker:18.09.7
   stage: build
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
-    - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
-    - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/server/
-    - docker pull mysql:8.0.17
-    - docker tag mysql:8.0.17 gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
-    - docker push gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
+    - docker-compose build
+    # - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
+    # - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/server/
+    # - docker pull mysql:8.0.17
+    # - docker tag mysql:8.0.17 gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
+    # - docker push gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
 
 # Run containerised tests
 test:
   stage: test
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "Tests here"
     
 # Push images to heroku
 push_images:
   stage: push
-#   tags: 
-#   - docker
+  tags: 
+  - docker
   script:
     - echo "push here"
   
 # Release images 
 deploy_images:
   stage: deploy
-#   tags:
-#     - docker
+  tags:
+    - docker
   script:
     - echo "deploy here"
