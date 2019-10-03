@@ -13,7 +13,7 @@ import "./Map.css";
 import * as topojson from "topojson-client";
 import { get_city_centres } from "../../util/redux/city_centre_helper";
 import { pushMap } from "../../util/redux/actions";
-import { jsonResponse } from "./AreaPolygons";
+import { jsonResponse } from "./AreaPolygons"; 
 
 const mapid = "mapid";
 let map = null;
@@ -25,8 +25,10 @@ function projectPoint(x, y) {
 }
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
-  suburbPolygons = {};
+  suburbPolygons = this.props.suburbPolygons;
   componentDidMount() {
+    console.log(this.suburbPolygons)
+
     // Black and white tile layer
     let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
@@ -60,7 +62,7 @@ class Map extends Component {
 
     setTimeout(() => {
       console.log(this.suburbPolygons)
-      localStorage.setItem('suburbPolygons', this.suburbPolygons)
+      localStorage.setItem('this.suburbPolygons', this.suburbPolygons)
     }, 10000);
 
   }
@@ -158,9 +160,8 @@ class Map extends Component {
   }
 
   createSuburbTravelPointJson = () => {
-    var suburbPolygons = {};
     jsonResponse.features.map(suburb => {
-      suburbPolygons["'" + suburb.properties.name + "'"] = suburb.geometry.coordinates;
+      this.suburbPolygons[suburb.properties.name] = suburb.geometry.coordinates;
 
       getAllTravelLatLng(localStorage.getItem("auth")).then(data => {
         data.map(travelPoint => {
@@ -168,19 +169,19 @@ class Map extends Component {
           var polygon = L.polygon(suburb.geometry.coordinates[0])
           if (this.isMarkerInsidePolygon(travelPoint, polygon)) {
             var travelPointMatched = [];
-            if (suburbPolygons.hasOwnProperty("'" + suburb_name + "_latlng'")) {
-              travelPointMatched = suburbPolygons["'" + suburb_name + "_latlng'"];
+            if (this.suburbPolygons.hasOwnProperty(suburb_name + "_latlng")) {
+              travelPointMatched = this.suburbPolygons[suburb_name + "_latlng"];
               travelPointMatched.push(travelPoint);
-              suburbPolygons["'" + suburb_name + "_latlng'"] = travelPointMatched;
+              this.suburbPolygons[suburb_name + "_latlng"] = travelPointMatched;
             } else {
               travelPointMatched.push(travelPoint);
-              suburbPolygons["'" + suburb_name + "_latlng'"] = travelPointMatched;
+              this.suburbPolygons[suburb_name + "_latlng"] = travelPointMatched;
             }
           }
         });
       });
     });
-    return suburbPolygons;
+    return this.suburbPolygons;
   }
 
   isMarkerInsidePolygon = (marker, poly) => {

@@ -13,16 +13,17 @@ import {
 import './MapNav.css';
 
 import // componentDidMount,
-// componentDidUpdate,
-// handleDropDownChange,
-// resetState,
-// mapStateToProps,
-// getValidOptions,
-// dropdown
-// addQuickInfoBox
-'./NavBarHelpers';
+  // componentDidUpdate,
+  // handleDropDownChange,
+  // resetState,
+  // mapStateToProps,
+  // getValidOptions,
+  // dropdown
+  // addQuickInfoBox
+  './NavBarHelpers';
 
 class MapNav extends Component {
+  suburbPolygons = this.props.suburbPolygons;
   state = {
     city: 'city',
     to: 'to',
@@ -109,10 +110,12 @@ class MapNav extends Component {
   }));
 
   visualise = () => {
-    const suburbPolygons = localStorage.getItem('suburbPolygons')
+    console.log(this.suburbPolygons)
+    /* const suburbPolygons = localStorage.getItem('suburbPolygons')
     console.log("inside visualise", suburbPolygons)
-    console.log("CITY: " + this.city);
-    console.log("Travel points : " + suburbPolygons['Berhampore_latlng'])
+    console.log("CITY: " + this.state.city);
+    console.log("Travel points ", suburbPolygons["Aro Valley"])
+     */
   };
 
   render() {
@@ -221,10 +224,10 @@ class MapNav extends Component {
               </Select>
             </FormControl>
           </Grid>
-          
-      <button onClick={this.visualise}>
-      Activate Lasers
-    </button>
+
+          <button onClick={this.visualise}>
+            Visualise
+          </button>
         </Grid>
       </div>
     );
