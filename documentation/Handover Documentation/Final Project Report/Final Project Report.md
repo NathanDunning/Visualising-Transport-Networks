@@ -4,13 +4,15 @@
 **Client:** _Chris Vallyon_<br>
 **Date:** 11 October 2019<br>
 
-_This is not expected to be a long report and volume will not be rewarded! The purpose of the final report is to summarise and document anything within your project and other documentation that is tacit or implicit, and any assumptions or motivations which can't_ easily _be found elsewhere in your hand-over documentation. If you wish to follow the form of the example final report in the textbook, then you are welcome to do so. **This is primarily a client-facing document.**_
+<!-- _This is not expected to be a long report and volume will not be rewarded! The purpose of the final report is to summarise and document anything within your project and other documentation that is tacit or implicit, and any assumptions or motivations which can't_ easily _be found elsewhere in your hand-over documentation. If you wish to follow the form of the example final report in the textbook, then you are welcome to do so. **This is primarily a client-facing document.**_
 
-_All text in italics in this template should be replaced by your answers (in regular font). This introductory paragraph should be deleted._
+_All text in italics in this template should be replaced by your answers (in regular font). This introductory paragraph should be deleted._ -->
 
 #### Project Objective(s)
 
-_A short statement, 1-3 sentences, of project objective(s); a short abstract of project goals. Simply repeating the original description of the project from ENGR 301, or providing a bland and repetitive description is a waste of everyone's time. What is expected here is a summary of the project objectives as embodied in the_ as-delivered _project._
+<!-- _A short statement, 1-3 sentences, of project objective(s); a short abstract of project goals. Simply repeating the original description of the project from ENGR 301, or providing a bland and repetitive description is a waste of everyone's time. What is expected here is a summary of the project objectives as embodied in the_ as-delivered _project._ -->
+
+In ENGR301 and ENGR302 courses at Victoria University of Wellington, the team was tasked to develop a web application in order to visualise the network flow into major cities. The application was built to support planning and decisions around any changes to city transport networks.
 
 #### Summary of Project Results
 
