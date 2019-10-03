@@ -108,6 +108,13 @@ class MapNav extends Component {
     }
   }));
 
+  visualise = () => {
+    const suburbPolygons = localStorage.getItem('suburbPolygons')
+    console.log("inside visualise", suburbPolygons)
+    console.log("CITY: " + this.city);
+    console.log("Travel points : " + suburbPolygons['Berhampore_latlng'])
+  };
+
   render() {
     // render a grid that holds dropdown menu options
     return (
@@ -214,6 +221,10 @@ class MapNav extends Component {
               </Select>
             </FormControl>
           </Grid>
+          
+      <button onClick={this.visualise}>
+      Activate Lasers
+    </button>
         </Grid>
       </div>
     );

@@ -60,6 +60,7 @@ class Map extends Component {
 
     setTimeout(() => {
       console.log(this.suburbPolygons)
+      localStorage.setItem('suburbPolygons', this.suburbPolygons)
     }, 10000);
 
   }
