@@ -33,7 +33,7 @@ export const LoginMenuBar = props => {
             {props.pageName}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           </Typography>
           <Typography variant='subtitle1' noWrap>
-            Visualing Our Transport Networks
+            Visualising Our Transport Networks
           </Typography>
         </Toolbar>
       </AppBar>

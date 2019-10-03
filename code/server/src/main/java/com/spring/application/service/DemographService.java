@@ -13,11 +13,9 @@ public class DemographService {
 	@Autowired
     private DemographRepository demoRepo;
 	
-	public List<AreaDemograph> findAllAreaGeoCode() {
-		return demoRepo.findAllAreaGeoCode();
+	public List<Object[]> findAllAreaGeoCode() {
+		List<Object[]> areas = demoRepo.findAllAreaDemograph();
+		return areas;
 	}
 	
-	public List<Object> findAllAreaLatLng() {
-		return demoRepo.findAllAreaLatLng();
-	}
 }
