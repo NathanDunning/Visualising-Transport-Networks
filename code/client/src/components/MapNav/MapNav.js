@@ -112,11 +112,7 @@ class MapNav extends Component {
 
   visualise = () => {
     console.log(this.suburbPolygons)
-    /* const suburbPolygons = localStorage.getItem('suburbPolygons')
-    console.log("inside visualise", suburbPolygons)
-    console.log("CITY: " + this.state.city);
-    console.log("Travel points ", suburbPolygons["Aro Valley"])
-     */
+    console.log("Travel points ", this.suburbPolygons["Aro Valley"])
   };
 
   render() {
