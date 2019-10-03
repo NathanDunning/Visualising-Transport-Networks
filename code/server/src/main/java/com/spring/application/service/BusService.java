@@ -40,6 +40,7 @@ public class BusService {
 
 	public List<Object> findTime() {
 		List<Object> time = busRepo.findTime();
+		
 		return time;
 	}
 
