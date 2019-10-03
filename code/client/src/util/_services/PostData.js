@@ -1,5 +1,5 @@
 export function PostData(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//home';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/home';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -23,14 +23,14 @@ export function PostData(type, auth) {
       }
       return user;
     })
-    .catch(function() {
+    .catch(() => {
       alert('Invalid username or password');
       return Promise.reject('error');
     });
 }
 
 export function getTravelData(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/bus/travelDetails';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -75,16 +75,12 @@ export function getAllTravelLatLng(auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
+    .then(data => data)
+    .catch(() => Promise.reject('error'));
 }
 
 export function getDemographicData(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/area/geocodes';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -99,16 +95,12 @@ export function getDemographicData(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
+    .then(data => data)
+    .catch(() => Promise.reject('error'));
 }
 
 export function getCities(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/cities';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/cities';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -123,40 +115,12 @@ export function getCities(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
-}
-
-export function getLatLng(auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/area/latlng';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth
-    },
-    method: 'GET'
-  };
-
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
+    .then(data => data)
+    .catch(() => Promise.reject('error'));
 }
 
 export function getTime(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/time';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -171,16 +135,12 @@ export function getTime(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
+    .then(data => data)
+    .catch(() => Promise.reject('error'));
 }
 
 export function getDate(type, auth) {
-  let BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312//get/dates';
+  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/dates';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -195,12 +155,8 @@ export function getDate(type, auth) {
 
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
-    .then(data => {
-      return data;
-    })
-    .catch(function() {
-      return Promise.reject('error');
-    });
+    .then(data => data)
+    .catch(() => Promise.reject('error'));
 }
 
 function handleResponse(response) {

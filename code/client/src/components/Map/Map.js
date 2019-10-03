@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { getAllTravelLatLng } from '../../util/_services/PostData';
+import {
+  getAllTravelLatLng,
+  getDemographicData
+} from '../../util/_services/PostData';
 
 // import {connect} from 'react-redux'
 import L from 'leaflet';
@@ -10,23 +13,21 @@ import './Map.css';
 import * as topojson from 'topojson-client';
 import { get_city_centres } from '../../util/redux/city_centre_helper';
 import { pushMap } from '../../util/redux/actions';
+import { jsonResponse } from './AreaPolygons';
 
 const mapid = 'mapid';
 let map = null;
-
 let orgURL =
   'https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
-
 function projectPoint(x, y) {
   let point = map.latLngToLayerPoint(new L.LatLng(y, x));
   this.stream.point(point.x, point.y);
 }
-
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
   geocodes = [];
-
   componentDidMount() {
+    var geojson;
     // Black and white tile layer
     let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
@@ -38,6 +39,102 @@ class Map extends Component {
     map = L.map(mapid, {
       layers: [mapboxLayer]
     }).setView([-41.2858, 174.78682], 14);
+
+    /**
+     * region borders
+     * color - border color
+     * weight -  border weight
+     * opacity - borders opacity
+     * dashArray - border dash weight
+     * 
+     * region fills
+     * fillColor - fill color
+     * fillOpactiy - fill opacity
+     * @param {*} feature 
+     */
+    function style(feature) {
+      return {
+        color: 'darkgreen',
+        weight: 2,
+        opacity: 1,
+        dashArray: 4.5,
+        
+        fillColor: 'red',
+        fillOpacity: 0.04
+      };
+    }
+
+    /**
+     * hovered reigon
+     * dashArray - border dash weight
+     * fillOpactiy - fill opacity
+     */
+    function highlightFeature(e) {
+      console.log('Mouse hover on');
+      var layer = e.target;
+      layer.setStyle({
+       dashArray: 0,
+        fillOpacity: 0.1
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        //layer.bringToFront();
+      }
+      info.update(layer.feature.properties);
+    }
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    geojson = L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    var info = L.control();
+
+    info.onAdd = function(map) {
+      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+      this.update();
+      return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function(props) {
+      this._div.innerHTML =
+        '<h4>Demographic Info</h4>' +
+        (props
+          ? '<b>' + props.name + '</b><br />' + props.population + ' people'
+          : 'Hover over a region');
+    };
+
+    info.addTo(map);
+
+    /*  L.circle([-41.2865, 174.7762], {
+      fillColor: '#006400',
+      fillOpacity: 0.5,
+      radius: 100
+    })
+      .bindPopup('Destination : Wellington CBD' )
+      .addTo(map); */
 
     getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
       console.log(data);
@@ -52,39 +149,32 @@ class Map extends Component {
       });
     });
 
-    var LeafIcon = L.Icon.extend({
-      options: {
-        shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-        iconSize: [38, 95],
-        shadowSize: [50, 64],
-        iconAnchor: [22, 94],
-        shadowAnchor: [4, 62],
-        popupAnchor: [-3, -76]
-      }
+    var myIcon = L.icon({
+      iconUrl:
+        'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+      iconSize: [32, 50],
+      iconAnchor: [6, 49],
+      popupAnchor: [9, -30]
     });
-
-    let greenIcon = new LeafIcon({
-      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'
-    })
-
-    let redIcon = new LeafIcon({
-      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'
-    })
-
-    let orangeIcon = new LeafIcon({
-      iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'
-    });
-
-    L.marker([-41.2792099, 174.7781513], {
-      icon: greenIcon
-    }).bindPopup('Destination: Wellington Train Station').addTo(map);
-
-
+    L.marker([-41.2792099, 174.7803], { icon: myIcon })
+      .bindPopup('Destination: Wellington Railway Station')
+      .addTo(map);
+    /*     getDemographicData('demographic', localStorage.getItem('auth')).then(data => {
+      data.map(line => {
+        console.log(line);
+         L.rectangle([[line.latitude, line.longitude],[line.latitude +0.001, line.longitude -0.001]], {
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 100
+        })
+          .bindPopup('Area: ' + line.areaName + '\n' + 'Population: ' + line.population)
+          .addTo(map);
+      });
+    }); */
 
     this.addMask();
     get_city_centres();
     pushMap(map);
-
     //Give a scale on the bottom left
     L.control
       .scale({
@@ -92,11 +182,9 @@ class Map extends Component {
       })
       .addTo(map);
   }
-
   render() {
     return <div id={mapid} />;
   }
-
   addMask = () => {
     d3.json(process.env.PUBLIC_URL + '/newzealand.topo.json').then(topo => {
       let svg = d3.select(
@@ -104,27 +192,21 @@ class Map extends Component {
           attribution: 'New Zealand topology &copy Statistics New Zealand'
         }).addTo(map)._container
       );
-
       let data = topojson.feature(topo, topo.objects.newzealand);
-
       let projection = d3.geoTransform({ point: projectPoint });
       let path = d3.geoPath(projection);
-
       let thingy = svg
         .append('defs')
         .append('clipPath')
         .attr('id', 'nz')
         .append('path')
         .attr('d', path(data));
-
-      map.on('moveend', function () {
+      map.on('moveend', function() {
         thingy.attr('d', path(data));
       });
     });
   };
 }
-
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
-
 // export default connect(null, dispatchToProps)(Map)
 export default Map;
