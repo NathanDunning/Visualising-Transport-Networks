@@ -27,7 +27,7 @@ export function PostData(type, auth) {
     });
 }
 
-export function getTravelData(type, auth) {
+export function getTravelData(date, from_time, to_time, travelPoints, auth) {
   const BaseUrl = 'http://localhost:59312/get/bus/travelDetails';
   const requestOptions = {
     headers: {
@@ -39,10 +39,10 @@ export function getTravelData(type, auth) {
       Authorization: auth,
     },
     body: JSON.stringify({
-      city: 'Wellington',
-      from_time: 944,
-      to_time: 960,
-      date: '2018-11-28',
+      from_time: from_time,
+      to_time: to_time,
+      date: '2018-11-29',
+      suburb_travel_points: travelPoints
     }),
     method: 'POST',
   };
