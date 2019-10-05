@@ -13,10 +13,12 @@ import "./Map.css";
 import * as topojson from "topojson-client";
 import { get_city_centres } from "../../util/redux/city_centre_helper";
 import { pushMap } from "../../util/redux/actions";
-import { jsonResponse } from "./AreaPolygons"; 
+import { jsonResponse } from "./AreaPolygons";
 
 const mapid = "mapid";
 let map = null;
+let geojson = null;
+var info = L.control();
 let orgURL =
   "https://api.mapbox.com/styles/v1/networking/cjys46aku08a11co20gnz8pp4/tiles/256/{z}/{x}/{y}?access_token={accessToken}";
 function projectPoint(x, y) {
@@ -26,9 +28,8 @@ function projectPoint(x, y) {
 // setView initialises the map to the chosen latLong and zoom level
 class Map extends Component {
   suburbPolygons = this.props.suburbPolygons;
+  suburbLatLngs = this.props.suburbLatLngs;
   componentDidMount() {
-    console.log(this.suburbPolygons)
-
     // Black and white tile layer
     let mapboxLayer = L.tileLayer(orgURL, {
       zoom: 10,
@@ -58,17 +59,23 @@ class Map extends Component {
 
     this.createDestinationIcon();
 
-    this.suburbPolygons = this.createSuburbTravelPointJson();
-
-    setTimeout(() => {
-      console.log(this.suburbPolygons)
-    }, 10000);
+    if (this.props.ldBoolean == 'false') {
+      this.suburbPolygons = this.createSuburbTravelPointJson();
+      setTimeout(() => {
+        console.log(this.suburbPolygons);
+        console.log(this.suburbLatLngs);
+      }, 10000);
+    }
 
   }
 
   createDemographicUnits = () => {
-    var geojson;
-    var info = L.control();
+
+    geojson = L.geoJson(jsonResponse, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
     function style(feature) {
       return {
         color: "darkgreen",
@@ -81,13 +88,21 @@ class Map extends Component {
       };
     }
 
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        //mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
     function highlightFeature(e) {
       var layer = e.target;
-      layer.setStyle({
-        dashArray: 0,
-        fillOpacity: 0.1
-      });
-
+      /*       layer.setStyle({
+              dashArray: 0,
+              fillOpacity: 0.1
+            });
+       */
       info.update(layer.feature.properties);
     }
 
@@ -95,16 +110,9 @@ class Map extends Component {
       geojson.resetStyle(e.target);
       info.update();
     }
+
     function zoomToFeature(e) {
       map.fitBounds(e.target.getBounds());
-    }
-
-    function onEachFeature(feature, layer) {
-      layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-      });
     }
 
     info.onAdd = function (map) {
@@ -122,11 +130,60 @@ class Map extends Component {
     };
 
     info.addTo(map);
+  }
 
-    geojson = L.geoJson(jsonResponse, {
-      style: style,
-      onEachFeature: onEachFeature
-    }).addTo(map);
+  render() {
+    if(this.props.resetBoolean == 'true') {
+      console.log("Inside reset")
+      geojson.eachLayer(function (layer) {
+        geojson.resetStyle(layer);
+      })
+      this.props.setResetBoolean('false');
+    }
+    if (this.props.ldBoolean == 'true') {
+      var locationDuration = this.props.locationDuration;
+
+      geojson.eachLayer(function (layer) {
+        if (locationDuration.hasOwnProperty(layer.feature.properties.name)) {
+          console.log("Inside")
+          var duration = locationDuration[layer.feature.properties.name];
+          if (duration <= 10) {
+            console.log("Inside 1")
+            layer.setStyle({
+              fillColor: "green",
+              fillOpacity: 0.4
+            })
+          } else if (duration <= 25) {
+            console.log("Inside 2")
+            layer.setStyle({
+              fillColor: "yellow",
+              fillOpacity: 0.4
+            })
+          } else if (duration <= 40) {
+            console.log("Inside 3")
+            layer.setStyle({
+              fillColor: "orange",
+              fillOpacity: 0.4
+            })
+          } else {
+            console.log("Inside 4")
+            layer.setStyle({
+              fillColor: "red",
+              fillOpacity: 0.4
+            })
+          }
+        } else {
+          console.log("Inside 5")
+          layer.setStyle({
+            fillColor: "grey",
+            fillOpacity: 0.4
+          })
+        }
+      });
+      this.props.setLocationDuration('', 'false');
+    }
+    return <div id={mapid} />;
+
   }
 
   plotTravelPoints = () => {
@@ -160,7 +217,9 @@ class Map extends Component {
 
   createSuburbTravelPointJson = () => {
     jsonResponse.features.map(suburb => {
-      this.suburbPolygons[suburb.properties.name] = suburb.geometry.coordinates;
+
+      this.props.suburbPolygons[suburb.properties.name] = suburb.geometry.coordinates[0];
+      this.props.suburbPolygons[suburb.properties.name + "_pop"] = suburb.properties.population;
 
       getAllTravelLatLng(localStorage.getItem("auth")).then(data => {
         data.map(travelPoint => {
@@ -168,19 +227,19 @@ class Map extends Component {
           var polygon = L.polygon(suburb.geometry.coordinates[0])
           if (this.isMarkerInsidePolygon(travelPoint, polygon)) {
             var travelPointMatched = [];
-            if (this.suburbPolygons.hasOwnProperty(suburb_name + "_latlng")) {
-              travelPointMatched = this.suburbPolygons[suburb_name + "_latlng"];
+            if (this.props.suburbLatLngs.hasOwnProperty(suburb_name + "_latlng")) {
+              travelPointMatched = this.props.suburbLatLngs[suburb_name + "_latlng"];
               travelPointMatched.push(travelPoint);
-              this.suburbPolygons[suburb_name + "_latlng"] = travelPointMatched;
+              this.props.suburbLatLngs[suburb_name + "_latlng"] = travelPointMatched;
             } else {
               travelPointMatched.push(travelPoint);
-              this.suburbPolygons[suburb_name + "_latlng"] = travelPointMatched;
+              this.props.suburbLatLngs[suburb_name + "_latlng"] = travelPointMatched;
             }
           }
         });
       });
     });
-    return this.suburbPolygons;
+    return this.props.suburbPolygons;
   }
 
   isMarkerInsidePolygon = (marker, poly) => {
@@ -196,13 +255,23 @@ class Map extends Component {
         && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
       if (intersect) inside = !inside;
     }
-    console.log(inside)
     return inside;
   };
 
-  render() {
-    return <div id={mapid} />;
-  }
+  /*   render() {
+      if (this.props.location != '') {
+        var latlngs = [];
+        this.suburbPolygons[this.props.location].map(latlngTemp => {
+          latlngs.push([latlngTemp[1], latlngTemp[0]])
+        })
+        var polygon = L.polygon(latlngs, {
+          style: style,
+          onEachFeature: onEachFeature}.addTo(map);
+        // zoom the map to the polygon
+        map.fitBounds(polygon.getBounds());  
+      }
+      return <div id={mapid} />;
+    } */
 
   addMask = () => {
     d3.json(process.env.PUBLIC_URL + "/newzealand.topo.json").then(topo => {

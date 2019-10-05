@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid/';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
+import L from "leaflet";
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import {
+  getTravelData,
   getAllTravelLatLng,
   getDemographicData,
   getCities,
@@ -24,6 +26,7 @@ import // componentDidMount,
 
 class MapNav extends Component {
   suburbPolygons = this.props.suburbPolygons;
+  suburbLatLngs = this.props.suburbLatLngs;
   state = {
     city: 'city',
     to: 'to',
@@ -48,13 +51,10 @@ class MapNav extends Component {
   }
 
   getData() {
-    getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
-      console.log(data);
-    });
+
 
     getDemographicData('geocode', localStorage.getItem('auth')).then(data => {
       data.map(area => {
-        console.log(area[0])
         this.state.demographic.push(area[0]);
       });
     });
@@ -111,9 +111,25 @@ class MapNav extends Component {
   }));
 
   visualise = () => {
-    console.log(this.suburbPolygons)
-    console.log("Travel points ", this.suburbPolygons["Aro Valley"])
+    getTravelData(
+      this.state.date,
+      this.state.from,
+      this.state.to,
+      this.suburbLatLngs,
+      localStorage.getItem('auth')).then(data => {
+        Object.entries(data).forEach((time, index) => {
+          setTimeout(() => {
+            console.log(time[1]);
+            this.props.setLocationDuration(time[1], "true");
+          }, 2000 * index);
+        });
+      });
   };
+
+  resetBoolean = () => {
+    console.log("Inside map reset")
+    this.props.setResetBoolean('true');
+  }
 
   render() {
     // render a grid that holds dropdown menu options
@@ -146,24 +162,7 @@ class MapNav extends Component {
             </FormControl>
           </Grid>
 
-          <Grid item>
-            <FormControl>
-              <InputLabel>Location</InputLabel>
-              <Select
-                value={this.state.location}
-                style={{ width: `150px` }}
-                onChange={this.handleLocationChange}>
-                {this.state.demographic.map(area => {
-                  return (
-                    <MenuItem key={area} value={area}>
-                      {' '}
-                      {area}{' '}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-          </Grid>
+         
 
           <Grid item>
             <FormControl>
@@ -221,11 +220,25 @@ class MapNav extends Component {
               </Select>
             </FormControl>
           </Grid>
+        </Grid>
+        
+        <Grid
+          container
+          direction='row'
+          justify='center'
+          style={{
+            paddingTop: '25px'
+          }}>
 
-          <button onClick={this.visualise}>
+          <button style={{ width: `150px` }} onClick={this.visualise}>
             Visualise
           </button>
+          <button style={{ width: `150px` }} onClick={this.resetBoolean}>
+            Reset
+          </button>
+
         </Grid>
+
       </div>
     );
   }

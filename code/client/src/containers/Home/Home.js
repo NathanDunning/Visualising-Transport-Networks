@@ -10,9 +10,23 @@ class Home extends Component {
     super(props);
     this.state = {
       suburbPolygons: { key: 'value' },
+      suburbLatLngs: {key: [[0.212, 0.212]]},
       travelData: [],
       demographicData: [],
+      locationDuration: {'key':1},
+      ldBoolean : 'false',
+      resetBoolean: 'false'
     };
+  }
+
+  setLocationDuration = (ld, ldBoolean) => {
+    this.setState({locationDuration : ld})
+    this.setState({ldBoolean : ldBoolean})
+  }
+
+  setResetBoolean = (reset) => {
+    console.log("Inside home reset")
+    this.setState({resetBoolean: reset})
   }
 
   render() {
@@ -37,9 +51,9 @@ class Home extends Component {
             }}
           >
             <div id="map">
-              <Map suburbPolygons={this.state.suburbPolygons} />
+              <Map suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} locationDuration={this.state.locationDuration} ldBoolean={this.state.ldBoolean} resetBoolean={this.state.resetBoolean} setLocationDuration={this.setLocationDuration} setResetBoolean={this.setResetBoolean}/>
             </div>
-            <MapNav suburbPolygons={this.state.suburbPolygons} />
+            <MapNav suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} setLocationDuration={this.setLocationDuration} ldBoolean={this.state.ldBoolean} setResetBoolean={this.setResetBoolean}/>
           </Card>
         </div>
       </div>

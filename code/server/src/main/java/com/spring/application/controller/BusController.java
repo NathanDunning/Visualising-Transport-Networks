@@ -2,6 +2,7 @@ package com.spring.application.controller;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,7 @@ public class BusController {
 	@RequestMapping(value = "/get/bus/travelDetails", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> getBus(@RequestBody Request busRequest){
-		List<Bus> bus = busService.findBusTravelDetails(busRequest);
+		Map<Integer, Map<String, Integer>> bus = busService.findBusTravelDetails(busRequest);
         return new ResponseEntity<>(bus,HttpStatus.OK);
     }
 
