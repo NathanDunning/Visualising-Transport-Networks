@@ -119,7 +119,6 @@ class MapNav extends Component {
       localStorage.getItem('auth')).then(data => {
         Object.entries(data).forEach((time, index) => {
           setTimeout(() => {
-            console.log(time[1]);
             this.props.setLocationDuration(time[1], "true");
           }, 2000 * index);
         });
@@ -127,7 +126,6 @@ class MapNav extends Component {
   };
 
   resetBoolean = () => {
-    console.log("Inside map reset")
     this.props.setResetBoolean('true');
   }
 

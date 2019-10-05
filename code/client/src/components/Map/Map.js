@@ -59,13 +59,7 @@ class Map extends Component {
 
     this.createDestinationIcon();
 
-    if (this.props.ldBoolean == 'false') {
-      this.suburbPolygons = this.createSuburbTravelPointJson();
-      setTimeout(() => {
-        console.log(this.suburbPolygons);
-        console.log(this.suburbLatLngs);
-      }, 10000);
-    }
+    this.suburbPolygons = this.createSuburbTravelPointJson();
 
   }
 
@@ -133,47 +127,41 @@ class Map extends Component {
   }
 
   render() {
-    if(this.props.resetBoolean == 'true') {
-      console.log("Inside reset")
+    if (this.props.resetBoolean == 'true') {
       geojson.eachLayer(function (layer) {
         geojson.resetStyle(layer);
       })
       this.props.setResetBoolean('false');
     }
-    if (this.props.ldBoolean == 'true') {
+    if (this.props.resetBoolean == 'false' &&
+      this.props.ldBoolean == 'true') {
       var locationDuration = this.props.locationDuration;
 
       geojson.eachLayer(function (layer) {
         if (locationDuration.hasOwnProperty(layer.feature.properties.name)) {
-          console.log("Inside")
           var duration = locationDuration[layer.feature.properties.name];
           if (duration <= 10) {
-            console.log("Inside 1")
             layer.setStyle({
               fillColor: "green",
               fillOpacity: 0.4
             })
           } else if (duration <= 25) {
-            console.log("Inside 2")
             layer.setStyle({
               fillColor: "yellow",
               fillOpacity: 0.4
             })
           } else if (duration <= 40) {
-            console.log("Inside 3")
             layer.setStyle({
               fillColor: "orange",
               fillOpacity: 0.4
             })
           } else {
-            console.log("Inside 4")
             layer.setStyle({
               fillColor: "red",
               fillOpacity: 0.4
             })
           }
         } else {
-          console.log("Inside 5")
           layer.setStyle({
             fillColor: "grey",
             fillOpacity: 0.4

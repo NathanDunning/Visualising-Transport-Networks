@@ -25,7 +25,6 @@ class Home extends Component {
   }
 
   setResetBoolean = (reset) => {
-    console.log("Inside home reset")
     this.setState({resetBoolean: reset})
   }
 

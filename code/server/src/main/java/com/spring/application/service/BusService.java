@@ -31,7 +31,6 @@ public class BusService {
 
 		Map<String, List<List<Double>>> suburbTravelPoints = busRequest.getSuburb_travel_points();
 		for (Map.Entry<String, List<List<Double>>> suburbTravelPoint : suburbTravelPoints.entrySet()) {
-			System.out.println("Suburb: " + suburbTravelPoint.getKey());
 			List<List<Double>> travelPoints = suburbTravelPoint.getValue();
 			for (List<Double> travelPoint : travelPoints) {
 				List<Object[]> travelTimeList = busRepo.findBusDetails(busRequest.getFrom_time(),
@@ -39,7 +38,6 @@ public class BusService {
 				for (Object[] travelTime : travelTimeList) {
 					Map<String, Integer> suburbDuration = new HashMap<>();
 					if (suburbDurations.containsKey(travelTime[0])) {
-						System.out.println("Time: " + travelTime[0] + " Duration : " + travelTime[1]);
 						suburbDuration = suburbDurations.get(travelTime[0]);
 						if (suburbDuration.containsKey(suburbTravelPoint.getKey())) {
 							Integer avgTime = (suburbDuration.get(suburbTravelPoint.getKey())
