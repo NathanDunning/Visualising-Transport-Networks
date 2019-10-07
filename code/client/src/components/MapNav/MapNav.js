@@ -64,7 +64,14 @@ class MapNav extends Component {
     });
 
     getTime('time', localStorage.getItem('auth')).then(data => {
-      this.setState({ times: data });
+      console.log(data)
+      let times = []
+      data.map(time => {
+        console.log(typeof(time))
+        time = time.toString().replace(/(.{2})$/,':$1');
+        times.push(time)
+      })
+      this.setState({ times: times });
     });
 
     getDate('date', localStorage.getItem('auth')).then(data => {
@@ -79,6 +86,7 @@ class MapNav extends Component {
   };
 
   handleFromTimeChange = event => {
+
     this.setState({ from: event.target.value });
   };
 
