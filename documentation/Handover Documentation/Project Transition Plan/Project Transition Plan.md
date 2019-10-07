@@ -63,6 +63,20 @@ Is this section supposed to consider risks? I'm not sure if my answer to this se
 
 _Technical and non-technical organisational support required on the part of both parties for project transition to be successfully completed. Note that "success" means project integration or addition (see below for definitions)._
 
+#### Technical Support
+
+The following technical organisational support is required on the part of both parties, the team and the client, for project transition to be successfully completed.
+
+1. The transition of the project code and documentation.
+   - This can be achieved by transferring ownership of the GitLab repositiory.
+
+#### Non-technical Support
+
+The following no-technical organisational support is required on the part of both parties, the team and the client, for project transition to be successfully completed.
+
+1. The transition of the handover and supporting documents.
+   - This can be achieved by transferring digital copies of the documents via email, in person, or through the GitLab repository.
+
 ### Work Required
 
 _A list of the work required for the project transition to be successfully completed. Note that "success" means project integration or addition (see below for definitions)._
