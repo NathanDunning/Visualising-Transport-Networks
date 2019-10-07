@@ -30,15 +30,23 @@ The Visualising our Transport Networks App is a decision support tool designed t
 
 **Delivered Scope**
 
-The delivered product is a web application which runs on browsers, and allows users to use it to see the congestion points in different suburbs by the use of a coloured heat map. Users are able to filter the time periods and can click and hover on different suburbs to see population information based on the area.
+The delivered product is a web application which runs on browsers, and allows users to use it to see the congestion points in different suburbs by the use of a coloured heat map. Users are able to filter the time periods and can click and hover on different suburbs to see population information based on the area. Therefore, this Visualising our Transport Networks app can still be used as a deicison support tool as it does visualise the congestion in the Wellington City Council area of governance. It will display an observation on how long it takes to get to the origin in the CBD and will be coloured based on an interpolation of the time taken against the distance from the origin. A database has been implemented in order for it to be easier to add newer datasets into the application.
 
-The original scope has not been achieved, and was instead reduced.
+A more focussed subset of the original scope has been delivered.
 
 **Backlogged Features**
 
 #### Original and Actual Schedule
 
-_A summary of the original timelines and a summary of deviations from the original plan. This should convey to the reader those aspects of the project results which are not obvious from other documents._
+<!-- _A summary of the original timelines and a summary of deviations from the original plan. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
+
+The team planned sprints prior to them actually occuring in semester one with the support of a sprint planning game. This meant we had an effective roadmap planned ahead of us. However, as we had set due dates that were compulsary for the course; such as the requirements and architecture documents, we did not effectively plan around them in our planning. We also overestimated the time it would take to complete certain issues, and were behind on set deadlines.
+
+Another reason for deviation of set product goals was that we were doing this with a new knowledge of project management skills and this project has been developed parallel to other courses with other deadlines. As we came into the second half of the project timeline, the team collectively became better at time estimation with more experience. However, this late meant that we were behind on projected outputs.
+
+Furthermore, there was miscommunication with the client surrounding the use of meshblocks versus area units, which in turn delayed us. Area units also were not the most applicable to our application, so we had to find geojson points for suburb areas ourselves. This meant that our disaggregation of the map took longer than expectied.
+
+Overall, we attempted to stick to the schedule as best we could, but our lack of experience and the effects of unplanned risks set us behind. During our last few weeks, we had the most visible progress for our client in the application, and ideally this should have happened earlier, but due to this pick up in visible work, our handover documentation and actual product was a bit rushed nearing closing.
 
 #### Delivered Expenditure
 
