@@ -53,6 +53,31 @@ class Map extends Component {
       })
       .addTo(map);
 
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function (map) {
+      const div = L.DomUtil.create('div', 'info legend');
+      const durations = [0, 30, 40];
+      const labels = ['label one', 'label 2'];
+
+      div.innerHTML += "<h5>Duration (minutes)</h5>";
+      div.innerHTML += '<i style="background: grey"></i><span>No data</span><br>';
+      div.innerHTML += '<i style="background: red"></i><span>40+</span><br>';
+      div.innerHTML += '<i style="background: orange"></i><span>25-40</span><br>';
+      div.innerHTML += '<i style="background: yellow"></i><span>10-25</span><br>';
+      div.innerHTML += '<i style="background: green"></i><span>0-10</span><br>';
+
+      return div;
+    };
+    legend.addTo(map);
+
+
+    function getColor(d) {
+      return d > 40 ? '#800026' :
+        d > 30 ? '#FEB24C' :
+          d > 20 ? '#FED976' :
+            '#FFEDA0';
+    }
+
     this.createDemographicUnits();
 
     this.plotTravelPoints();
@@ -110,7 +135,7 @@ class Map extends Component {
     }
 
     info.onAdd = function (map) {
-      this._div = L.DomUtil.create("div", "info");
+      this._div = L.DomUtil.create("div", "info legend");
       this.update();
       return this._div;
     };
