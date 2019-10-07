@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid/';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
 import L from "leaflet";
@@ -67,8 +68,8 @@ class MapNav extends Component {
       console.log(data)
       let times = []
       data.map(time => {
-        console.log(typeof(time))
-        time = time.toString().replace(/(.{2})$/,':$1');
+        console.log(typeof (time))
+        time = time.toString().replace(/(.{2})$/, ':$1');
         times.push(time)
       })
       this.setState({ times: times });
@@ -168,7 +169,7 @@ class MapNav extends Component {
             </FormControl>
           </Grid>
 
-         
+
 
           <Grid item>
             <FormControl>
@@ -227,27 +228,51 @@ class MapNav extends Component {
             </FormControl>
           </Grid>
         </Grid>
-        
+
         <Grid
           container
           direction='row'
           justify='center'
           style={{
-            paddingTop: '25px'
+            paddingTop: '25px',
           }}>
 
-          <button style={{ width: `150px` }} onClick={this.visualise}>
-            Visualise
-          </button>
-          <button style={{ width: `150px` }} onClick={this.resetBoolean}>
-            Reset
-          </button>
+          <Grid item
+            style={{
+              marginRight: '10px'
+            }}>
 
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              className='button'
+              onClick={this.visualise}>
+              Visualise
+              </Button>
+          </Grid>
+
+          <Grid item>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              className='button'
+              onClick={this.resetBoolean}>
+              Reset
+              </Button>
+          </Grid>
         </Grid>
-
-      </div>
+      </div >
     );
   }
 }
 
 export default MapNav;
+
+          // <button style={{ width: `150px` }} onClick={this.visualise}>
+          //   Visualise
+          // </button>
+          // <button style={{ width: `150px` }} onClick={this.resetBoolean}>
+          //   Reset
+          // </button>
