@@ -24,17 +24,29 @@ The project results are a web application that shows a visualisation of the traf
 
 <!-- _The things that are within scope of the delivered project; the things that the delivered project can do. This should convey to the reader those aspects of the project results which are not obvious from other documents. If the project has a significant Issue backlog on delivery, a summary of the pending features, why these features were not completed and how they could be picked up by others if project work was to resume._ -->
 
-#### Original and Actual Schedule
+**Original Scope**
 
-The Virtualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system should be able to run on any browser. It will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will, therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more useful for consultants as decisions can be made dependent on different and specific socio-economic groups.
+The Visualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system should be able to run on any browser. It will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will, therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more useful for consultants as decisions can be made dependent on different and specific socio-economic groups.
+
+**Delivered Scope**
+
+The delivered product is a web application which runs on browsers, and allows users to use it to see the congestion points in different suburbs by the use of a coloured heat map. Users are able to filter the time periods and can click and hover on different suburbs to see population information based on the area.
+
+The original scope has not been achieved, and was instead reduced.
+
+**Backlogged Features**
+
+#### Original and Actual Schedule
 
 _A summary of the original timelines and a summary of deviations from the original plan. This should convey to the reader those aspects of the project results which are not obvious from other documents._
 
-**Original Scope**
-
 #### Delivered Expenditure
 
-_How much was spent, as a single number. If there has been deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._
+<!-- _How much was spent, as a single number. If there has been deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._ -->
+
+| Product           | Reason                                                                                                             | Time                      | Cost                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | --------------------------------------------------------------- |
+| Heroku Hobby Dyno | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | 5th August - 5th November | \$32.32 nzd (based on the conversion rate on the 5th of August) |
 
 #### Project Self-Assessment
 
@@ -46,6 +58,14 @@ _Lessons learned which are of significance, impact and priority to the client. T
 
 #### Procurement Summary
 
-_A description of procurements, naming major suppliers, stating where to find the procurement information in the project documents and flagging any unclosed procurements. Projects with no procurements should state “No procurements” for this section._
+<!-- _A description of procurements, naming major suppliers, stating where to find the procurement information in the project documents and flagging any unclosed procurements. Projects with no procurements should state “No procurements” for this section._ -->
 
 ---
+
+| Product          | Reason                                                                                                                                     | Source                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| Heroku Server    | This was used so the application could be deployed so that the user would be able to see changes as they occurred.                         | Heroku                  |
+| Leaflet Library  | This is an opensource javascript library which was used for the interactive map feature.                                                   | Leaflet                 |
+| Suburb Areas     | These points were used to disaggregate the areas on the map in order to display demographic information relevant to the travel population. | Wellington City Council |
+| Spring Libraries | This is an opensource library used for the connection with the frontend in the backend.                                                    | mvn repository          |
+| Travel Data      | This is the data supplied to us by the client in order to visualise the information on the map.                                            | Google Maps API         |
