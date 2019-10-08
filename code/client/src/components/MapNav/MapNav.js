@@ -269,10 +269,3 @@ class MapNav extends Component {
 }
 
 export default MapNav;
-
-          // <button style={{ width: `150px` }} onClick={this.visualise}>
-          //   Visualise
-          // </button>
-          // <button style={{ width: `150px` }} onClick={this.resetBoolean}>
-          //   Reset
-          // </button>
