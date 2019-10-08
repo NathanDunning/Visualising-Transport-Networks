@@ -69,28 +69,28 @@ _Lessons learned which are of significance, impact and priority to the client. T
 
 This section covers the lessons learned which are of significance impact and priority to the client. The focus here is on the lessons-learned at the intersection of the technical and management aspects of Project 7's product which are relevant to the client. A breakdown of the lessons learned are below and fall into three primary categories; management, communication, and deployment.
 
-**Did the project meet goals**
+**Did the project meet goals** <br>
 The team did not meet the original scope, however, the one that was minimised in meetings was met. In terms of goals with time, it was rough in the beginning for us to keep with deadlines, but we re-evaluated time as we went further into the project.
 
-**Did we meet the project success criteria listed in the scope statement?**
+**Did we meet the project success criteria listed in the scope statement?** <br>
 Yes, we managed to get the functionality for the delivered scope.
 
-**In terms of managing the project, what were the main lessons your team learned from this project?**
+**In terms of managing the project, what were the main lessons your team learned from this project?** <br>
 Even though we were new to the whole concept of agile project management, we collectively felt as though we should have managed project requirements earlier on, and resource procurement should have been prioritised. This involved all of us attempting to involve the stakeholders earlier into project decisions in order to minimise the scope and get the resources in order to have more noticeable outputs for the client.
 
-**Describe one example of what went right on this project?**
+**Describe one example of what went right on this project?** <br>
 Pre-booking client meetings helped to push internal team goals in order to deliver progress each meetings. Scope description was downsized a lot in order to have a reasonable deliverable as the team was managing this parallel to other courses. Pair programming in the second half of the project helped with internal knowledge sharing and integration of the different parts of the application.
 
-**Describe one example of what went wrong on this project?**
+**Describe one example of what went wrong on this project?** <br>
 Collectively the team would have benefited from starting deployment earlier as it took too long and we it would have been good to get concise project feedback from the client. Risks should have also been better managed as they were not evaluated very often and it would have perhaps been advantageous for the team to use a risk board. Gitlab boards could have been used better in terms of issue commenting and time estimation and time boxing.
 
-**What surprises/shortcomings did the team have to deal with?**
+**What surprises/shortcomings did the team have to deal with?** <br>
 The team did not take into account the risk of our deployment server running out of room. Therefore, this deployment too far too long. This would have been mitigated with a more effective risk plan.
 
-**What project circumstances were not anticipated?**
+**What project circumstances were not anticipated?** <br>
 A team member leaving and another team member joining the team was something that was not anticipated by the team. However, this did not effect us negatively.
 
-**Describe what you will do differently on the next project based on your experience working on this project?**
+**Describe what you will do differently on the next project based on your experience working on this project?** <br>
 For the management aspect, the team collectively agrees that having more frequent planning games in the future so we can refresh the issues each sprint would benefit us, as at a point with this project, the backlog was too old. Issues will also been broken down more to time box effectively. Increased knowledge sharing will occur earlier by the process of having more frequent stand-ups and pair/mob programming sessions.
 
 In a more technical aspect, the team will focus on having deployment done earlier in the future to have more client feedback in order to maintain the delivery of a stronger final product.
