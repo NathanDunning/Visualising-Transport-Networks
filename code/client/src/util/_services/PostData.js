@@ -28,7 +28,7 @@ export function PostData(type, auth) {
 }
 
 export function getTravelData(date, from_time, to_time, travelPoints, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
+  const BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
