@@ -46,7 +46,7 @@ The Front-end UI contains modular classes and components that enables the user t
 The middleware contains classes responsible for loading data from the SQL Database in the backend and passing it the front-end Application using Spring Rest APIs. The server establishes the connection to the database, builds query based on the user inputs from the frontend, query the database and return the result to the user terminal.
 
 **Data Package** <br>
-The database will hold all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
+The database holds all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
 
 #### 3.	Description of System Functions
 This sections provides an overview of the different functionalities implemented as a part of developing the application.
@@ -101,8 +101,17 @@ This section defines procedures to maintain the operation of the software where 
 This section defines procedures for normal and unscheduled termination of the system operations and should define how to restart the system.<br>
 
 ##### 5.	Error Handling
-This section should address error message and help facilities.  Additional information and subsections may be added as necessary.  Included in this section should be a list of all possible error messages, including the following: <br>
+This section addresses the possible error scenarios associated with the application and appropriate solutions to resolve the same. 
 
-*	Any numeric error codes associated with the error message
-*	A description of the meaning of the error message
-*	A discussion of how to resolve the error
+**Invalid user name or password**
+Entering bad credentials on the login screen pops up this error message. The user is required to enter the correct credentials.
+
+**Error code 404 - API not found**
+The system requires the backend Spring application to be up and running to support the frontend application. Failure to start the backend would result in this error. The solution is to start the server/spring application before starting the client/react componenet.
+
+**JDBC Communications link failure** 
+Failure to start the backend database results in this error. The user is required to start the backend MySQL server before starting the server/spring componenet of the application.
+
+**Unknown database react_spring**
+The application uses a backend database named react_spring. Failure to create this database on the backend will result in this error. The user is expected to run the SQL scripts provided as part of the handover process or is expected to create the databsae react_spring manually in the backend MySQL data managemet tool.
+
