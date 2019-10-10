@@ -39,20 +39,20 @@ The application was developed using a three layer architecture.
 2. Middleware - Business Logic
 3. Data layer - Data management
 
-**Front-end UI - Client Package**  
+**Front-end UI - Client Package**  <br>
 The Front-end UI contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
 
-**Business Logic - Server Package**  
+**Business Logic - Server Package**  <br>
 The middleware contains classes responsible for loading data from the SQL Database in the backend and passing it the front-end Application using Spring Rest APIs. The server establishes the connection to the database, builds query based on the user inputs from the frontend, query the database and return the result to the user terminal.
 
-**Data Package**
+**Data Package** <br>
 The database will hold all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
 
 #### 3.	Description of System Functions
 This sections provides an overview of the different functionalities implemented as a part of developing the application.
 
 ##### 3.1	User Login 
-**Description**
+**Description** <br>
 Secure usage of the web application was one of the initial requirement of this project. As a part of this requirement, a login feature was developed and integrated, which prompts the user for appropriate username and password. On entering credentials and once authenticated, the user will be able to access the application. An error popup will be displayed if the credentials does not match with the user information on the backend database. <br>
 
 **Function Inputs**
@@ -66,25 +66,25 @@ Secure usage of the web application was one of the initial requirement of this p
 
 
 ##### 3.2	Demographic Information 
-**Description**
+**Description** <br>
 Combining the demographic information with the travel points was another requirement of this project. As a part of this requirement, an information tool was developed to display the population information for the corresponding suburb region. User, on hovering over different regions on map, will be able to see the demographic details associated with that specific region. <br>
 
-**Function Inputs**
+**Function Inputs** 
 * Mouse - Hover over different suburb regions on map.
 
-**Function Output**
+**Function Output** 
 * Information tool on map displays demographic information.
 
 ##### 3.3 Transport heat map:
-**Description**
+**Description** <br>
 Visualising the travel time from different regions of the map to the destination - Wellington CBD, is one of the major feature implemented as a part of this application. The Map is seggregated into different regions based on the geographic boundaries of the wellington suburbs. A navigation bar is developed which allows user to query the database based on different time intervals. Based on the user input, the regions are coloured and the user can visualise the traffic congestions of different regions over different time intervals. A legend is added to the bottom left-corner of the map to display the time intervals associated with different colours.<br>
 
-**Function Inputs**
+**Function Inputs** 
 * Dropdowns to select the city, date, from time and to time on the navigation bar.
 * A button to start the visualisation on the map.
 * A button to reset the map to it's initial state.
 
-**Function Output**
+**Function Output** 
 * Regions on the map are coloured based on the travel time.
 
 
