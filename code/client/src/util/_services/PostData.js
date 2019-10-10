@@ -1,5 +1,5 @@
 export function PostData(type, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/home';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/home'
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -52,100 +52,144 @@ export function getTravelData(date, from_time, to_time, travelPoints, auth) {
     .then((data) => data).catch(() => Promise.reject('error'));
 }
 
-export function getAllTravelLatLng(auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/bus/travelAllDetails';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth,
-    },
-    method: 'GET',
-  };
 
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject('error'));
-}
+  export function getAllTravelLatLng (auth) {
+      let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/bus/travelAllDetails'
+      const requestOptions = {
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+              'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+              'Authorization':auth
+          },
+          method: 'GET'
+      };
 
-export function getDemographicData(type, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth,
-    },
-    method: 'GET',
-  };
+      return fetch(BaseUrl, requestOptions)
+      .then(handleResponse)
+      .then(data => {
+          return data;
+      }).catch(function() {
+         return Promise.reject("error");
+      });
+  }
 
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject('error'));
-}
+  export function getDemographicData(type, auth) {
+          let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes'
+          const requestOptions = {
+              headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                  'X-Requested-With': 'XMLHttpRequest',
+                  'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                  'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                  'Authorization':auth
+              },
+              method: 'GET'
+          };
+  
+          return fetch(BaseUrl, requestOptions)
+          .then(handleResponse)
+          .then(data => {
+              return data;
+          }).catch(function() {
+             return Promise.reject("error");
+          });
+      }
 
-export function getCities(type, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/cities';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth,
-    },
-    method: 'GET',
-  };
+      export function getCities(type, auth) {
+              let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/cities'
+              const requestOptions = {
+                  headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json',
+                      'X-Requested-With': 'XMLHttpRequest',
+                      'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                      'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                      'Authorization':auth
+                  },
+                  method: 'GET'
+              };
+      
+              return fetch(BaseUrl, requestOptions)
+              .then(handleResponse)
+              .then(data => {
+                  return data;
+              }).catch(function() {
+                 return Promise.reject("error");
+              });
+          }
 
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject('error'));
-}
+          export function getLatLng(auth) {
+              let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/area/latlng'
+              const requestOptions = {
+                  headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json',
+                      'X-Requested-With': 'XMLHttpRequest',
+                      'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                      'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                      'Authorization':auth
+                  },
+                  method: 'GET'
+              };
+      
+              return fetch(BaseUrl, requestOptions)
+              .then(handleResponse)
+              .then(data => {
+                  return data;
+              }).catch(function() {
+                 return Promise.reject("error");
+              });
+          }
 
-export function getTime(type, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/time';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth,
-    },
-    method: 'GET',
-  };
+          export function getTime(type, auth) {
+                  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/time'
+                  const requestOptions = {
+                      headers: {
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json',
+                          'X-Requested-With': 'XMLHttpRequest',
+                          'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                          'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                          'Authorization':auth
+                      },
+                      method: 'GET'
+                  };
+          
+                  return fetch(BaseUrl, requestOptions)
+                  .then(handleResponse)
+                  .then(data => {
+                      return data;
+                  }).catch(function() {
+                     return Promise.reject("error");
+                  });
+              }
 
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject('error'));
-}
-
-export function getDate(type, auth) {
-  const BaseUrl = 'http://barretts.ecs.vuw.ac.nz:59312/get/dates';
-  const requestOptions = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-      Authorization: auth,
-    },
-    method: 'GET',
-  };
-
-  return fetch(BaseUrl, requestOptions)
-    .then(handleResponse)
-    .then((data) => data).catch(() => Promise.reject('error'));
-}
+              export function getDate(type, auth) {
+                  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/dates'
+                  const requestOptions = {
+                      headers: {
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json',
+                          'X-Requested-With': 'XMLHttpRequest',
+                          'Access-Control-Allow-Methods' : 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                          'Access-Control-Allow-Headers' : 'Origin, Content-Type, X-Auth-Token',
+                          'Authorization':auth
+                      },
+                      method: 'GET'
+                  };
+          
+                  return fetch(BaseUrl, requestOptions)
+                  .then(handleResponse)
+                  .then(data => {
+                      return data;
+                  }).catch(function() {
+                     return Promise.reject("error");
+                  });
+              }
 
 
 function handleResponse(response) {
