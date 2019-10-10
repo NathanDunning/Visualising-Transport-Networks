@@ -59,7 +59,13 @@ Overall, the team attempted to stick to the schedule as best as possible, howeve
 
 #### Project Self-Assessment
 
-_A short statement of the team’s assessment of the delivered project, with a focus on the technical aspects. This should convey to the reader those aspects of the project results which are not obvious from other documents._
+<!-- _A short statement of the team’s assessment of the delivered project, with a focus on the technical aspects. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
+
+The delivered project meets the requirements of the amended scope. Some extra features that were not developed in prior documentation. The team has set up a database to store the transport data which was much bigger than originally designed.
+
+In earlier reports, the team has regarded data to be a resource that would be readily available to the project and easy to procure, but this was something that was hard to do. The data often represented a niche subject which occasionally took time for members of the team to understand.
+
+Project deployment was also an attribute not fully discussed in earlier reports and this was a big part of our project.
 
 #### Lessons Learned
 
