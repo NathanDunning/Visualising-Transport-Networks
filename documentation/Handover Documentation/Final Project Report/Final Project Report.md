@@ -1,7 +1,7 @@
 # Final Project Report
 
-**Project _7_:** _Visualising our Transport Networks_<br>
-**Client:** _Chris Vallyon_<br>
+**Project 7:** Visualising our Transport Networks<br>
+**Client:** Chris Vallyon<br>
 **Date:** 11 October 2019<br>
 
 <!-- _This is not expected to be a long report and volume will not be rewarded! The purpose of the final report is to summarise and document anything within your project and other documentation that is tacit or implicit, and any assumptions or motivations which can't_ easily _be found elsewhere in your hand-over documentation. If you wish to follow the form of the example final report in the textbook, then you are welcome to do so. **This is primarily a client-facing document.**_
@@ -12,35 +12,34 @@ _All text in italics in this template should be replaced by your answers (in reg
 
 <!-- _A short statement, 1-3 sentences, of project objective(s); a short abstract of project goals. Simply repeating the original description of the project from ENGR 301, or providing a bland and repetitive description is a waste of everyone's time. What is expected here is a summary of the project objectives as embodied in the_ as-delivered _project._ -->
 
-In ENGR301 and ENGR302 courses at Victoria University of Wellington, the team was tasked to develop a web application in order to visualise the network flow into major cities. The application was built to support planning and decisions around any changes to city transport networks.
+In ENGR301 and ENGR302 courses at Victoria University of Wellington, the team was tasked to develop a web application to visualise the network flow into major cities. The application was built to support planning and decisions around any changes to city transport networks.
 
 #### Summary of Project Results
 
-<!-- _A statement, summarising the results of the project; what actually resulted from project execution. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
+<!-- _A statement, summarising the results of the project; what resulted from project execution. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
 
 The project results are a web application that shows a visualisation of the traffic congestion in the Wellington City Council area for different periods in a day. Alongside project delivery, the team collectively learned about an agile way of working while developing project management skills.
 
 #### Original and Delivered Scope
 
-<!-- _The things that are within scope of the delivered project; the things that the delivered project can do. This should convey to the reader those aspects of the project results which are not obvious from other documents. If the project has a significant Issue backlog on delivery, a summary of the pending features, why these features were not completed and how they could be picked up by others if project work was to resume._ -->
+<!-- _The things that are within the scope of the delivered project; the things that the delivered project can do. This should convey to the reader those aspects of the project results which are not obvious from other documents. If the project has a significant Issue backlog on delivery, a summary of the pending features, why these features were not completed and how they could be picked up by others if project work was to resume._ -->
 
 **Original Scope**
 
-The Visualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system should be able to run on any browser. It will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application in order to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will, therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more useful for consultants as decisions can be made dependent on different and specific socio-economic groups.
+The Visualising our Transport Networks App is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system should be able to run on any browser. It will display an observation on how long it takes to get to the CBD from a set origin on a map, where the zones between the origin and destination will be coloured based on an interpolation of the time taken against the distance from the origin. Users can add CSV data sets to the application to display the information. The goal is to deliver a web application which will display a terrain topographic map which shows how long it takes to get into the city from different sections of a region using different modes such as cars, trains and buses. Another aim is for the map to use the same units as Statistics New Zealand's census data units to further increase the effectiveness of the display analysis and apply users to make insight-driven decisions made in the transport sector. The regions will, therefore, adapted to show census regions, rather than the set distance zones it currently is. This would make it more useful for consultants as decisions can be made dependent on different and specific socio-economic groups.
 
 **Delivered Scope**
 
-The delivered product is a web application which runs on browsers, and allows users to use it to see the congestion points in different suburbs by the use of a coloured heat map. Users are able to filter the time periods and can click and hover on different suburbs to see population information based on the area. Therefore, this Visualising our Transport Networks app can still be used as a decision support tool as it does visualise the congestion in the Wellington City Council area of governance. It will display an observation on how long it takes to get to the origin in the CBD and will be coloured based on an interpolation of the time taken against the distance from the origin. A database has been implemented in order for it to be easier to add newer data sets into the application.
-
-A more focussed subset of the original scope has been delivered.
+A more focused subset of the original scope has been delivered. The delivered, 'Visualising our Network Transports' application runs on a web browser. The application allows users to see the traffic congestion points in different suburbs as displayed by the coloured heat map. Users can filter the visualisation by the time of day and can click and hover on different suburbs to see population information based on the area. Therefore, the application can still be used as a decision support tool as it does visualise the traffic congestion in the Wellington City Council area of governance. It displays an observation of how long it takes to get to the origin point in the CBD and is coloured based on an interpolation of the time taken against the distance from the origin point. A database has been implemented for it to be easier to add newer data sets into the application.
 
 **Backlogged Features**
+`TO BE COMPLETE`
 
 #### Original and Actual Schedule
 
 <!-- _A summary of the original timelines and a summary of deviations from the original plan. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
 
-The team planned sprints prior to them actually occurring in semester one with the support of a sprint planning game. This meant we had an effective roadmap planned ahead of us. However, as we had set due dates that were compulsory for the course; such as the requirements and architecture documents, we did not effectively plan around them in our planning. We also overestimated the time it would take to complete certain issues, and were behind on set deadlines.
+In trimester one, the team planned sprints ahead of time with the support of a sprint planning game. This meant the team had an effective roadmap planned before the start of each sprint. However, as the team had set deadlines that were compulsory for ENGR310 and ENGR302; such as the requirements and the architecture documents, we did not plan around these deadlines in the timeboxing for the sprints. The team also overestimated the time it would take to complete certain issues and were behind on set deadlines.
 
 Another reason for deviation of set product goals was that we were doing this with a new knowledge of project management skills and this project has been developed parallel to other courses with other deadlines. As we came into the second half of the project timeline, the team collectively became better at time estimation with more experience. However, this late meant that we were behind on projected outputs.
 
@@ -52,7 +51,7 @@ Overall, we attempted to stick to the schedule as best we could, but our lack of
 
 <!-- _How much was spent, as a single number. If there has been deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._ -->
 
-| Product           | Reason                                                                                                             | Time                      | Cost                                                            |
+| Product | Reason | Time | Cost |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | --------------------------------------------------------------- |
 | Heroku Hobby Dyno | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | 5th August - 5th November | \$32.32 nzd (based on the conversion rate on the 5th of August) |
 
@@ -101,10 +100,10 @@ In a more technical aspect, the team will focus on having deployment done earlie
 
 ---
 
-| Product          | Reason                                                                                                                                     | Source                  |
+| Product | Reason | Source |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| Heroku Server    | This was used so the application could be deployed so that the user would be able to see changes as they occurred.                         | Heroku                  |
-| Leaflet Library  | This is an open-source javascript library which was used for the interactive map feature.                                                  | Leaflet                 |
-| Suburb Areas     | These points were used to disaggregate the areas on the map in order to display demographic information relevant to the travel population. | Wellington City Council |
-| Spring Libraries | This is an open-source library used for the connection with the frontend in the backend.                                                   | mvn repository          |
-| Travel Data      | This is the data supplied to us by the client in order to visualise the information on the map.                                            | Google Maps API         |
+| Heroku Server | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | Heroku |
+| Leaflet Library | This is an open-source javascript library which was used for the interactive map feature. | Leaflet |
+| Suburb Areas | These points were used to disaggregate the areas on the map in order to display demographic information relevant to the travel population. | Wellington City Council |
+| Spring Libraries | This is an open-source library used for the connection with the frontend in the backend. | mvn repository |
+| Travel Data | This is the data supplied to us by the client in order to visualise the information on the map. | Google Maps API |
