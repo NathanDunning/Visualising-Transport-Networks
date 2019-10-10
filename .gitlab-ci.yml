@@ -41,6 +41,6 @@ heroku:
     - git push -f heroku HEAD:refs/heads/master
   environment:
     name: deployment
-    url: https://stark-sea-22197.herokuapp.com/
+    url: https://visualising-transport-networks.herokuapp.com/
   only:
     - master
