@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid/';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
-import L from "leaflet";
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import {
   getTravelData,
-  getAllTravelLatLng,
   getDemographicData,
   getCities,
   getTime,
   getDate
 } from '../../util/_services/PostData';
 import './MapNav.css';
-
-import // componentDidMount,
-  // componentDidUpdate,
-  // handleDropDownChange,
-  // resetState,
-  // mapStateToProps,
-  // getValidOptions,
-  // dropdown
-  // addQuickInfoBox
-  './NavBarHelpers';
+import './NavBarHelpers';
 
 class MapNav extends Component {
   suburbPolygons = this.props.suburbPolygons;
@@ -44,7 +32,6 @@ class MapNav extends Component {
   // set up and bind dropdown from NavBarHelpers
   constructor(props) {
     super(props);
-    // this.dropdown = dropdown.bind(this);
   }
 
   componentDidMount() {
@@ -52,8 +39,6 @@ class MapNav extends Component {
   }
 
   getData() {
-
-
     getDemographicData('geocode', localStorage.getItem('auth')).then(data => {
       data.map(area => {
         this.state.demographic.push(area[0]);

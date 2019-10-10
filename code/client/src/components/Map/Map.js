@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   getAllTravelLatLng,
-  getDemographicData
 } from "../../util/_services/PostData";
 
 // import {connect} from 'react-redux'
@@ -56,8 +55,6 @@ class Map extends Component {
     const legend = L.control({ position: 'bottomright' });
     legend.onAdd = function (map) {
       const div = L.DomUtil.create('div', 'info legend');
-      const durations = [0, 30, 40];
-      const labels = ['label one', 'label 2'];
 
       div.innerHTML += "<h5>Duration (minutes)</h5>";
       div.innerHTML += '<i style="background: grey"></i><span>No data</span><br>';
@@ -69,14 +66,6 @@ class Map extends Component {
       return div;
     };
     legend.addTo(map);
-
-
-    function getColor(d) {
-      return d > 40 ? '#800026' :
-        d > 30 ? '#FEB24C' :
-          d > 20 ? '#FED976' :
-            '#FFEDA0';
-    }
 
     this.createDemographicUnits();
 
@@ -152,14 +141,14 @@ class Map extends Component {
   }
 
   render() {
-    if (this.props.resetBoolean == 'true') {
+    if (this.props.resetBoolean === 'true') {
       geojson.eachLayer(function (layer) {
         geojson.resetStyle(layer);
       })
       this.props.setResetBoolean('false');
     }
-    if (this.props.resetBoolean == 'false' &&
-      this.props.ldBoolean == 'true') {
+    if (this.props.resetBoolean === 'false' &&
+      this.props.ldBoolean === 'true') {
       var locationDuration = this.props.locationDuration;
 
       geojson.eachLayer(function (layer) {
@@ -264,7 +253,7 @@ class Map extends Component {
       var xi = polyPoints[0][i].lng, yi = polyPoints[0][i].lat;
       var xj = polyPoints[0][j].lng, yj = polyPoints[0][j].lat;
 
-      var intersect = ((yi > y) != (yj > y))
+      var intersect = ((yi > y) !== (yj > y))
         && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
       if (intersect) inside = !inside;
     }
