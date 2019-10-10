@@ -8,33 +8,35 @@
 
 <!-- _All text in italics in this template should be replaced by your answers in regular font. This introductory paragraph should be deleted._ -->
 
+### Introduction
+
+This project transition plan is a detailed description of the procedures and resources required for the transition of the project from Victoria University of Wellington to the client, Chris Vallyon.
+
 ### Assumptions
 
 <!-- _What is assumed to be present for project transition to complete successfully. It could be technical or non-technical resources. These will be the things that have not been explicitly agreed or for which there is some uncertainty. Note that "success" means project integration or addition (see below for definitions)._ -->
 
-Our understanding is that this project will be handed over to an individual or small group of people to be further developed over the third trimester.
+Our understanding is that this project will be handed over to an individual or small group of people to be further developed. Therefore, this section is a guide for the person(s) who will adopt this project.
 
-#### Technical Resources
+**Technical Assumptions**
 
 It is assumed that the person(s) who will continue the development of this project will have experience in the following technical areas.
 
-1. The person(s) should have an understanding of developing web applications built with the React framework.
+1. The person(s) should also have an understanding of applications that follow a client-server architecture.
 
-2. The person(s) should also have an understanding of applications that follow a client-server architecture.
-
-3. The person(s) should have experience with or a willingness to learn the following programming languages:
+2. The person(s) should have experience with or a willingness to learn the following programming languages:
 
    - Javascript (front-end package)
    - CSS (front-end package)
    - Java (back-end and data package)
    - SQL (back-end package)
 
-4. The person(s) should have experience with or a willingness to learn the following frameworks:
+3. The person(s) should have experience with or a willingness to learn the following frameworks:
 
    - React (front-end package)
    - Spring (back-end package)
 
-5. The person(s) should have experience with or a willingness to learn the following libraries:
+4. The person(s) should have experience with or a willingness to learn the following libraries:
 
    - Material UI (front-end package)
      - UI components
@@ -45,35 +47,33 @@ It is assumed that the person(s) who will continue the development of this proje
 
 Is the deployment process (to Heroku) part of the transition plan? I don't believe it is part of the project scope.
 
-#### Non-technical Resources
+**Non-technical Assumptions**
 
-It is assumed that the person(s) who will continue the development of this project will have experience in the following technical areas.
+It is assumed that the person(s) who will continue the development of this project will have experience in the following non-technical areas.
 
-1. The person(s) should have an interest in analysing different modes of transport and the current state of traffic flow on major city networks in New Zealand.
+1. The person(s) should have an interest in data analysis and visualisation.
 
-2. The person(s) should have strong communication, decision-making, and teamwork skills so that they can interact effectively with the client.
+2. The person(s) should be interested in helping improve the transport system in New Zealand.
 
-3. The person(s) should have strong time-management skills so that they can manage the remainder of the project scope effectively.
+3. The person(s) should have strong communication, decision-making, and teamwork skills so that they can interact effectively with the client.
 
-`To be clarified`
+4. The person(s) should have strong time-management skills so that they can manage the remainder of the project scope effectively.
 
-Is this section supposed to consider risks? I'm not sure if my answer to this section is what is expected.
+5. The person(s) should understand and follow the policy of the stakeholders.
 
 ### Organisational
 
 <!-- _Technical and non-technical organisational support required on the part of both parties for project transition to be completed. Note that "success" means project integration or addition (see below for definitions)._ -->
 
-#### Technical Support
+The following items require organisational support on the part of both parties; the team, and the client, for project transition to be completed.
 
-The following items require technical organisational support on the part of both parties, the team, and the client, for project transition to be completed.
+**Technical Organisation**
 
 1. The transition of the project code and code documentation hosted on GitLab.
 
 2. The transition of the project application as deployed on Heroku.
 
-#### Non-technical Support
-
-The following items require non-technical organisational support on the part of both parties, the team, and the client, for project transition to be completed.
+**Non-technical Organisation**
 
 1. The transition of the handover and supporting documents.
 
@@ -83,7 +83,7 @@ The following items require non-technical organisational support on the part of 
 
 The following is a list of the work required for the project transition to be completed.
 
-#### Technical Resources
+**Technical Work**
 
 1. The project code and code documentation hosted on GitLab.
 
@@ -103,13 +103,13 @@ Clarify with the client whether the person(s) who will continue the project will
 
    - Our project application is currently deployed through the Heroku account set up for our project team. The account is owned and managed by James Quilty, who is the admin for the account. He is also the person in charge of the payment of the current subscription plan which allows the application to stay live 24/7.
 
-   - This can be achieved by transferring ownership of the Heroku account with the active deployment to the client. The only issue that may occur with this is that the client will need to maintain the paid subscription for the application to stay live 24/7 as it is currently.
+   - This can be achieved by transferring ownership of the Heroku account with the active deployment to the client. The only issue that may occur with this is that the client will need to maintain the paid subscription for the application to stay live 24/7 as it is currently. James Quilty needs to be aware of this transfer so he can grant the change of users.
 
-#### Non-technical Resources
+**Non-technical Resources**
 
-1. The handover and supporting documents.
+1. The handover documents.
 
-   - This can be achieved by transferring digital copies of the documents via email, in person, through the GitLab repository, or the package of the project code and code documentation.
+   - This can be achieved by transferring digital copies of the documents via email, in person, through the GitLab repository, or the package of the project code and code documentation with the ELF system.
 
 ### Schedule
 
@@ -117,7 +117,7 @@ Clarify with the client whether the person(s) who will continue the project will
 
 The following is a timeline of when the work required needs to be completed for the project transition to be completed.
 
-#### Technical Resources
+**Technical Schedule**
 
 1. Project code and code documentation hosted on GitLab.
 
@@ -129,7 +129,7 @@ The following is a timeline of when the work required needs to be completed for 
 
    - The process for the transition of ownership of the Heroku account will be decided in the next client meeting. The next client meeting has been rescheduled from the 10th of October to the 11th. As this is the day of project handover, we will need to have the GitLab repository in presentable order first, as the Heroku repository is a remote of the project repository.
 
-#### Non-technical Resources
+**Non-technical Schedule**
 
 1. The handover and supporting documents.
 
