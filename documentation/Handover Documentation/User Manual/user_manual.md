@@ -101,17 +101,17 @@ This section defines procedures to maintain the operation of the software where 
 This section defines procedures for normal and unscheduled termination of the system operations and should define how to restart the system.<br>
 
 ##### 5.	Error Handling
-This section addresses the possible error scenarios associated with the application and appropriate solutions to resolve the same. 
+This section addresses the possible error scenarios associated with the application and appropriate solutions to resolve the same. <br>
 
-**Invalid user name or password**
-Entering bad credentials on the login screen pops up this error message. The user is required to enter the correct credentials.
+**Invalid user name or password** <br>
+Entering bad credentials on the login screen pops up this error message. The user is required to enter the correct credentials. <br>
 
-**Error code 404 - API not found**
-The system requires the backend Spring application to be up and running to support the frontend application. Failure to start the backend would result in this error. The solution is to start the server/spring application before starting the client/react componenet.
+**Error code 404 - API not found** <br>
+The system requires the backend Spring application to be up and running to support the frontend application. Failure to start the backend would result in this error. The solution is to start the server/spring application before starting the client/react componenet. <br>
 
-**JDBC Communications link failure** 
-Failure to start the backend database results in this error. The user is required to start the backend MySQL server before starting the server/spring componenet of the application.
+**JDBC Communications link failure** <br>
+Failure to start the backend database results in this error. The user is required to start the backend MySQL server before starting the server/spring componenet of the application. <br>
 
-**Unknown database react_spring**
-The application uses a backend database named react_spring. Failure to create this database on the backend will result in this error. The user is expected to run the SQL scripts provided as part of the handover process or is expected to create the databsae react_spring manually in the backend MySQL data managemet tool.
+**Unknown database react_spring** <br>
+The application uses a backend database named react_spring. Failure to create this database on the backend will result in this error. The user is expected to run the SQL scripts provided as part of the handover process or is expected to create the databsae react_spring manually in the backend MySQL data managemet tool. <br>
 
