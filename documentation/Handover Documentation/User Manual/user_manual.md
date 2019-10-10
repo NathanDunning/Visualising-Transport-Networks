@@ -6,7 +6,7 @@
 
 #### 1. Introduction
 
-The User Manual contains all essential information for the user to make full use of the project - Visulaising Transport Networks, developed as part of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation, and step-by-step procedures for system access and use. <br>
+The User Manual contains all essential information for the user to make full use of the project - Visualising Transport Networks, developed as part of the coursework of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation, and step-by-step procedures for system access and use. <br>
 
 ##### 1.1	Purpose and Scope
 This section provides a description of the purpose and scope of the User Manual. <br>
@@ -27,59 +27,68 @@ This section discusses the business perspective of the user’s primary’ respo
 This section provides a glossary of all terms and abbreviations used in the manual.  If the glossary is several pages or more in length, it may he placed as an appendix. <br>
 
 
-#### 2	SYSTEM CAPABILITIES
+#### 2.	System Capabilities
 This section provides a brief overview of the system and its capabilities. <br>
+
 ##### 2.1	Purpose
-This section describes the purpose of the application system. <br>
+The application, Visualising our Transport Network, is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system developed will be able to run on any browser. The system displays an observation on how long it takes to get to the destination - Wellington CBD from different suburbs on the map, where the zones are coloured based on the time taken to reach the destination. Another major feature of the application is combining demographic information with different travel points which further increases the effectiveness of the display analysis and allow users to make insight-driven decisions based on the visual information. <br>
+
 ##### 2.2	General Description
-This section provides an overview of the system’s capabilities, functions, and operation, including the specific high-level functions performed by the system.  Use graphics and tables, if appropriate. <br>
+The application was developed using a three layer architecture. 
+1. Application layer - Front-end
+2. Middleware - Business Logic
+3. Data layer - Data management
 
-#### 3	DESCRIPTION OF SYSTEM FUNCTIONS
-This section describes each specific function of the system.  In this high-level section, describe any conventions to he used in the associated subsections.  Each of the subsequent sections should be repeated as often as necessary to describe each function within the system.  The term “Function X” in the subsection title is replaced with the name of the function. <br>
-##### 3.1	Function X Title
-This section provides the title of the specific system function. <br>
+**Front-end UI - Client Package**  
+The Front-end UI contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
 
-##### 3.2	Detailed Description of Function
-This section provides a description of each function. Include the following, as appropriate:
+**Business Logic - Server Package**  
+The middleware contains classes responsible for loading data from the SQL Database in the backend and passing it the front-end Application using Spring Rest APIs. The server establishes the connection to the database, builds query based on the user inputs from the frontend, query the database and return the result to the user terminal.
 
-*	Purpose and uses of the function
-*	Initialization of the function, if applicable
-*	Execution options associated with this function
-*	Description of function inputs
-*	Description of expected outputs and results
-*	Relationship to other functions
-*	Summary of function operation
+**Data Package**
+The database will hold all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
 
-##### 3.3	Preparation of Function Inputs
-This section defines required inputs.  These inputs should include the basic data required to operate the system.  The definition of the inputs include the following:
+#### 3.	Description of System Functions
+This sections provides an overview of the different functionalities implemented as a part of developing the application.
 
-*	Title of each input
-*	Description of the inputs, including graphic depictions of display screens
-*	Purpose and use of the inputs
-*	Input medium
-*	Limitations and restrictions
-*	Format and content on inputs, and a descriptive table of all allowable values for the inputs
-*	Sequencing of inputs
-*	Special instructions
-*	Relationship of inputs to outputs
-*	Examples
+##### 3.1	User Login 
+**Description**
+Secure usage of the web application was one of the initial requirement of this project. As a part of this requirement, a login feature was developed and integrated, which prompts the user for appropriate username and password. On entering credentials and once authenticated, the user will be able to access the application. An error popup will be displayed if the credentials does not match with the user information on the backend database. <br>
 
-##### 3.4	Results
-This section describes expected results of the function.  Include the following in the description as applicable: <br>
+**Function Inputs**
+* Text field for user name
+* Text field for user password
+* A button to authenticate the credentials
 
-*	Description of results, using graphics, text, and tables
-*	Form in which the results will appear
-*	Output form and content
-*	Report generation
-*	Instructions on the use of outputs
-*	Restrictions on the use of outputs
-*	Relationship of outputs to inputs
-*	Function-specific error messages
-*	Function-specific or context-sensitive help messages associated with this function
-*	Examples
+**Function Output**
+* Correct credentials - users logs in to the application.
+* Wrong credentials - user is prompted with a error popup.
 
 
-#### 4	OPERATING INSTRUCTIONS
+##### 3.2	Demographic Information 
+**Description**
+Combining the demographic information with the travel points was another requirement of this project. As a part of this requirement, an information tool was developed to display the population information for the corresponding suburb region. User, on hovering over different regions on map, will be able to see the demographic details associated with that specific region. <br>
+
+**Function Inputs**
+* Mouse - Hover over different suburb regions on map.
+
+**Function Output**
+* Information tool on map displays demographic information.
+
+##### 3.3 Transport heat map:
+**Description**
+Visualising the travel time from different regions of the map to the destination - Wellington CBD, is one of the major feature implemented as a part of this application. The Map is seggregated into different regions based on the geographic boundaries of the wellington suburbs. A navigation bar is developed which allows user to query the database based on different time intervals. Based on the user input, the regions are coloured and the user can visualise the traffic congestions of different regions over different time intervals. A legend is added to the bottom left-corner of the map to display the time intervals associated with different colours.<br>
+
+**Function Inputs**
+* Dropdowns to select the city, date, from time and to time on the navigation bar.
+* A button to start the visualisation on the map.
+* A button to reset the map to it's initial state.
+
+**Function Output**
+* Regions on the map are coloured based on the travel time.
+
+
+#### 4.	Operating Instructions
 This section provides detailed, step-by-step system operating instructions. <br>
 
 ##### 4.1	Initiate Operation
@@ -91,12 +100,9 @@ This section defines procedures to maintain the operation of the software where 
 ##### 4.3	Terminate and Restart Operations
 This section defines procedures for normal and unscheduled termination of the system operations and should define how to restart the system.<br>
 
-##### 5	ERROR HANDLING
+##### 5.	Error Handling
 This section should address error message and help facilities.  Additional information and subsections may be added as necessary.  Included in this section should be a list of all possible error messages, including the following: <br>
 
 *	Any numeric error codes associated with the error message
 *	A description of the meaning of the error message
 *	A discussion of how to resolve the error
-
-##### 5.1	HELP FACILITIES
-This section describes any resident help software or any Service or contractor help desk facility that the user can contact for error resolution.  Help desk telephone numbers should be included. <br>
