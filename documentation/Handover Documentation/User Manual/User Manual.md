@@ -1,7 +1,7 @@
 # User Manual
 
-**Project _7_:** _Visualising our Transport Networks_<br>
-**Client:** _Chris Vallyon_<br>
+**Project _7_:** Visualising our Transport Networks<br>
+**Client:** Chris Vallyon<br>
 **Date:** 11 October 2019<br>
 
 ### 1. Introduction <TO DO>
