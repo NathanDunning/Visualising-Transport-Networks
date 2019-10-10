@@ -12,4 +12,15 @@ In the console, you can expect to encounter several warning messages. These are 
 
 ## Heroku Link
 
-https://visualising-transport-networks.herokuapp.com/home
+https://visualising-transport-networks.herokuapp.com/
+
+## Troubleshooting
+
+If the `npm start` command doesn't work then you may need to install Node.js to your system. The following address is a link to the download page for Node.js:
+
+https://nodejs.org/en/download/
+
+Otherwise you may need to ensure that you are at the correct level of the project directory. You should navigate to the root of the project. The address should be similar to either of the addresses shown below:
+
+`C://.../visualising-our-transport-networks`  
+`/Users/.../visualising-our-transport-networks`
