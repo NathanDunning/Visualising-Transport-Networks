@@ -4,7 +4,7 @@
 **Client:** _Chris Vallyon_<br>
 **Date:** 11 October 2019<br>
 
-### 1. Introduction
+### 1. Introduction <TO DO>
 
 The User Manual contains all essential information for the user to make full use of the project - Visualising Transport Networks, developed as part of the coursework of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation, and step-by-step procedures for system access and use. <br>
 
@@ -141,7 +141,7 @@ Visualising the travel time from different regions of the map to the destination
 * Regions on the map are coloured based on the travel time.
 
 
-### 4.	Operating Instructions
+### 4.	Operating Instructions <TO DO>
 This section provides detailed, step-by-step system operating instructions. <br>
 
 #### 4.1	Initiate Operation
