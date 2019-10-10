@@ -47,16 +47,13 @@ Another reason for having deviated from the set product goals was that we were u
 
 Furthermore, there were further delays due to a miscommunication with the client concerning the use of mesh block regions versus area unit regions. Area unit regions were also not the most applicable to the application and so the team had to instead source GeoJSON points for suburb areas. This meant that the disaggregation of the map regions took longer than expected.
 
-Overall, the team attempted to stick to the schedule as best as possible, but the team's lack of project management experience and the effects of unmitigated risks set the team behind schedule. The team's last few weeks served the most visible progress for the client in the application, and ideally, this should have happened earlier, but due to this increase in work, the handover documentation and actual product was rushed nearing closing.
-
-`TO BE CLARIFIED`
-The above section doesn't make sense, especially the last sentence. Please clarify this.
+Overall, the team attempted to stick to the schedule as best as possible, however, the team's lack of project management experience and the effects of unforeseen risks set the team behind schedule. The team's last few weeks of the project served as the having the most visible progress for the client. Ideally, the progress should have occurred earlier and due to this increase in work the handover documentation and actual product was rushed nearing project closing.
 
 #### Delivered Expenditure
 
 <!-- _How much was spent, as a single number. If there has been a deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._ -->
 
-| Product | Reason | Time | Cost |
+| Product           | Reason                                                                                                             | Time                      | Cost                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | --------------------------------------------------------------- |
 | Heroku Hobby Dyno | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | 5th August - 5th November | \$32.32 NZD (based on the conversion rate on the 5th of August) |
 
@@ -81,7 +78,7 @@ Yes, we managed to implement the list of features for the delivered scope.
 Even though the team was new to the concept of agile project management, we felt that we should have better-managed project requirements earlier on. We also felt that resource procurement should have been prioritised. This would have meant us attempting to involve the stakeholders earlier when making project decisions. It also would have aided in minimising the scope and in sourcing the data resources we needed to have more noticeable outputs for the client.
 
 **Describe one example of what went right on this project?** <br>
-Pre-booking client meetings helped to push internal team goals in order to deliver scope progress each meeting. The original scope description was downsized by many features so that the team could have a reasonable delivered product which arose due to the  team managing this project parallel to other courses. Pair programming in the second half of the project helped with internal knowledge sharing and integration of the different parts of the application.
+Pre-booking client meetings helped to push internal team goals in order to deliver scope progress each meeting. The original scope description was downsized by many features so that the team could have a reasonable delivered product which arose due to the team managing this project parallel to other courses. Pair programming in the second half of the project helped with internal knowledge sharing and integration of the different parts of the application.
 
 **Describe one example of what went wrong on this project?** <br>
 Collectively the team would have benefited from starting deployment earlier as it took much longer than we anticipated and having had the deployment in place would have been effective to receive better feedback from the client. Risks should have also been better managed as they were not evaluated often and it would have perhaps been advantageous for the team to use a risk board. GitLab boards could have been used better in terms of issue commenting and time estimation and time boxing.
@@ -103,10 +100,10 @@ In a more technical aspect, the team will focus on having deployment done earlie
 
 ---
 
-| Product | Reason | Source |
+| Product          | Reason                                                                                                                                     | Source                  |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| Heroku Server | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | Heroku |
-| Leaflet Library | This is an open-source javascript library which was used for the interactive map feature. | Leaflet |
-| Suburb Areas | These points were used to disaggregate the areas on the map in order to display demographic information relevant to the travel population. | Wellington City Council |
-| Spring Libraries | This is an open-source library used for the connection with the frontend in the backend. | mvn repository |
-| Travel Data | This is the data supplied to us by the client in order to visualise the information on the map. | Google Maps API |
+| Heroku Server    | This was used so the application could be deployed so that the user would be able to see changes as they occurred.                         | Heroku                  |
+| Leaflet Library  | This is an open-source javascript library which was used for the interactive map feature.                                                  | Leaflet                 |
+| Suburb Areas     | These points were used to disaggregate the areas on the map in order to display demographic information relevant to the travel population. | Wellington City Council |
+| Spring Libraries | This is an open-source library used for the connection with the frontend in the backend.                                                   | mvn repository          |
+| Travel Data      | This is the data supplied to us by the client in order to visualise the information on the map.                                            | Google Maps API         |
