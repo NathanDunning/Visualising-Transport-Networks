@@ -41,7 +41,7 @@ A more focused subset of the original scope has been delivered. The delivered, '
 
 <!-- _A summary of the original timelines and a summary of deviations from the original plan. This should convey to the reader those aspects of the project results which are not obvious from other documents._ -->
 
-In trimester one, the team planned sprints ahead of time with the support of a sprint planning game. This meant the team had an effective roadmap planned before the start of each sprint. However, as the team had set deadlines that were compulsory for ENGR310 and ENGR302; such as the requirements and the architecture documents, we did not plan around these deadlines in the timeboxing for the sprints. The team also overestimated the time it would take to complete certain issues and were behind on set deadlines.
+In trimester one, the team planned sprints ahead of time with the support of a sprint planning game. This meant the team had an effective roadmap planned before the start of each sprint. However, as the team had set deadlines that were compulsory for ENGR301 and ENGR302; such as the requirements and the architecture documents, we did not plan around these deadlines in the timeboxing for the sprints. The team also overestimated the time it would take to complete certain issues and were behind on set deadlines.
 
 Another reason for having deviated from the set product goals was that we were undertaking the project with new knowledge of project management skills and was developed parallel to other courses with their own set of deadlines. As we came into the second half of the project timeline, the team collectively became better at time estimation with more experience. However, this late meant that we were behind on projected outputs.
 
