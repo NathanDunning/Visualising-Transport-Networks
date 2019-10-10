@@ -54,48 +54,46 @@ The above section doesn't make sense, especially the last sentence. Please clari
 
 #### Delivered Expenditure
 
-<!-- _How much was spent, as a single number. If there has been deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._ -->
+<!-- _How much was spent, as a single number. If there has been a deviation from the original plan then this should be explained in summary. Projects with no expenditure should state “No expenditure” for this section._ -->
 
 | Product | Reason | Time | Cost |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | --------------------------------------------------------------- |
-| Heroku Hobby Dyno | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | 5th August - 5th November | \$32.32 nzd (based on the conversion rate on the 5th of August) |
+| Heroku Hobby Dyno | This was used so the application could be deployed so that the user would be able to see changes as they occurred. | 5th August - 5th November | \$32.32 NZD (based on the conversion rate on the 5th of August) |
 
 #### Project Self-Assessment
 
 _A short statement of the team’s assessment of the delivered project, with a focus on the technical aspects. This should convey to the reader those aspects of the project results which are not obvious from other documents._
 
-**THIS WILL BE DONE AFTER CLIENT MEETING**
-
 #### Lessons Learned
 
 <!--
-_Lessons learned which are of significance, impact and priority to the client. The focus here is on the lessons-learned at the intersection of the technical and management aspects of your project which are relevant to the client. Projects which have encountered significant technical or non-technical issues which will be of particular relevance to the client or the client's organisation should document these in this section._ -->
+_Lessons learned which are of significance, impact and priority to the client. The focus here is on the lessons learned at the intersection of the technical and management aspects of your project which are relevant to the client. Projects which have encountered significant technical or non-technical issues which will be of particular relevance to the client or the client's organisation should document these in this section._ -->
 
-This section covers the lessons learned which are of significance impact and priority to the client. The focus here is on the lessons-learned at the intersection of the technical and management aspects of Project 7's product which are relevant to the client. A breakdown of the lessons learned are below and fall into three primary categories; management, communication, and deployment.
+This section covers the lessons-learned which are of significance and priority to the client. The focus here is on the lessons learned at the intersection of the technical and management aspects of the team's delivered product which are relevant to the client. A breakdown of the lessons-learned are below and fall into three primary categories; management, communication, and deployment.
 
 **Did the project meet goals** <br>
-The team did not meet the original scope, however, the one that was minimised in meetings was met. In terms of goals with time, it was rough in the beginning for us to keep with deadlines, but we re-evaluated time as we went further into the project.
+The team did not meet the original scope, however, the focused subset of the original scope, which was determined in client-team meetings, was successfully met. In terms of time management, it was difficult in the beginning for the team to meet deadlines, but we learnt to re-evaluate deadlines as we progressed with the project.
 
 **Did we meet the project success criteria listed in the scope statement?** <br>
-Yes, we managed to get the functionality for the delivered scope.
+Yes, we managed to implement the list of features for the delivered scope.
 
 **In terms of managing the project, what were the main lessons your team learned from this project?** <br>
-Even though we were new to the whole concept of agile project management, we collectively felt as though we should have managed project requirements earlier on, and resource procurement should have been prioritised. This involved all of us attempting to involve the stakeholders earlier into project decisions in order to minimise the scope and get the resources in order to have more noticeable outputs for the client.
+Even though the team was new to the concept of agile project management, we felt that we should have better-managed project requirements earlier on. We also felt that resource procurement should have been prioritised. This would have meant us attempting to involve the stakeholders earlier when making project decisions. It also would have aided in minimising the scope and in sourcing the data resources we needed to have more noticeable outputs for the client.
 
 **Describe one example of what went right on this project?** <br>
-Pre-booking client meetings helped to push internal team goals in order to deliver progress each meetings. Scope description was downsized a lot in order to have a reasonable deliverable as the team was managing this parallel to other courses. Pair programming in the second half of the project helped with internal knowledge sharing and integration of the different parts of the application.
+Pre-booking client meetings helped to push internal team goals in order to deliver scope progress each meeting. The original scope description was downsized by many features so that the team could have a reasonable delivered product which arose due to the  team managing this project parallel to other courses. Pair programming in the second half of the project helped with internal knowledge sharing and integration of the different parts of the application.
 
 **Describe one example of what went wrong on this project?** <br>
-Collectively the team would have benefited from starting deployment earlier as it took too long and we it would have been good to get concise project feedback from the client. Risks should have also been better managed as they were not evaluated very often and it would have perhaps been advantageous for the team to use a risk board. Gitlab boards could have been used better in terms of issue commenting and time estimation and time boxing.
+Collectively the team would have benefited from starting deployment earlier as it took much longer than we anticipated and having had the deployment in place would have been effective to receive better feedback from the client. Risks should have also been better managed as they were not evaluated often and it would have perhaps been advantageous for the team to use a risk board. GitLab boards could have been used better in terms of issue commenting and time estimation and time boxing.
 
 **What surprises/shortcomings did the team have to deal with?** <br>
-The team did not take into account the risk of our deployment server running out of room. Therefore, this deployment too far too long. This would have been mitigated with a more effective risk plan.
+The team did not account for the risk that the Heroku deployment could exceed the memory allocation associated with our subscription plan. As a result of this, the deployment process took too long. This would have been mitigated with a more effective risk plan.
 
 **What project circumstances were not anticipated?** <br>
-A team member leaving and another team member joining the team was something that was not anticipated by the team. However, this did not effect us negatively.
+A team member leaving and another team member joining the team was not anticipated by the team. That said, this did not affect us negatively as the new member integrated themselves concisely and quickly.
 
 **Describe what you will do differently on the next project based on your experience working on this project?** <br>
-For the management aspect, the team collectively agrees that having more frequent planning games in the future so we can refresh the issues each sprint would benefit us, as at a point with this project, the backlog was too old. Issues will also been broken down more to time box effectively. Increased knowledge sharing will occur earlier by the process of having more frequent stand-ups and pair/mob programming sessions.
+For the management aspect, the team collectively agrees that having more frequent planning games in the future so we can refresh the issues each sprint would benefit us, as at a point with this project, the backlog was too old. Issues will also be broken down more to time box effectively. Increased knowledge sharing will occur earlier by the process of having more frequent stand-ups and pair/mob programming sessions.
 
 In a more technical aspect, the team will focus on having deployment done earlier in the future to have more client feedback in order to maintain the delivery of a stronger final product.
 
