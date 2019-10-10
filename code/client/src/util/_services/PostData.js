@@ -27,6 +27,14 @@ export function PostData(type, auth) {
     });
 }
 
+/**
+ * Fetches travel data rom the database
+ * @param {*} date 
+ * @param {*} from_time 
+ * @param {*} to_time 
+ * @param {*} travelPoints 
+ * @param {*} auth 
+ */
 export function getTravelData(date, from_time, to_time, travelPoints, auth) {
   const BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
   const requestOptions = {
@@ -191,7 +199,12 @@ export function getTravelData(date, from_time, to_time, travelPoints, auth) {
                   });
               }
 
-
+/**
+ * Parses through return data in JSON object and 
+ * checks the status of the response before throwing an error
+ * if reponse unsuccessful else returning parsed object.
+ * @param {*} response JSON object
+ */
 function handleResponse(response) {
   return response.text().then((text) => {
     const data = text && JSON.parse(text);

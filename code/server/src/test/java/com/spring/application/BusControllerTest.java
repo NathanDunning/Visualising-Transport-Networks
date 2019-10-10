@@ -6,7 +6,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,38 +51,32 @@ public class BusControllerTest {
 	@Test
 	@WithMockUser
 	public void getOneBusTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		Bus bus = new Bus();
 		bus.setCity("wellington");
-
 		when(busService.findOneBus()).thenReturn(bus);
-
 		mvc.perform(get("/get/buses/one").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
-	/*@Test
+	@Test
 	@WithMockUser
 	public void getBus() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		Bus bus = new Bus();
-		bus.setCity("wellington");
-
-		List<Bus> buses = Arrays.asList(bus);
-		Request request = new Request("wellington", "944", "960", "2018-11-28");
-		when(busService.findBusTravelDetails(request)).thenReturn(buses);
+		Map<Integer, Map<String, Integer>> timeSuburbDurations = new HashMap<>();
+		Map<String, Integer> suburbDuration = new HashMap<>();
+		suburbDuration.put("Aro Valley", 18);
+		timeSuburbDurations.put(744, suburbDuration);
+		Request request = new Request("944", "960", "2018-11-28");
+		when(busService.findBusTravelDetails(request)).thenReturn(timeSuburbDurations);
 
 		mvc.perform(post("/get/bus/travelDetails").content(asJsonString(request))
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
-	}*/
+	}
 
 	@Test
 	@WithMockUser
 	public void getAllBus() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		Bus bus = new Bus();
 		bus.setCity("wellington");
 		List<Object> buses = Arrays.asList(bus);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
 		when(busService.findAllBusTravelDetails()).thenReturn(buses);
 
 		mvc.perform(get("/get/bus/travelAllDetails").contentType(MediaType.APPLICATION_JSON))
@@ -89,10 +86,8 @@ public class BusControllerTest {
 	@Test
 	@WithMockUser
 	public void getCities() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		String city = "Wellington";
 		List<Object> cities = Arrays.asList(city);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
 		when(busService.findCities()).thenReturn(cities);
 
 		mvc.perform(get("/get/cities").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
@@ -101,24 +96,18 @@ public class BusControllerTest {
 	@Test
 	@WithMockUser
 	public void getTime() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		String time = "10 40";
 		List<Object> times = Arrays.asList(time);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
-		when(busService.findCities()).thenReturn(times);
-
+		when(busService.findTime()).thenReturn(times);
 		mvc.perform(get("/get/time").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
 	@Test
 	@WithMockUser
 	public void getDates() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		String date = "2018-09-12";
-		List<Object> dates = Arrays.asList(date);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
-		when(busService.findCities()).thenReturn(dates);
-
+		Date date = null;
+		List<Date> dates = Arrays.asList(date);
+		when(busService.findDate()).thenReturn(dates);
 		mvc.perform(get("/get/dates").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 

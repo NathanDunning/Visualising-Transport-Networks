@@ -46,7 +46,6 @@ public class DemographControllerTest {
 	@Test
 	@WithMockUser
 	public void getDemographTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		mvc.perform(
 				get("/get/area/geocodes").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
@@ -54,18 +53,12 @@ public class DemographControllerTest {
 
 	@WithMockUser
 	public void getAreaGeocodesTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		List<Object[]> demograph = new ArrayList<>();
 		Object[] areapop = new Object[2];
 		areapop[0] = "thorndon";
 		areapop[1] = 3434;
-		//demograph.add(arg0)[0][0] = "thorndon";
 		demograph.add(areapop);
-
-		//List<Object[]> demographs = 
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
 		when(demographService.findAllAreaGeoCode()).thenReturn(demograph);
-
 		mvc.perform(get("/get/area/geocodes").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 

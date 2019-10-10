@@ -4,12 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import {emptyObject} from '../../util/nested_objects';
-import {capitalise} from '../../util/string_manipulation';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import Popover from 'react-bootstrap/Popover'
 import Button from "@material-ui/core/Button/Button";
 import Popup from 'reactjs-popup'
 
