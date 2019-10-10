@@ -27,8 +27,8 @@ This section discusses the business perspective of the user’s primary’ respo
 This section provides a glossary of all terms and abbreviations used in the manual.  If the glossary is several pages or more in length, it may he placed as an appendix. <br>
 
 
-### 2.	System Capabilities
-This section provides a brief overview of the system and its capabilities. <br>
+### 2.	System Capabilities and Requirements
+This section provides a brief overview of the system, its capabilities and its requirements. <br>
 
 #### 2.1	Purpose
 The application, Visualising our Transport Network, is a decision support tool designed to allow transport planners, road control authorities and public transport operators gain insight on effective transport decisions which support the existing network pathways by a visual analysis of the transport flow data. The system developed will be able to run on any browser. The system displays an observation on how long it takes to get to the destination - Wellington CBD from different suburbs on the map, where the zones are coloured based on the time taken to reach the destination. Another major feature of the application is combining demographic information with different travel points which further increases the effectiveness of the display analysis and allow users to make insight-driven decisions based on the visual information. <br>
@@ -47,6 +47,59 @@ The middleware contains classes responsible for loading data from the SQL Databa
 
 **Data Package** <br>
 The database holds all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
+
+#### 2.3	System Requirements
+As the application runs on a three layer architecture, it requires the frontend and backend componenets to be up and running. The flow is that the backend database component is used by middleware which inturn is used by the frontend framework. So the process of intialising the components show start from database to middleware and then the frontend component.
+
+**Client/Frontend Component**
+* The frontend uses the react componenet.
+* This requires the installation of node package manager (npm).
+
+**Server/Middleware Component**
+* The server component uses the spring framework.
+* This requires the installation of maven to run the spring framework.
+* A Java version 1.8 is required to be installed in the hosting server.
+
+**Data/Backend Component**
+* The data component uses MySQL data management tool.
+* This requires the installation of MySQL server in the hosting server.
+* The user name and password of the MySQL server should be root and password respectively.
+* Once the MySQL server is set up, a database named react_spring should be created.
+* The backend schema should follow the same table name and column names as mentioned in the below sample schema.
+
+**Sample database schema**
+* user:
+
+| user_id   | email_id      | password                                                     |
+|:---------:|:-------------:|--------------------------------------------------------------|
+|       7   | project7        | $2a$10$vuDcy6bbNMpAVw3h1dLnVe2mXQVSuHp7IDC6z0PaysWWlUqz3zl06 |
+
+* role:
+
+| roleid    | role		    |
+|:--------: |:-------------:|
+|       2   | ADMIN	        |
+
+* user_role:
+
+| user_id   | roleid	|
+|:--------: |:---------:|
+|       7   | 2		|
+
+* bus_from
+
+| lat         | lng         | duration | distance | city       | date        | time    |
+|:-----------:|:-----------:|:--------:|:--------:|:---------: |:----------------:|:----------------:|
+ |-41.2792895 | -41.2792895 |     3494 |    25057 | Wellington | 2018-11-28 00:00:00 | 0944  | 
+ 
+
+* demograph
+
+| area         | population   |
+|:-----------:|:-----------:|
+ |Highbury  | 3120  |
+
+
 
 ### 3.	Description of System Functions
 This sections provides an overview of the different functionalities implemented as a part of developing the application.
