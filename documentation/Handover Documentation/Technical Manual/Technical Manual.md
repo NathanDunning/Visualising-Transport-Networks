@@ -181,7 +181,7 @@ run: `npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
 
 To run existing test, run `npm test` at root level.
 
-### Deployment <ADD MORE>
+<!-- ### Deployment <ADD MORE> -->
 
 ## Possible Errors <ADD MORE>
 
