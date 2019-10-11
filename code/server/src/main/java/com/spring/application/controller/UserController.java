@@ -23,7 +23,6 @@ public class UserController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Object> currentLoginUserDetails(){
-    	System.out.println("----------- inside home ----------------");
     	 return new ResponseEntity(userRepository.findByEmail(securityService.findLoggedInUsername()), HttpStatus.OK);
     }
 	

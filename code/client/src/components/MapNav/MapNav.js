@@ -4,25 +4,18 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/styles';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import {
-  getAllTravelLatLng,
+  getTravelData,
   getDemographicData,
   getCities,
   getTime,
   getDate
 } from '../../util/_services/PostData';
 import './MapNav.css';
-
-import // componentDidMount,
-// componentDidUpdate,
-// handleDropDownChange,
-// resetState,
-// mapStateToProps,
-// getValidOptions,
-// dropdown
-// addQuickInfoBox
-'./NavBarHelpers';
+import './NavBarHelpers';
 
 class MapNav extends Component {
+  suburbPolygons = this.props.suburbPolygons;
+  suburbLatLngs = this.props.suburbLatLngs;
   state = {
     city: 'city',
     to: 'to',
@@ -39,7 +32,6 @@ class MapNav extends Component {
   // set up and bind dropdown from NavBarHelpers
   constructor(props) {
     super(props);
-    // this.dropdown = dropdown.bind(this);
   }
 
   componentDidMount() {
@@ -47,13 +39,9 @@ class MapNav extends Component {
   }
 
   getData() {
-    getAllTravelLatLng(localStorage.getItem('auth')).then(data => {
-      console.log(data);
-    });
-
     getDemographicData('geocode', localStorage.getItem('auth')).then(data => {
       data.map(area => {
-        this.state.demographic.push(area.areaName);
+        this.state.demographic.push(area[0]);
       });
     });
 
@@ -62,7 +50,14 @@ class MapNav extends Component {
     });
 
     getTime('time', localStorage.getItem('auth')).then(data => {
-      this.setState({ times: data });
+      console.log(data)
+      let times = []
+      data.map(time => {
+        console.log(typeof (time))
+        time = time.toString().replace(/(.{2})$/, ':$1');
+        times.push(time)
+      })
+      this.setState({ times: times });
     });
 
     getDate('date', localStorage.getItem('auth')).then(data => {
@@ -77,6 +72,7 @@ class MapNav extends Component {
   };
 
   handleFromTimeChange = event => {
+
     this.setState({ from: event.target.value });
   };
 
@@ -108,6 +104,25 @@ class MapNav extends Component {
     }
   }));
 
+  visualise = () => {
+    getTravelData(
+      this.state.date,
+      this.state.from,
+      this.state.to,
+      this.suburbLatLngs,
+      localStorage.getItem('auth')).then(data => {
+        Object.entries(data).forEach((time, index) => {
+          setTimeout(() => {
+            this.props.setLocationDuration(time[1], "true");
+          }, 2000 * index);
+        });
+      });
+  };
+
+  resetBoolean = () => {
+    this.props.setResetBoolean('true');
+  }
+
   render() {
     // render a grid that holds dropdown menu options
     return (
@@ -132,6 +147,27 @@ class MapNav extends Component {
                     <MenuItem key={city} value={city}>
                       {' '}
                       {city}{' '}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Grid>
+
+
+
+          <Grid item>
+            <FormControl>
+              <InputLabel>Date</InputLabel>
+              <Select
+                value={this.state.date}
+                style={{ width: `150px` }}
+                onChange={this.handleDateChange}>
+                {this.state.dates.map(date => {
+                  return (
+                    <MenuItem key={date} value={date}>
+                      {' '}
+                      {date}{' '}
                     </MenuItem>
                   );
                 })}
@@ -176,46 +212,43 @@ class MapNav extends Component {
               </Select>
             </FormControl>
           </Grid>
+        </Grid>
 
-          <Grid item>
-            <FormControl>
-              <InputLabel>Location</InputLabel>
-              <Select
-                value={this.state.location}
-                style={{ width: `150px` }}
-                onChange={this.handleLocationChange}>
-                {this.state.demographic.map(area => {
-                  return (
-                    <MenuItem key={area} value={area}>
-                      {' '}
-                      {area}{' '}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+        <Grid
+          container
+          direction='row'
+          justify='center'
+          style={{
+            paddingTop: '25px',
+          }}>
+
+          <Grid item
+            style={{
+              marginRight: '10px'
+            }}>
+
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              className='button'
+              onClick={this.visualise}>
+              Visualise
+              </Button>
           </Grid>
 
           <Grid item>
-            <FormControl>
-              <InputLabel>Date</InputLabel>
-              <Select
-                value={this.state.date}
-                style={{ width: `150px` }}
-                onChange={this.handleDateChange}>
-                {this.state.dates.map(date => {
-                  return (
-                    <MenuItem key={date} value={date}>
-                      {' '}
-                      {date}{' '}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              className='button'
+              onClick={this.resetBoolean}>
+              Reset
+              </Button>
           </Grid>
         </Grid>
-      </div>
+      </div >
     );
   }
 }

@@ -4,6 +4,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,7 +46,6 @@ public class DemographControllerTest {
 	@Test
 	@WithMockUser
 	public void getDemographTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
 		mvc.perform(
 				get("/get/area/geocodes").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
@@ -53,30 +53,13 @@ public class DemographControllerTest {
 
 	@WithMockUser
 	public void getAreaGeocodesTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		AreaDemograph demograph = new AreaDemograph();
-		demograph.setAreaName("thorndon");
-		demograph.setLatitude(-41.2322);
-		demograph.setLongitude(174.53434);
-		demograph.setPopulation(3454);
-
-		List<AreaDemograph> demographs = Arrays.asList(demograph);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
-		when(demographService.findAllAreaGeoCode()).thenReturn(demographs);
-
+		List<Object[]> demograph = new ArrayList<>();
+		Object[] areapop = new Object[2];
+		areapop[0] = "thorndon";
+		areapop[1] = 3434;
+		demograph.add(areapop);
+		when(demographService.findAllAreaGeoCode()).thenReturn(demograph);
 		mvc.perform(get("/get/area/geocodes").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
-	}
-
-	@Test
-	@WithMockUser
-	public void getLatLngTest() throws Exception {
-		// BusService mock = org.mockito.Mockito.mock(BusService.class);
-		String latlng = "-41.234 174.4232";
-		List<Object> demographs = Arrays.asList(latlng);
-		// Request request = new Request("wellington", 944, 960, "2018-11-28");
-		when(demographService.findAllAreaLatLng()).thenReturn(demographs);
-
-		mvc.perform(get("/get/area/latlng").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
 }

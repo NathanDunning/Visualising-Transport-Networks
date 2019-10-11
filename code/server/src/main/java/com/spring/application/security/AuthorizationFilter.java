@@ -26,7 +26,6 @@ public class AuthorizationFilter implements Filter {
 
     public AuthorizationFilter(String[] allowedOrigins) {
         super();
-        System.out.println("------------------ Allowed origins ----------: " + allowedOrigins );
         this.allowedOrigins = new HashSet<>(Arrays.asList(allowedOrigins));
     }
 
@@ -38,7 +37,6 @@ public class AuthorizationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-    	System.out.println("----------------- Inside do filter ----------------");
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
         HttpServletResponse httpResponse = (HttpServletResponse) response;

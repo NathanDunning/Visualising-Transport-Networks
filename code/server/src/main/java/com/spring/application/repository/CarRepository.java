@@ -20,7 +20,7 @@ public interface CarRepository extends PagingAndSortingRepository<Car, Long> {
     Car findCar();
     
     @Query(value = FIND_CAR_DETAILS, nativeQuery = true)
-	List<Car> findCarDetails(@Param("from_time") int from_time, @Param("to_time") int to_time, @Param("date") String date);
+	List<Car> findCarDetails(@Param("from_time") String from_time, @Param("to_time") String to_time, @Param("date") String date);
 
 
 }

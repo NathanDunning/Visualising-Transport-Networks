@@ -116,7 +116,7 @@ export const MenuBar = props => {
             {props.pageName}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           </Typography>
           <Typography variant='subtitle1' noWrap>
-            Visualing Our Transport Networks
+            Visualising Our Transport Networks
           </Typography>
         </Toolbar>
       </AppBar>
@@ -136,8 +136,8 @@ export const MenuBar = props => {
             {theme.direction === 'ltr' ? (
               <ChevronLeftIcon />
             ) : (
-              <ChevronRightIcon />
-            )}
+                <ChevronRightIcon />
+              )}
           </IconButton>
         </div>
         <Divider />

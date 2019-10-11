@@ -28,7 +28,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-    	System.out.println("----------- inside load user name and password---------");
         User user = userRepository.findByEmail(email);
 
         if (user == null){
@@ -42,7 +41,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-    	System.out.println("----------- inside map user to roles---------");
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
                 .collect(Collectors.toList());

@@ -42,13 +42,12 @@ public class UserControllerTest {
 	private UserRepository userRepository;
 
 	@Before
-    public void setUp() {
-        User alex = new User();
-        alex.setEmail("unit@test.com");
+	public void setUp() {
+		User alex = new User();
+		alex.setEmail("unit@test.com");
 
-        Mockito.when(userRepository.findByEmail(alex.getEmail()))
-          .thenReturn(alex);
-    }
+		Mockito.when(userRepository.findByEmail(alex.getEmail())).thenReturn(alex);
+	}
 
 	@Test
 	@WithMockUser
@@ -67,7 +66,7 @@ public class UserControllerTest {
 	public void saveUserTest() {
 		User user = new User();
 		user.setEmail("unit@test.com");
-		userService.save(user,false);
+		userService.save(user, false);
 		User found = userRepository.findByEmail(user.getEmail());
 		assertEquals(found.getEmail(), user.getEmail());
 	}

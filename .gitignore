@@ -136,6 +136,11 @@ out/
 **.iml
 code/server/target/
 
+# Eclipse
+*.classpath
+*.project
+*.settings
+
 # VSCode
 **.vscode
 
@@ -182,3 +187,4 @@ fabric.properties
 public/available.json
 #public/cities.json
 build
+code/client/public/
