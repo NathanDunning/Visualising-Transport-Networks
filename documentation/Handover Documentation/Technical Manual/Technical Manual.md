@@ -4,11 +4,9 @@
 **Client:** Chris Vallyon<br>
 **Date:** 11 October 2019<br>
 
-<!-- This document is code documentation for our project. It can describe the code architecture and semantics of each package. It can include code snippets if needed to describe code behaviour. -->
+## Overview
 
-## Overview <TO DO>
-
-The Technical Manual provides documentation for developers to take on the project - Visualising Our Transport Networks.<br>
+The Technical Manual is code documentation for out project. It describes the code architecture and semantics of the program. It includes some code snippets to describe code behaviour.
 
 The application was developed using a three layer architecture.
 
@@ -94,8 +92,6 @@ React is a very flexible library for buliding JavaScript web applications. The w
 For documentation for React, see:
 https://reactjs.org/docs/getting-started.html
 
-### React Components <ADD MORE>
-
 ### React Component Lifecycle
 
 Lifecycle methods are a set of functions called during different phases of the component lifecycle. The main React lifecycle method used in this project.
@@ -124,23 +120,28 @@ For more information, see:
 https://material-ui.com/.
 
 ### Spring Framework
+
 Spring framework is used to support frontend with all the data required. All the data retrieval and processing is done in this middleware component. The data is exposed via REST APIs which are called by the frontend React application. <br>
 
 The application currently uses the spring version 1.5.10. The application is run by using Maven. Below are some of the componenets of spring used to develop this application. <br>
 
 #### Spring-Security
+
 Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
 
 #### Spring-JDBC
-Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. It internally uses JDBC api and reduces the challenges in using normal Java JDBC connections like, 
-* The need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
-* The need to perform exception handling code on the database logic.
-* The need to handle transaction.
-* Repetition of all these codes from one to another database logic is a time consuming task.
+
+Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. It internally uses JDBC api and reduces the challenges in using normal Java JDBC connections like,
+
+- The need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
+- The need to perform exception handling code on the database logic.
+- The need to handle transaction.
+- Repetition of all these codes from one to another database logic is a time consuming task.
 
 A model created in the Spring MVC framework, would automatically create all the required dependencies (tables, columns, foreign keys etc.) in the backend MySQL database. It reduces the repetition work of maintaining the same schema both in backend and middleware.
 
 #### Jacoco-plugin
+
 Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
 
 ### Spring-Security
@@ -168,9 +169,8 @@ Code coverage is a software metric used to measure how many lines of our code ar
 
 The tests in this project are written with React libraries Jest and Enzyme
 
-### Deployment <ADD MORE>
+> > > > > > > 2753>b747d8a8ed08e4f52f5219c8363f553bc006
 
->>>>>>> fa0c240623ef3f112659b27b32a00c62f195dce6
 ## Possible Errors <ADD MORE>
 
 **Error code 404 - API not found** <br>
