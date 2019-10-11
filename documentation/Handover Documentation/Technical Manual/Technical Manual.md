@@ -88,7 +88,13 @@ This section provides detailed, step-by-step system operating instructions. <br>
 
 ### React.js
 
-With exception to data storage, the entire system is built as one single application using the React framework.
+With exception to data storage, the entire system is built as one single application using the current version of the React framework. Future development of this application will need take versioning into consideration as React.js is a frequently updated framework and some components/syntax may or may not be compatible with future versions of React.
+
+This application currently uses React version: **16.9.0**
+
+React is a very flexible library for buliding JavaScript web applications. The whole UI is divided into different components.
+
+https://reactjs.org/docs/getting-started.html
 
 #### Components <ADD MORE>
 
