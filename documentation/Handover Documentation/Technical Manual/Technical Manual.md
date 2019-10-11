@@ -4,11 +4,9 @@
 **Client:** Chris Vallyon<br>
 **Date:** 11 October 2019<br>
 
-<!-- This document is code documentation for our project. It can describe the code architecture and semantics of each package. It can include code snippets if needed to describe code behaviour. -->
+## Overview
 
-## Overview <TO DO>
-
-The Technical Manual provides documentation for developers to take on the project - Visualising Our Transport Networks.<br>
+The Technical Manual is code documentation for out project. It describes the code architecture and semantics of the program. It includes some code snippets to describe code behaviour.
 
 The application was developed using a three layer architecture.
 
@@ -94,8 +92,6 @@ React is a very flexible library for buliding JavaScript web applications. The w
 For documentation for React, see:
 https://reactjs.org/docs/getting-started.html
 
-### React Components <ADD MORE>
-
 ### React Component Lifecycle
 
 Lifecycle methods are a set of functions called during different phases of the component lifecycle. The main React lifecycle method used in this project.
@@ -147,8 +143,6 @@ Code coverage is a software metric used to measure how many lines of our code ar
 ### Jest and Enzyme
 
 The tests in this project are written with React libraries Jest and Enzyme
-
-### Deployment <ADD MORE>
 
 ## Possible Errors <ADD MORE>
 
