@@ -74,13 +74,13 @@ class Login extends Component {
       <div className='BlueBack'>
         <LoginMenuBar pageName='Login' />
 
-        <div
-          style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Card
             style={{
               padding: '25px',
               width: '375px'
-            }}>
+            }}
+          >
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId='username' bssize='large'>
                 <Form.Control
@@ -103,7 +103,8 @@ class Login extends Component {
                 block
                 bssize='large'
                 disabled={!this.validateForm()}
-                type='submit'>
+                type='submit'
+              >
                 Log In
               </Button>
             </Form>

@@ -1,0 +1,64 @@
+version: '3.1'
+
+# Define serives
+services:
+  # Database Service
+  sql:
+    image: mysql:8.0.17
+    ports:
+      - '3306:3306'
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=react_spring
+    volumes:
+      - ./code/mysql/data_dump:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+    container_name: mysql
+
+  # Spring Service
+  spring-boot:
+    # Config for building docker image on service
+    build:
+      context: ./code/server
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - sql
+    ports:
+      - '8080:8080'
+    environment: # Pass environment variables to service
+      SPRING.DATASOURCE_URL: jdbc:mysql://mysql:3306/react_spring
+      SPRING.DATASOURCE_USERNAME: root
+      SPRING.DATASOURCE_PASSWORD: password
+    networks:
+      - frontend
+      - backend
+    container_name: spring
+
+    # Frontend services
+  client:
+    build:
+      context: ./code/client
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api
+    ports:
+      - '3000:3000'
+    dns:
+      - 8.8.8.8
+    depends_on:
+      - spring-boot
+    networks:
+      - frontend
+    container_name: client
+
+# Volumes
+volumes:
+  db-data:
+
+# Networks
+networks:
+  frontend:
+  backend:
