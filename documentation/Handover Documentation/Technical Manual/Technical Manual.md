@@ -123,8 +123,6 @@ This application follows the by Material UI design guidelines created by Google.
 For more information, see:
 https://material-ui.com/.
 
-## Testing
-
 ### Spring-Security
 
 Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
@@ -140,9 +138,15 @@ Spring JdbcTemplate is a powerful mechanism to connect to the database and execu
 
 A model created in the Spring MVC framework, would automatically create all the required dependencies (tables, columns, foreign keys etc.) in the backend MySQL database. It reduces the repetition work of maintaining the same schema both in backend and middleware.
 
+## Testing
+
 ### Jacoco-plugin
 
 Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
+
+### Jest and Enzyme
+
+The tests in this project are written with React libraries Jest and Enzyme
 
 ### Deployment <ADD MORE>
 
