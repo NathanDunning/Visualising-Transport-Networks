@@ -112,9 +112,11 @@ This method is called when after the component updated. This is useful to derive
 
 This is the last method called before the component unmounts and any subscriptions clean up.
 
+![](Resources/componentDidMount.png)
+
 ### Material-UI
 
-This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of
+This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of reusable components that can be utilized to follow the Material UI design guidelines.
 
 For more information, see:
 https://material-ui.com/.
@@ -148,9 +150,19 @@ Code coverage is a software metric used to measure how many lines of our code ar
 
 ### Jest and Enzyme
 
-The tests in this project are written with React libraries Jest and Enzyme
+The tests in this project are written with React libraries Jest and Enzyme.
 
-> > > > > > > 2753>b747d8a8ed08e4f52f5219c8363f553bc006
+Jest is a node-based test runner that allows fast parallel running of test is a node environment.
+
+Enzyme is a testing utility package that makes testing React components easier. Additional to Jest which comes with React, this tool provides more streamlined methods to carry out tests.
+
+To install Enzyme:
+
+run: `npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
+
+To run existing test, run `npm test` at root level.
+
+<!-- ### Deployment <ADD MORE> -->
 
 ## Possible Errors <ADD MORE>
 
