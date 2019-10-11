@@ -119,7 +119,7 @@ This application follows the by Material UI design guidelines created by Google.
 For more information, see:
 https://material-ui.com/.
 
-### Spring Framework
+## Spring Framework
 
 Spring framework is used to support frontend with all the data required. All the data retrieval and processing is done in this middleware component. The data is exposed via REST APIs which are called by the frontend React application. <br>
 
