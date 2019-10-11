@@ -116,6 +116,8 @@ This method is called when after the component updated. This is useful to derive
 
 This is the last method called before the component unmounts and any subscriptions clean up.
 
+![](Resources/componentDidMount.png)
+
 ### Material-UI
 
 This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of reusable components that can be utilized to follow the Material UI design guidelines.
@@ -147,6 +149,8 @@ Code coverage is a software metric used to measure how many lines of our code ar
 ### Jest and Enzyme
 
 The tests in this project are written with React libraries Jest and Enzyme
+
+Jest is a node-based test runner that allows fast parallel
 
 ### Deployment <ADD MORE>
 
