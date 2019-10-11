@@ -96,10 +96,15 @@ https://reactjs.org/docs/getting-started.html
 
 ### Material-UI <ADD MORE>
 
-### Spring-Security
+### Spring Framework
+Spring framework is used to support frontend with all the data required. All the data retrieval and processing is done in this middleware component. The data is exposed via REST APIs which are called by the frontend React application. <br>
+
+The application currently uses the spring version 1.5.10. The application is run by using Maven. Below are some of the componenets of spring used to develop this application. <br>
+
+#### Spring-Security
 Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
 
-### Spring-JDBC
+#### Spring-JDBC
 Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. It internally uses JDBC api and reduces the challenges in using normal Java JDBC connections like, 
 * The need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
 * The need to perform exception handling code on the database logic.
@@ -108,12 +113,8 @@ Spring JdbcTemplate is a powerful mechanism to connect to the database and execu
 
 A model created in the Spring MVC framework, would automatically create all the required dependencies (tables, columns, foreign keys etc.) in the backend MySQL database. It reduces the repetition work of maintaining the same schema both in backend and middleware.
 
-### Jacoco-plugin
+#### Jacoco-plugin
 Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
-
-
-
-### Deployment <ADD MORE>
 
 ## Possible Errors <ADD MORE>
 
