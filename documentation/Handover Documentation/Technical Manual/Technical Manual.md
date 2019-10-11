@@ -26,16 +26,7 @@ The SQL database is a core part of the application as it holds all necessary dat
 - Once the MySQL server is set up, a database named react_spring should be created.
 - The backend schema should follow the same table name and column names as mentioned in the below sample schema.
 
-### Authentication/Application Security
-
-This application communicates with the SQL Database to allow authentication.
-
-**Invalid user name or password** <br>
-
-- Entering bad credentials on the login screen pops up this error message.
-- The user is required to enter the correct credentials. <br>
-
-<!-- **Sample database schema**
+  **Sample database schema**
 
 - user:
 
@@ -65,7 +56,7 @@ This application communicates with the SQL Database to allow authentication.
 
 |   area   | population |
 | :------: | :--------: |
-| Highbury |    3120    | -->
+| Highbury |    3120    |
 
 ## Server/Middleware Component
 
@@ -84,7 +75,13 @@ The frontend contains modular classes and components that enables the user to in
 
 ## Getting set up
 
-This section provides detailed, step-by-step instructions on how to get started with development of this application. <br>
+This section provides detailed, step-by-step system operating instructions.
+
+As the systems uses a three-layer architecture, it introduces dependencies between each of those layers. In this case, the frontend depends on the middleware architecure which inturn depends on the backend database. So the application reqiures the processes in the below mentioned order.
+
+- Database - reuires to start the MySQL server (ex: /etc/init.d/mysql start)
+- Middleware - requires to start the executable jar using Maven (ex: mvn clean install && java -jar target/visualising-transport-networks-0.0.1-SNAPSHOT.jar)
+- Frontend - requires to start the react-app using node manager (ex: npm start)
 
 ## React.js
 
@@ -126,6 +123,25 @@ This application follows the by Material UI design guidelines created by Google.
 For more information, see:
 https://material-ui.com/.
 
+### Spring-Security
+
+Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
+
+### Spring-JDBC
+
+Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. It internally uses JDBC api and reduces the challenges in using normal Java JDBC connections like,
+
+- The need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
+- The need to perform exception handling code on the database logic.
+- The need to handle transaction.
+- Repetition of all these codes from one to another database logic is a time consuming task.
+
+A model created in the Spring MVC framework, would automatically create all the required dependencies (tables, columns, foreign keys etc.) in the backend MySQL database. It reduces the repetition work of maintaining the same schema both in backend and middleware.
+
+### Jacoco-plugin
+
+Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
+
 ### Deployment <ADD MORE>
 
 ## Possible Errors <ADD MORE>
@@ -146,3 +162,8 @@ https://material-ui.com/.
 - The application uses a backend database named react_spring.
 - Failure to create this database on the backend will result in this error.
 - The user is expected to run the SQL scripts provided as part of the handover process or is expected to create the databsae react_spring manually in the backend MySQL data managemet tool. <br>
+
+**Invalid user name or password** <br>
+
+- Entering bad credentials on the login screen pops up this error message.
+- The user is required to enter the correct credentials. <br>
