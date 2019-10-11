@@ -12,7 +12,7 @@ In the console, you can expect to encounter several warning messages. These are 
 
 ## Heroku Link
 
-https://visualising-transport-networks.herokuapp.com/
+http://visualising-transport-networks.herokuapp.com/
 
 ## Troubleshooting
 
@@ -24,3 +24,7 @@ Otherwise you may need to ensure that you are at the correct level of the projec
 
 `C://.../visualising-our-transport-networks`  
 `/Users/.../visualising-our-transport-networks`
+
+## Handover Documentation
+
+The handover documents are located in the `documentation` folder at the root of the repository. Each document is organised into a seperate folder and is provided as both a markdown MD file and as a PDF file.

@@ -114,6 +114,22 @@ This is the last method called before the component unmounts and any subscriptio
 
 ![](Resources/componentDidMount.png)
 
+### Mapbox and Leaflet
+
+Mapbox is an opensource mapping platform used in this application to visualise a map appropriate to the clients wants and needs.
+
+Leaflet is an opensource javascript library and we used their components for the legends, icons and interactions with the map.
+
+Together Mapbox and Leaflet are used in this application to display the dynamic visualisation specific to the needs of the project scope.
+
+To use Mapbox, a future project developer will need to make their own account and may need generate a API key, if their key is not public like the one currently used in this project.
+
+More specific documentation can be found on the following websites:
+
+https://www.mapbox.com/
+
+https://leafletjs.com/
+
 ### Material-UI
 
 This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of reusable components that can be utilized to follow the Material UI design guidelines.
@@ -162,9 +178,7 @@ run: `npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
 
 To run existing test, run `npm test` at root level.
 
-<!-- ### Deployment <ADD MORE> -->
-
-## Possible Errors <ADD MORE>
+## Possible Errors
 
 **Error code 404 - API not found** <br>
 
