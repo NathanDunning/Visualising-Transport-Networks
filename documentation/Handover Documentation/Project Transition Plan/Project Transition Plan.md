@@ -138,5 +138,3 @@ The following is a timeline of when the work required needs to be completed for 
 <!-- ### _Notes_ -->
 
 <!-- _Successful project transition is integration or addition of the project into the client's organisation. **Integration** is where the products and services created are integrated into the client's operations; **Addition** is where the new product or service results in a new unit in the client's organisation, such as a department, division, or company._ -->
-
----
