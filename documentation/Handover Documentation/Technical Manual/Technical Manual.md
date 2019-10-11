@@ -77,7 +77,7 @@ The middleware contains classes responsible for loading data from the SQL Databa
 
 ## React.js - Frontend Component
 
-> The frontend contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
+The frontend contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
 
 - The frontend uses the react componenet.
 - This requires the installation of node package manager (npm).
