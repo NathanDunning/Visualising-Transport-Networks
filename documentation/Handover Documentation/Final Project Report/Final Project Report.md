@@ -36,39 +36,39 @@ A more focused subset of the original scope has been delivered. The delivered, '
 
 ##### Backlogged Features
 
-**The application should have protected routes**
+**The application should have protected routes**<br>
 This would mean that the user cannot route to the homepage without logging in to the application.
 
 To fix this bug, the route path will have to be rendered as a '/protected' path, so that any unauthenticated action gets redirected to the login page.
 
-**Get the suburb areas of other areas in the greater Wellington region**
+**Get the suburb areas of other areas in the greater Wellington region**<br>
 This is a feature that needs to be added in order to be a more useful support tool for decision makers.
 
 To add this feature, GeoJSON files will have to be found for other suburbs out of the direct Wellington City council area of governance. The GeoJSON file currently used was procured from the Wellington City council website, and other similar GeoJSON files can possibly be found in other council websites. This should be fairly easy to include into the application as the backend support for this is already there.
 
 If this is a tool that is wanting to be further expanded to be used in other cities, GeoJSON files will have to be found for the other cities and these might be in their council websites, but have not been searched by the team so cannot be confirmed.
 
-**Allow for other transport modes**
+**Allow for other transport modes**<br>
 This is a feature that needs to be added in order to be a more useful support tool for decision makers.
 
 To add this feature, the database will have to be adapted to allow for the car and train data. The visualisation will have to also be changed to show the difference in the transport types.
 
-**Add a clock to show what point in time is the animation iterating through**
+**Add a clock to show what point in time is the animation iterating through**<br>
 This is a feature that needs to be added to improve the user experience and allow for more concise information to be provided to the user.
 
 To add this feature, a clock will have to be added to the frontend, to show what point in time is the animation showing. This will be done with the use of material UI components.
 
-**The percentage of the population travelling should be included or the actual number of people travelling when clicking on the suburbs.**
+**The percentage of the population travelling should be included or the actual number of people travelling when clicking on the suburbs.**<br>
 This is a feature that needs to be added in order to be a more useful support tool for decision makers.
 
 To add this feature, a number will have to be displayed on the suburb legend and should be dynamic to match the changes in the suburb congestion colours.
 
-**Time fields need to be reactive to the different dates.**
+**Time fields need to be reactive to the different dates.**<br>
 Time of date stamps are not consistent across the dates. Therefore, some times do not have any information and do not display a visualisation.
 
 To fix this bug, times that do not have information on specific days will have to be filtered out.
 
-**Group the zones, based on colour**
+**Group the zones, based on colour**<br>
 This is a feature that needs to be added in order to be a more useful support tool for decision makers.
 
 To add this feature, there will need to be a whole other action implemented which allows for this grouping to occur.
