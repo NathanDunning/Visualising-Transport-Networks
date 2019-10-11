@@ -18,7 +18,7 @@ The application was developed using a three layer architecture.
 
 ## SQL Database - Data Layer (Backend)
 
-The SQL database is a core part of the system as it holds all necessary data; travel times, demographic information etc. to support the application. The main queries will be processed based on travel time.
+The SQL database is a core part of the application as it holds all necessary data; travel times, demographic information etc. to support the application. The main queries will be processed based on travel time.
 
 - The data component uses MySQL data management tool.
 - This requires the installation of MySQL server in the hosting server.
@@ -77,16 +77,16 @@ The middleware contains classes responsible for loading data from the SQL Databa
 
 ## React.js - Frontend Component
 
-The frontend contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
+The frontend contains modular classes and components that enables the user to interact with the application. This includes logging in, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
 
 - The frontend uses the react componenet.
 - This requires the installation of node package manager (npm).
 
 ## Getting set up
 
-This section provides detailed, step-by-step system operating instructions. <br>
+This section provides detailed, step-by-step instructions on how to get started with development of this application. <br>
 
-### React.js
+## React.js
 
 With exception to data storage, the entire system is built as one single application using the current version of the React framework. Future development of this application will need take versioning into consideration as React.js is a frequently updated framework and some components/syntax may or may not be compatible with future versions of React.
 
@@ -94,11 +94,37 @@ This application currently uses React version: **16.9.0**
 
 React is a very flexible library for buliding JavaScript web applications. The whole UI is divided into different components.
 
+For documentation for React, see:
 https://reactjs.org/docs/getting-started.html
 
-#### Components <ADD MORE>
+### React Components <ADD MORE>
 
-### Material-UI <ADD MORE>
+### React Component Lifecycle
+
+Lifecycle methods are a set of functions called during different phases of the component lifecycle. The main React lifecycle method used in this project.
+
+#### `ComponentDidMount()`
+
+This method is called right after UI is first presented on the screen. All the Spring API calls and loading the data from the SQL Database is done in this method.
+
+#### `ComponentWillMount()`
+
+This is call before the UI is rendered so that data is fully loaded and will not cause the application to display and function incorrectly.
+
+### `ComponentDidUpdate()`
+
+This method is called when after the component updated. This is useful to derive the state from props if the props do not match the previous state.
+
+### `ComponentWillUnMount()`
+
+This is the last method called before the component unmounts and any subscriptions clean up.
+
+### Material-UI
+
+This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of
+
+For more information, see:
+https://material-ui.com/.
 
 ### Deployment <ADD MORE>
 
@@ -106,7 +132,7 @@ https://reactjs.org/docs/getting-started.html
 
 **Error code 404 - API not found** <br>
 
-- The system requires the backend Spring application to be up and running to support the frontend application.
+- The project requires the backend Spring application to be up and running to support the frontend application.
 - Failure to start the backend would result in this error.
 - The solution is to start the server/spring application before starting the client/react componenet. <br>
 
