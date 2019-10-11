@@ -123,6 +123,8 @@ This application follows the by Material UI design guidelines created by Google.
 For more information, see:
 https://material-ui.com/.
 
+## Testing
+
 ### Spring-Security
 
 Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
