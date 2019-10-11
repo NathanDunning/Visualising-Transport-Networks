@@ -6,9 +6,9 @@
 
 <!-- This document is code documentation for our project. It can describe the code architecture and semantics of each package. It can include code snippets if needed to describe code behaviour. -->
 
-### 1. Introduction <TO DO>
+### 1. Overview
 
-The User Manual contains all essential information for the user to make full use of the project - Visualising Transport Networks, developed as part of the coursework of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation.<br>
+This technical manual contains all essential information for the user to make full use of the project - Visualising Transport Networks, developed as part of the coursework of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation.<br>
 
 The application was developed using a three layer architecture.
 

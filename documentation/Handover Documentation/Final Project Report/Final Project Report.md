@@ -34,8 +34,44 @@ The goal is to deliver a web application which will display a terrain topographi
 
 A more focused subset of the original scope has been delivered. The delivered, 'Visualising our Network Transports' application runs on a web browser. The application allows users to see the traffic congestion points in different suburbs as displayed by the coloured heat map. Users can filter the visualisation by the time of day and can click and hover on different suburbs to see population information based on the area. Therefore, the application can still be used as a decision support tool as it does visualise the traffic congestion in the Wellington City Council area of governance. It displays an observation of how long it takes to get to the origin point in the CBD and is coloured based on an interpolation of the time taken against the distance from the origin point. A database has been implemented for it to be easier to add newer data sets into the application.
 
-**Backlogged Features**
-`TO BE COMPLETE`
+##### Backlogged Features
+
+**The application should have protected routes**
+This would mean that the user cannot route to the homepage without logging in to the application.
+
+To fix this bug, the route path will have to be rendered as a '/protected' path, so that any unauthenticated action gets redirected to the login page.
+
+**Get the suburb areas of other areas in the greater Wellington region**
+This is a feature that needs to be added in order to be a more useful support tool for decision makers.
+
+To add this feature, GeoJSON files will have to be found for other suburbs out of the direct Wellington City council area of governance. The GeoJSON file currently used was procured from the Wellington City council website, and other similar GeoJSON files can possibly be found in other council websites. This should be fairly easy to include into the application as the backend support for this is already there.
+
+If this is a tool that is wanting to be further expanded to be used in other cities, GeoJSON files will have to be found for the other cities and these might be in their council websites, but have not been searched by the team so cannot be confirmed.
+
+**Allow for other transport modes**
+This is a feature that needs to be added in order to be a more useful support tool for decision makers.
+
+To add this feature, the database will have to be adapted to allow for the car and train data. The visualisation will have to also be changed to show the difference in the transport types.
+
+**Add a clock to show what point in time is the animation iterating through**
+This is a feature that needs to be added to improve the user experience and allow for more concise information to be provided to the user.
+
+To add this feature, a clock will have to be added to the frontend, to show what point in time is the animation showing. This will be done with the use of material UI components.
+
+**The percentage of the population travelling should be included or the actual number of people travelling when clicking on the suburbs.**
+This is a feature that needs to be added in order to be a more useful support tool for decision makers.
+
+To add this feature, a number will have to be displayed on the suburb legend and should be dynamic to match the changes in the suburb congestion colours.
+
+**Time fields need to be reactive to the different dates.**
+Time of date stamps are not consistent across the dates. Therefore, some times do not have any information and do not display a visualisation.
+
+To fix this bug, times that do not have information on specific days will have to be filtered out.
+
+**Group the zones, based on colour**
+This is a feature that needs to be added in order to be a more useful support tool for decision makers.
+
+To add this feature, there will need to be a whole other action implemented which allows for this grouping to occur.
 
 #### Original and Actual Schedule
 
