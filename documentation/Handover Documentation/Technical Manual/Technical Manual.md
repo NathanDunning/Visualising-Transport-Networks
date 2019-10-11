@@ -6,41 +6,19 @@
 
 <!-- This document is code documentation for our project. It can describe the code architecture and semantics of each package. It can include code snippets if needed to describe code behaviour. -->
 
-### 1. Introduction <TO DO>
+## Overview <TO DO>
 
-The User Manual contains all essential information for the user to make full use of the project - Visualising Transport Networks, developed as part of the coursework of ENGR 301 and ENGR 302. This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation.<br>
+The Technical Manual provides documentation for developers to take on the project - Visualising Our Transport Networks.<br>
 
 The application was developed using a three layer architecture.
 
-1. Application layer - Front-end
-2. Middleware - Business Logic
-3. Data layer - Data management
+- Application layer - Front-end built with `React.js`
+- Middleware - Business Logic built with `Java Spring`
+- Data layer - Data managed with an `SQL Database`
 
-**Front-end UI - Client Package** <br>
-The Front-end UI contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
+## SQL Database - Data Layer (Backend)
 
-**Business Logic - Server Package** <br>
-The middleware contains classes responsible for loading data from the SQL Database in the backend and passing it the front-end Application using Spring Rest APIs. The server establishes the connection to the database, builds query based on the user inputs from the frontend, query the database and return the result to the user terminal.
-
-**Data Package** <br>
-The database holds all the necessary data, travel and demographic, to support the application. Queries will be processed based on the time of travel.
-
-#### 2. System Requirements
-
-As the application runs on a three-layer architecture, it requires the frontend and backend componenets to be up and running. The flow is that the backend database component is used by middleware which inturn is used by the frontend framework. So the process of intialising the components show start from database to middleware and then the frontend component.
-
-**Client/Frontend Component**
-
-- The frontend uses the react componenet.
-- This requires the installation of node package manager (npm).
-
-**Server/Middleware Component**
-
-- The server component uses the spring framework.
-- This requires the installation of maven to run the spring framework.
-- A Java version 1.8 is required to be installed in the hosting server.
-
-**Data/Backend Component**
+The SQL database is a core part of the system as it holds all necessary data; travel times, demographic information etc. to support the application. The main queries will be processed based on travel time.
 
 - The data component uses MySQL data management tool.
 - This requires the installation of MySQL server in the hosting server.
@@ -48,7 +26,16 @@ As the application runs on a three-layer architecture, it requires the frontend 
 - Once the MySQL server is set up, a database named react_spring should be created.
 - The backend schema should follow the same table name and column names as mentioned in the below sample schema.
 
-**Sample database schema**
+### Authentication/Application Security
+
+This application communicates with the SQL Database to allow authentication.
+
+**Invalid user name or password** <br>
+
+- Entering bad credentials on the login screen pops up this error message.
+- The user is required to enter the correct credentials. <br>
+
+<!-- **Sample database schema**
 
 - user:
 
@@ -78,32 +65,38 @@ As the application runs on a three-layer architecture, it requires the frontend 
 
 |   area   | population |
 | :------: | :--------: |
-| Highbury |    3120    |
+| Highbury |    3120    | -->
 
-### 4. Operating Instructions <TO DO>
+## Server/Middleware Component
+
+The middleware contains classes responsible for loading data from the SQL Database in the backend and passing it the front-end Application using Spring Rest APIs. The server establishes the connection to the database, builds query based on the user inputs from the frontend, query the database and return the result to the user terminal.
+
+- The server component uses the spring framework.
+- This requires the installation of maven to run the spring framework.
+- A Java version 1.8 is required to be installed in the hosting server.
+
+## React.js - Frontend Component
+
+> The frontend contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
+
+- The frontend uses the react componenet.
+- This requires the installation of node package manager (npm).
+
+## Getting set up
 
 This section provides detailed, step-by-step system operating instructions. <br>
 
-#### 4.1 Initiate Operation
+### React.js
 
-This section contains procedures for system logon and system initialization to a known point, such as a system main menu screen. This initialization procedure should describe how to establish the required mode of operation and set any initial parameters required for operation. Software installation procedures should be included if the software is distributed on diskette and should be downloaded before each use. <br>
+With exception to data storage, the entire system is built as one single application using the React framework.
 
-#### 4.2 Maintain Operation
+#### Components <ADD MORE>
 
-This section defines procedures to maintain the operation of the software where user intervention is required. <br>
+### Material-UI <ADD MORE>
 
-#### 4.3 Terminate and Restart Operations
+### Deployment <ADD MORE>
 
-This section defines procedures for normal and unscheduled termination of the system operations and should define how to restart the system.<br>
-
-#### 5. Error Handling
-
-This section addresses the possible error scenarios associated with the application and appropriate solutions to resolve the same. <br>
-
-**Invalid user name or password** <br>
-
-- Entering bad credentials on the login screen pops up this error message.
-- The user is required to enter the correct credentials. <br>
+## Possible Errors <ADD MORE>
 
 **Error code 404 - API not found** <br>
 
