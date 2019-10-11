@@ -125,9 +125,6 @@ Spring framework is used to support frontend with all the data required. All the
 
 The application currently uses the spring version 1.5.10. The application is run by using Maven. Below are some of the componenets of spring used to develop this application. <br>
 
-#### Spring-Security
-
-Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
 
 #### Spring-JDBC
 
