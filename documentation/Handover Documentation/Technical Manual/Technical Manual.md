@@ -18,7 +18,7 @@ The application was developed using a three layer architecture.
 
 ## SQL Database - Data Layer (Backend)
 
-The SQL database is a core part of the system as it holds all necessary data; travel times, demographic information etc. to support the application. The main queries will be processed based on travel time.
+The SQL database is a core part of the application as it holds all necessary data; travel times, demographic information etc. to support the application. The main queries will be processed based on travel time.
 
 - The data component uses MySQL data management tool.
 - This requires the installation of MySQL server in the hosting server.
@@ -26,7 +26,7 @@ The SQL database is a core part of the system as it holds all necessary data; tr
 - Once the MySQL server is set up, a database named react_spring should be created.
 - The backend schema should follow the same table name and column names as mentioned in the below sample schema.
 
- **Sample database schema**
+  **Sample database schema**
 
 - user:
 
@@ -68,7 +68,7 @@ The middleware contains classes responsible for loading data from the SQL Databa
 
 ## React.js - Frontend Component
 
-The frontend contains modular classes and components that enables the user to interact with the system. This includes logging into the system, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
+The frontend contains modular classes and components that enables the user to interact with the application. This includes logging in, interacting with the Map using filters and conditions, displaying a graph and a menubar for additional information.
 
 - The frontend uses the react componenet.
 - This requires the installation of node package manager (npm).
@@ -78,11 +78,12 @@ The frontend contains modular classes and components that enables the user to in
 This section provides detailed, step-by-step system operating instructions.
 
 As the systems uses a three-layer architecture, it introduces dependencies between each of those layers. In this case, the frontend depends on the middleware architecure which inturn depends on the backend database. So the application reqiures the processes in the below mentioned order.
-* Database - reuires to start the MySQL server (ex: /etc/init.d/mysql start)
-* Middleware - requires to start the executable jar using Maven (ex: mvn clean install && java -jar target/visualising-transport-networks-0.0.1-SNAPSHOT.jar)
-* Frontend - requires to start the react-app using node manager (ex: npm start)
 
-### React.js
+- Database - reuires to start the MySQL server (ex: /etc/init.d/mysql start)
+- Middleware - requires to start the executable jar using Maven (ex: mvn clean install && java -jar target/visualising-transport-networks-0.0.1-SNAPSHOT.jar)
+- Frontend - requires to start the react-app using node manager (ex: npm start)
+
+## React.js
 
 With exception to data storage, the entire system is built as one single application using the current version of the React framework. Future development of this application will need take versioning into consideration as React.js is a frequently updated framework and some components/syntax may or may not be compatible with future versions of React.
 
@@ -90,11 +91,37 @@ This application currently uses React version: **16.9.0**
 
 React is a very flexible library for buliding JavaScript web applications. The whole UI is divided into different components.
 
+For documentation for React, see:
 https://reactjs.org/docs/getting-started.html
 
-#### Components <ADD MORE>
+### React Components <ADD MORE>
 
-### Material-UI <ADD MORE>
+### React Component Lifecycle
+
+Lifecycle methods are a set of functions called during different phases of the component lifecycle. The main React lifecycle method used in this project.
+
+#### `ComponentDidMount()`
+
+This method is called right after UI is first presented on the screen. All the Spring API calls and loading the data from the SQL Database is done in this method.
+
+#### `ComponentWillMount()`
+
+This is call before the UI is rendered so that data is fully loaded and will not cause the application to display and function incorrectly.
+
+### `ComponentDidUpdate()`
+
+This method is called when after the component updated. This is useful to derive the state from props if the props do not match the previous state.
+
+### `ComponentWillUnMount()`
+
+This is the last method called before the component unmounts and any subscriptions clean up.
+
+### Material-UI
+
+This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of
+
+For more information, see:
+https://material-ui.com/.
 
 ### Spring Framework
 Spring framework is used to support frontend with all the data required. All the data retrieval and processing is done in this middleware component. The data is exposed via REST APIs which are called by the frontend React application. <br>
@@ -116,11 +143,39 @@ A model created in the Spring MVC framework, would automatically create all the 
 #### Jacoco-plugin
 Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
 
+### Spring-Security
+
+Spring Security framework of Spring enables security restrictions to this Web-based application. Spring security uses AutheticationManager to handle authentication and authorization of the incoming Web request. A token generated on the frontend, is passed to the authentication API of spring, which inturn authenticates the request. It returns with a success/failure response based on authorisation.
+
+### Spring-JDBC
+
+Spring JdbcTemplate is a powerful mechanism to connect to the database and execute SQL queries. It internally uses JDBC api and reduces the challenges in using normal Java JDBC connections like,
+
+- The need to write a lot of code before and after executing the query, such as creating connection, statement, closing resultset, connection etc.
+- The need to perform exception handling code on the database logic.
+- The need to handle transaction.
+- Repetition of all these codes from one to another database logic is a time consuming task.
+
+A model created in the Spring MVC framework, would automatically create all the required dependencies (tables, columns, foreign keys etc.) in the backend MySQL database. It reduces the repetition work of maintaining the same schema both in backend and middleware.
+
+## Testing
+
+### Jacoco-plugin
+
+Code coverage is a software metric used to measure how many lines of our code are executed during automated tests. Jacoco is used as a plugin of Spring to generated automated test reports. Running the test using JUnit will automatically set in motion the JaCoCo agent, thus, it will create a coverage report in binary format in the target directory – target/jacoco.exec. A report of the Unit test cases is generated automatically in target/site/jacoco/index.html.
+
+### Jest and Enzyme
+
+The tests in this project are written with React libraries Jest and Enzyme
+
+### Deployment <ADD MORE>
+
+>>>>>>> fa0c240623ef3f112659b27b32a00c62f195dce6
 ## Possible Errors <ADD MORE>
 
 **Error code 404 - API not found** <br>
 
-- The system requires the backend Spring application to be up and running to support the frontend application.
+- The project requires the backend Spring application to be up and running to support the frontend application.
 - Failure to start the backend would result in this error.
 - The solution is to start the server/spring application before starting the client/react componenet. <br>
 
