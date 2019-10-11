@@ -118,7 +118,7 @@ This is the last method called before the component unmounts and any subscriptio
 
 ### Material-UI
 
-This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of
+This application follows the by Material UI design guidelines created by Google. These guidelines provides helpful attributes that allow a consistent application layout. This also enables effective user experience. This is made possible by using the Material UI React components package. This holds a bunch of reusable components that can be utilized to follow the Material UI design guidelines.
 
 For more information, see:
 https://material-ui.com/.
