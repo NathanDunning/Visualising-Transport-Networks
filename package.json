@@ -15,15 +15,12 @@
     "clsx": "^1.0.4",
     "d3": "^5.11.0",
     "d3-svg-legend": "^2.25.6",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "24.8.0",
     "jquery": "3.4.1",
     "leaflet": "^1.5.1",
     "leaflet-d3-svg-overlay": "^2.2.0",
@@ -41,35 +38,20 @@
     "react-redux": "^7.1.1",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.1",
+    "react-scripts": "3.1.1",
     "react-sidenav": "^4.0.3",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.4",
-    "sinon": "^7.5.0",
     "tinygradient": "^1.0.0",
     "topojson-client": "^3.0.0",
-    "typeface-roboto": "0.0.75",
-    "typescript": "^3.6.3"
+    "typeface-roboto": "0.0.75"
   },
   "scripts": {
-    "start": "npm install && cd code/client && npm install && npm start",
-    "test": "cd code/client && npm test"
+    "start": "npm install && cd code/client && npm install && npm start"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
-    "@types/jest": "^24.0.18",
-    "babel-preset-react-app": "^9.0.1",
-    "react-test-renderer": "^16.10.1"
-  },
-  "description": "This repository contains issues, boards and documents relating to project planning and requirements.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.ecs.vuw.ac.nz:ENGR300-2019/Project-07/visualising-our-transport-networks.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "babel-preset-react-app": "^9.0.1"
+  }
 }
