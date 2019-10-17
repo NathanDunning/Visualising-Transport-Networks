@@ -16,6 +16,7 @@ import { jsonResponse } from "./AreaPolygons";
 
 const mapid = "mapid";
 let div = null;
+let totalPopulation = 0;
 var legend = L.control({ position: 'bottomright' });
 let map = null;
 let geojson = null;
@@ -54,7 +55,7 @@ class Map extends Component {
       })
       .addTo(map);
 
-    
+
     legend.onAdd = function (map) {
       div = L.DomUtil.create('div', 'info legend');
 
@@ -69,7 +70,7 @@ class Map extends Component {
     };
     legend.addTo(map);
 
-    this.createDemographicUnits();
+    this.totalPopulation = this.createDemographicUnits();
 
     this.plotTravelPoints();
 
@@ -80,7 +81,7 @@ class Map extends Component {
   }
 
   createDemographicUnits = () => {
-
+    var totalPop = 0;
     geojson = L.geoJson(jsonResponse, {
       style: style,
       onEachFeature: onEachFeature
@@ -99,6 +100,7 @@ class Map extends Component {
     }
 
     function onEachFeature(feature, layer) {
+      totalPop += layer.feature.properties.population;
       layer.on({
         mouseover: highlightFeature,
         //mouseout: resetHighlight,
@@ -138,9 +140,8 @@ class Map extends Component {
           ? "<b>" + props.name + "</b><br />" + props.population + " people"
           : "Hover over a region");
     };
-
     info.addTo(map);
-
+    return totalPop;
   }
 
   render() {
@@ -148,16 +149,6 @@ class Map extends Component {
       geojson.eachLayer(function (layer) {
         geojson.resetStyle(layer);
       })
-      legend.update = function (props) {
-        div.innerHTML =  "<h5>Duration (minutes)</h5>" 
-        + '<i style="background: grey"></i><span>No data</span><br>'
-        + '<i style="background: red"></i><span>40+</span><br>'
-        + '<i style="background: orange"></i><span>25-40</span><br>'
-        + '<i style="background: yellow"></i><span>10-25</span><br>'
-        + '<i style="background: green"></i><span>0-10</span><br>';
-  
-        return div;
-      };
       this.props.setResetBoolean('false');
     }
     if (this.props.resetBoolean === 'false' &&
@@ -165,53 +156,66 @@ class Map extends Component {
       var durationClock = this.props.locationDuration;
       var clock = durationClock[0];
       var locationDuration = durationClock[1];
+      var greenPop = 0, yellowPop = 0, orangePop = 0, redPop = 0, greyPop = 0;
       geojson.eachLayer(function (layer) {
+        var population = layer.feature.properties.population;
         if (locationDuration.hasOwnProperty(layer.feature.properties.name)) {
           var duration = locationDuration[layer.feature.properties.name];
           if (duration <= 10) {
+            greenPop += population;
             layer.setStyle({
               fillColor: "green",
               fillOpacity: 0.4
             })
           } else if (duration <= 25) {
+            yellowPop += population;
             layer.setStyle({
               fillColor: "yellow",
               fillOpacity: 0.4
             })
           } else if (duration <= 40) {
+            orangePop += population;
             layer.setStyle({
               fillColor: "orange",
               fillOpacity: 0.4
             })
           } else {
+            redPop += population;
             layer.setStyle({
               fillColor: "red",
               fillOpacity: 0.4
             })
           }
         } else {
+          greyPop += population;
           layer.setStyle({
             fillColor: "grey",
             fillOpacity: 0.4
           })
         }
       });
-      legend.update(clock)
+      var orangePopPercent = this.isNumber(((orangePop/this.totalPopulation) * 100).toFixed(2));
+      var redPopPercent = this.isNumber(((redPop/this.totalPopulation) * 100).toFixed(2));
+      var yellowPopPercent = this.isNumber(((yellowPop/this.totalPopulation) * 100).toFixed(2)); 
+      var greenPopPercent = this.isNumber(((greenPop/this.totalPopulation) * 100).toFixed(2));
+      var greyPopPercent = this.isNumber(((greyPop/this.totalPopulation) * 100).toFixed(2));
+      clock = clock.toString().replace(/(.{2})$/, ':$1');
+      legend.update(clock, greyPopPercent, redPopPercent, orangePopPercent, yellowPopPercent, greenPopPercent);
       this.props.setLocationDuration('', 'false');
     }
 
-    legend.update = function (props) {
-      div.innerHTML = "<h5>Time: " + props + "</h5>" 
-      + "<h5>Duration (minutes)</h5>" 
-      + '<i style="background: grey"></i><span>No data</span><br>'
-      + '<i style="background: red"></i><span>40+</span><br>'
-      + '<i style="background: orange"></i><span>25-40</span><br>'
-      + '<i style="background: yellow"></i><span>10-25</span><br>'
-      + '<i style="background: green"></i><span>0-10</span><br>';
+    legend.update = function (clock, greyPop, redPop, orangePop, yellowPop, greenPop) {
+      div.innerHTML =  "<h5>Duration (minutes)</h5>"
+        + "<h6>Time: " + clock + "</h6>"
+        + '<i style="background: grey"></i><span>No data - ' + greyPop + '%</span><br>'
+        + '<i style="background: red"></i><span>40+ - ' + redPop + '%</span><br>'
+        + '<i style="background: orange"></i><span>25-40 - ' + orangePop + '%</span><br>'
+        + '<i style="background: yellow"></i><span>10-25 - ' + yellowPop + '%</span><br>'
+        + '<i style="background: green"></i><span>0-10 - ' + greenPop + '%</span><br>';
 
       return div;
     };
-    
+
     return <div id={mapid} />;
 
   }
@@ -324,6 +328,13 @@ class Map extends Component {
       });
     });
   };
+
+  isNumber = (x) => {
+    if (isNaN(x)) {
+      return 0;
+    }
+    return x;
+  }
 }
 // const dispatchToProps = (dispatch) => bindActionCreators({pushMap}, dispatch)
 // export default connect(null, dispatchToProps)(Map)
