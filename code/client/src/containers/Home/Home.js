@@ -13,7 +13,9 @@ class Home extends Component {
       suburbLatLngs: {key: [[0.212, 0.212]]},
       travelData: [],
       demographicData: [],
-      locationDuration: {'key':1},
+      locationDuration: ['', {'key':1}],
+      clock: '',
+      clockBoolean: 'false',
       ldBoolean : 'false',
       resetBoolean: 'false'
     };
@@ -50,9 +52,9 @@ class Home extends Component {
             }}
           >
             <div id="map">
-              <Map suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} locationDuration={this.state.locationDuration} ldBoolean={this.state.ldBoolean} resetBoolean={this.state.resetBoolean} setLocationDuration={this.setLocationDuration} setResetBoolean={this.setResetBoolean}/>
+              <Map suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} locationDuration={this.state.locationDuration} ldBoolean={this.state.ldBoolean}  resetBoolean={this.state.resetBoolean} setLocationDuration={this.setLocationDuration} setResetBoolean={this.setResetBoolean} />
             </div>
-            <MapNav suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} setLocationDuration={this.setLocationDuration} ldBoolean={this.state.ldBoolean} setResetBoolean={this.setResetBoolean}/>
+            <MapNav suburbPolygons={this.state.suburbPolygons} suburbLatLngs={this.state.suburbLatLngs} setLocationDuration={this.setLocationDuration} setResetBoolean={this.setResetBoolean}/>
           </Card>
         </div>
       </div>
