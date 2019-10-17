@@ -15,6 +15,8 @@ import { pushMap } from "../../util/redux/actions";
 import { jsonResponse } from "./AreaPolygons";
 
 const mapid = "mapid";
+let div = null;
+var legend = L.control({ position: 'bottomright' });
 let map = null;
 let geojson = null;
 var info = L.control();
@@ -52,9 +54,9 @@ class Map extends Component {
       })
       .addTo(map);
 
-    const legend = L.control({ position: 'bottomright' });
+    
     legend.onAdd = function (map) {
-      const div = L.DomUtil.create('div', 'info legend');
+      div = L.DomUtil.create('div', 'info legend');
 
       div.innerHTML += "<h5>Duration (minutes)</h5>";
       div.innerHTML += '<i style="background: grey"></i><span>No data</span><br>';
@@ -138,6 +140,7 @@ class Map extends Component {
     };
 
     info.addTo(map);
+
   }
 
   render() {
@@ -145,12 +148,23 @@ class Map extends Component {
       geojson.eachLayer(function (layer) {
         geojson.resetStyle(layer);
       })
+      legend.update = function (props) {
+        div.innerHTML =  "<h5>Duration (minutes)</h5>" 
+        + '<i style="background: grey"></i><span>No data</span><br>'
+        + '<i style="background: red"></i><span>40+</span><br>'
+        + '<i style="background: orange"></i><span>25-40</span><br>'
+        + '<i style="background: yellow"></i><span>10-25</span><br>'
+        + '<i style="background: green"></i><span>0-10</span><br>';
+  
+        return div;
+      };
       this.props.setResetBoolean('false');
     }
     if (this.props.resetBoolean === 'false' &&
       this.props.ldBoolean === 'true') {
-      var locationDuration = this.props.locationDuration;
-
+      var durationClock = this.props.locationDuration;
+      var clock = durationClock[0];
+      var locationDuration = durationClock[1];
       geojson.eachLayer(function (layer) {
         if (locationDuration.hasOwnProperty(layer.feature.properties.name)) {
           var duration = locationDuration[layer.feature.properties.name];
@@ -182,8 +196,22 @@ class Map extends Component {
           })
         }
       });
+      legend.update(clock)
       this.props.setLocationDuration('', 'false');
     }
+
+    legend.update = function (props) {
+      div.innerHTML = "<h5>Time: " + props + "</h5>" 
+      + "<h5>Duration (minutes)</h5>" 
+      + '<i style="background: grey"></i><span>No data</span><br>'
+      + '<i style="background: red"></i><span>40+</span><br>'
+      + '<i style="background: orange"></i><span>25-40</span><br>'
+      + '<i style="background: yellow"></i><span>10-25</span><br>'
+      + '<i style="background: green"></i><span>0-10</span><br>';
+
+      return div;
+    };
+    
     return <div id={mapid} />;
 
   }

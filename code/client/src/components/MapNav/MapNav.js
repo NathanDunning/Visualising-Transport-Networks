@@ -50,10 +50,8 @@ class MapNav extends Component {
     });
 
     getTime('time', localStorage.getItem('auth')).then(data => {
-      console.log(data)
       let times = []
       data.map(time => {
-        console.log(typeof (time))
         time = time.toString().replace(/(.{2})$/, ':$1');
         times.push(time)
       })
@@ -113,7 +111,7 @@ class MapNav extends Component {
       localStorage.getItem('auth')).then(data => {
         Object.entries(data).forEach((time, index) => {
           setTimeout(() => {
-            this.props.setLocationDuration(time[1], "true");
+            this.props.setLocationDuration(time, "true");
           }, 2000 * index);
         });
       });
