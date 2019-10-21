@@ -25,6 +25,15 @@ class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /**
+   * auth guard reset: when this screen is loaded for
+   * the first time or the user logs out and this screen
+   * is reloaded, force the user to login again.
+   */
+  componentDidMount() {
+    localStorage.removeItem('auth');
+  }
+
   // Checks to see if button can be pressed
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 0;
@@ -60,13 +69,7 @@ class Login extends Component {
   // Use states for the fields to make them dynamic
   // Checks to see whether user has been authorised to redirect to the main app
   render() {
-    const { redirect } = this.state;
-
     if (this.state.redirect) {
-      return <Redirect to={'/home'} />;
-    }
-
-    if (sessionStorage.getItem('auth')) {
       return <Redirect to={'/home'} />;
     }
 

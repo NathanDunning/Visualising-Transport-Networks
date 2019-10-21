@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { MenuBar } from '../MenuBar/MenuBar';
 import Card from '@material-ui/core/Card';
+import { Redirect } from 'react-router-dom';
 
 class About extends Component {
   render() {
+    /**
+     * auth guard: if the user credentials have not been authenticated
+     * through the database, then redirect the user to the login screen.
+     */
+    if (!localStorage.getItem('auth')) {
+      return <Redirect to={'/login'} />;
+    }
+
     return (
       <div className='BlueBack'>
         {/* menu bar */}
@@ -16,12 +25,14 @@ class About extends Component {
             display: 'flex',
             justifyContent: 'center',
             textAlign: 'justify'
-          }}>
+          }}
+        >
           <Card
             style={{
               padding: '25px',
               width: '500px'
-            }}>
+            }}
+          >
             <h5>Purpose</h5>
             <p>
               The purpose of this system is to analyse different modes of
