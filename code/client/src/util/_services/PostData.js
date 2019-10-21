@@ -12,7 +12,6 @@ export function PostData(type, auth) {
     }
   };
 
-  console.log('fetching: ' + BaseUrl);
   return fetch(BaseUrl, requestOptions)
     .then(handleResponse)
     .then(user => {
@@ -220,7 +219,6 @@ export function getDate(type, auth) {
 function handleResponse(response) {
   return response.text().then(text => {
     const data = text && JSON.parse(text);
-    console.log(text);
     if (response.status === 401) {
       alert('Invalid username or password');
       const error = (data && data.message) || response.statusText;
