@@ -1,1 +1,1 @@
-web: bin/start-nginx --http.port=$PORT
+web: npm start
