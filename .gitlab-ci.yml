@@ -1,70 +1,55 @@
-image: docker:latest
-
-# Variable for performance enhancements
-variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_HOST: tcp://localhost:2375
-  # DOCKER_HOST: /var/run/docker.sock
-  DOCKER_TLS_CERTDIR: ''
-
-  # Services required for running
-services:
-  - docker:dind
-
-# Before script excecutes before stages
-before_script:
-  - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
-  - apk --update add python py-pip openssl ca-certificates py-openssl wget
-  - apk --update add --virtual build-dependencies libffi-dev python-dev py-pip build-base
-  - apk add --no-cache python py2-pip
-  - pip install --no-cache-dir docker-compose
-  - docker-compose -v
-
 stages:
   - build
   - test
-  - push
   - deploy
 
-# Build the images and pushes it to gitlab registry
-build_image:
-  # image: docker:18.09.7
+cache:
+  paths:
+    - ./code/client/node_modules/
+
+install-npm-dependencies:
   stage: build
   tags:
-    - docker
+    - shell
   script:
-    - docker-compose build
-    # - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/client/
-    # - docker build -t gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks ./code/server/
-    # - docker pull mysql:8.0.17
-    # - docker tag mysql:8.0.17 gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
-    # - docker push gitlab.ecs.vuw.ac.nz:4567/engr300-2019/project-07/visualising-our-transport-networks
+    - cd ./code/client
+    - npm install
+  only:
+    - master
+  artifacts:
+    paths:
+      - node_modules/
 
-# Run containerised tests
-test:
+maven-test:
   stage: test
   tags:
-    - docker
+    - shell
   script:
-    - echo "Tests here"
+    - cd ./code/server
+    - mvn clean test
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
+  only:
+    - master
 
-# Push images to heroku
-push_images:
-  stage: push
-  tags:
-    - docker
-  script:
-    - echo "push here"
-
-# Release images
-deploy_images:
+deploy-to-heroku:
   stage: deploy
   tags:
-    - docker
+    - shell
   script:
-    - git push -f heroku HEAD:refs/heads/master
-  environment:
-    name: deployment
-    url: https://visualising-transport-networks.herokuapp.com/
+    - pwd && ls
+    - rm -rf ../visualising-transport-networks
+    - mkdir ../visualising-transport-networks
+    - rm -rf ./code/client/node_modules ./code/client/package-lock.json
+    - cp -rf ./code/client/. ../visualising-transport-networks
+    - cd ../visualising-transport-networks
+    - pwd && ls
+    - npm install
+    - ls
+    - git init
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/visualising-transport-networks.git
+    - git add .
+    - git commit -m "CI Deploy"
+    - git push -f heroku master
+    - rm -rf ../visualising-transport-networks
   only:
     - master
