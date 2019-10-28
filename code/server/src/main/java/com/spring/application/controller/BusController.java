@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.application.model.Bus;
@@ -56,8 +57,8 @@ public class BusController {
 	
 	@RequestMapping(value = "/get/time", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<?> getTime(){
-		List<Object> time = busService.findTime();
+    public ResponseEntity<?> getTime(@RequestParam(value="dateField",required=true) String dateField){
+		List<Object> time = busService.findTime(dateField);
         return new ResponseEntity<>(time,HttpStatus.OK);
     }
 	

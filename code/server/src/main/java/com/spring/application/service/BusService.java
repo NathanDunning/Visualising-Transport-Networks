@@ -68,8 +68,8 @@ public class BusService {
 		return cities;
 	}
 
-	public List<Object> findTime() {
-		List<Object> time = busRepo.findTime();
+	public List<Object> findTime(String dateField) {
+		List<Object> time = busRepo.findTime(dateField);
 
 		return time;
 	}

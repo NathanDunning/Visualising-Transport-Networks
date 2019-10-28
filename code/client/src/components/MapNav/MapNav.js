@@ -49,7 +49,7 @@ class MapNav extends Component {
       this.setState({ cities: data });
     });
 
-    getTime('time', localStorage.getItem('auth')).then(data => {
+    /* getTime('time', localStorage.getItem('auth')).then(data => {
       let times = []
       data.map(time => {
         time = time.toString().replace(/(.{2})$/, ':$1');
@@ -57,10 +57,10 @@ class MapNav extends Component {
       })
       this.setState({ times: times });
     });
-
+ */
     getDate('date', localStorage.getItem('auth')).then(data => {
       data.map(date => {
-        this.state.dates.push(new Date(date).toDateString());
+        this.state.dates.push(date);
       });
     });
   }
@@ -84,6 +84,15 @@ class MapNav extends Component {
 
   handleDateChange = event => {
     this.setState({ date: event.target.value });
+    getTime(event.target.value , localStorage.getItem('auth')).then(data => {
+      let times = []
+      data.map(time => {
+        time = time.toString().replace(/(.{2})$/, ':$1');
+        times.push(time)
+      })
+      this.setState({ times: times });
+    });
+
   };
 
   handleChange = event => {

@@ -98,8 +98,8 @@ public class BusControllerTest {
 	public void getTime() throws Exception {
 		String time = "10 40";
 		List<Object> times = Arrays.asList(time);
-		when(busService.findTime()).thenReturn(times);
-		mvc.perform(get("/get/time").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		when(busService.findTime("2018-11-28")).thenReturn(times);
+		mvc.perform(get("/get/time?dateField=2018-11-28").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
 	@Test
