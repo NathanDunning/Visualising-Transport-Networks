@@ -1,5 +1,5 @@
 export function PostData(type, auth) {
-  let BaseUrl = 'https://localhost:59312/home';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/home';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -37,7 +37,7 @@ export function PostData(type, auth) {
  * @param {*} auth
  */
 export function getTravelData(date, from_time, to_time, travelPoints, auth) {
-  const BaseUrl = 'https://localhost:59312/get/bus/travelDetails';
+  const BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/bus/travelDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -67,7 +67,7 @@ export function getTravelData(date, from_time, to_time, travelPoints, auth) {
 }
 
 export function getAllTravelLatLng(auth) {
-  let BaseUrl = 'https://localhost:59312/get/bus/travelAllDetails';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/bus/travelAllDetails';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -91,7 +91,7 @@ export function getAllTravelLatLng(auth) {
 }
 
 export function getDemographicData(type, auth) {
-  let BaseUrl = 'https://localhost:59312/get/area/geocodes';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/area/geocodes';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -115,7 +115,7 @@ export function getDemographicData(type, auth) {
 }
 
 export function getCities(type, auth) {
-  let BaseUrl = 'https://localhost:59312/get/cities';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/cities';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -139,7 +139,7 @@ export function getCities(type, auth) {
 }
 
 export function getLatLng(auth) {
-  let BaseUrl = 'https://localhost:59312/get/area/latlng';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/area/latlng';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -163,7 +163,7 @@ export function getLatLng(auth) {
 }
 
 export function getTime(date, auth) {
-  let BaseUrl = 'https://localhost:59312/get/time?dateField=' + date;
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/time?dateField=' + date;
   const requestOptions = {
     headers: {
       Accept: 'application/json',
@@ -187,7 +187,7 @@ export function getTime(date, auth) {
 }
 
 export function getDate(type, auth) {
-  let BaseUrl = 'https://localhost:59312/get/dates';
+  let BaseUrl = 'https://barretts.ecs.vuw.ac.nz:59312/get/dates';
   const requestOptions = {
     headers: {
       Accept: 'application/json',
