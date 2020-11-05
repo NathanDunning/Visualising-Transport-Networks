@@ -1,6 +1,6 @@
 # Visualising Our Transport Networks
 
-This repository contains issues, boards, and documents relating to project planning and requirements.
+An application to visualise Wellington traffic via public transport data built using ReactJS, Java (Spring), and PostgreSQL
 
 ## How to Run the Web Application
 
